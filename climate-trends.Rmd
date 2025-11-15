@@ -3,32 +3,6 @@ title: "Climate Trends"
 output: html_document
 ---
 
-```{r setup, include=FALSE}
-library(dplyr)
-library(ggplot2)
-climate <- read.csv("data/climate_clean.csv")
-```
-
 ```{r}
-climate_nat <- climate %>%
-  group_by(Year) %>%
-  summarize(MeanTemp = mean(Temp, na.rm = TRUE))
-
-ggplot(climate_nat, aes(Year, MeanTemp)) +
-  geom_line() +
-  labs(
-    title = "Average U.S. Temperature Over Time",
-    x = "Year",
-    y = "Temperature"
-  )
-```
-
-```{r}
-ggplot(climate, aes(Year, Temp, group = State)) +
-  geom_line(alpha = 0.2) +
-  labs(
-    title = "Temperature Trends by State",
-    x = "Year",
-    y = "Temperature"
-  )
-```
+# Placeholder - data will be added later
+data.frame()
