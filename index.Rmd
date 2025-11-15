@@ -1,0 +1,111 @@
+---
+title: "U.S. Climate & Vector-Borne Disease Project"
+output: html_document
+---
+
+## Welcome
+
+Welcome to my undergraduate project on **climate change and vector-borne disease** in the United States.\
+This site brings together climate data and disease data to ask a basic but important question:
+
+> How might a warming, changing climate affect the risk of diseases carried by mosquitoes and other vectors?
+
+While the focus is national, I highlight **Utah** where possible, since that’s where I live and study.
+
+------------------------------------------------------------------------
+
+## What This Project Is About
+
+This project uses real datasets and simple statistical tools in R to explore how:
+
+-   **Climate patterns** (like temperature, precipitation, and drought) are changing over time.
+-   **Vector-borne diseases** (like West Nile virus) vary across states and years.
+-   These patterns might **relate to each other**, even in basic, exploratory ways.
+
+The goal is **not** to “prove” a causal relationship, but to:
+
+-   Look for **patterns and correlations**.
+-   Practice **transparent, reproducible analysis** in R.
+-   Build a foundation for thinking about how climate and health are connected.
+
+------------------------------------------------------------------------
+
+## Why This Matters
+
+Vector-borne diseases depend heavily on environmental conditions:
+
+-   Mosquitoes and other vectors are sensitive to **temperature**, **moisture**, and **standing water**.
+-   **Warmer temperatures** can lengthen mosquito seasons or expand where they can survive.
+-   **Drought and precipitation** can change where and how people and vectors interact.
+
+As climate change continues, public health agencies, researchers, and communities need to understand how **shifts in climate** might change **disease risk**.\
+This project is a small, student-level step toward exploring that connection with real data.
+
+------------------------------------------------------------------------
+
+## Project Goals
+
+More specifically, this site aims to:
+
+-   **Combine** climate and disease datasets in one place.
+-   **Visualize** long-term climate trends across the U.S.
+-   **Examine** trends in vector-borne diseases over time and space.
+-   **Compare** climate conditions and disease patterns to see where interesting relationships might appear.
+-   **Practice** clear, documented R workflows so anyone could, in theory, rerun the analysis.
+
+------------------------------------------------------------------------
+
+## Data Overview
+
+This project uses several types of data, including:
+
+-   **Climate data**
+    -   Temperature (annual and seasonal patterns)\
+    -   Precipitation and drought indicators\
+    -   In some cases, state- or region-level summaries
+-   **Disease data**
+    -   Reported cases of vector-borne diseases (especially West Nile virus)\
+    -   Aggregated by year and location (e.g., state-level)
+
+All data are cleaned and saved as **CSV files** so they can be easily loaded into R. Details on each dataset, including sources and cleaning steps, are described on the **Data & Methods** page.
+
+------------------------------------------------------------------------
+
+## How the Site Is Organized
+
+Use the navigation bar at the top of the page to move through the project:
+
+-   **Home** – You are here. Big-picture overview of the project and why it matters.
+-   **Data & Methods** – Descriptions of each dataset, how they were cleaned, and the basic R workflow.
+-   **Climate Trends** – Plots and summaries of how climate variables have changed over time in the U.S.
+-   **Disease Trends** – Visualizations of vector-borne disease patterns (where and when cases occur).
+-   **Comparisons** – Simple comparisons and exploratory models looking at climate variables and disease outcomes together.
+-   **About** – A short section about me and the context of this project (undergraduate work for a climate change course).
+
+------------------------------------------------------------------------
+
+## What This Project Can and Cannot Do
+
+This is an **exploratory student project**, so it has some limits:
+
+-   It does **not** establish causal relationships between climate and disease.
+-   It uses relatively **simple methods** (summaries, plots, basic models).
+-   It focuses on clarity and transparency rather than advanced modeling.
+
+What it **does** offer is:
+
+-   A clear, organized look at climate and disease datasets.
+-   A starting point for thinking about how climate change could influence vector-borne disease risk.
+-   A reproducible R-based workflow that could be extended in future work.
+
+------------------------------------------------------------------------
+
+## Next Steps
+
+As I continue working on this project, I may:
+
+-   Refine the datasets or add new climate indicators.
+-   Try slightly more advanced models.
+-   Add more state-level or region-specific examples, including Utah.
+
+For now, feel free to click through the pages, explore the plots, and see how climate and disease data can be brought together in one place.

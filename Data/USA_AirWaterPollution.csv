@@ -1,0 +1,843 @@
+City,Region,Country,AirQuality,WaterPollution
+New York City,New York,United States of America,46.81603774,49.5049505
+"Washington, D.C.",District of Columbia,United States of America,66.12903226,49.10714286
+San Francisco,California,United States of America,60.51401869,43.0
+Los Angeles,California,United States of America,36.62162162,61.29943503
+Alexandria,Virginia,United States of America,89.0625,46.15384615
+Boston,Massachusetts,United States of America,78.23529412,32.91139241
+Saginaw,Michigan,United States of America,85.0,70.0
+San Antonio,Texas,United States of America,63.41463415,50.67567568
+Chicago,Illinois,United States of America,57.43243243,53.62068966
+Pittsburgh,Pennsylvania,United States of America,58.92857143,59.61538462
+Philadelphia,Pennsylvania,United States of America,54.28571429,55.64516129
+Seattle,Washington,United States of America,79.37062937,36.94852941
+Baltimore,Maryland,United States of America,62.5,64.13043478
+Huntington Beach,California,United States of America,85.71428571,65.625
+Portland,Oregon,United States of America,74.12280702,36.34259259
+Indianapolis,Indiana,United States of America,67.44186047,50.65789474
+Miami,Florida,United States of America,70.2020202,47.36842105
+Detroit,Michigan,United States of America,51.2195122,52.08333333
+San Diego,California,United States of America,74.38271605,52.36486486
+San Jose,California,United States of America,62.20930233,41.25
+Denver,Colorado,United States of America,53.1779661,36.83035714
+Houston,Texas,United States of America,45.86092715,57.09459459
+Phoenix,Arizona,United States of America,44.29347826,47.64705882
+Dallas,Texas,United States of America,63.38028169,42.69230769
+Fort Worth,Texas,United States of America,47.72727273,51.13636364
+Austin,Texas,United States of America,68.57142857,43.5
+El Paso,Texas,United States of America,63.75,44.64285714
+Memphis,Tennessee,United States of America,66.30434783,48.68421053
+Charlotte,North Carolina,United States of America,76.875,31.57894737
+Columbus,Ohio,United States of America,87.5,62.5
+Jacksonville,Florida,United States of America,75.65789474,66.21621622
+Long Beach,California,United States of America,50.0,32.69230769
+Laredo,Texas,United States of America,0.0,100.0
+Oakland,California,United States of America,72.14285714,33.33333333
+Sacramento,California,United States of America,55.09259259,39.89361702
+Honolulu,Hawaii,United States of America,74.58333333,41.51785714
+Providence,Rhode Island,United States of America,76.47058824,59.61538462
+Brooklyn,New York,United States of America,52.08333333,33.65384615
+Tucson,Arizona,United States of America,84.27419355,39.65517241
+Aurora,Illinois,United States of America,75.0,25.0
+Nashville,Tennessee,United States of America,70.0,42.94871795
+Salt Lake City,Utah,United States of America,23.13432836,41.66666667
+Atlanta,Georgia,United States of America,59.6875,46.57534247
+Las Vegas,Nevada,United States of America,51.72413793,49.69135802
+Albany,New York,United States of America,87.5,31.25
+Harrisburg,Pennsylvania,United States of America,82.5,37.5
+Trenton,New Jersey,United States of America,85.0,100.0
+Newark,New Jersey,United States of America,50.0,62.5
+Jersey City,New Jersey,United States of America,58.33333333,60.0
+Keller,Texas,United States of America,66.66666667,25.0
+Davenport,Iowa,United States of America,86.36363636,53.57142857
+Jackson,Mississippi,United States of America,85.41666667,28.57142857
+Augusta,Maine,United States of America,50.0,100.0
+Baton Rouge,Louisiana,United States of America,64.58333333,40.625
+Lansing,Michigan,United States of America,92.85714286,41.66666667
+Concord,New Hampshire,United States of America,91.66666667,15.0
+Lincoln,Nebraska,United States of America,86.66666667,27.5
+Annapolis,Maryland,United States of America,86.53846154,47.22222222
+Springfield,Illinois,United States of America,90.625,62.5
+Saint Paul,Minnesota,United States of America,88.54166667,30.0
+Montgomery,Alabama,United States of America,70.83333333,56.25
+Boca Raton,Florida,United States of America,94.23076923,34.61538462
+Juneau,Alaska,United States of America,100.0,25.0
+Burlington,Vermont,United States of America,100.0,30.0
+Allen,Texas,United States of America,75.0,12.5
+Las Cruces,New Mexico,United States of America,82.8125,33.33333333
+Little Rock,Arkansas,United States of America,89.28571429,22.05882353
+Hartford,Connecticut,United States of America,65.38461538,50.0
+Dover,Delaware,United States of America,100.0,50.0
+Fargo,North Dakota,United States of America,100.0,0.0
+Grand Forks,North Dakota,United States of America,87.5,37.5
+New Orleans,Louisiana,United States of America,65.13157895,72.85714286
+Dayton,Ohio,United States of America,82.8125,33.33333333
+Albuquerque,New Mexico,United States of America,83.33333333,39.70588235
+Oklahoma City,Oklahoma,United States of America,88.33333333,31.73076923
+Boise,Idaho,United States of America,68.93939394,32.5
+Minneapolis,Minnesota,United States of America,79.51388889,33.57142857
+Tallahassee,Florida,United States of America,92.1875,41.66666667
+Bismarck,North Dakota,United States of America,95.83333333,50.0
+Cleveland,Ohio,United States of America,66.66666667,54.54545455
+Milwaukee,Wisconsin,United States of America,79.06976744,43.29268293
+Columbia,South Carolina,United States of America,66.07142857,52.27272727
+Santa Fe,New Mexico,United States of America,89.28571429,38.63636364
+Helena,Montana,United States of America,100.0,50.0
+Cheyenne,Wyoming,United States of America,92.85714286,0.0
+Anchorage,Alaska,United States of America,90.0,18.75
+Des Moines,Iowa,United States of America,82.5,38.33333333
+Springfield,Oregon,United States of America,25.0,50.0
+Norman,Oklahoma,United States of America,100.0,25.0
+Buffalo,New York,United States of America,77.08333333,36.95652174
+Carson City,Nevada,United States of America,100.0,50.0
+Topeka,Kansas,United States of America,81.25,56.25
+Raleigh,North Carolina,United States of America,84.44444444,31.25
+Kansas City,Missouri,United States of America,76.74418605,44.51219512
+Olympia,Washington,United States of America,87.5,18.75
+Cincinnati,Ohio,United States of America,57.57575758,43.10344828
+Omaha,Nebraska,United States of America,78.57142857,32.35294118
+Fresno,California,United States of America,21.25,78.125
+Richmond,Virginia,United States of America,73.17073171,27.63157895
+Louisville,Kentucky,United States of America,56.06060606,38.79310345
+Madison,Wisconsin,United States of America,86.76470588,40.32258065
+Salem,Oregon,United States of America,87.5,17.85714286
+Ketchikan,Alaska,United States of America,100.0,50.0
+Charleston,West Virginia,United States of America,95.0,50.0
+Tulsa,Oklahoma,United States of America,75.0,38.63636364
+Santa Monica,California,United States of America,66.66666667,54.16666667
+Palo Alto,California,United States of America,56.25,50.0
+Green Bay,Wisconsin,United States of America,63.88888889,50.0
+Charleston,South Carolina,United States of America,75.0,57.69230769
+Dover,New Hampshire,United States of America,100.0,50.0
+Nashua,New Hampshire,United States of America,87.5,0.0
+Manchester,New Hampshire,United States of America,76.92307692,38.88888889
+Oak Ridge,Tennessee,United States of America,87.5,50.0
+San Luis Obispo,California,United States of America,92.5,45.83333333
+Cambridge,Massachusetts,United States of America,91.66666667,21.875
+West Hartford,Connecticut,United States of America,91.66666667,6.25
+New Haven,Connecticut,United States of America,81.81818182,37.5
+New Bedford,Massachusetts,United States of America,25.0,75.0
+Stamford,Connecticut,United States of America,50.0,54.16666667
+Bridgeport,Connecticut,United States of America,79.16666667,66.66666667
+Waterbury,Connecticut,United States of America,80.0,0.0
+Worcester,Massachusetts,United States of America,91.66666667,75.0
+Pittsfield,Massachusetts,United States of America,89.28571429,100.0
+Fall River,Massachusetts,United States of America,100.0,50.0
+Newton,Massachusetts,United States of America,75.0,50.0
+Danbury,Connecticut,United States of America,75.0,0.0
+Somerville,Massachusetts,United States of America,100.0,12.5
+Portland,Maine,United States of America,82.14285714,42.85714286
+Rochester,New York,United States of America,64.70588235,47.91666667
+Irvine,California,United States of America,63.15789474,33.33333333
+Fremont,California,United States of America,79.16666667,15.0
+Scottsdale,Arizona,United States of America,68.75,28.84615385
+Reno,Nevada,United States of America,70.93023256,28.84615385
+Winston-Salem,North Carolina,United States of America,94.44444444,5.0
+Durham,North Carolina,United States of America,75.0,39.58333333
+Norfolk,Virginia,United States of America,100.0,75.0
+Orlando,Florida,United States of America,75.73529412,48.38709677
+Greensboro,North Carolina,United States of America,76.66666667,31.81818182
+Toledo,Ohio,United States of America,75.0,75.0
+Stockton,California,United States of America,44.23076923,71.875
+Lexington,Kentucky,United States of America,89.28571429,40.0
+Corpus Christi,Texas,United States of America,70.0,68.18181818
+Riverside,California,United States of America,45.83333333,53.33333333
+Santa Ana,California,United States of America,50.0,55.0
+Aurora,Colorado,United States of America,45.83333333,33.33333333
+Anaheim,California,United States of America,55.76923077,33.33333333
+Tampa,Florida,United States of America,79.78723404,45.93023256
+Bakersfield,California,United States of America,16.66666667,68.47826087
+Colorado Springs,Colorado,United States of America,79.41176471,38.39285714
+Virginia Beach,Virginia,United States of America,85.52631579,36.66666667
+Mesa,Arizona,United States of America,68.75,31.25
+Wichita,Kansas,United States of America,86.36363636,33.82352941
+Henderson,Nevada,United States of America,67.85714286,35.0
+Fort Wayne,Indiana,United States of America,66.66666667,43.75
+Chula Vista,California,United States of America,37.5,75.0
+Chandler,Arizona,United States of America,65.0,45.0
+Lubbock,Texas,United States of America,69.64285714,34.09090909
+Garland,Texas,United States of America,75.0,50.0
+Garden Grove,California,United States of America,75.0,0.0
+Gilbert,Arizona,United States of America,75.0,0.0
+Tempe,Arizona,United States of America,68.18181818,46.42857143
+Peoria,Arizona,United States of America,65.0,15.0
+Surprise,Arizona,United States of America,100.0,0.0
+Plano,Texas,United States of America,78.57142857,32.14285714
+Irving,Texas,United States of America,62.5,37.5
+Amarillo,Texas,United States of America,53.125,53.125
+Brownsville,Texas,United States of America,57.14285714,68.75
+Mesquite,Texas,United States of America,50.0,75.0
+McKinney,Texas,United States of America,87.5,18.75
+McAllen,Texas,United States of America,87.5,35.71428571
+Orem,Utah,United States of America,65.625,33.33333333
+Ogden,Utah,United States of America,80.55555556,0.0
+Haverhill,Massachusetts,United States of America,100.0,50.0
+Beverly,Massachusetts,United States of America,100.0,0.0
+Medford,Massachusetts,United States of America,100.0,0.0
+Woburn,Massachusetts,United States of America,87.5,50.0
+Norwalk,Connecticut,United States of America,75.0,30.0
+East Providence,Rhode Island,United States of America,100.0,50.0
+Woonsocket,Rhode Island,United States of America,80.0,100.0
+Venice,Florida,United States of America,91.66666667,16.66666667
+Columbia,Missouri,United States of America,96.42857143,25.0
+Napa,California,United States of America,92.85714286,37.5
+Jonesboro,Arkansas,United States of America,50.0,50.0
+Marion,Arkansas,United States of America,0.0,75.0
+Cabot,Arkansas,United States of America,75.0,25.0
+Russellville,Arkansas,United States of America,93.75,50.0
+Bullhead City,Arizona,United States of America,100.0,50.0
+Texarkana,Arkansas,United States of America,87.5,50.0
+Rogers,Arkansas,United States of America,87.5,12.5
+Dothan,Alabama,United States of America,100.0,62.5
+Fort Smith,Arkansas,United States of America,95.0,25.0
+Tuscaloosa,Alabama,United States of America,86.11111111,40.0
+Fairbanks,Alaska,United States of America,68.18181818,10.0
+Van Buren,Arkansas,United States of America,100.0,50.0
+Kingman,Arizona,United States of America,100.0,75.0
+Florence,Alabama,United States of America,100.0,50.0
+Yuma,Arizona,United States of America,77.77777778,45.0
+Flagstaff,Arizona,United States of America,100.0,18.75
+Palmer,Alaska,United States of America,95.0,0.0
+Huntsville,Alabama,United States of America,95.0,25.0
+Mobile,Alabama,United States of America,75.0,57.14285714
+Maricopa,Arizona,United States of America,100.0,50.0
+Murfreesboro,Arkansas,United States of America,87.5,37.5
+Sierra Vista,Arizona,United States of America,75.0,30.0
+Seward,Alaska,United States of America,100.0,0.0
+Hot Springs,Arkansas,United States of America,100.0,0.0
+Prescott,Arizona,United States of America,96.42857143,25.0
+Wasilla,Alaska,United States of America,96.42857143,33.33333333
+Kodiak,Alaska,United States of America,100.0,25.0
+Shreveport,Louisiana,United States of America,78.125,91.66666667
+Gresham,Oregon,United States of America,100.0,0.0
+Beaverton,Oregon,United States of America,81.25,6.25
+Savannah,Georgia,United States of America,64.0625,52.08333333
+Sugar Land,Texas,United States of America,87.5,37.5
+Greeley,Colorado,United States of America,95.0,0.0
+Waukesha,Wisconsin,United States of America,87.5,50.0
+Appleton,Wisconsin,United States of America,89.28571429,25.0
+Eau Claire,Wisconsin,United States of America,96.42857143,33.33333333
+Charlottesville,Virginia,United States of America,100.0,58.33333333
+Beverly Hills,California,United States of America,100.0,0.0
+Yonkers,New York,United States of America,100.0,50.0
+Niagara Falls,New York,United States of America,100.0,50.0
+Waco,Texas,United States of America,81.25,68.75
+Frisco,Texas,United States of America,87.5,29.16666667
+Beaumont,Texas,United States of America,70.83333333,87.5
+Denton,Texas,United States of America,62.5,37.5
+Midland,Texas,United States of America,75.0,100.0
+Round Rock,Texas,United States of America,75.0,0.0
+Wichita Falls,Texas,United States of America,62.5,43.75
+Odessa,Texas,United States of America,100.0,50.0
+Lafayette,Louisiana,United States of America,92.85714286,0.0
+Oyster Bay,New York,United States of America,100.0,25.0
+Roy,Utah,United States of America,100.0,50.0
+Sioux Falls,South Dakota,United States of America,81.81818182,32.14285714
+Hanover,New Hampshire,United States of America,100.0,50.0
+Springfield,Missouri,United States of America,84.72222222,42.30769231
+Galveston,Texas,United States of America,85.71428571,50.0
+Abingdon,Virginia,United States of America,100.0,50.0
+Camden,New Jersey,United States of America,87.5,50.0
+Hoboken,New Jersey,United States of America,56.25,62.5
+Livermore,California,United States of America,75.0,54.16666667
+Atlantic City,New Jersey,United States of America,91.66666667,37.5
+Allentown,Pennsylvania,United States of America,60.71428571,75.0
+Grants Pass,Oregon,United States of America,62.5,75.0
+Zanesville,Ohio,United States of America,50.0,85.0
+Brookhaven,Georgia,United States of America,50.0,75.0
+Santa Cruz,California,United States of America,88.23529412,34.61538462
+Santa Clara,California,United States of America,75.0,35.0
+Santa Barbara,California,United States of America,83.82352941,56.25
+Akron,Ohio,United States of America,65.0,83.33333333
+West Palm Beach,Florida,United States of America,72.5,66.66666667
+Fort Lauderdale,Florida,United States of America,81.57894737,42.10526316
+Billings,Montana,United States of America,75.0,40.0
+West Lafayette,Indiana,United States of America,75.0,75.0
+Crescent City,California,United States of America,100.0,0.0
+Kalamazoo,Michigan,United States of America,88.63636364,53.57142857
+San Mateo,California,United States of America,80.0,20.0
+Yuba City,California,United States of America,100.0,50.0
+Passaic,New Jersey,United States of America,50.0,75.0
+Eugene,Oregon,United States of America,75.0,36.25
+Wilmington,Delaware,United States of America,66.66666667,87.5
+Poughkeepsie,New York,United States of America,91.66666667,12.5
+Puyallup,Washington,United States of America,75.0,25.0
+Rancho Palos Verdes,California,United States of America,87.5,25.0
+Augusta,Georgia,United States of America,71.875,33.33333333
+Grand Rapids,Michigan,United States of America,69.23076923,44.44444444
+Grapevine,Texas,United States of America,0.0,100.0
+Knoxville,Tennessee,United States of America,56.94444444,51.78571429
+Belvidere,Illinois,United States of America,75.0,25.0
+Chattanooga,Tennessee,United States of America,79.41176471,61.53846154
+Spokane,Washington,United States of America,77.88461538,25.0
+Missoula,Montana,United States of America,79.6875,22.91666667
+Boulder,Colorado,United States of America,85.0,47.91666667
+Tacoma,Washington,United States of America,78.94736842,50.0
+Modesto,California,United States of America,46.66666667,54.54545455
+Aspen,Colorado,United States of America,75.0,50.0
+Vallejo,California,United States of America,100.0,50.0
+Thousand Oaks,California,United States of America,92.5,20.83333333
+Sunnyvale,California,United States of America,77.08333333,55.55555556
+Oxnard,California,United States of America,95.0,0.0
+Santa Rosa,California,United States of America,81.25,29.54545455
+Rapid City,South Dakota,United States of America,92.5,37.5
+Binghamton,New York,United States of America,62.5,62.5
+Bellevue,Washington,United States of America,94.23076923,19.44444444
+Fayetteville,Arkansas,United States of America,94.44444444,20.0
+Macon,Georgia,United States of America,60.0,50.0
+Walla Walla,Washington,United States of America,100.0,0.0
+Casper,Wyoming,United States of America,100.0,33.33333333
+Redmond,Washington,United States of America,87.5,33.33333333
+Peoria,Illinois,United States of America,96.875,29.16666667
+Aberdeen,Washington,United States of America,100.0,0.0
+Rockford,Illinois,United States of America,60.71428571,60.0
+Vancouver,Washington,United States of America,73.07692308,29.80769231
+Erie,Pennsylvania,United States of America,80.0,100.0
+Hollywood,Florida,United States of America,100.0,37.5
+Aberdeen,South Dakota,United States of America,50.0,83.33333333
+Reading,Pennsylvania,United States of America,87.5,50.0
+Brunswick,Vermont,United States of America,100.0,37.5
+Columbus,Georgia,United States of America,82.5,45.0
+Mission,Texas,United States of America,100.0,0.0
+Huntington,West Virginia,United States of America,75.0,25.0
+Kingsport,Tennessee,United States of America,56.25,93.75
+Naperville,Illinois,United States of America,83.33333333,12.5
+Clearwater,Florida,United States of America,85.71428571,35.71428571
+Clifton,New Jersey,United States of America,100.0,0.0
+Naples,Florida,United States of America,80.76923077,30.76923077
+Newport Beach,California,United States of America,93.75,25.0
+Scranton,Pennsylvania,United States of America,92.85714286,41.66666667
+Albany,Georgia,United States of America,75.0,16.66666667
+Duluth,Georgia,United States of America,50.0,0.0
+Blacksburg,Virginia,United States of America,75.0,0.0
+Newport,New Hampshire,United States of America,100.0,0.0
+Middletown,New York,United States of America,100.0,25.0
+Joplin,Missouri,United States of America,79.16666667,18.75
+Lancaster,Pennsylvania,United States of America,66.66666667,45.0
+Pocatello,Idaho,United States of America,83.33333333,87.5
+Simi Valley,California,United States of America,82.14285714,25.0
+Fairfield,California,United States of America,87.5,37.5
+Bangor,Maine,United States of America,87.5,12.5
+Rockville,Maryland,United States of America,87.5,50.0
+Laramie,Wyoming,United States of America,100.0,0.0
+Parkersburg,West Virginia,United States of America,0.0,100.0
+Fayetteville,North Carolina,United States of America,77.08333333,66.66666667
+Schenectady,New York,United States of America,50.0,50.0
+Newport News,Virginia,United States of America,66.66666667,62.5
+Holland,Indiana,United States of America,75.0,75.0
+Adelanto,California,United States of America,50.0,50.0
+Goldsboro,North Carolina,United States of America,60.0,100.0
+Chester,Pennsylvania,United States of America,87.5,50.0
+El Cajon,California,United States of America,50.0,25.0
+Pembroke Pines,Florida,United States of America,100.0,75.0
+Adrian,Georgia,United States of America,83.33333333,87.5
+Escondido,California,United States of America,75.0,12.5
+Farmville,North Carolina,United States of America,75.0,25.0
+Hattiesburg,Mississippi,United States of America,82.14285714,41.66666667
+Des Plaines,Illinois,United States of America,100.0,50.0
+Paradise,California,United States of America,75.0,50.0
+Everett,Washington,United States of America,88.63636364,32.14285714
+Columbia,Maryland,United States of America,100.0,25.0
+Temple,Texas,United States of America,100.0,0.0
+Bellingham,Washington,United States of America,94.73684211,30.0
+Chico,California,United States of America,72.5,50.0
+Alton,Illinois,United States of America,25.0,75.0
+Amargosa Valley,Nevada,United States of America,25.0,100.0
+Grand Island,Nebraska,United States of America,75.0,0.0
+Kenosha,Wisconsin,United States of America,87.5,12.5
+White Plains,New York,United States of America,37.5,62.5
+Urbana,Illinois,United States of America,87.5,12.5
+Cape Coral,Florida,United States of America,75.0,25.0
+Great Falls,Montana,United States of America,75.0,25.0
+Ames,Iowa,United States of America,66.66666667,50.0
+Spanish Fork,Utah,United States of America,75.0,0.0
+Logan,Utah,United States of America,67.85714286,0.0
+Tooele,Utah,United States of America,100.0,50.0
+Farmington,Utah,United States of America,100.0,50.0
+Lewiston,Utah,United States of America,75.0,0.0
+Berkeley,California,United States of America,79.16666667,36.11111111
+Ann Arbor,Michigan,United States of America,76.31578947,51.78571429
+Pasadena,California,United States of America,65.0,20.0
+Key West,Florida,United States of America,100.0,0.0
+Duluth,Minnesota,United States of America,96.42857143,25.0
+Glendale,California,United States of America,77.5,45.83333333
+San Bernardino,California,United States of America,0.0,50.0
+Pensacola,Florida,United States of America,66.17647059,53.125
+Cedar Rapids,Iowa,United States of America,89.28571429,25.0
+Evansville,Indiana,United States of America,68.75,37.5
+Kansas City,Kansas,United States of America,68.75,31.25
+Rochester,Minnesota,United States of America,80.55555556,62.5
+Mountain View,California,United States of America,91.66666667,33.33333333
+Pomona,California,United States of America,37.5,75.0
+South Bend,Indiana,United States of America,92.85714286,33.33333333
+Minot,North Dakota,United States of America,68.75,75.0
+Monterey,California,United States of America,91.66666667,34.375
+Iowa City,Iowa,United States of America,83.33333333,37.5
+St. Augustine,Florida,United States of America,87.5,62.5
+Gainesville,Florida,United States of America,87.5,34.375
+Palm Springs,California,United States of America,43.75,87.5
+Salinas,California,United States of America,100.0,50.0
+Ontario,California,United States of America,33.33333333,25.0
+Eureka,California,United States of America,100.0,0.0
+Oceanside,California,United States of America,75.0,75.0
+Palmdale,California,United States of America,32.14285714,50.0
+Torrance,California,United States of America,75.0,0.0
+Sioux City,Iowa,United States of America,100.0,50.0
+Bloomington,Indiana,United States of America,83.33333333,55.0
+Ventura,California,United States of America,85.0,35.0
+Concord,California,United States of America,62.5,12.5
+Flint,Michigan,United States of America,62.5,87.5
+Gulfport,Mississippi,United States of America,100.0,0.0
+Daytona Beach,Florida,United States of America,96.42857143,46.42857143
+Biloxi,Mississippi,United States of America,100.0,50.0
+Fort Collins,Colorado,United States of America,86.84210526,35.0
+Alameda,California,United States of America,62.5,37.5
+Carlsbad,California,United States of America,75.0,25.0
+Hayward,California,United States of America,87.5,25.0
+Fontana,California,United States of America,45.0,35.0
+Santa Clarita,California,United States of America,87.5,31.25
+Canton,Ohio,United States of America,83.33333333,25.0
+Roseville,California,United States of America,93.75,40.0
+Anderson,Indiana,United States of America,90.0,25.0
+Sarasota,Florida,United States of America,90.38461538,25.0
+Williamsburg,Virginia,United States of America,100.0,0.0
+Winchester,Virginia,United States of America,100.0,50.0
+Terre Haute,Indiana,United States of America,75.0,12.5
+Walnut Creek,California,United States of America,83.33333333,8.333333333
+Lawrence,Kansas,United States of America,87.5,50.0
+Owensboro,Kentucky,United States of America,60.71428571,66.66666667
+Carson,California,United States of America,25.0,100.0
+Corona,California,United States of America,50.0,37.5
+Lancaster,California,United States of America,87.5,12.5
+Fullerton,California,United States of America,100.0,25.0
+Victorville,California,United States of America,85.71428571,50.0
+Antioch,California,United States of America,0.0,75.0
+Redding,California,United States of America,72.22222222,45.83333333
+Rancho Cucamonga,California,United States of America,66.66666667,16.66666667
+El Centro,California,United States of America,78.57142857,66.66666667
+Visalia,California,United States of America,40.0,75.0
+Idaho Falls,Idaho,United States of America,95.83333333,16.66666667
+Tyler,Texas,United States of America,66.66666667,45.83333333
+Merced,California,United States of America,87.5,50.0
+Costa Mesa,California,United States of America,56.25,40.0
+Yakima,Washington,United States of America,78.125,31.25
+Coeur d'Alene,Idaho,United States of America,79.16666667,50.0
+Moscow,Idaho,United States of America,37.5,62.5
+Overland Park,Kansas,United States of America,98.21428571,16.66666667
+Lewiston,Maine,United States of America,100.0,50.0
+Lawton,Oklahoma,United States of America,100.0,50.0
+Redwood City,California,United States of America,100.0,0.0
+Coral Springs,Florida,United States of America,100.0,50.0
+Decatur,Illinois,United States of America,70.83333333,37.5
+Mission Viejo,California,United States of America,75.0,75.0
+Fort Myers,Florida,United States of America,70.58823529,85.0
+Albany,Oregon,United States of America,75.0,12.5
+Encinitas,California,United States of America,75.0,12.5
+Alexandria,Minnesota,United States of America,100.0,25.0
+Twin Falls,Idaho,United States of America,75.0,75.0
+Merrillville,Indiana,United States of America,87.5,50.0
+Ankeny,Iowa,United States of America,100.0,50.0
+Bozeman,Montana,United States of America,100.0,5.555555556
+Greenville,South Carolina,United States of America,91.25,18.33333333
+New Braunfels,Texas,United States of America,100.0,31.25
+Pittsfield,Illinois,United States of America,100.0,50.0
+Wheaton,Illinois,United States of America,100.0,0.0
+Macomb,Illinois,United States of America,75.0,0.0
+McHenry,Illinois,United States of America,75.0,75.0
+Lockport,Illinois,United States of America,100.0,0.0
+Quincy,Illinois,United States of America,91.66666667,25.0
+Corning,New York,United States of America,100.0,37.5
+Crystal Lake,Illinois,United States of America,68.75,25.0
+Bloomington,Illinois,United States of America,93.75,25.0
+Collinsville,Illinois,United States of America,75.0,25.0
+Rock Island,Illinois,United States of America,79.16666667,50.0
+Champaign,Illinois,United States of America,58.33333333,33.33333333
+Mount Vernon,Illinois,United States of America,100.0,0.0
+Burlington,Iowa,United States of America,87.5,37.5
+DeKalb,Illinois,United States of America,75.0,50.0
+Bradenton,Florida,United States of America,83.33333333,42.85714286
+Hazel Park,Michigan,United States of America,25.0,25.0
+Kissimmee,Florida,United States of America,70.0,68.75
+Fort Pierce,Florida,United States of America,75.0,0.0
+Deerfield Beach,Florida,United States of America,91.66666667,36.11111111
+Paso Robles,California,United States of America,100.0,75.0
+Germantown,Tennessee,United States of America,100.0,25.0
+Florence,South Carolina,United States of America,100.0,50.0
+Yucaipa,California,United States of America,50.0,75.0
+East Chicago,Indiana,United States of America,100.0,50.0
+Lorain,Ohio,United States of America,0.0,50.0
+Palm Coast,Florida,United States of America,90.0,55.0
+Fairfax,South Carolina,United States of America,78.33333333,28.84615385
+Apple Valley,California,United States of America,100.0,0.0
+Thomasville,North Carolina,United States of America,87.5,50.0
+High Point,North Carolina,United States of America,75.0,12.5
+Norwich,Connecticut,United States of America,92.85714286,50.0
+San Rafael,California,United States of America,100.0,0.0
+Lafayette,Indiana,United States of America,66.66666667,56.25
+Lakeland,Florida,United States of America,100.0,45.0
+Barrington,Rhode Island,United States of America,50.0,25.0
+Santa Maria,California,United States of America,83.33333333,75.0
+Asheville,North Carolina,United States of America,88.88888889,48.0
+Gainesville,Georgia,United States of America,100.0,50.0
+Morgantown,West Virginia,United States of America,86.11111111,75.0
+Atascadero,California,United States of America,100.0,100.0
+Citrus Heights,California,United States of America,100.0,50.0
+Wilmington,North Carolina,United States of America,100.0,50.0
+Tupelo,Mississippi,United States of America,85.71428571,25.0
+Perry,Georgia,United States of America,87.5,50.0
+Davis,California,United States of America,75.0,25.0
+College Park,Maryland,United States of America,100.0,0.0
+Bend,Oregon,United States of America,100.0,0.0
+Chapel Hill,North Carolina,United States of America,83.33333333,41.66666667
+Pueblo,Colorado,United States of America,95.0,50.0
+Clinton,Iowa,United States of America,87.5,50.0
+Renton,Washington,United States of America,62.5,16.66666667
+Highland,California,United States of America,50.0,100.0
+Bowling Green,Kentucky,United States of America,91.66666667,100.0
+Bremerton,Washington,United States of America,100.0,25.0
+College Station,Texas,United States of America,77.5,35.0
+Ashland,Ohio,United States of America,83.33333333,8.333333333
+Greensburg,Pennsylvania,United States of America,87.5,50.0
+St. Cloud,Minnesota,United States of America,100.0,0.0
+Butte,North Dakota,United States of America,75.0,56.25
+Farmington,Connecticut,United States of America,75.0,50.0
+New Rochelle,New York,United States of America,50.0,25.0
+Pleasanton,California,United States of America,100.0,0.0
+Corvallis,Oregon,United States of America,75.0,50.0
+Lake Forest,California,United States of America,87.5,0.0
+Gaithersburg,Maryland,United States of America,91.66666667,12.5
+Easton,Maryland,United States of America,100.0,50.0
+Hyattsville,Maryland,United States of America,50.0,75.0
+Fairfield,Connecticut,United States of America,79.16666667,62.5
+Trumbull,Connecticut,United States of America,91.66666667,25.0
+Laurel,Maryland,United States of America,87.5,50.0
+Athens,Ohio,United States of America,100.0,0.0
+Hagerstown,Maryland,United States of America,87.5,50.0
+Salisbury,Maryland,United States of America,100.0,0.0
+Georgetown,Delaware,United States of America,100.0,50.0
+Milton,Delaware,United States of America,50.0,100.0
+Richmond,Kentucky,United States of America,80.26315789,47.36842105
+Keene,New Hampshire,United States of America,100.0,50.0
+Johnson City,Tennessee,United States of America,90.0,20.0
+Spartanburg,South Carolina,United States of America,100.0,25.0
+Victoria,Texas,United States of America,100.0,25.0
+Banning,California,United States of America,80.0,50.0
+Barnstable,Massachusetts,United States of America,100.0,75.0
+Bartlesville,Oklahoma,United States of America,75.0,75.0
+Baytown,Texas,United States of America,100.0,50.0
+Beaufort,North Carolina,United States of America,50.0,75.0
+Beckley,West Virginia,United States of America,100.0,50.0
+Belmont,California,United States of America,100.0,25.0
+Bentonville,Arkansas,United States of America,91.66666667,0.0
+York,Pennsylvania,United States of America,64.28571429,75.0
+Delray Beach,Florida,United States of America,100.0,0.0
+Newport,Oregon,United States of America,100.0,75.0
+Grass Valley,California,United States of America,62.5,62.5
+Mount Vernon,New York,United States of America,100.0,50.0
+Medford,Oregon,United States of America,85.71428571,25.0
+Ukiah,California,United States of America,100.0,50.0
+Dublin,California,United States of America,100.0,0.0
+Ojai,California,United States of America,87.5,50.0
+Wheeling,West Virginia,United States of America,70.0,75.0
+Temecula,California,United States of America,71.42857143,27.77777778
+Murrieta,California,United States of America,100.0,25.0
+Indio,California,United States of America,50.0,25.0
+Myrtle Beach,South Carolina,United States of America,87.5,50.0
+Redondo Beach,California,United States of America,100.0,37.5
+Kent,Washington,United States of America,100.0,0.0
+Texarkana,Texas,United States of America,64.28571429,75.0
+Kennewick,Washington,United States of America,95.0,20.0
+Camarillo,California,United States of America,100.0,0.0
+Kearney,Nebraska,United States of America,100.0,75.0
+Klamath Falls,Oregon,United States of America,83.33333333,62.5
+Roseburg,Oregon,United States of America,75.0,40.0
+Danville,California,United States of America,100.0,75.0
+North Charleston,South Carolina,United States of America,100.0,50.0
+Oroville,California,United States of America,100.0,0.0
+Madera,California,United States of America,75.0,50.0
+Glendora,California,United States of America,50.0,25.0
+Panama City,Florida,United States of America,50.0,37.5
+Longview,Texas,United States of America,85.0,75.0
+Cary,North Carolina,United States of America,50.0,62.5
+Hamilton,Ohio,United States of America,87.5,50.0
+Marietta,Georgia,United States of America,80.55555556,10.0
+Stillwater,Oklahoma,United States of America,93.75,50.0
+Kalispell,Montana,United States of America,89.28571429,0.0
+Livonia,Michigan,United States of America,100.0,25.0
+Montclair,California,United States of America,75.0,0.0
+Manhattan,Kansas,United States of America,100.0,0.0
+Yucca Valley,California,United States of America,87.5,50.0
+Lake Charles,Louisiana,United States of America,66.66666667,60.0
+Huntsville,Texas,United States of America,100.0,50.0
+Moss Point,Mississippi,United States of America,91.66666667,50.0
+Verona,Mississippi,United States of America,100.0,50.0
+Olive Branch,Mississippi,United States of America,100.0,0.0
+Harlingen,Texas,United States of America,100.0,0.0
+Valparaiso,Indiana,United States of America,100.0,50.0
+Jackson,Wyoming,United States of America,100.0,50.0
+Loveland,Colorado,United States of America,72.5,35.0
+Bloomfield Hills,Michigan,United States of America,0.0,100.0
+Boone,North Carolina,United States of America,75.0,50.0
+Bowling Green,Ohio,United States of America,100.0,16.66666667
+Boynton Beach,Florida,United States of America,100.0,50.0
+Brainerd,Minnesota,United States of America,100.0,50.0
+Branson,Missouri,United States of America,100.0,0.0
+Brattleboro,Vermont,United States of America,100.0,50.0
+Breckenridge,Colorado,United States of America,100.0,25.0
+Kokomo,Indiana,United States of America,90.0,25.0
+Sandpoint,Idaho,United States of America,100.0,0.0
+Wisconsin Dells,Wisconsin,United States of America,100.0,50.0
+Albert Lea,Minnesota,United States of America,100.0,25.0
+Corcoran,California,United States of America,50.0,50.0
+Bridgeton,New Jersey,United States of America,100.0,50.0
+Tustin,California,United States of America,75.0,37.5
+Ocala,Florida,United States of America,77.5,32.5
+Gillette,Wyoming,United States of America,100.0,50.0
+San Angelo,Texas,United States of America,100.0,37.5
+Pinehurst,Georgia,United States of America,100.0,0.0
+Imperial,California,United States of America,87.5,50.0
+Largo,Florida,United States of America,75.0,75.0
+Muncie,Indiana,United States of America,87.5,50.0
+Elmira,New York,United States of America,100.0,25.0
+Laurel,Mississippi,United States of America,87.5,50.0
+La Crosse,Wisconsin,United States of America,100.0,50.0
+Franklin,Massachusetts,United States of America,87.5,12.5
+Elizabethtown,Kentucky,United States of America,90.0,0.0
+Selah,Washington,United States of America,75.0,25.0
+Lake Elsinore,California,United States of America,50.0,75.0
+Aliso Viejo,California,United States of America,100.0,75.0
+Melbourne,Florida,United States of America,80.0,39.28571429
+Muskegon,Michigan,United States of America,100.0,50.0
+Safety Harbor,Florida,United States of America,100.0,75.0
+Marshall,Missouri,United States of America,100.0,50.0
+Rolla,Missouri,United States of America,100.0,25.0
+Taos,Missouri,United States of America,100.0,75.0
+Libby,Montana,United States of America,100.0,25.0
+Crown Point,Indiana,United States of America,87.5,25.0
+Wenatchee,Washington,United States of America,25.0,0.0
+Liberty,Missouri,United States of America,62.5,50.0
+Chesterfield,Missouri,United States of America,87.5,37.5
+O'Fallon,Missouri,United States of America,0.0,100.0
+Youngstown,New York,United States of America,75.0,58.33333333
+Forsyth,Montana,United States of America,80.0,100.0
+Rock Hill,South Carolina,United States of America,87.5,62.5
+Morristown,New Jersey,United States of America,100.0,100.0
+Leesburg,Georgia,United States of America,87.5,50.0
+Oshkosh,Nebraska,United States of America,50.0,75.0
+Brentwood,Missouri,United States of America,75.0,0.0
+Cape Canaveral,Florida,United States of America,75.0,0.0
+Clayton,Missouri,United States of America,87.5,50.0
+Vero Beach,Florida,United States of America,93.75,62.5
+Lawrenceville,Georgia,United States of America,100.0,0.0
+Weatherford,Texas,United States of America,100.0,0.0
+Del Rio,Texas,United States of America,100.0,25.0
+Warrenton,Virginia,United States of America,100.0,0.0
+Mansfield,Texas,United States of America,90.0,0.0
+Jeffersonville,Indiana,United States of America,87.5,50.0
+Lake Worth,Texas,United States of America,100.0,100.0
+Katy,Texas,United States of America,60.0,50.0
+McLean,Texas,United States of America,100.0,25.0
+Leander,Texas,United States of America,100.0,0.0
+San Marcos,Texas,United States of America,100.0,0.0
+League City,Texas,United States of America,75.0,25.0
+Pullman,Washington,United States of America,100.0,0.0
+Mansfield,Ohio,United States of America,75.0,25.0
+Fort Dodge,Iowa,United States of America,25.0,75.0
+Lakeville,Minnesota,United States of America,100.0,50.0
+Titusville,Florida,United States of America,100.0,25.0
+Lakewood,Washington,United States of America,100.0,75.0
+Longview,Washington,United States of America,0.0,75.0
+Oxford,Mississippi,United States of America,100.0,0.0
+Lima,Ohio,United States of America,75.0,50.0
+Fort Walton Beach,Florida,United States of America,100.0,50.0
+Paducah,Kentucky,United States of America,85.71428571,62.5
+Coon Rapids,Minnesota,United States of America,100.0,50.0
+Traverse City,Michigan,United States of America,75.0,25.0
+Rocklin,California,United States of America,100.0,0.0
+Sheboygan,Wisconsin,United States of America,100.0,0.0
+Marina,California,United States of America,100.0,50.0
+Sebring,Florida,United States of America,25.0,50.0
+Alexandria,Louisiana,United States of America,100.0,50.0
+Jackson,Tennessee,United States of America,96.875,12.5
+Eden Prairie,Minnesota,United States of America,91.66666667,8.333333333
+Clovis,New Mexico,United States of America,0.0,100.0
+Fond du Lac,Wisconsin,United States of America,75.0,75.0
+New Port Richey,Florida,United States of America,50.0,0.0
+Jupiter,Florida,United States of America,100.0,25.0
+Jacksonville,North Carolina,United States of America,100.0,0.0
+Lebanon,Ohio,United States of America,100.0,50.0
+Slidell,Louisiana,United States of America,50.0,100.0
+Torrington,Wyoming,United States of America,90.0,75.0
+Longmont,Colorado,United States of America,0.0,75.0
+East Orange,New Jersey,United States of America,100.0,75.0
+Foster City,California,United States of America,100.0,0.0
+Statesboro,Georgia,United States of America,75.0,41.66666667
+DeLand,Florida,United States of America,81.25,25.0
+Grand Junction,Colorado,United States of America,85.41666667,18.75
+North Platte,Nebraska,United States of America,100.0,25.0
+Troy,Michigan,United States of America,62.5,25.0
+Weston,Florida,United States of America,100.0,0.0
+Mesquite,Nevada,United States of America,100.0,0.0
+Novi,Michigan,United States of America,100.0,0.0
+Brunswick,Georgia,United States of America,78.125,37.5
+Long Branch,New Jersey,United States of America,75.0,25.0
+Monroe,Michigan,United States of America,100.0,25.0
+Dalton,Georgia,United States of America,100.0,25.0
+Summit,New Jersey,United States of America,37.5,62.5
+Hilton Head Island,South Carolina,United States of America,100.0,25.0
+New Bern,North Carolina,United States of America,100.0,50.0
+Alpharetta,Georgia,United States of America,62.5,37.5
+Radcliff,Kentucky,United States of America,87.5,50.0
+Cumming,Georgia,United States of America,58.33333333,41.66666667
+Ironton,Ohio,United States of America,100.0,50.0
+Midland,Michigan,United States of America,95.0,33.33333333
+Valdosta,Georgia,United States of America,100.0,50.0
+Hobbs,New Mexico,United States of America,100.0,50.0
+Langley,Washington,United States of America,100.0,0.0
+Durango,Colorado,United States of America,75.0,0.0
+Farmington,New Mexico,United States of America,95.0,50.0
+Williamsport,Pennsylvania,United States of America,100.0,0.0
+Sheridan,Wyoming,United States of America,95.83333333,12.5
+Rochester,Michigan,United States of America,100.0,0.0
+Fairborn,Ohio,United States of America,87.5,50.0
+Ypsilanti,Michigan,United States of America,75.0,66.66666667
+Lisle,Illinois,United States of America,100.0,0.0
+Pottsville,Pennsylvania,United States of America,75.0,0.0
+Concord,North Carolina,United States of America,91.66666667,62.5
+Watertown,South Dakota,United States of America,95.83333333,50.0
+Moses Lake,Washington,United States of America,75.0,0.0
+Johnstown,Pennsylvania,United States of America,87.5,75.0
+Bloomsburg,Pennsylvania,United States of America,87.5,25.0
+Hazard,Kentucky,United States of America,100.0,50.0
+New Castle,Pennsylvania,United States of America,87.5,50.0
+Anderson,South Carolina,United States of America,87.5,0.0
+Warren,Pennsylvania,United States of America,100.0,50.0
+Woodland,Washington,United States of America,100.0,0.0
+Ashland,Massachusetts,United States of America,100.0,50.0
+Rocky Mount,Virginia,United States of America,50.0,75.0
+Herndon,Virginia,United States of America,50.0,25.0
+Amherst,Virginia,United States of America,100.0,50.0
+Christiansburg,Virginia,United States of America,75.0,100.0
+Watertown,New York,United States of America,62.5,37.5
+Spring Hill,Tennessee,United States of America,87.5,25.0
+Airway Heights,Washington,United States of America,100.0,0.0
+Yelm,Washington,United States of America,50.0,50.0
+Sequim,Washington,United States of America,100.0,25.0
+Brier,Washington,United States of America,100.0,0.0
+Goose Creek,South Carolina,United States of America,100.0,0.0
+Waterloo,Wisconsin,United States of America,100.0,50.0
+Neenah,Wisconsin,United States of America,50.0,0.0
+Hempstead,New York,United States of America,100.0,50.0
+Smithtown,New York,United States of America,100.0,50.0
+Plymouth,Michigan,United States of America,50.0,50.0
+Islip,New York,United States of America,75.0,25.0
+Woodburn,Oregon,United States of America,100.0,0.0
+Ponca City,Oklahoma,United States of America,100.0,50.0
+Portsmouth,Rhode Island,United States of America,100.0,0.0
+Zeeland,Michigan,United States of America,100.0,0.0
+Roanoke,Indiana,United States of America,95.45454545,35.71428571
+Weirton,West Virginia,United States of America,62.5,50.0
+Detroit Lakes,Minnesota,United States of America,100.0,50.0
+Waterford,Connecticut,United States of America,25.0,50.0
+Deltona,Florida,United States of America,87.5,75.0
+Morehead,Kentucky,United States of America,100.0,25.0
+Birmingham,Iowa,United States of America,71.05263158,31.66666667
+Waldorf,Minnesota,United States of America,100.0,75.0
+Leawood,Kansas,United States of America,50.0,75.0
+Lakeport,California,United States of America,100.0,50.0
+Jackson,California,United States of America,100.0,50.0
+Upland,Indiana,United States of America,62.5,50.0
+Elko,South Carolina,United States of America,100.0,25.0
+Cutler Bay,Florida,United States of America,100.0,25.0
+Greenville,North Carolina,United States of America,90.0,25.0
+Vadnais Heights,Minnesota,United States of America,100.0,50.0
+Hinesville,Georgia,United States of America,75.0,25.0
+Abington,Massachusetts,United States of America,100.0,50.0
+Williston,North Dakota,United States of America,85.0,75.0
+Fairmont,West Virginia,United States of America,100.0,50.0
+Warner Robins,Georgia,United States of America,100.0,37.5
+Elkhart,Indiana,United States of America,87.5,50.0
+Frankfort,Indiana,United States of America,50.0,75.0
+La Porte,Indiana,United States of America,87.5,50.0
+Sanford,North Carolina,United States of America,100.0,50.0
+Spruce Pine,North Carolina,United States of America,100.0,0.0
+Yanceyville,North Carolina,United States of America,87.5,50.0
+Mooresville,North Carolina,United States of America,100.0,25.0
+Hope Mills,North Carolina,United States of America,100.0,50.0
+Hickory,North Carolina,United States of America,100.0,50.0
+Bryson City,North Carolina,United States of America,87.5,50.0
+Buffalo,North Dakota,United States of America,100.0,50.0
+Beaver Dam,Kentucky,United States of America,100.0,50.0
+Chesterfield,South Carolina,United States of America,100.0,25.0
+Stone Mountain,Georgia,United States of America,0.0,100.0
+Astoria,Illinois,United States of America,37.5,62.5
+Ellsworth,Maine,United States of America,100.0,50.0
+Swampscott,Massachusetts,United States of America,100.0,50.0
+Seminole,Florida,United States of America,100.0,0.0
+Zephyrhills,Florida,United States of America,25.0,50.0
+California,Kentucky,United States of America,0.0,100.0
+Gettysburg,South Dakota,United States of America,75.0,75.0
+Beloit,Kansas,United States of America,50.0,62.5
+Willoughby,Ohio,United States of America,75.0,0.0
+Mansfield,Georgia,United States of America,0.0,50.0
+Ithaca,Michigan,United States of America,93.75,40.625
+Wayne,West Virginia,United States of America,87.5,50.0
+Bourne,Massachusetts,United States of America,75.0,25.0
+Longmeadow,Massachusetts,United States of America,75.0,25.0
+Owosso,Michigan,United States of America,75.0,100.0
+Amherst,New Hampshire,United States of America,100.0,50.0
+Hampton,South Carolina,United States of America,37.5,50.0
+Oakland,Tennessee,United States of America,100.0,0.0
+Arlington,Kansas,United States of America,66.66666667,16.66666667
+Lewisburg,Tennessee,United States of America,100.0,50.0
+Clarksville,Indiana,United States of America,95.0,0.0
+Ashburn,Georgia,United States of America,60.0,25.0
+Franklin,West Virginia,United States of America,100.0,0.0
+Decatur,Tennessee,United States of America,75.0,100.0
+Bridgewater,Connecticut,United States of America,87.5,50.0
+Cookeville,Tennessee,United States of America,100.0,50.0
+Peachtree City,Georgia,United States of America,50.0,50.0
+Syracuse,Indiana,United States of America,75.0,50.0
+Mandeville,Louisiana,United States of America,75.0,75.0
+Lynchburg,South Carolina,United States of America,100.0,0.0
+Holderness,New Hampshire,United States of America,100.0,50.0
+Long Island,Kansas,United States of America,87.5,25.0
+Yreka,California,United States of America,100.0,50.0
+Tyngsborough,Massachusetts,United States of America,100.0,50.0
+Huntingdon,Tennessee,United States of America,75.0,50.0
+Seaside,Oregon,United States of America,100.0,0.0
+Pooler,Georgia,United States of America,75.0,25.0
+Edison,Georgia,United States of America,75.0,25.0
+Topsham,Maine,United States of America,100.0,50.0
+Frederick,South Dakota,United States of America,91.66666667,33.33333333
+Manistee,Michigan,United States of America,100.0,50.0
+Allegan,Michigan,United States of America,100.0,0.0
+Richland,Oregon,United States of America,100.0,0.0
+Rumford,Maine,United States of America,100.0,50.0
+Pikeville,Kentucky,United States of America,100.0,50.0
+Douglasville,Georgia,United States of America,25.0,75.0
+Chesapeake,West Virginia,United States of America,100.0,37.5
+Brandon,Vermont,United States of America,100.0,0.0
+Yorkville,Tennessee,United States of America,100.0,0.0
+Fredericksburg,Indiana,United States of America,100.0,25.0
+Utica,Indiana,United States of America,93.75,37.5
+Manassas,Georgia,United States of America,87.5,0.0
+Gadsden,Tennessee,United States of America,87.5,75.0
+Rutherford,Tennessee,United States of America,0.0,100.0
+Willimantic,Maine,United States of America,100.0,50.0
+Middlesex,Vermont,United States of America,83.33333333,50.0
+Somerset,Vermont,United States of America,100.0,50.0
+Carlisle,New York,United States of America,100.0,50.0
+New Windsor,New York,United States of America,100.0,50.0
+Taylor,New York,United States of America,87.5,50.0
+New Paltz,New York,United States of America,100.0,50.0
+Webster,New York,United States of America,0.0,50.0
+Germantown,New York,United States of America,100.0,0.0
+Princeton,Massachusetts,United States of America,87.5,25.0
+Bath,New York,United States of America,100.0,50.0
+Dickinson,New York,United States of America,100.0,50.0
+Gainesville,New York,United States of America,100.0,25.0
+Lafayette,Wisconsin,United States of America,93.75,12.5
+Wausau,Wisconsin,United States of America,100.0,25.0
+Nantucket,Massachusetts,United States of America,100.0,50.0
+Arlington,Virginia,United States of America,84.61538462,19.23076923

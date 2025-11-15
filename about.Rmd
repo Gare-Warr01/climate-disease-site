@@ -1,0 +1,8 @@
+---
+title: "About"
+output: html_document
+---
+
+## About This Project
+
+This site was created to explore climate–disease relationships using R Markdown.

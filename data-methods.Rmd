@@ -1,0 +1,50 @@
+---
+title: "Data & Methods"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(dplyr)
+library(ggplot2)
+library(readr)
+
+# ---- Load raw climate & disease data ----
+
+# Annual U.S. temperature anomalies
+usa_temp <- read_csv("data/Cleaned_USA_Annual_Temperature.csv")
+# Columns: Year, temp_anomaly
+
+# County-level West Nile virus data (CDC, 1999–2024)
+wnv_county <- read_csv("data/Combined_CDC_West_Nile_1999_2024.csv")
+# Columns: location, county_fips, activity, human_cases, neuro_cases,
+#          blood_donor_cases, year
+
+# State-level weekly West Nile virus data (for more detailed/state views later)
+wnv_state_weekly <- read_csv("data/Cleaned_USA_West_Nile_Virus.csv")
+# Columns: State, Year, Week, Neuro_Current, Neuro_52w_Med, Neuro_52w_Max,
+#          Neuro_Cum2015, Neuro_Cum2014, NonNeuro_Current, NonNeuro_52w_Med,
+#          NonNeuro_52w_Max, NonNeuro_Cum2015, NonNeuro_Cum2014, Latitude, Longitude
+
+# ---- Build national yearly climate summary ----
+# Some years appear more than once in the temp file,
+# so we take the mean anomaly per year.
+climate_yearly <- usa_temp %>%
+  group_by(Year) %>%
+  summarise(
+    temp_anomaly_mean = mean(temp_anomaly, na.rm = TRUE),
+    .groups = "drop"
+  )
+
+# ---- Build national yearly disease summary (West Nile) ----
+disease_yearly <- wnv_county %>%
+  group_by(year) %>%
+  summarise(
+    total_human_cases = sum(human_cases, na.rm = TRUE),
+    total_neuro_cases = sum(neuro_cases, na.rm = TRUE),
+    .groups = "drop"
+  ) %>%
+  rename(Year = year)
+
+# ---- Join climate + disease on Year for comparisons ----
+climate_disease <- climate_yearly %>%
+  inner_join(disease_yearly, by = "Year")

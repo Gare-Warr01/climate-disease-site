@@ -1,0 +1,23 @@
+name: "climate-disease-site"
+navbar:
+  title: "U.S. Climate & Disease Project"
+  left:
+    - text: "Home"
+      href: index.html
+    - text: "Data & Methods"
+      href: data-methods.html
+    - text: "Climate Trends"
+      href: climate-trends.html
+    - text: "Disease Trends"
+      href: disease-trends.html
+    - text: "Comparisons"
+      href: compare.html
+    - text: "About"
+      href: about.html
+output:
+  html_document:
+    theme: cosmo
+    toc: true
+    toc_float: true
+    highlight: tango
+output_dir: "docs"

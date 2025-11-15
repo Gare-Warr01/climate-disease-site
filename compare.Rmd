@@ -1,0 +1,36 @@
+---
+title: "Climate–Disease Comparisons"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(dplyr)
+library(ggplot2)
+
+climate <- read.csv("data/climate_clean.csv")
+disease <- read.csv("data/disease_clean.csv")
+combined <- inner_join(climate, disease, by = c("State", "Year"))
+```
+
+```{r}
+nat <- combined %>%
+  group_by(Year) %>%
+  summarize(
+    MeanTemp = mean(Temp, na.rm = TRUE),
+    TotalCases = sum(Cases, na.rm = TRUE)
+  )
+
+ggplot(nat, aes(MeanTemp, TotalCases)) +
+  geom_point() +
+  geom_smooth(method = "lm") +
+  labs(
+    title = "Relationship Between Temperature and Disease",
+    x = "Average Temperature",
+    y = "Total Disease Cases"
+  )
+```
+
+```{r}
+model <- lm(TotalCases ~ MeanTemp, data = nat)
+summary(model)
+```

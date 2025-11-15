@@ -1,0 +1,24 @@
+---
+title: "Disease Trends"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(dplyr)
+library(ggplot2)
+disease <- read.csv("data/disease_clean.csv")
+```
+
+```{r}
+disease_nat <- disease %>%
+  group_by(Year) %>%
+  summarize(Cases = sum(Cases, na.rm = TRUE))
+
+ggplot(disease_nat, aes(Year, Cases)) +
+  geom_line() +
+  labs(
+    title = "Vector-Borne Disease Cases in the U.S.",
+    x = "Year",
+    y = "Reported Cases"
+  )
+```
