@@ -16,7 +16,7 @@
 <script src="site_libs/header-attrs-2.30/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
@@ -33,6 +33,8 @@
 <link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
 <script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
+<script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -49,6 +51,7 @@
 
 
 
+<link rel="stylesheet" href="styles.css" type="text/css" />
 
 
 
@@ -302,7 +305,7 @@ div.tocify {
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html">U.S. Climate & Disease Project</a>
+      <a class="navbar-brand" href="index.html">Climate & Vector-Borne Disease</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
@@ -310,7 +313,10 @@ div.tocify {
   <a href="index.html">Home</a>
 </li>
 <li>
-  <a href="data-methods.html">Data &amp; Methods</a>
+  <a href="data.html">Data</a>
+</li>
+<li>
+  <a href="methods.html">Methods</a>
 </li>
 <li>
   <a href="climate-trends.html">Climate Trends</a>
@@ -319,10 +325,22 @@ div.tocify {
   <a href="disease-trends.html">Disease Trends</a>
 </li>
 <li>
-  <a href="compare.html">Comparisons</a>
+  <a href="comparison.html">Climate–Disease Comparison</a>
 </li>
 <li>
-  <a href="about.html">About</a>
+  <a href="utah-focus.html">Utah Focus</a>
+</li>
+<li>
+  <a href="how-to-read.html">How to Read These Graphs</a>
+</li>
+<li>
+  <a href="about.html">About This Project</a>
+</li>
+<li>
+  <a href="reflection.html">Reflection</a>
+</li>
+<li>
+  <a href="references.html">References</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -346,155 +364,257 @@ Project</h1>
 <h2>Welcome</h2>
 <p>Welcome to my undergraduate project on <strong>climate change and
 vector-borne disease</strong> in the United States.<br />
-This site brings together climate data and disease data to ask a basic
-but important question:</p>
+This site pulls together climate datasets and public-health surveillance
+records to explore a central question:</p>
 <blockquote>
-<p>How might a warming, changing climate affect the risk of diseases
-carried by mosquitoes and other vectors?</p>
+<p><strong>How is a warming, shifting climate shaping the risk of
+mosquito-borne diseases in the U.S.?</strong></p>
 </blockquote>
-<p>While the focus is national, I highlight <strong>Utah</strong> where
-possible, since that’s where I live and study.</p>
+<p>The project focuses on national patterns, with a special spotlight on
+<strong>Utah</strong>, where I live and study.</p>
 <hr />
 </div>
 <div id="what-this-project-is-about" class="section level2">
 <h2>What This Project Is About</h2>
-<p>This project uses real datasets and simple statistical tools in R to
-explore how:</p>
+<p>This website brings together real data and reproducible R code to
+explore three connected pieces:</p>
 <ul>
-<li><strong>Climate patterns</strong> (like temperature, precipitation,
-and drought) are changing over time.</li>
-<li><strong>Vector-borne diseases</strong> (like West Nile virus) vary
-across states and years.</li>
-<li>These patterns might <strong>relate to each other</strong>, even in
-basic, exploratory ways.</li>
+<li><strong>Climate trends</strong> – how temperature, precipitation,
+and drought have changed over time.<br />
+</li>
+<li><strong>Disease trends</strong> – especially <strong>West Nile
+virus</strong>, one of the most widespread mosquito-borne diseases in
+the U.S.<br />
+</li>
+<li><strong>Climate–disease comparisons</strong> – places where these
+patterns might move together.</li>
 </ul>
-<p>The goal is <strong>not</strong> to “prove” a causal relationship,
-but to:</p>
+<p>I am not trying to prove a strict cause-and-effect relationship.
+Instead, the project is designed to:</p>
 <ul>
-<li>Look for <strong>patterns and correlations</strong>.</li>
+<li>Explore <strong>patterns and correlations</strong> that raise good
+questions.<br />
+</li>
 <li>Practice <strong>transparent, reproducible analysis</strong> in
-R.</li>
-<li>Build a foundation for thinking about how climate and health are
-connected.</li>
+R.<br />
+</li>
+<li>Connect what we learned in <strong>GEOG 3000: Climate Change in
+Science and Society</strong> to real-world data.<br />
+</li>
+<li>Create a <strong>professional, portfolio-ready project</strong> that
+communicates clearly to non-specialists.</li>
 </ul>
+<hr />
+</div>
+<div id="the-core-questions" class="section level2">
+<h2>The Core Questions</h2>
+<p>At its heart, this project asks three simple but important
+questions:</p>
+<ol style="list-style-type: decimal">
+<li><strong>How is the U.S. climate changing over time?</strong><br />
+</li>
+<li><strong>How are vector-borne diseases—especially West Nile
+virus—changing across space and time?</strong><br />
+</li>
+<li><strong>Do these climate and disease patterns appear to move
+together in ways that might matter for public health?</strong></li>
+</ol>
+<p>Each tab on this site helps answer part of these questions.</p>
+<hr />
+</div>
+<div id="project-context-geog-3000-applied-final-project"
+class="section level2">
+<h2>Project Context: GEOG 3000 Applied Final Project</h2>
+<p>This website is the applied portion of my final project for<br />
+<strong>GEOG 3000: Climate Change in Science and Society</strong>.</p>
+<p>For this assignment, students are asked to:</p>
+<ul>
+<li>Focus on a <strong>specific aspect of climate change</strong> and
+its impacts on society.<br />
+</li>
+<li>Use <strong>reputable data sources</strong> (e.g., NOAA, EPA, CDC)
+and documented methods.<br />
+</li>
+<li>Develop a <strong>professional-quality applied product</strong> such
+as a website, report, or tool.<br />
+</li>
+<li>Present findings and be able to explain the data, methods, and
+limitations.<br />
+</li>
+<li>Reflect on how the project supports <strong>academic and
+professional goals</strong>.</li>
+</ul>
+<p>In my case:</p>
+<ul>
+<li>The formal <strong>research and analysis paper</strong> is written
+separately.<br />
+</li>
+<li>This <strong>website</strong> serves as the applied, public-facing
+product.<br />
+</li>
+<li>Reflection and personal background appear on the
+<strong>About</strong> page.</li>
+</ul>
+<p>When you explore this site, you are seeing the communication side of
+the project—the part designed to make climate–disease connections
+understandable and visually clear.</p>
 <hr />
 </div>
 <div id="why-this-matters" class="section level2">
 <h2>Why This Matters</h2>
-<p>Vector-borne diseases depend heavily on environmental conditions:</p>
+<p>Vector-borne diseases like West Nile virus are closely tied to
+environmental conditions:</p>
 <ul>
-<li>Mosquitoes and other vectors are sensitive to
-<strong>temperature</strong>, <strong>moisture</strong>, and
-<strong>standing water</strong>.</li>
-<li><strong>Warmer temperatures</strong> can lengthen mosquito seasons
-or expand where they can survive.</li>
-<li><strong>Drought and precipitation</strong> can change where and how
-people and vectors interact.</li>
+<li>Mosquitoes depend on <strong>temperature, moisture, and standing
+water</strong>.<br />
+</li>
+<li><strong>Warmer temperatures</strong> can extend mosquito seasons and
+expand their geographic range.<br />
+</li>
+<li><strong>Changing precipitation and drought patterns</strong> affect
+where mosquitoes breed and how often people and vectors come into
+contact.</li>
 </ul>
-<p>As climate change continues, public health agencies, researchers, and
-communities need to understand how <strong>shifts in climate</strong>
-might change <strong>disease risk</strong>.<br />
-This project is a small, student-level step toward exploring that
-connection with real data.</p>
+<p>As the climate warms and weather patterns shift, public health
+agencies, researchers, and communities need to understand how
+<strong>changes in climate</strong> may influence <strong>disease
+risk</strong>.</p>
+<p>This project is a small, student-level step in that direction—an
+example of how climate and disease data can be combined to begin asking
+informed questions about risk in a changing climate.</p>
 <hr />
 </div>
 <div id="project-goals" class="section level2">
 <h2>Project Goals</h2>
 <p>More specifically, this site aims to:</p>
 <ul>
-<li><strong>Combine</strong> climate and disease datasets in one
-place.</li>
+<li><strong>Combine</strong> climate and disease datasets into a single
+analysis workflow.<br />
+</li>
 <li><strong>Visualize</strong> long-term climate trends across the
-U.S.</li>
-<li><strong>Examine</strong> trends in vector-borne diseases over time
-and space.</li>
-<li><strong>Compare</strong> climate conditions and disease patterns to
-see where interesting relationships might appear.</li>
-<li><strong>Practice</strong> clear, documented R workflows so anyone
-could, in theory, rerun the analysis.</li>
+United States.<br />
+</li>
+<li><strong>Examine</strong> patterns in vector-borne disease
+(especially West Nile virus) over space and time.<br />
+</li>
+<li><strong>Compare</strong> climate indicators and disease outcomes to
+see where interesting relationships might appear.<br />
+</li>
+<li><strong>Document</strong> the R workflow so that, in principle,
+someone else could reproduce or extend the analysis.</li>
 </ul>
+<p>Later pages also begin to explore <strong>simple models and basic
+forecasting</strong>, using tools like trend lines, linear models, and
+time-series methods to see how climate and disease patterns might be
+related and how they might change in the near future.</p>
+<p>These goals match the course emphasis on <strong>science, society,
+and communication</strong>—not just running numbers, but making them
+meaningful.</p>
 <hr />
 </div>
 <div id="data-overview" class="section level2">
 <h2>Data Overview</h2>
-<p>This project uses several types of data, including:</p>
+<p>This project draws on several cleaned datasets stored as CSV files
+and read directly into R.</p>
+<div id="climate-data" class="section level3">
+<h3>Climate Data</h3>
+<p>Climate-related datasets include:</p>
 <ul>
-<li><strong>Climate data</strong>
-<ul>
-<li>Temperature (annual and seasonal patterns)<br />
+<li>Annual and/or seasonal <strong>temperature</strong> records<br />
 </li>
-<li>Precipitation and drought indicators<br />
+<li><strong>Precipitation</strong> data<br />
 </li>
-<li>In some cases, state- or region-level summaries</li>
-</ul></li>
-<li><strong>Disease data</strong>
-<ul>
-<li>Reported cases of vector-borne diseases (especially West Nile
-virus)<br />
+<li><strong>Drought indicators</strong>, such as the Palmer Drought
+Severity Index (PDSI)<br />
 </li>
-<li>Aggregated by year and location (e.g., state-level)</li>
-</ul></li>
+<li>State-level or regional summaries, depending on availability</li>
 </ul>
-<p>All data are cleaned and saved as <strong>CSV files</strong> so they
-can be easily loaded into R. Details on each dataset, including sources
-and cleaning steps, are described on the <strong>Data &amp;
-Methods</strong> page.</p>
+<p>These datasets allow us to look at how climate variables have changed
+over time and how those changes differ across space.</p>
+</div>
+<div id="disease-data" class="section level3">
+<h3>Disease Data</h3>
+<p>Disease-related datasets include:</p>
+<ul>
+<li>Reported cases of <strong>West Nile virus</strong> from CDC and
+related surveillance sources<br />
+</li>
+<li>Data aggregated by <strong>year</strong> and <strong>state</strong>,
+so we can explore both temporal and spatial patterns</li>
+</ul>
+<p>Together, the climate and disease datasets form the backbone of the
+visualizations and comparisons on this site.</p>
+<p>Details on each dataset—including sources, key variables, and
+cleaning steps—are documented on the <strong>Data &amp; Methods</strong>
+page.</p>
 <hr />
 </div>
-<div id="how-the-site-is-organized" class="section level2">
-<h2>How the Site Is Organized</h2>
+</div>
+<div id="what-you-will-see-on-this-site" class="section level2">
+<h2>What You Will See on This Site</h2>
 <p>Use the navigation bar at the top of the page to move through the
 project:</p>
 <ul>
-<li><strong>Home</strong> – You are here. Big-picture overview of the
-project and why it matters.</li>
+<li><strong>Home</strong> – Big-picture overview of the project and why
+climate–disease connections matter.<br />
+</li>
 <li><strong>Data &amp; Methods</strong> – Descriptions of each dataset,
-how they were cleaned, and the basic R workflow.</li>
-<li><strong>Climate Trends</strong> – Plots and summaries of how climate
-variables have changed over time in the U.S.</li>
+how they were cleaned, and the basic R workflow.<br />
+</li>
+<li><strong>Climate Trends</strong> – Plots and summaries showing how
+key climate variables have changed over time in the U.S. and selected
+areas.<br />
+</li>
 <li><strong>Disease Trends</strong> – Visualizations of vector-borne
-disease patterns (where and when cases occur).</li>
-<li><strong>Comparisons</strong> – Simple comparisons and exploratory
-models looking at climate variables and disease outcomes together.</li>
-<li><strong>About</strong> – A short section about me and the context of
-this project (undergraduate work for a climate change course).</li>
+disease patterns (especially West Nile virus) across space and
+time.<br />
+</li>
+<li><strong>Comparisons</strong> – Exploratory comparisons and simple
+models that look at climate variables and disease outcomes together,
+including basic forecasting.<br />
+</li>
+<li><strong>About</strong> – Background about me, this course, and how
+the project fits into my academic and professional goals.</li>
 </ul>
+<p>Each page is designed to be readable on its own, so visitors can drop
+in anywhere and still understand what they are seeing.</p>
 <hr />
 </div>
 <div id="what-this-project-can-and-cannot-do" class="section level2">
 <h2>What This Project Can and Cannot Do</h2>
-<p>This is an <strong>exploratory student project</strong>, so it has
-some limits:</p>
+<p>Because this is an <strong>exploratory undergraduate
+project</strong>, there are some clear limits.</p>
+<div id="what-it-cannot-do" class="section level3">
+<h3>What It Cannot Do</h3>
 <ul>
-<li>It does <strong>not</strong> establish causal relationships between
-climate and disease.</li>
-<li>It uses relatively <strong>simple methods</strong> (summaries,
-plots, basic models).</li>
-<li>It focuses on clarity and transparency rather than advanced
-modeling.</li>
+<li>It does <strong>not</strong> prove causal relationships between
+climate and disease.<br />
+</li>
+<li>It uses <strong>relatively simple methods</strong> (summaries,
+visualizations, linear models, and basic time-series tools).<br />
+</li>
+<li>It does <strong>not</strong> attempt detailed forecasting, risk
+mapping, or policy modeling at a professional level.</li>
 </ul>
-<p>What it <strong>does</strong> offer is:</p>
-<ul>
-<li>A clear, organized look at climate and disease datasets.</li>
-<li>A starting point for thinking about how climate change could
-influence vector-borne disease risk.</li>
-<li>A reproducible R-based workflow that could be extended in future
-work.</li>
-</ul>
-<hr />
 </div>
-<div id="next-steps" class="section level2">
-<h2>Next Steps</h2>
-<p>As I continue working on this project, I may:</p>
+<div id="what-it-can-do" class="section level3">
+<h3>What It Can Do</h3>
 <ul>
-<li>Refine the datasets or add new climate indicators.</li>
-<li>Try slightly more advanced models.</li>
-<li>Add more state-level or region-specific examples, including
-Utah.</li>
+<li>Provide a <strong>clear, organized view</strong> of climate and
+disease datasets in one place.<br />
+</li>
+<li>Highlight <strong>patterns and relationships</strong> that may be
+worth deeper study.<br />
+</li>
+<li>Demonstrate a <strong>transparent, reproducible R-based
+workflow</strong> that could be expanded with more advanced methods in
+future work.</li>
 </ul>
-<p>For now, feel free to click through the pages, explore the plots, and
-see how climate and disease data can be brought together in one
-place.</p>
+<p>This site is meant to be approachable: something that students,
+instructors, and interested visitors can explore without needing a
+background in advanced statistics, but still grounded in real data and
+careful methods.</p>
+</div>
 </div>
 
 

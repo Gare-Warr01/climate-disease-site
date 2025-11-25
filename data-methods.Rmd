@@ -1,8 +1,0 @@
----
-title: "Data & Methods"
-output: html_document
----
-
-```{r}
-# Placeholder - data will be added later
-data.frame()

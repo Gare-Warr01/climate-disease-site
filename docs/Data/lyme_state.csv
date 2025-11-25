@@ -1,0 +1,817 @@
+state,year,cases,disease
+Alabama,2008,9,Lyme
+Alaska,2008,6,Lyme
+Arizona,2008,8,Lyme
+Arkansas,2008,0,Lyme
+California,2008,74,Lyme
+Colorado,2008,3,Lyme
+Connecticut,2008,"3,896",Lyme
+Delaware,2008,772,Lyme
+District of Columbia,2008,74,Lyme
+Florida,2008,88,Lyme
+Georgia,2008,35,Lyme
+Idaho,2008,9,Lyme
+Illinois,2008,108,Lyme
+Indiana,2008,42,Lyme
+Iowa,2008,109,Lyme
+Kansas,2008,16,Lyme
+Kentucky,2008,5,Lyme
+Louisiana,2008,3,Lyme
+Maine,2008,908,Lyme
+Maryland,2008,"2,218",Lyme
+Massachusetts,2008,"4,582",Lyme
+Michigan,2008,92,Lyme
+Minnesota,2008,"1,282",Lyme
+Mississippi,2008,1,Lyme
+Missouri,2008,6,Lyme
+Montana,2008,17,Lyme
+Nebraska,2008,12,Lyme
+Nevada,2008,12,Lyme
+New Hampshire,2008,"1,601",Lyme
+New Jersey,2008,"3,485",Lyme
+New Mexico,2008,8,Lyme
+New York,2008,"7,794",Lyme
+North Carolina,2008,47,Lyme
+North Dakota,2008,10,Lyme
+Ohio,2008,45,Lyme
+Oklahoma,2008,2,Lyme
+Oregon,2008,38,Lyme
+Pennsylvania,2008,"3,818",Lyme
+Rhode Island,2008,210,Lyme
+South Carolina,2008,29,Lyme
+South Dakota,2008,3,Lyme
+Tennessee,2008,31,Lyme
+Texas,2008,153,Lyme
+Utah,2008,5,Lyme
+Vermont,2008,404,Lyme
+Virginia,2008,933,Lyme
+Washington,2008,23,Lyme
+West Virginia,2008,135,Lyme
+Wisconsin,2008,"2,034",Lyme
+Wyoming,2008,3,Lyme
+U.S. Total,2008,"35,198",Lyme
+Alabama,2009,3,Lyme
+Alaska,2009,7,Lyme
+Arizona,2009,7,Lyme
+Arkansas,2009,0,Lyme
+California,2009,117,Lyme
+Colorado,2009,1,Lyme
+Connecticut,2009,"4,156",Lyme
+Delaware,2009,984,Lyme
+District of Columbia,2009,61,Lyme
+Florida,2009,110,Lyme
+Georgia,2009,40,Lyme
+Idaho,2009,16,Lyme
+Illinois,2009,136,Lyme
+Indiana,2009,83,Lyme
+Iowa,2009,108,Lyme
+Kansas,2009,18,Lyme
+Kentucky,2009,1,Lyme
+Louisiana,2009,0,Lyme
+Maine,2009,970,Lyme
+Maryland,2009,"2,024",Lyme
+Massachusetts,2009,"5,256",Lyme
+Michigan,2009,103,Lyme
+Minnesota,2009,"1,543",Lyme
+Mississippi,2009,0,Lyme
+Missouri,2009,3,Lyme
+Montana,2009,3,Lyme
+Nebraska,2009,5,Lyme
+Nevada,2009,13,Lyme
+New Hampshire,2009,"1,415",Lyme
+New Jersey,2009,"4,973",Lyme
+New Mexico,2009,5,Lyme
+New York,2009,"5,651",Lyme
+North Carolina,2009,96,Lyme
+North Dakota,2009,15,Lyme
+Ohio,2009,58,Lyme
+Oklahoma,2009,2,Lyme
+Oregon,2009,38,Lyme
+Pennsylvania,2009,"5,722",Lyme
+Rhode Island,2009,235,Lyme
+South Carolina,2009,42,Lyme
+South Dakota,2009,1,Lyme
+Tennessee,2009,37,Lyme
+Texas,2009,276,Lyme
+Utah,2009,9,Lyme
+Vermont,2009,408,Lyme
+Virginia,2009,908,Lyme
+Washington,2009,16,Lyme
+West Virginia,2009,201,Lyme
+Wisconsin,2009,"2,589",Lyme
+Wyoming,2009,3,Lyme
+U.S. Total,2009,"38,468",Lyme
+Alabama,2010,2,Lyme
+Alaska,2010,7,Lyme
+Arizona,2010,2,Lyme
+Arkansas,2010,0,Lyme
+California,2010,129,Lyme
+Colorado,2010,3,Lyme
+Connecticut,2010,"3,068",Lyme
+Delaware,2010,656,Lyme
+District of Columbia,2010,42,Lyme
+Florida,2010,84,Lyme
+Georgia,2010,10,Lyme
+Idaho,2010,9,Lyme
+Illinois,2010,135,Lyme
+Indiana,2010,78,Lyme
+Iowa,2010,85,Lyme
+Kansas,2010,10,Lyme
+Kentucky,2010,5,Lyme
+Louisiana,2010,3,Lyme
+Maine,2010,751,Lyme
+Maryland,2010,"1,617",Lyme
+Massachusetts,2010,"3,263",Lyme
+Michigan,2010,95,Lyme
+Minnesota,2010,"1,960",Lyme
+Mississippi,2010,0,Lyme
+Missouri,2010,4,Lyme
+Montana,2010,4,Lyme
+Nebraska,2010,8,Lyme
+Nevada,2010,2,Lyme
+New Hampshire,2010,"1,339",Lyme
+New Jersey,2010,"3,712",Lyme
+New Mexico,2010,5,Lyme
+New York,2010,"3,425",Lyme
+North Carolina,2010,82,Lyme
+North Dakota,2010,33,Lyme
+Ohio,2010,44,Lyme
+Oklahoma,2010,0,Lyme
+Oregon,2010,39,Lyme
+Pennsylvania,2010,"3,805",Lyme
+Rhode Island,2010,181,Lyme
+South Carolina,2010,29,Lyme
+South Dakota,2010,1,Lyme
+Tennessee,2010,36,Lyme
+Texas,2010,142,Lyme
+Utah,2010,3,Lyme
+Vermont,2010,356,Lyme
+Virginia,2010,"1,245",Lyme
+Washington,2010,16,Lyme
+West Virginia,2010,145,Lyme
+Wisconsin,2010,"3,488",Lyme
+Wyoming,2010,0,Lyme
+U.S. Total,2010,"30,158",Lyme
+Alabama,2011,24,Lyme
+Alaska,2011,11,Lyme
+Arizona,2011,15,Lyme
+Arkansas,2011,0,Lyme
+California,2011,92,Lyme
+Colorado,2011,0,Lyme
+Connecticut,2011,"3,039",Lyme
+Delaware,2011,873,Lyme
+District of Columbia,2011,0,Lyme
+Florida,2011,115,Lyme
+Georgia,2011,32,Lyme
+Idaho,2011,4,Lyme
+Illinois,2011,194,Lyme
+Indiana,2011,94,Lyme
+Iowa,2011,100,Lyme
+Kansas,2011,17,Lyme
+Kentucky,2011,3,Lyme
+Louisiana,2011,2,Lyme
+Maine,2011,"1,006",Lyme
+Maryland,2011,"1,351",Lyme
+Massachusetts,2011,"2,476",Lyme
+Michigan,2011,104,Lyme
+Minnesota,2011,"2,124",Lyme
+Mississippi,2011,5,Lyme
+Missouri,2011,8,Lyme
+Montana,2011,11,Lyme
+Nebraska,2011,11,Lyme
+Nevada,2011,5,Lyme
+New Hampshire,2011,"1,299",Lyme
+New Jersey,2011,"4,262",Lyme
+New Mexico,2011,6,Lyme
+New York,2011,"4,490",Lyme
+North Carolina,2011,88,Lyme
+North Dakota,2011,27,Lyme
+Ohio,2011,53,Lyme
+Oklahoma,2011,2,Lyme
+Oregon,2011,38,Lyme
+Pennsylvania,2011,"5,362",Lyme
+Rhode Island,2011,159,Lyme
+South Carolina,2011,37,Lyme
+South Dakota,2011,4,Lyme
+Tennessee,2011,37,Lyme
+Texas,2011,74,Lyme
+Utah,2011,9,Lyme
+Vermont,2011,623,Lyme
+Virginia,2011,"1,023",Lyme
+Washington,2011,19,Lyme
+West Virginia,2011,118,Lyme
+Wisconsin,2011,"3,649",Lyme
+Wyoming,2011,2,Lyme
+U.S. Total,2011,"33,097",Lyme
+Alabama,2012,25,Lyme
+Alaska,2012,10,Lyme
+Arizona,2012,13,Lyme
+Arkansas,2012,0,Lyme
+California,2012,70,Lyme
+Colorado,2012,0,Lyme
+Connecticut,2012,"2,657",Lyme
+Delaware,2012,669,Lyme
+District of Columbia,2012,0,Lyme
+Florida,2012,118,Lyme
+Georgia,2012,31,Lyme
+Idaho,2012,5,Lyme
+Illinois,2012,204,Lyme
+Indiana,2012,74,Lyme
+Iowa,2012,165,Lyme
+Kansas,2012,19,Lyme
+Kentucky,2012,14,Lyme
+Louisiana,2012,7,Lyme
+Maine,2012,"1,111",Lyme
+Maryland,2012,"1,651",Lyme
+Massachusetts,2012,"5,138",Lyme
+Michigan,2012,98,Lyme
+Minnesota,2012,"1,515",Lyme
+Mississippi,2012,1,Lyme
+Missouri,2012,2,Lyme
+Montana,2012,6,Lyme
+Nebraska,2012,15,Lyme
+Nevada,2012,10,Lyme
+New Hampshire,2012,"1,450",Lyme
+New Jersey,2012,"3,576",Lyme
+New Mexico,2012,1,Lyme
+New York,2012,"2,998",Lyme
+North Carolina,2012,122,Lyme
+North Dakota,2012,15,Lyme
+Ohio,2012,67,Lyme
+Oklahoma,2012,4,Lyme
+Oregon,2012,48,Lyme
+Pennsylvania,2012,"5,033",Lyme
+Rhode Island,2012,217,Lyme
+South Carolina,2012,44,Lyme
+South Dakota,2012,4,Lyme
+Tennessee,2012,30,Lyme
+Texas,2012,75,Lyme
+Utah,2012,5,Lyme
+Vermont,2012,522,Lyme
+Virginia,2012,"1,110",Lyme
+Washington,2012,15,Lyme
+West Virginia,2012,97,Lyme
+Wisconsin,2012,"1,766",Lyme
+Wyoming,2012,4,Lyme
+U.S. Total,2012,"30,831",Lyme
+Alabama,2013,24,Lyme
+Alaska,2013,14,Lyme
+Arizona,2013,32,Lyme
+Arkansas,2013,0,Lyme
+California,2013,112,Lyme
+Colorado,2013,0,Lyme
+Connecticut,2013,"2,925",Lyme
+Delaware,2013,509,Lyme
+District of Columbia,2013,35,Lyme
+Florida,2013,138,Lyme
+Georgia,2013,8,Lyme
+Idaho,2013,19,Lyme
+Illinois,2013,337,Lyme
+Indiana,2013,110,Lyme
+Iowa,2013,247,Lyme
+Kansas,2013,34,Lyme
+Kentucky,2013,40,Lyme
+Louisiana,2013,0,Lyme
+Maine,2013,"1,373",Lyme
+Maryland,2013,"1,197",Lyme
+Massachusetts,2013,"5,290",Lyme
+Michigan,2013,168,Lyme
+Minnesota,2013,"2,340",Lyme
+Mississippi,2013,0,Lyme
+Missouri,2013,3,Lyme
+Montana,2013,18,Lyme
+Nebraska,2013,10,Lyme
+Nevada,2013,16,Lyme
+New Hampshire,2013,"1,687",Lyme
+New Jersey,2013,"3,766",Lyme
+New Mexico,2013,6,Lyme
+New York,2013,"4,615",Lyme
+North Carolina,2013,180,Lyme
+North Dakota,2013,29,Lyme
+Ohio,2013,93,Lyme
+Oklahoma,2013,3,Lyme
+Oregon,2013,43,Lyme
+Pennsylvania,2013,"5,758",Lyme
+Rhode Island,2013,724,Lyme
+South Carolina,2013,42,Lyme
+South Dakota,2013,4,Lyme
+Tennessee,2013,25,Lyme
+Texas,2013,82,Lyme
+Utah,2013,15,Lyme
+Vermont,2013,893,Lyme
+Virginia,2013,"1,307",Lyme
+Washington,2013,18,Lyme
+West Virginia,2013,143,Lyme
+Wisconsin,2013,"1,872",Lyme
+Wyoming,2013,3,Lyme
+U.S. Total,2013,"36,307",Lyme
+Alabama,2014,64,Lyme
+Alaska,2014,8,Lyme
+Arizona,2014,21,Lyme
+Arkansas,2014,0,Lyme
+California,2014,73,Lyme
+Colorado,2014,0,Lyme
+Connecticut,2014,"2,360",Lyme
+Delaware,2014,417,Lyme
+District of Columbia,2014,40,Lyme
+Florida,2014,155,Lyme
+Georgia,2014,4,Lyme
+Idaho,2014,9,Lyme
+Illinois,2014,233,Lyme
+Indiana,2014,110,Lyme
+Iowa,2014,194,Lyme
+Kansas,2014,20,Lyme
+Kentucky,2014,44,Lyme
+Louisiana,2014,2,Lyme
+Maine,2014,"1,401",Lyme
+Maryland,2014,"1,373",Lyme
+Massachusetts,2014,"5,304",Lyme
+Michigan,2014,127,Lyme
+Minnesota,2014,"1,416",Lyme
+Mississippi,2014,2,Lyme
+Missouri,2014,10,Lyme
+Montana,2014,7,Lyme
+Nebraska,2014,7,Lyme
+Nevada,2014,6,Lyme
+New Hampshire,2014,724,Lyme
+New Jersey,2014,"3,286",Lyme
+New Mexico,2014,0,Lyme
+New York,2014,"3,736",Lyme
+North Carolina,2014,170,Lyme
+North Dakota,2014,14,Lyme
+Ohio,2014,119,Lyme
+Oklahoma,2014,0,Lyme
+Oregon,2014,45,Lyme
+Pennsylvania,2014,"7,487",Lyme
+Rhode Island,2014,904,Lyme
+South Carolina,2014,37,Lyme
+South Dakota,2014,2,Lyme
+Tennessee,2014,17,Lyme
+Texas,2014,40,Lyme
+Utah,2014,13,Lyme
+Vermont,2014,599,Lyme
+Virginia,2014,"1,346",Lyme
+Washington,2014,15,Lyme
+West Virginia,2014,136,Lyme
+Wisconsin,2014,"1,361",Lyme
+Wyoming,2014,3,Lyme
+U.S. Total,2014,"33,461",Lyme
+Alabama,2015,25,Lyme
+Alaska,2015,9,Lyme
+Arizona,2015,12,Lyme
+Arkansas,2015,0,Lyme
+California,2015,98,Lyme
+Colorado,2015,0,Lyme
+Connecticut,2015,"2,541",Lyme
+Delaware,2015,435,Lyme
+District of Columbia,2015,121,Lyme
+Florida,2015,166,Lyme
+Georgia,2015,8,Lyme
+Idaho,2015,9,Lyme
+Illinois,2015,287,Lyme
+Indiana,2015,138,Lyme
+Iowa,2015,318,Lyme
+Kansas,2015,23,Lyme
+Kentucky,2015,49,Lyme
+Louisiana,2015,3,Lyme
+Maine,2015,"1,201",Lyme
+Maryland,2015,"1,728",Lyme
+Massachusetts,2015,"4,224",Lyme
+Michigan,2015,148,Lyme
+Minnesota,2015,"1,805",Lyme
+Mississippi,2015,4,Lyme
+Missouri,2015,5,Lyme
+Montana,2015,5,Lyme
+Nebraska,2015,11,Lyme
+Nevada,2015,7,Lyme
+New Hampshire,2015,529,Lyme
+New Jersey,2015,"4,855",Lyme
+New Mexico,2015,0,Lyme
+New York,2015,"4,314",Lyme
+North Carolina,2015,230,Lyme
+North Dakota,2015,33,Lyme
+Ohio,2015,154,Lyme
+Oklahoma,2015,0,Lyme
+Oregon,2015,31,Lyme
+Pennsylvania,2015,"9,048",Lyme
+Rhode Island,2015,904,Lyme
+South Carolina,2015,42,Lyme
+South Dakota,2015,5,Lyme
+Tennessee,2015,26,Lyme
+Texas,2015,54,Lyme
+Utah,2015,7,Lyme
+Vermont,2015,710,Lyme
+Virginia,2015,"1,539",Lyme
+Washington,2015,24,Lyme
+West Virginia,2015,289,Lyme
+Wisconsin,2015,"1,894",Lyme
+Wyoming,2015,1,Lyme
+U.S. Total,2015,"38,069",Lyme
+Alabama,2016,38,Lyme
+Alaska,2016,15,Lyme
+Arizona,2016,13,Lyme
+Arkansas,2016,2,Lyme
+California,2016,134,Lyme
+Colorado,2016,0,Lyme
+Connecticut,2016,"1,748",Lyme
+Delaware,2016,506,Lyme
+District of Columbia,2016,103,Lyme
+Florida,2016,216,Lyme
+Georgia,2016,4,Lyme
+Idaho,2016,17,Lyme
+Illinois,2016,237,Lyme
+Indiana,2016,152,Lyme
+Iowa,2016,232,Lyme
+Kansas,2016,39,Lyme
+Kentucky,2016,33,Lyme
+Louisiana,2016,7,Lyme
+Maine,2016,"1,487",Lyme
+Maryland,2016,"1,866",Lyme
+Massachusetts,2016,198,Lyme
+Michigan,2016,221,Lyme
+Minnesota,2016,"2,126",Lyme
+Mississippi,2016,1,Lyme
+Missouri,2016,10,Lyme
+Montana,2016,17,Lyme
+Nebraska,2016,14,Lyme
+Nevada,2016,15,Lyme
+New Hampshire,2016,891,Lyme
+New Jersey,2016,"4,350",Lyme
+New Mexico,2016,1,Lyme
+New York,2016,"3,882",Lyme
+North Carolina,2016,272,Lyme
+North Dakota,2016,32,Lyme
+Ohio,2016,160,Lyme
+Oklahoma,2016,0,Lyme
+Oregon,2016,61,Lyme
+Pennsylvania,2016,"11,443",Lyme
+Rhode Island,2016,903,Lyme
+South Carolina,2016,51,Lyme
+South Dakota,2016,11,Lyme
+Tennessee,2016,25,Lyme
+Texas,2016,71,Lyme
+Utah,2016,19,Lyme
+Vermont,2016,761,Lyme
+Virginia,2016,"1,350",Lyme
+Washington,2016,31,Lyme
+West Virginia,2016,368,Lyme
+Wisconsin,2016,"2,295",Lyme
+Wyoming,2016,1,Lyme
+U.S. Total,2016,"36,429",Lyme
+Alabama,2017,41,Lyme
+Alaska,2017,10,Lyme
+Arizona,2017,28,Lyme
+Arkansas,2017,6,Lyme
+California,2017,145,Lyme
+Colorado,2017,4,Lyme
+Connecticut,2017,"2,051",Lyme
+Delaware,2017,608,Lyme
+District of Columbia,2017,84,Lyme
+Florida,2017,210,Lyme
+Georgia,2017,8,Lyme
+Idaho,2017,20,Lyme
+Illinois,2017,273,Lyme
+Indiana,2017,142,Lyme
+Iowa,2017,255,Lyme
+Kansas,2017,40,Lyme
+Kentucky,2017,20,Lyme
+Louisiana,2017,12,Lyme
+Maine,2017,"1,850",Lyme
+Maryland,2017,"1,891",Lyme
+Massachusetts,2017,410,Lyme
+Michigan,2017,291,Lyme
+Minnesota,2017,"2,318",Lyme
+Mississippi,2017,1,Lyme
+Missouri,2017,12,Lyme
+Montana,2017,12,Lyme
+Nebraska,2017,14,Lyme
+Nevada,2017,17,Lyme
+New Hampshire,2017,"1,381",Lyme
+New Jersey,2017,"5,092",Lyme
+New Mexico,2017,3,Lyme
+New York,2017,"5,155",Lyme
+North Carolina,2017,295,Lyme
+North Dakota,2017,56,Lyme
+Ohio,2017,270,Lyme
+Oklahoma,2017,1,Lyme
+Oregon,2017,84,Lyme
+Pennsylvania,2017,"11,900",Lyme
+Rhode Island,2017,"1,132",Lyme
+South Carolina,2017,21,Lyme
+South Dakota,2017,12,Lyme
+Tennessee,2017,47,Lyme
+Texas,2017,58,Lyme
+Utah,2017,25,Lyme
+Vermont,2017,"1,092",Lyme
+Virginia,2017,"1,657",Lyme
+Washington,2017,37,Lyme
+West Virginia,2017,648,Lyme
+Wisconsin,2017,"3,000",Lyme
+Wyoming,2017,4,Lyme
+U.S. Total,2017,"42,743",Lyme
+Alabama,2018,36,Lyme
+Alaska,2018,11,Lyme
+Arizona,2018,7,Lyme
+Arkansas,2018,4,Lyme
+California,2018,104,Lyme
+Colorado,2018,3,Lyme
+Connecticut,2018,"1,859",Lyme
+Delaware,2018,520,Lyme
+District of Columbia,2018,79,Lyme
+Florida,2018,169,Lyme
+Georgia,2018,19,Lyme
+Idaho,2018,9,Lyme
+Illinois,2018,276,Lyme
+Indiana,2018,155,Lyme
+Iowa,2018,283,Lyme
+Kansas,2018,30,Lyme
+Kentucky,2018,22,Lyme
+Louisiana,2018,4,Lyme
+Maine,2018,"1,405",Lyme
+Maryland,2018,"1,382",Lyme
+Massachusetts,2018,16,Lyme
+Michigan,2018,262,Lyme
+Minnesota,2018,"1,541",Lyme
+Mississippi,2018,4,Lyme
+Missouri,2018,11,Lyme
+Montana,2018,7,Lyme
+Nebraska,2018,15,Lyme
+Nevada,2018,14,Lyme
+New Hampshire,2018,"1,428",Lyme
+New Jersey,2018,"4,000",Lyme
+New Mexico,2018,2,Lyme
+New York,2018,"3,638",Lyme
+North Carolina,2018,212,Lyme
+North Dakota,2018,33,Lyme
+Ohio,2018,293,Lyme
+Oklahoma,2018,0,Lyme
+Oregon,2018,70,Lyme
+Pennsylvania,2018,"10,208",Lyme
+Rhode Island,2018,"1,111",Lyme
+South Carolina,2018,39,Lyme
+South Dakota,2018,7,Lyme
+Tennessee,2018,29,Lyme
+Texas,2018,47,Lyme
+Utah,2018,27,Lyme
+Vermont,2018,576,Lyme
+Virginia,2018,"1,139",Lyme
+Washington,2018,20,Lyme
+West Virginia,2018,671,Lyme
+Wisconsin,2018,"1,869",Lyme
+Wyoming,2018,0,Lyme
+U.S. Total,2018,"33,666",Lyme
+Alabama,2019,66,Lyme
+Alaska,2019,3,Lyme
+Arizona,2019,10,Lyme
+Arkansas,2019,18,Lyme
+California,2019,144,Lyme
+Colorado,2019,8,Lyme
+Connecticut,2019,"1,233",Lyme
+Delaware,2019,641,Lyme
+District of Columbia,2019,100,Lyme
+Florida,2019,162,Lyme
+Georgia,2019,18,Lyme
+Idaho,2019,14,Lyme
+Illinois,2019,395,Lyme
+Indiana,2019,189,Lyme
+Iowa,2019,303,Lyme
+Kansas,2019,35,Lyme
+Kentucky,2019,22,Lyme
+Louisiana,2019,8,Lyme
+Maine,2019,"2,167",Lyme
+Maryland,2019,"1,417",Lyme
+Massachusetts,2019,7,Lyme
+Michigan,2019,413,Lyme
+Minnesota,2019,"1,528",Lyme
+Mississippi,2019,4,Lyme
+Missouri,2019,17,Lyme
+Montana,2019,8,Lyme
+Nebraska,2019,10,Lyme
+Nevada,2019,17,Lyme
+New Hampshire,2019,"1,710",Lyme
+New Jersey,2019,"3,619",Lyme
+New Mexico,2019,7,Lyme
+New York,2019,"4,243",Lyme
+North Carolina,2019,334,Lyme
+North Dakota,2019,38,Lyme
+Ohio,2019,467,Lyme
+Oklahoma,2019,0,Lyme
+Oregon,2019,65,Lyme
+Pennsylvania,2019,"8,998",Lyme
+Rhode Island,2019,971,Lyme
+South Carolina,2019,47,Lyme
+South Dakota,2019,10,Lyme
+Tennessee,2019,45,Lyme
+Texas,2019,41,Lyme
+Utah,2019,19,Lyme
+Vermont,2019,"1,064",Lyme
+Virginia,2019,"1,199",Lyme
+Washington,2019,43,Lyme
+West Virginia,2019,885,Lyme
+Wisconsin,2019,"2,178",Lyme
+Wyoming,2019,5,Lyme
+U.S. Total,2019,"34,945",Lyme
+Alabama,2020,14,Lyme
+Alaska,2020,0,Lyme
+Arizona,2020,2,Lyme
+Arkansas,2020,12,Lyme
+California,2020,53,Lyme
+Colorado,2020,0,Lyme
+Connecticut,2020,614,Lyme
+Delaware,2020,355,Lyme
+District of Columbia,2020,120,Lyme
+Florida,2020,121,Lyme
+Georgia,2020,32,Lyme
+Idaho,2020,6,Lyme
+Illinois,2020,295,Lyme
+Indiana,2020,212,Lyme
+Iowa,2020,257,Lyme
+Kansas,2020,17,Lyme
+Kentucky,2020,32,Lyme
+Louisiana,2020,2,Lyme
+Maine,2020,"1,128",Lyme
+Maryland,2020,842,Lyme
+Massachusetts,2020,107,Lyme
+Michigan,2020,468,Lyme
+Minnesota,2020,0,Lyme
+Mississippi,2020,1,Lyme
+Missouri,2020,7,Lyme
+Montana,2020,3,Lyme
+Nebraska,2020,5,Lyme
+Nevada,2020,4,Lyme
+New Hampshire,2020,299,Lyme
+New Jersey,2020,"2,566",Lyme
+New Mexico,2020,0,Lyme
+New York,2020,"2,240",Lyme
+North Carolina,2020,264,Lyme
+North Dakota,2020,36,Lyme
+Ohio,2020,409,Lyme
+Oklahoma,2020,0,Lyme
+Oregon,2020,39,Lyme
+Pennsylvania,2020,"3,334",Lyme
+Rhode Island,2020,839,Lyme
+South Carolina,2020,48,Lyme
+South Dakota,2020,8,Lyme
+Tennessee,2020,38,Lyme
+Texas,2020,11,Lyme
+Utah,2020,14,Lyme
+Vermont,2020,59,Lyme
+Virginia,2020,555,Lyme
+Washington,2020,20,Lyme
+West Virginia,2020,"1,065",Lyme
+Wisconsin,2020,"1,447",Lyme
+Wyoming,2020,0,Lyme
+U.S. Total,2020,"18,000",Lyme
+Alabama,2021,51,Lyme
+Alaska,2021,0,Lyme
+Arizona,2021,3,Lyme
+Arkansas,2021,11,Lyme
+California,2021,106,Lyme
+Colorado,2021,0,Lyme
+Connecticut,2021,541,Lyme
+Delaware,2021,140,Lyme
+District of Columbia,2021,91,Lyme
+Florida,2021,193,Lyme
+Georgia,2021,35,Lyme
+Idaho,2021,6,Lyme
+Illinois,2021,540,Lyme
+Indiana,2021,314,Lyme
+Iowa,2021,359,Lyme
+Kansas,2021,22,Lyme
+Kentucky,2021,41,Lyme
+Louisiana,2021,4,Lyme
+Maine,2021,"1,510",Lyme
+Maryland,2021,916,Lyme
+Massachusetts,2021,27,Lyme
+Michigan,2021,862,Lyme
+Minnesota,2021,"1,902",Lyme
+Mississippi,2021,1,Lyme
+Missouri,2021,7,Lyme
+Montana,2021,13,Lyme
+Nebraska,2021,10,Lyme
+Nevada,2021,17,Lyme
+New Hampshire,2021,397,Lyme
+New Jersey,2021,"3,518",Lyme
+New Mexico,2021,2,Lyme
+New York,2021,"3,006",Lyme
+North Carolina,2021,338,Lyme
+North Dakota,2021,34,Lyme
+Ohio,2021,590,Lyme
+Oklahoma,2021,0,Lyme
+Oregon,2021,74,Lyme
+Pennsylvania,2021,"2,900",Lyme
+Rhode Island,2021,980,Lyme
+South Carolina,2021,76,Lyme
+South Dakota,2021,16,Lyme
+Tennessee,2021,57,Lyme
+Texas,2021,32,Lyme
+Utah,2021,18,Lyme
+Vermont,2021,115,Lyme
+Virginia,2021,705,Lyme
+Washington,2021,43,Lyme
+West Virginia,2021,"1,792",Lyme
+Wisconsin,2021,"2,193",Lyme
+Wyoming,2021,2,Lyme
+U.S. Total,2021,"24,610",Lyme
+Alabama,2022,32,Lyme
+Alaska,2022,7,Lyme
+Arizona,2022,9,Lyme
+Arkansas,2022,2,Lyme
+California,2022,77,Lyme
+Colorado,2022,10,Lyme
+Connecticut,2022,2022,Lyme
+Delaware,2022,298,Lyme
+District of Columbia,2022,77,Lyme
+Florida,2022,233,Lyme
+Georgia,2022,31,Lyme
+Idaho,2022,10,Lyme
+Illinois,2022,259,Lyme
+Indiana,2022,236,Lyme
+Iowa,2022,154,Lyme
+Kansas,2022,9,Lyme
+Kentucky,2022,72,Lyme
+Louisiana,2022,5,Lyme
+Maine,2022,2653,Lyme
+Maryland,2022,2035,Lyme
+Massachusetts,2022,5052,Lyme
+Michigan,2022,557,Lyme
+Minnesota,2022,2685,Lyme
+Mississippi,2022,3,Lyme
+Missouri,2022,7,Lyme
+Montana,2022,13,Lyme
+Nebraska,2022,9,Lyme
+Nevada,2022,10,Lyme
+New Hampshire,2022,1085,Lyme
+New Jersey,2022,5897,Lyme
+New Mexico,2022,3,Lyme
+New York,2022,16798,Lyme
+North Carolina,2022,279,Lyme
+North Dakota,2022,22,Lyme
+Ohio,2022,553,Lyme
+Oklahoma,2022,0,Lyme
+Oregon,2022,61,Lyme
+Pennsylvania,2022,8413,Lyme
+Rhode Island,2022,2326,Lyme
+South Carolina,2022,44,Lyme
+South Dakota,2022,12,Lyme
+Tennessee,2022,32,Lyme
+Texas,2022,23,Lyme
+Utah,2022,16,Lyme
+Vermont,2022,1312,Lyme
+Virginia,2022,1403,Lyme
+Washington,2022,23,Lyme
+West Virginia,2022,2470,Lyme
+Wisconsin,2022,5208,Lyme
+Wyoming,2022,4,Lyme
+U.S. Total,2022,"62,519",Lyme
+Alabama,2023,36,Lyme
+Alaska,2023,2,Lyme
+Arizona,2023,16,Lyme
+Arkansas,2023,5,Lyme
+California,2023,109,Lyme
+Colorado,2023,32,Lyme
+Connecticut,2023,"3,239",Lyme
+Delaware,2023,349,Lyme
+District of Columbia,2023,108,Lyme
+Florida,2023,271,Lyme
+Georgia,2023,18,Lyme
+Idaho,2023,11,Lyme
+Illinois,2023,372,Lyme
+Indiana,2023,257,Lyme
+Iowa,2023,212,Lyme
+Kansas,2023,12,Lyme
+Kentucky,2023,120,Lyme
+Louisiana,2023,15,Lyme
+Maine,2023,"2,942",Lyme
+Maryland,2023,"2,470",Lyme
+Massachusetts,2023,"9,715",Lyme
+Michigan,2023,"1,152",Lyme
+Minnesota,2023,"2,938",Lyme
+Mississippi,2023,4,Lyme
+Missouri,2023,16,Lyme
+Montana,2023,11,Lyme
+Nebraska,2023,5,Lyme
+Nevada,2023,14,Lyme
+New Hampshire,2023,"1,573",Lyme
+New Jersey,2023,"7,224",Lyme
+New Mexico,2023,11,Lyme
+New York,2023,"22,173",Lyme
+North Carolina,2023,228,Lyme
+North Dakota,2023,15,Lyme
+Ohio,2023,"1,307",Lyme
+Oklahoma,2023,3,Lyme
+Oregon,2023,61,Lyme
+Pennsylvania,2023,"16,671",Lyme
+Rhode Island,2023,"2,852",Lyme
+South Carolina,2023,55,Lyme
+South Dakota,2023,7,Lyme
+Tennessee,2023,50,Lyme
+Texas,2023,27,Lyme
+Utah,2023,16,Lyme
+Vermont,2023,"1,445",Lyme
+Virginia,2023,"1,747",Lyme
+Washington,2023,25,Lyme
+West Virginia,2023,"3,242",Lyme
+Wisconsin,2023,"6,283",Lyme
+Wyoming,2023,2,Lyme
+U.S. Total,2023,"89,468",Lyme

@@ -1,0 +1,69 @@
+/* Global page look */
+body {
+  background-color: #f7f9fb;        /* very light gray-blue */
+}
+
+/* Main content card */
+.main-container {
+  max-width: 1100px;
+  background: #ffffff;
+  padding: 25px 30px;
+  margin-top: 25px;
+  margin-bottom: 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+}
+
+/* Headings */
+h1, h2, h3 {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-weight: 600;
+}
+
+h1 {
+  border-bottom: 3px solid #2c3e50;  /* deep blue line under main title */
+  padding-bottom: 8px;
+  margin-bottom: 20px;
+}
+
+/* Links */
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Navbar tweaks */
+.navbar-default {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-default .navbar-brand,
+.navbar-default .navbar-nav > li > a {
+  font-weight: 500;
+}
+
+/* Tables (for data summaries later) */
+table.table {
+  background: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+table.table > thead > tr > th {
+  background-color: #2c3e50;
+  color: #ffffff;
+}
+
+/* Figure captions */
+.caption {
+  font-style: italic;
+  color: #555;
+}
+
+/* Make code chunks a bit softer */
+pre, code {
+  border-radius: 6px;
+}

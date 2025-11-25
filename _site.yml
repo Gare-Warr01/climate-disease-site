@@ -1,23 +1,37 @@
 name: "climate-disease-site"
+output_dir: "docs"
+
 navbar:
-  title: "U.S. Climate & Disease Project"
+  title: "Climate & Vector-Borne Disease"
   left:
     - text: "Home"
       href: index.html
-    - text: "Data & Methods"
-      href: data-methods.html
+    - text: "Data"
+      href: data.html
+    - text: "Methods"
+      href: methods.html
     - text: "Climate Trends"
       href: climate-trends.html
     - text: "Disease Trends"
       href: disease-trends.html
-    - text: "Comparisons"
-      href: compare.html
-    - text: "About"
+    - text: "Climate–Disease Comparison"
+      href: comparison.html
+    - text: "Utah Focus"
+      href: utah-focus.html
+    - text: "How to Read These Graphs"
+      href: how-to-read.html
+    - text: "About This Project"
       href: about.html
+    - text: "Reflection"
+      href: reflection.html
+    - text: "References"
+      href: references.html
+
 output:
   html_document:
-    theme: cosmo
+    theme: flatly      # you can switch back to "cosmo" if you prefer
+    highlight: tango
     toc: true
     toc_float: true
-    highlight: tango
-output_dir: "docs"
+    df_print: paged
+    css: styles.css    # <- this is where we’ll control colors and visual polish
