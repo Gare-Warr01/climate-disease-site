@@ -1,100 +1,100 @@
 ---
-title: "U.S. Climate & Vector-Borne Disease Project"
-output: html_document
+output:
+  html_document:
+    toc: false
 ---
 
-## Welcome
 
-Welcome to my undergraduate project on **climate change and vector-borne disease** in the United States.\
-This site pulls together climate datasets and public-health surveillance records to explore a central question:
 
-> **How is a warming, shifting climate shaping the risk of mosquito-borne diseases in the U.S.?**
+> *“Climate doesn’t just change averages. It shifts the conditions that diseases depend on.”*
 
-The project focuses on national patterns, with a special spotlight on **Utah**, where I live and study.
+This site is my undergraduate capstone-style project on **climate change and vector-borne disease** in the United States, with a special focus on **West Nile virus** and a **spotlight on Utah**, where I live and study.
 
-------------------------------------------------------------------------
+Using real climate and disease datasets, I explore a central guiding question:
 
-## What This Project Is About
+> **How is a warming, shifting climate shaping the risk of mosquito-borne disease in the U.S., and what might that mean for places like Utah?**
 
-This website brings together real data and reproducible R code to explore three connected pieces:
+---
 
--   **Climate trends** – how temperature, precipitation, and drought have changed over time.\
--   **Disease trends** – especially **West Nile virus**, one of the most widespread mosquito-borne diseases in the U.S.\
--   **Climate–disease comparisons** – places where these patterns might move together.
+## Overview
 
-I am not trying to prove a strict cause-and-effect relationship. Instead, the project is designed to:
+This website brings together **climate records**, **public-health surveillance data**, and a **reproducible R workflow** to explore three connected pieces:
 
--   Explore **patterns and correlations** that raise good questions.\
--   Practice **transparent, reproducible analysis** in R.\
--   Connect what we learned in **GEOG 3000: Climate Change in Science and Society** to real-world data.\
--   Create a **professional, portfolio-ready project** that communicates clearly to non-specialists.
+- **Climate trends** – how temperature, precipitation, and drought indicators have changed over time.
+- **Disease trends** – especially **West Nile virus**, one of the most widespread mosquito-borne diseases in the U.S.
+- **Climate–disease comparisons** – where patterns in climate and disease appear to move together in ways that might matter.
 
-------------------------------------------------------------------------
+The goal is **not** to prove strict cause-and-effect. Instead, this project:
 
-## The Core Questions
+- Looks for **patterns and correlations** that raise good questions.
+- Practices **transparent, reproducible analysis** in R.
+- Connects what we learned in **GEOG 3000: Climate Change in Science and Society** to real-world data.
+- Creates a **professional, portfolio-ready project** that communicates clearly to non-specialists.
 
-At its heart, this project asks three simple but important questions:
-
-1.  **How is the U.S. climate changing over time?**\
-2.  **How are vector-borne diseases—especially West Nile virus—changing across space and time?**\
-3.  **Do these climate and disease patterns appear to move together in ways that might matter for public health?**
-
-Each tab on this site helps answer part of these questions.
-
-------------------------------------------------------------------------
-
-## Project Context: GEOG 3000 Applied Final Project
-
-This website is the applied portion of my final project for\
-**GEOG 3000: Climate Change in Science and Society**.
-
-For this assignment, students are asked to:
-
--   Focus on a **specific aspect of climate change** and its impacts on society.\
--   Use **reputable data sources** (e.g., NOAA, EPA, CDC) and documented methods.\
--   Develop a **professional-quality applied product** such as a website, report, or tool.\
--   Present findings and be able to explain the data, methods, and limitations.\
--   Reflect on how the project supports **academic and professional goals**.
-
-In my case:
-
--   The formal **research and analysis paper** is written separately.\
--   This **website** serves as the applied, public-facing product.\
--   Reflection and personal background appear on the **About** page.
-
-When you explore this site, you are seeing the communication side of the project—the part designed to make climate–disease connections understandable and visually clear.
-
-------------------------------------------------------------------------
+---
 
 ## Why This Matters
 
-Vector-borne diseases like West Nile virus are closely tied to environmental conditions:
+Vector-borne diseases like West Nile virus are tightly linked to environmental conditions:
 
--   Mosquitoes depend on **temperature, moisture, and standing water**.\
--   **Warmer temperatures** can extend mosquito seasons and expand their geographic range.\
--   **Changing precipitation and drought patterns** affect where mosquitoes breed and how often people and vectors come into contact.
+- Mosquitoes depend on **temperature, moisture, and standing water**.
+- **Warmer temperatures** can extend mosquito seasons and expand their geographic range.
+- **Changing precipitation and drought patterns** affect where mosquitoes breed and how often people and vectors come into contact.
 
-As the climate warms and weather patterns shift, public health agencies, researchers, and communities need to understand how **changes in climate** may influence **disease risk**.
+As the climate warms and weather patterns shift, public health agencies, researchers, and communities need to understand how **climate change** might influence **disease risk**—and where vulnerabilities could grow.
 
-This project is a small, student-level step in that direction—an example of how climate and disease data can be combined to begin asking informed questions about risk in a changing climate.
+This project is a small, student-level step in that direction: an example of how climate and disease data can be combined to start asking **informed questions** about risk in a changing climate.
 
-------------------------------------------------------------------------
+---
+
+## Core Research Questions
+
+This project is built around three simple but important questions:
+
+1. **How is the U.S. climate changing over time?**  
+2. **How are vector-borne diseases—especially West Nile virus—changing across space and time?**  
+3. **Do climate and disease patterns appear to move together in ways that might matter for public health, especially in Utah?**
+
+Each tab on this site helps answer part of these questions.
+
+---
+
+## Project Context: GEOG 3000 Final Project
+
+This website is the **applied, public-facing product** for my final project in  
+**GEOG 3000: Climate Change in Science and Society** at Utah Valley University.
+
+For this assignment, students are asked to:
+
+- Focus on a **specific aspect of climate change** and its impacts on society.  
+- Use **reputable data sources** (e.g., NOAA, CDC, EPA) and documented methods.  
+- Develop a **professional-quality applied product** such as a website, report, or tool.  
+- Present findings and explain the **data, methods, and limitations**.  
+- Reflect on how the project supports **academic and professional goals**.
+
+In my case:
+
+- The formal **research and analysis paper** is written separately.  
+- This **website** is the applied component that communicates the work to a broader audience.  
+- Additional personal context and reflection appear on the **About This Project** and **Reflection** pages.
+
+When you explore this site, you are seeing the **communication side** of the project—the part designed to make climate–disease connections understandable and visually clear.
+
+---
 
 ## Project Goals
 
 More specifically, this site aims to:
 
--   **Combine** climate and disease datasets into a single analysis workflow.\
--   **Visualize** long-term climate trends across the United States.\
--   **Examine** patterns in vector-borne disease (especially West Nile virus) over space and time.\
--   **Compare** climate indicators and disease outcomes to see where interesting relationships might appear.\
--   **Document** the R workflow so that, in principle, someone else could reproduce or extend the analysis.
-
-Later pages also begin to explore **simple models and basic forecasting**, using tools like trend lines, linear models, and time-series methods to see how climate and disease patterns might be related and how they might change in the near future.
+- **Combine** climate and disease datasets into a single analysis workflow in R.  
+- **Visualize** long-term climate trends across the United States and selected regions.  
+- **Examine** patterns in vector-borne disease (especially West Nile virus) over space and time.  
+- **Compare** climate indicators and disease outcomes to see where interesting relationships appear.  
+- **Document** the workflow so that, in principle, someone else could reproduce or extend the analysis.
 
 These goals match the course emphasis on **science, society, and communication**—not just running numbers, but making them meaningful.
 
-------------------------------------------------------------------------
+---
 
 ## Data Overview
 
@@ -104,55 +104,77 @@ This project draws on several cleaned datasets stored as CSV files and read dire
 
 Climate-related datasets include:
 
--   Annual and/or seasonal **temperature** records\
--   **Precipitation** data\
--   **Drought indicators**, such as the Palmer Drought Severity Index (PDSI)\
--   State-level or regional summaries, depending on availability
+- Annual and/or seasonal **temperature** records  
+- **Precipitation** data  
+- **Drought indicators**, such as the Palmer Drought Severity Index (PDSI)  
+- State-level or regional summaries, depending on availability  
 
-These datasets allow us to look at how climate variables have changed over time and how those changes differ across space.
+These datasets allow us to see how climate variables have changed over time and how those changes differ across space.
 
 ### Disease Data
 
 Disease-related datasets include:
 
--   Reported cases of **West Nile virus** from CDC and related surveillance sources\
--   Data aggregated by **year** and **state**, so we can explore both temporal and spatial patterns
+- Reported cases of **West Nile virus** from CDC and related surveillance sources  
+- Data aggregated by **year** and **state**, so we can explore both temporal and spatial patterns  
 
-Together, the climate and disease datasets form the backbone of the visualizations and comparisons on this site.
+Together, the climate and disease datasets form the backbone of the visualizations and comparisons on this site.  
+Details on each dataset—including sources, key variables, and cleaning steps—are documented on the **Data** and **Methods** pages.
 
-Details on each dataset—including sources, key variables, and cleaning steps—are documented on the **Data & Methods** page.
+---
 
-------------------------------------------------------------------------
-
-## What You Will See on This Site
+## What You’ll Find on This Site
 
 Use the navigation bar at the top of the page to move through the project:
 
--   **Home** – Big-picture overview of the project and why climate–disease connections matter.\
--   **Data & Methods** – Descriptions of each dataset, how they were cleaned, and the basic R workflow.\
--   **Climate Trends** – Plots and summaries showing how key climate variables have changed over time in the U.S. and selected areas.\
--   **Disease Trends** – Visualizations of vector-borne disease patterns (especially West Nile virus) across space and time.\
--   **Comparisons** – Exploratory comparisons and simple models that look at climate variables and disease outcomes together, including basic forecasting.\
--   **About** – Background about me, this course, and how the project fits into my academic and professional goals.
+- **Home** – Big-picture overview of the project and why climate–disease connections matter.  
+- **Data** – Descriptions of each dataset and the variables used in the analysis.  
+- **Methods** – High-level explanation of how the data were cleaned, combined, and analyzed in R.  
+- **Climate Trends** – Plots and summaries showing how key climate variables have changed over time in the U.S. and selected areas.  
+- **Disease Trends** – Visualizations of vector-borne disease patterns (especially West Nile virus) across space and time.  
+- **Climate–Disease Comparison** – Exploratory comparisons that place climate indicators and disease outcomes side by side.  
+- **Utah Focus** – A closer look at climate and disease patterns relevant to Utah.  
+- **How to Read These Graphs** – A gentle guide for anyone who feels “not great at graphs,” explaining how to interpret the visuals.  
+- **About This Project** – Background about me, the course, and how this project fits into my academic and professional goals.  
+- **Reflection** – Personal reflection on what I learned about climate, health, data, and uncertainty.  
+- **References** – Data sources and key supporting materials.
 
-Each page is designed to be readable on its own, so visitors can drop in anywhere and still understand what they are seeing.
+Each page is designed to stand on its own so visitors can drop in anywhere and still understand what they are seeing.
 
-------------------------------------------------------------------------
+---
 
 ## What This Project Can and Cannot Do
 
-Because this is an **exploratory undergraduate project**, there are some clear limits.
+Because this is an **exploratory undergraduate project**, there are clear limits.
 
 ### What It Cannot Do
 
--   It does **not** prove causal relationships between climate and disease.\
--   It uses **relatively simple methods** (summaries, visualizations, linear models, and basic time-series tools).\
--   It does **not** attempt detailed forecasting, risk mapping, or policy modeling at a professional level.
+- It does **not** prove causal relationships between climate and disease.  
+- It uses **relatively simple** methods (summaries, visualizations, and introductory modeling tools).  
+- It does **not** attempt detailed forecasting, risk mapping, or policy modeling at a professional level.
 
 ### What It Can Do
 
--   Provide a **clear, organized view** of climate and disease datasets in one place.\
--   Highlight **patterns and relationships** that may be worth deeper study.\
--   Demonstrate a **transparent, reproducible R-based workflow** that could be expanded with more advanced methods in future work.
+- Provide a **clear, organized view** of climate and disease datasets in one place.  
+- Highlight **patterns and relationships** that may be worth deeper study.  
+- Demonstrate a **transparent, reproducible R-based workflow** that could be expanded with more advanced methods in future work.
 
-This site is meant to be approachable: something that students, instructors, and interested visitors can explore without needing a background in advanced statistics, but still grounded in real data and careful methods.
+This site is meant to be approachable: something that students, instructors, and interested visitors can explore without needing a background in advanced statistics—while still staying grounded in real data and careful methods.
+
+---
+
+<div style="width: 100%; overflow: hidden; margin-top: 40px;">
+  <!-- Optional: replace 'banner.png' with any header image you add to the project -->
+  <img src="banner.png"
+       alt="Stylized illustration of climate graphs and mosquito silhouettes representing climate–disease connections"
+       style="width: 100%; max-height: 200px; object-fit: contain; display: block; margin: 0 auto;">
+</div>
+
+<footer style="font-size: 0.9em; margin-top: 30px; border-top: 1px solid #ddd; padding-top: 10px; color: #555;">
+  <p style="margin: 4px 0;">
+    Created by Garrett Warr | <strong>GEOG 3000 – Climate Change in Science & Society</strong>
+  </p>
+  <p style="margin: 4px 0;">
+    Climate & disease data used for educational purposes only.
+  </p>
+</footer>

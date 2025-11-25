@@ -11,7 +11,7 @@
 
 
 
-<title>U.S. Climate &amp; Vector-Borne Disease Project</title>
+<title>index.knit</title>
 
 <script src="site_libs/header-attrs-2.30/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -29,9 +29,6 @@
        h6 {font-size: 12px;}
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
-<script src="site_libs/jqueryui-1.13.2/jquery-ui.min.js"></script>
-<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
-<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
 <script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
@@ -213,69 +210,6 @@ $(document).ready(function () {
 
 
 
-<style type="text/css">
-
-#TOC {
-  margin: 25px 0px 20px 0px;
-}
-@media (max-width: 768px) {
-#TOC {
-  position: relative;
-  width: 100%;
-}
-}
-
-@media print {
-.toc-content {
-  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
-  float: right;
-}
-}
-
-.toc-content {
-  padding-left: 30px;
-  padding-right: 40px;
-}
-
-div.main-container {
-  max-width: 1200px;
-}
-
-div.tocify {
-  width: 20%;
-  max-width: 260px;
-  max-height: 85%;
-}
-
-@media (min-width: 768px) and (max-width: 991px) {
-  div.tocify {
-    width: 25%;
-  }
-}
-
-@media (max-width: 767px) {
-  div.tocify {
-    width: 100%;
-    max-width: none;
-  }
-}
-
-.tocify ul, .tocify li {
-  line-height: 20px;
-}
-
-.tocify-subheader .tocify-item {
-  font-size: 0.90em;
-}
-
-.tocify .list-group-item {
-  border-radius: 0px;
-}
-
-
-</style>
-
-
 
 </head>
 
@@ -283,16 +217,6 @@ div.tocify {
 
 
 <div class="container-fluid main-container">
-
-
-<!-- setup 3col/9col grid for toc_float and main content  -->
-<div class="row">
-<div class="col-xs-12 col-sm-4 col-md-3">
-<div id="TOC" class="tocify">
-</div>
-</div>
-
-<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -354,61 +278,82 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">U.S. Climate &amp; Vector-Borne Disease
-Project</h1>
 
 </div>
 
 
-<div id="welcome" class="section level2">
-<h2>Welcome</h2>
-<p>Welcome to my undergraduate project on <strong>climate change and
-vector-borne disease</strong> in the United States.<br />
-This site pulls together climate datasets and public-health surveillance
-records to explore a central question:</p>
+<blockquote>
+<p><em>“Climate doesn’t just change averages. It shifts the conditions
+that diseases depend on.”</em></p>
+</blockquote>
+<p>This site is my undergraduate capstone-style project on
+<strong>climate change and vector-borne disease</strong> in the United
+States, with a special focus on <strong>West Nile virus</strong> and a
+<strong>spotlight on Utah</strong>, where I live and study.</p>
+<p>Using real climate and disease datasets, I explore a central guiding
+question:</p>
 <blockquote>
 <p><strong>How is a warming, shifting climate shaping the risk of
-mosquito-borne diseases in the U.S.?</strong></p>
+mosquito-borne disease in the U.S., and what might that mean for places
+like Utah?</strong></p>
 </blockquote>
-<p>The project focuses on national patterns, with a special spotlight on
-<strong>Utah</strong>, where I live and study.</p>
 <hr />
-</div>
-<div id="what-this-project-is-about" class="section level2">
-<h2>What This Project Is About</h2>
-<p>This website brings together real data and reproducible R code to
-explore three connected pieces:</p>
+<div id="overview" class="section level2">
+<h2>Overview</h2>
+<p>This website brings together <strong>climate records</strong>,
+<strong>public-health surveillance data</strong>, and a
+<strong>reproducible R workflow</strong> to explore three connected
+pieces:</p>
 <ul>
 <li><strong>Climate trends</strong> – how temperature, precipitation,
-and drought have changed over time.<br />
-</li>
+and drought indicators have changed over time.</li>
 <li><strong>Disease trends</strong> – especially <strong>West Nile
 virus</strong>, one of the most widespread mosquito-borne diseases in
-the U.S.<br />
-</li>
-<li><strong>Climate–disease comparisons</strong> – places where these
-patterns might move together.</li>
+the U.S.</li>
+<li><strong>Climate–disease comparisons</strong> – where patterns in
+climate and disease appear to move together in ways that might
+matter.</li>
 </ul>
-<p>I am not trying to prove a strict cause-and-effect relationship.
-Instead, the project is designed to:</p>
+<p>The goal is <strong>not</strong> to prove strict cause-and-effect.
+Instead, this project:</p>
 <ul>
-<li>Explore <strong>patterns and correlations</strong> that raise good
-questions.<br />
-</li>
-<li>Practice <strong>transparent, reproducible analysis</strong> in
-R.<br />
-</li>
-<li>Connect what we learned in <strong>GEOG 3000: Climate Change in
-Science and Society</strong> to real-world data.<br />
-</li>
-<li>Create a <strong>professional, portfolio-ready project</strong> that
-communicates clearly to non-specialists.</li>
+<li>Looks for <strong>patterns and correlations</strong> that raise good
+questions.</li>
+<li>Practices <strong>transparent, reproducible analysis</strong> in
+R.</li>
+<li>Connects what we learned in <strong>GEOG 3000: Climate Change in
+Science and Society</strong> to real-world data.</li>
+<li>Creates a <strong>professional, portfolio-ready project</strong>
+that communicates clearly to non-specialists.</li>
 </ul>
 <hr />
 </div>
-<div id="the-core-questions" class="section level2">
-<h2>The Core Questions</h2>
-<p>At its heart, this project asks three simple but important
+<div id="why-this-matters" class="section level2">
+<h2>Why This Matters</h2>
+<p>Vector-borne diseases like West Nile virus are tightly linked to
+environmental conditions:</p>
+<ul>
+<li>Mosquitoes depend on <strong>temperature, moisture, and standing
+water</strong>.</li>
+<li><strong>Warmer temperatures</strong> can extend mosquito seasons and
+expand their geographic range.</li>
+<li><strong>Changing precipitation and drought patterns</strong> affect
+where mosquitoes breed and how often people and vectors come into
+contact.</li>
+</ul>
+<p>As the climate warms and weather patterns shift, public health
+agencies, researchers, and communities need to understand how
+<strong>climate change</strong> might influence <strong>disease
+risk</strong>—and where vulnerabilities could grow.</p>
+<p>This project is a small, student-level step in that direction: an
+example of how climate and disease data can be combined to start asking
+<strong>informed questions</strong> about risk in a changing
+climate.</p>
+<hr />
+</div>
+<div id="core-research-questions" class="section level2">
+<h2>Core Research Questions</h2>
+<p>This project is built around three simple but important
 questions:</p>
 <ol style="list-style-type: decimal">
 <li><strong>How is the U.S. climate changing over time?</strong><br />
@@ -416,30 +361,33 @@ questions:</p>
 <li><strong>How are vector-borne diseases—especially West Nile
 virus—changing across space and time?</strong><br />
 </li>
-<li><strong>Do these climate and disease patterns appear to move
-together in ways that might matter for public health?</strong></li>
+<li><strong>Do climate and disease patterns appear to move together in
+ways that might matter for public health, especially in
+Utah?</strong></li>
 </ol>
 <p>Each tab on this site helps answer part of these questions.</p>
 <hr />
 </div>
-<div id="project-context-geog-3000-applied-final-project"
+<div id="project-context-geog-3000-final-project"
 class="section level2">
-<h2>Project Context: GEOG 3000 Applied Final Project</h2>
-<p>This website is the applied portion of my final project for<br />
-<strong>GEOG 3000: Climate Change in Science and Society</strong>.</p>
+<h2>Project Context: GEOG 3000 Final Project</h2>
+<p>This website is the <strong>applied, public-facing product</strong>
+for my final project in<br />
+<strong>GEOG 3000: Climate Change in Science and Society</strong> at
+Utah Valley University.</p>
 <p>For this assignment, students are asked to:</p>
 <ul>
 <li>Focus on a <strong>specific aspect of climate change</strong> and
 its impacts on society.<br />
 </li>
-<li>Use <strong>reputable data sources</strong> (e.g., NOAA, EPA, CDC)
+<li>Use <strong>reputable data sources</strong> (e.g., NOAA, CDC, EPA)
 and documented methods.<br />
 </li>
 <li>Develop a <strong>professional-quality applied product</strong> such
 as a website, report, or tool.<br />
 </li>
-<li>Present findings and be able to explain the data, methods, and
-limitations.<br />
+<li>Present findings and explain the <strong>data, methods, and
+limitations</strong>.<br />
 </li>
 <li>Reflect on how the project supports <strong>academic and
 professional goals</strong>.</li>
@@ -449,39 +397,16 @@ professional goals</strong>.</li>
 <li>The formal <strong>research and analysis paper</strong> is written
 separately.<br />
 </li>
-<li>This <strong>website</strong> serves as the applied, public-facing
-product.<br />
+<li>This <strong>website</strong> is the applied component that
+communicates the work to a broader audience.<br />
 </li>
-<li>Reflection and personal background appear on the
-<strong>About</strong> page.</li>
+<li>Additional personal context and reflection appear on the
+<strong>About This Project</strong> and <strong>Reflection</strong>
+pages.</li>
 </ul>
-<p>When you explore this site, you are seeing the communication side of
-the project—the part designed to make climate–disease connections
-understandable and visually clear.</p>
-<hr />
-</div>
-<div id="why-this-matters" class="section level2">
-<h2>Why This Matters</h2>
-<p>Vector-borne diseases like West Nile virus are closely tied to
-environmental conditions:</p>
-<ul>
-<li>Mosquitoes depend on <strong>temperature, moisture, and standing
-water</strong>.<br />
-</li>
-<li><strong>Warmer temperatures</strong> can extend mosquito seasons and
-expand their geographic range.<br />
-</li>
-<li><strong>Changing precipitation and drought patterns</strong> affect
-where mosquitoes breed and how often people and vectors come into
-contact.</li>
-</ul>
-<p>As the climate warms and weather patterns shift, public health
-agencies, researchers, and communities need to understand how
-<strong>changes in climate</strong> may influence <strong>disease
-risk</strong>.</p>
-<p>This project is a small, student-level step in that direction—an
-example of how climate and disease data can be combined to begin asking
-informed questions about risk in a changing climate.</p>
+<p>When you explore this site, you are seeing the <strong>communication
+side</strong> of the project—the part designed to make climate–disease
+connections understandable and visually clear.</p>
 <hr />
 </div>
 <div id="project-goals" class="section level2">
@@ -489,24 +414,20 @@ informed questions about risk in a changing climate.</p>
 <p>More specifically, this site aims to:</p>
 <ul>
 <li><strong>Combine</strong> climate and disease datasets into a single
-analysis workflow.<br />
+analysis workflow in R.<br />
 </li>
 <li><strong>Visualize</strong> long-term climate trends across the
-United States.<br />
+United States and selected regions.<br />
 </li>
 <li><strong>Examine</strong> patterns in vector-borne disease
 (especially West Nile virus) over space and time.<br />
 </li>
 <li><strong>Compare</strong> climate indicators and disease outcomes to
-see where interesting relationships might appear.<br />
+see where interesting relationships appear.<br />
 </li>
-<li><strong>Document</strong> the R workflow so that, in principle,
+<li><strong>Document</strong> the workflow so that, in principle,
 someone else could reproduce or extend the analysis.</li>
 </ul>
-<p>Later pages also begin to explore <strong>simple models and basic
-forecasting</strong>, using tools like trend lines, linear models, and
-time-series methods to see how climate and disease patterns might be
-related and how they might change in the near future.</p>
 <p>These goals match the course emphasis on <strong>science, society,
 and communication</strong>—not just running numbers, but making them
 meaningful.</p>
@@ -529,7 +450,7 @@ Severity Index (PDSI)<br />
 </li>
 <li>State-level or regional summaries, depending on availability</li>
 </ul>
-<p>These datasets allow us to look at how climate variables have changed
+<p>These datasets allow us to see how climate variables have changed
 over time and how those changes differ across space.</p>
 </div>
 <div id="disease-data" class="section level3">
@@ -543,23 +464,26 @@ related surveillance sources<br />
 so we can explore both temporal and spatial patterns</li>
 </ul>
 <p>Together, the climate and disease datasets form the backbone of the
-visualizations and comparisons on this site.</p>
-<p>Details on each dataset—including sources, key variables, and
-cleaning steps—are documented on the <strong>Data &amp; Methods</strong>
-page.</p>
+visualizations and comparisons on this site.<br />
+Details on each dataset—including sources, key variables, and cleaning
+steps—are documented on the <strong>Data</strong> and
+<strong>Methods</strong> pages.</p>
 <hr />
 </div>
 </div>
-<div id="what-you-will-see-on-this-site" class="section level2">
-<h2>What You Will See on This Site</h2>
+<div id="what-youll-find-on-this-site" class="section level2">
+<h2>What You’ll Find on This Site</h2>
 <p>Use the navigation bar at the top of the page to move through the
 project:</p>
 <ul>
 <li><strong>Home</strong> – Big-picture overview of the project and why
 climate–disease connections matter.<br />
 </li>
-<li><strong>Data &amp; Methods</strong> – Descriptions of each dataset,
-how they were cleaned, and the basic R workflow.<br />
+<li><strong>Data</strong> – Descriptions of each dataset and the
+variables used in the analysis.<br />
+</li>
+<li><strong>Methods</strong> – High-level explanation of how the data
+were cleaned, combined, and analyzed in R.<br />
 </li>
 <li><strong>Climate Trends</strong> – Plots and summaries showing how
 key climate variables have changed over time in the U.S. and selected
@@ -569,29 +493,43 @@ areas.<br />
 disease patterns (especially West Nile virus) across space and
 time.<br />
 </li>
-<li><strong>Comparisons</strong> – Exploratory comparisons and simple
-models that look at climate variables and disease outcomes together,
-including basic forecasting.<br />
+<li><strong>Climate–Disease Comparison</strong> – Exploratory
+comparisons that place climate indicators and disease outcomes side by
+side.<br />
 </li>
-<li><strong>About</strong> – Background about me, this course, and how
-the project fits into my academic and professional goals.</li>
+<li><strong>Utah Focus</strong> – A closer look at climate and disease
+patterns relevant to Utah.<br />
+</li>
+<li><strong>How to Read These Graphs</strong> – A gentle guide for
+anyone who feels “not great at graphs,” explaining how to interpret the
+visuals.<br />
+</li>
+<li><strong>About This Project</strong> – Background about me, the
+course, and how this project fits into my academic and professional
+goals.<br />
+</li>
+<li><strong>Reflection</strong> – Personal reflection on what I learned
+about climate, health, data, and uncertainty.<br />
+</li>
+<li><strong>References</strong> – Data sources and key supporting
+materials.</li>
 </ul>
-<p>Each page is designed to be readable on its own, so visitors can drop
-in anywhere and still understand what they are seeing.</p>
+<p>Each page is designed to stand on its own so visitors can drop in
+anywhere and still understand what they are seeing.</p>
 <hr />
 </div>
 <div id="what-this-project-can-and-cannot-do" class="section level2">
 <h2>What This Project Can and Cannot Do</h2>
 <p>Because this is an <strong>exploratory undergraduate
-project</strong>, there are some clear limits.</p>
+project</strong>, there are clear limits.</p>
 <div id="what-it-cannot-do" class="section level3">
 <h3>What It Cannot Do</h3>
 <ul>
 <li>It does <strong>not</strong> prove causal relationships between
 climate and disease.<br />
 </li>
-<li>It uses <strong>relatively simple methods</strong> (summaries,
-visualizations, linear models, and basic time-series tools).<br />
+<li>It uses <strong>relatively simple</strong> methods (summaries,
+visualizations, and introductory modeling tools).<br />
 </li>
 <li>It does <strong>not</strong> attempt detailed forecasting, risk
 mapping, or policy modeling at a professional level.</li>
@@ -612,15 +550,29 @@ future work.</li>
 </ul>
 <p>This site is meant to be approachable: something that students,
 instructors, and interested visitors can explore without needing a
-background in advanced statistics, but still grounded in real data and
-careful methods.</p>
+background in advanced statistics—while still staying grounded in real
+data and careful methods.</p>
+<hr />
+<div style="width: 100%; overflow: hidden; margin-top: 40px;">
+<p><!-- Optional: replace 'banner.png' with any header image you add to the project -->
+<img src="banner.png"
+       alt="Stylized illustration of climate graphs and mosquito silhouettes representing climate–disease connections"
+       style="width: 100%; max-height: 200px; object-fit: contain; display: block; margin: 0 auto;"></p>
+</div>
+<footer style="font-size: 0.9em; margin-top: 30px; border-top: 1px solid #ddd; padding-top: 10px; color: #555;">
+<p style="margin: 4px 0;">
+Created by Garrett Warr | <strong>GEOG 3000 – Climate Change in Science
+&amp; Society</strong>
+</p>
+<p style="margin: 4px 0;">
+Climate &amp; disease data used for educational purposes only.
+</p>
+</footer>
 </div>
 </div>
 
 
 
-</div>
-</div>
 
 </div>
 
@@ -653,35 +605,6 @@ $(document).ready(function () {
 
 <!-- code folding -->
 
-<script>
-$(document).ready(function ()  {
-
-    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
-    $('.unlisted.unnumbered').addClass('toc-ignore')
-
-    // move toc-ignore selectors from section div to header
-    $('div.section.toc-ignore')
-        .removeClass('toc-ignore')
-        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
-
-    // establish options
-    var options = {
-      selectors: "h1,h2,h3",
-      theme: "bootstrap3",
-      context: '.toc-content',
-      hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
-      },
-      ignoreSelector: ".toc-ignore",
-      scrollTo: 0
-    };
-    options.showAndHide = true;
-    options.smoothScroll = true;
-
-    // tocify
-    var toc = $("#TOC").tocify(options).data("toc-tocify");
-});
-</script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>
