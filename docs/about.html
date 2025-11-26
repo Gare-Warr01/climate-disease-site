@@ -11,7 +11,7 @@
 
 
 
-<title>About</title>
+<title>About This Project</title>
 
 <script src="site_libs/header-attrs-2.30/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -29,9 +29,6 @@
        h6 {font-size: 12px;}
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
-<script src="site_libs/jqueryui-1.13.2/jquery-ui.min.js"></script>
-<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
-<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
 <script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
@@ -213,69 +210,6 @@ $(document).ready(function () {
 
 
 
-<style type="text/css">
-
-#TOC {
-  margin: 25px 0px 20px 0px;
-}
-@media (max-width: 768px) {
-#TOC {
-  position: relative;
-  width: 100%;
-}
-}
-
-@media print {
-.toc-content {
-  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
-  float: right;
-}
-}
-
-.toc-content {
-  padding-left: 30px;
-  padding-right: 40px;
-}
-
-div.main-container {
-  max-width: 1200px;
-}
-
-div.tocify {
-  width: 20%;
-  max-width: 260px;
-  max-height: 85%;
-}
-
-@media (min-width: 768px) and (max-width: 991px) {
-  div.tocify {
-    width: 25%;
-  }
-}
-
-@media (max-width: 767px) {
-  div.tocify {
-    width: 100%;
-    max-width: none;
-  }
-}
-
-.tocify ul, .tocify li {
-  line-height: 20px;
-}
-
-.tocify-subheader .tocify-item {
-  font-size: 0.90em;
-}
-
-.tocify .list-group-item {
-  border-radius: 0px;
-}
-
-
-</style>
-
-
 
 </head>
 
@@ -283,16 +217,6 @@ div.tocify {
 
 
 <div class="container-fluid main-container">
-
-
-<!-- setup 3col/9col grid for toc_float and main content  -->
-<div class="row">
-<div class="col-xs-12 col-sm-4 col-md-3">
-<div id="TOC" class="tocify">
-</div>
-</div>
-
-<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -313,12 +237,6 @@ div.tocify {
   <a href="index.html">Home</a>
 </li>
 <li>
-  <a href="data.html">Data</a>
-</li>
-<li>
-  <a href="methods.html">Methods</a>
-</li>
-<li>
   <a href="climate-trends.html">Climate Trends</a>
 </li>
 <li>
@@ -334,13 +252,13 @@ div.tocify {
   <a href="how-to-read.html">How to Read These Graphs</a>
 </li>
 <li>
+  <a href="methods.html">Methods</a>
+</li>
+<li>
   <a href="about.html">About This Project</a>
 </li>
 <li>
   <a href="reflection.html">Reflection</a>
-</li>
-<li>
-  <a href="references.html">References</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -354,21 +272,192 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">About</h1>
+<h1 class="title toc-ignore">About This Project</h1>
 
 </div>
 
 
-<div id="about-this-project" class="section level2">
-<h2>About This Project</h2>
-<p>This site was created to explore climate–disease relationships using
-R Markdown.</p>
+<div
+style="background-color:#f5f9ff; border-left:4px solid #2c3e50; padding:20px 24px; margin-bottom:30px; border-radius:4px;">
+<p style="margin-top:10px;">
+This website is the applied, public-facing portion of my final project
+for<br />
+<strong>GEOG 3000: Climate Change in Science &amp; Society</strong> at
+Utah Valley University.<br />
+The course examines climate change as both a <strong>physical
+science</strong> topic and a <strong>human, societal, and public-health
+issue</strong>.
+</p>
 </div>
+<hr />
+<div id="course-learning-focus" class="section level2"
+style="background-color:#fcfcfc; padding:20px 24px; border-radius:4px; margin-bottom:25px; box-shadow:0 0 0 1px #eeeeee;">
+<h2>Course Learning Focus</h2>
+<p>GEOG 3000 emphasizes:</p>
+<ul>
+<li>Understanding how climate science works<br />
+</li>
+<li>Exploring vulnerability, exposure, and unequal impacts<br />
+</li>
+<li>Analyzing real datasets and communicating findings clearly<br />
+</li>
+<li>Connecting climate change to health, society, and everyday life</li>
+</ul>
+<p>This project reflects those goals by taking a complex topic—climate
+and vector-borne disease—and presenting it in a way that is grounded in
+data and accessible to non-specialists.</p>
+</div>
+<hr />
+<div id="why-i-chose-this-topic" class="section level2"
+style="background-color:#f9fbf9; padding:20px 24px; border-radius:4px; margin-bottom:25px; box-shadow:0 0 0 1px #e9f0e9;">
+<h2>Why I Chose This Topic</h2>
+<p>As a biotechnology student, I’ve always been drawn to topics that sit
+at the intersection of <strong>science, climate, and public
+health</strong>.<br />
+Vector-borne diseases—especially <strong>West Nile virus</strong>—depend
+heavily on environmental conditions such as temperature and
+moisture.</p>
+<p>Studying how these patterns shift in a warming climate felt both
+scientifically meaningful and personally relevant.<br />
+It also offered a chance to practice real-world data analysis that
+aligns with my long-term career path in science.</p>
+</div>
+<hr />
+<div id="a-capstone-style-project" class="section level2"
+style="background-color:#fcfcff; padding:20px 24px; border-radius:4px; margin-bottom:25px; box-shadow:0 0 0 1px #ececff;">
+<h2>A Capstone-Style Project</h2>
+<p>Although completed within a single course, this work was designed as
+a <strong>mini capstone</strong>:</p>
+<ul>
+<li>Identifying a real, socially relevant question<br />
+</li>
+<li>Collecting and cleaning climate and disease datasets<br />
+</li>
+<li>Building a reproducible workflow in R<br />
+</li>
+<li>Creating visuals that explain complex ideas simply<br />
+</li>
+<li>Designing a public-facing product others can navigate and learn
+from</li>
+</ul>
+<p>A separate written paper provides the full analysis, while this
+website focuses on <strong>communication</strong>—the part meant for
+students, instructors, and community members.</p>
+</div>
+<hr />
+<div id="why-utah" class="section level2"
+style="background-color:#ffffff; padding:20px 24px; border-radius:4px; margin-bottom:25px; box-shadow:0 0 0 1px #eeeeee;">
+<h2>Why Utah?</h2>
+<p>Utah is where I live and study, and it has unique climate
+patterns:<br />
+long-term drought, sharp temperature swings, changing precipitation, and
+increasing heat extremes.</p>
+<p>These conditions shape mosquito activity and influence West Nile
+virus risk.<br />
+Including a Utah-specific section helps connect national trends to a
+local, familiar landscape.</p>
+</div>
+<hr />
+<div id="tools-and-skills-used" class="section level2"
+style="background-color:#f8fafc; padding:20px 24px; border-radius:4px; margin-bottom:25px; box-shadow:0 0 0 1px #e5ecf3;">
+<h2>Tools and Skills Used</h2>
+<p>This project was built using:</p>
+<ul>
+<li><strong>R</strong> for data wrangling, visualization, and
+analysis<br />
+</li>
+<li><strong>R Markdown</strong> for combining text, code, and
+graphics<br />
+</li>
+<li><strong>tidyverse</strong> packages for data cleaning<br />
+</li>
+<li><strong>ggplot2</strong> for visualizations<br />
+</li>
+<li><strong>GitHub Pages</strong> for hosting the site<br />
+</li>
+<li>Climate datasets from <strong>NOAA</strong><br />
+</li>
+<li>Disease datasets from the <strong>CDC</strong> West Nile
+surveillance system</li>
+</ul>
+<p>Completing the full workflow—from raw data to polished
+website—strengthened my data science, communication, and
+project-building skills.</p>
+</div>
+<hr />
+<div id="how-to-navigate-this-site" class="section level2"
+style="background-color:#f9fbff; padding:20px 24px; border-radius:4px; margin-bottom:25px; box-shadow:0 0 0 1px #e4ecff;">
+<h2>How to Navigate This Site</h2>
+<p>Each tab walks through part of the project:</p>
+<ul>
+<li><strong>Climate Trends</strong> – long-term climate changes<br />
+</li>
+<li><strong>Disease Trends</strong> – West Nile virus patterns<br />
+</li>
+<li><strong>Climate–Disease Comparison</strong> – climate and disease
+side-by-side<br />
+</li>
+<li><strong>Utah Focus</strong> – state-level climate and disease
+trends<br />
+</li>
+<li><strong>How to Read These Graphs</strong> – help interpreting
+visuals<br />
+</li>
+<li><strong>Methods</strong> – how the data was cleaned and
+analyzed<br />
+</li>
+<li><strong>Reflection</strong> – what I learned along the way</li>
+</ul>
+<p>You can explore the pages in order or jump directly into the sections
+that interest you.</p>
+</div>
+<hr />
+<div id="project-limitations-transparency" class="section level2"
+style="background-color:#ffffff; padding:20px 24px; border-radius:4px; margin-bottom:25px; box-shadow:0 0 0 1px #eeeeee;">
+<h2>Project Limitations &amp; Transparency</h2>
+<p>This work reflects the scope of an <strong>undergraduate exploratory
+project</strong>.<br />
+It uses publicly available data, simple methods, and focuses on
+<strong>patterns</strong> rather than predictions.</p>
+<p>My goal is <strong>clarity and transparency</strong> rather than
+forecasting or policy-making.<br />
+All code and steps are visible throughout the site to support
+reproducibility.</p>
+</div>
+<hr />
+<div id="about-the-author" class="section level2"
+style="background-color:#fcfcfc; padding:20px 24px; border-radius:4px; margin-top:30px; margin-bottom:25px; box-shadow:0 0 0 1px #e6e6e6;">
+<h2>About the Author</h2>
+<p>My name is <strong>Garrett Warr</strong>, and I’m an undergraduate
+student at Utah Valley University studying
+<strong>Biotechnology</strong>.<br />
+I’m interested in how climate, health, and the environment connect —
+especially how changing conditions influence diseases, ecosystems, and
+the communities we live in.</p>
+<p>Alongside this project, my studies focus on:</p>
+<ul>
+<li>Public health<br />
+</li>
+<li>Microbiology and molecular biology<br />
+</li>
+<li>Data analysis and visualization<br />
+</li>
+<li>Climate science and environmental change</li>
+</ul>
+<p>I enjoy building clear, visual, reproducible work using tools like
+<strong>R</strong>, <strong>ggplot2</strong>, and <strong>GitHub
+Pages</strong>.<br />
+This project is part of my broader goal to grow as a scientist who can
+communicate complex ideas simply and effectively.</p>
+</div>
+<hr />
+<p style="font-size:0.9em; color:#555; margin-top:20px;">
+Created for GEOG 3000 – Climate Change in Science &amp; Society<br />
+<br> Utah Valley University
+</p>
 
 
 
-</div>
-</div>
 
 </div>
 
@@ -401,35 +490,6 @@ $(document).ready(function () {
 
 <!-- code folding -->
 
-<script>
-$(document).ready(function ()  {
-
-    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
-    $('.unlisted.unnumbered').addClass('toc-ignore')
-
-    // move toc-ignore selectors from section div to header
-    $('div.section.toc-ignore')
-        .removeClass('toc-ignore')
-        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
-
-    // establish options
-    var options = {
-      selectors: "h1,h2,h3",
-      theme: "bootstrap3",
-      context: '.toc-content',
-      hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
-      },
-      ignoreSelector: ".toc-ignore",
-      scrollTo: 0
-    };
-    options.showAndHide = true;
-    options.smoothScroll = true;
-
-    // tocify
-    var toc = $("#TOC").tocify(options).data("toc-tocify");
-});
-</script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>

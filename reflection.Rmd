@@ -1,30 +1,171 @@
 ---
-title: "reflection"
-author: "Garrett Warr"
-date: "2025-11-25"
-output: html_document
+title: "Final Reflection"
+output:
+  html_document:
+    toc: false
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
+<div style="background-color:#f5f9ff; border-left:4px solid #2c3e50; padding:20px 24px; margin-bottom:30px; border-radius:4px;">
 
-## R Markdown
+<p style="margin-top:10px;">
+<em>“Learning is not just about mastering concepts — it’s about discovering who you become through the work.”</em>
+</p>
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+<p>
+This project challenged me in ways that felt both academic and personal.  
+It pushed me to bring together climate science, disease ecology, data analysis, and communication — and to build something meaningful from start to finish.  
+It showed me that when data, purpose, and clarity come together, science becomes something people can truly engage with.
+</p>
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+</div>
 
-```{r cars}
-summary(cars)
-```
+---
 
-## Including Plots
+<div style="background-color:#fcfcfc; padding:20px 24px; border-radius:4px; margin-bottom:25px; box-shadow:0 0 0 1px #eeeeee;">
 
-You can also embed plots, for example:
+## What I Learned About Climate and Society
 
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
+Before this course, most of my understanding of climate change came from the scientific side — greenhouse gases, warming trends, seasonal shifts, and datasets.  
+GEOG 3000 introduced a new layer: the <strong>human story</strong>.
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+I learned that:
+
+- Climate change doesn’t affect everyone equally  
+- Vulnerability depends on wealth, location, infrastructure, and history  
+- Environmental shifts show up in public health long before they appear in policy  
+- Data is only useful if people can understand it  
+
+This project helped me see climate change not as a distant scientific issue, but as something that shapes daily life, health risks, and future choices.  
+It connected the science to the society that lives inside it.
+
+</div>
+
+---
+
+<div style="background-color:#f9fbf9; padding:20px 24px; border-radius:4px; margin-bottom:25px; box-shadow:0 0 0 1px #e9f0e9;">
+
+## Growth in Data Skills and Scientific Communication
+
+This was the most technically challenging part of the course — and also where I grew the most.
+
+I strengthened my ability to:
+
+- Clean messy, imperfect real-world datasets  
+- Combine multiple sources into a unified workflow  
+- Debug errors I didn’t expect  
+- Build visualizations people can actually interpret  
+- Host a public-facing website from scratch  
+- Document each step so everything was reproducible  
+
+I also learned how to balance **accuracy** with **accessibility** — something that matters deeply in public health and climate communication.
+
+The biggest shift was realizing that data is not the end of the process.  
+It’s the beginning of a conversation.
+
+</div>
+
+---
+
+<div style="background-color:#fcfcff; padding:20px 24px; border-radius:4px; margin-bottom:25px; box-shadow:0 0 0 1px #ececff;">
+
+## How This Project Supports My Professional Development
+
+As a biotechnology student preparing for a career in research, lab work, and data-driven science, this project became a surprising bridge between disciplines.
+
+It helped me grow in:
+
+- <strong>Analytical thinking</strong> — making sense of environmental and disease patterns  
+- <strong>Technical skill</strong> — using R, ggplot2, and GitHub Pages  
+- <strong>Communication</strong> — translating complex ideas into clear visuals  
+- <strong>Professional independence</strong> — working through an entire project lifecycle  
+
+These skills are essential whether I end up in microbiology, epidemiology, data analysis, or broader biotech research.
+
+This project wasn’t just classwork — it felt like a preview of the kind of scientific problem-solving I want to do in my career.
+
+</div>
+
+---
+
+<div style="background-color:#ffffff; padding:20px 24px; border-radius:4px; margin-bottom:25px; box-shadow:0 0 0 1px #eeeeee;">
+
+## Leveraging This Project for My Future Career
+
+Because this site is hosted publicly, it becomes a direct part of my professional identity.
+
+I can use this project to:
+
+- **Show employers** my ability to work with real, complex datasets  
+- Demonstrate that I can build **reproducible workflows**  
+- Provide a polished example of my **data visualization** skills  
+- Highlight my interest in **climate health, epidemiology, and biotechnology**  
+- Strengthen interviews by discussing a real-world project with measurable skills  
+- Link directly to it on my **resume**, **LinkedIn**, and **applications**  
+
+In biotech and research roles, employers want proof that you can take a problem, break it down, analyze it, and communicate it.
+
+This website is that proof.
+
+</div>
+
+---
+
+<div style="background-color:#f8fafc; padding:20px 24px; border-radius:4px; margin-bottom:25px; box-shadow:0 0 0 1px #e5ecf3;">
+
+## Key Takeaways From This Project
+
+<div style="padding:12px 16px; background-color:#ffffff; border:1px solid #e1e1e1; border-radius:4px;">
+
+- Climate change isn’t just environmental — it’s a public health issue.  
+- Communicating science clearly is as important as running the analysis.  
+- Real datasets are messy, but they teach you more than perfect examples ever could.  
+- Reproducibility matters — both for credibility and future growth.  
+- I’m capable of building full analytical projects from scratch.  
+- This field — where climate, environment, and disease intersect — is something I want to explore more deeply in my career.
+
+</div>
+
+</div>
+
+---
+
+<div style="background-color:#fcfcfc; padding:20px 24px; border-radius:4px; margin-bottom:25px; box-shadow:0 0 0 1px #e6e6e6;">
+
+## Looking Ahead
+
+This project made climate change feel personal.  
+It made public health feel urgent.  
+And it made scientific communication feel meaningful.
+
+As I move forward in my studies and career, I want to continue:
+
+- Asking questions that matter  
+- Working with real-world data  
+- Building projects that serve a purpose  
+- Strengthening my communication skills  
+- Staying curious about how biology and climate shape each other  
+
+This project reminded me why I chose science in the first place:  
+to understand the world more deeply, and to help people make sense of it too.
+
+</div>
+
+---
+
+<div style="background-color:#eef5ff; padding:20px 24px; border-radius:4px; margin-bottom:30px; box-shadow:0 0 0 1px #d3dff5;">
+
+## A Personal Note
+
+This was one of the first projects where I felt genuinely proud of the work — not just because it was finished, but because it meant something.  
+It taught me patience, problem-solving, persistence, and the value of presenting science clearly.
+
+More than anything, it helped me see the kind of scientist I’m becoming:  
+someone who values data, clarity, curiosity, and the connection between people and the planet.
+
+</div>
+
+<p style="font-size:0.9em; color:#555; margin-top:20px;">
+Created for GEOG 3000 – Climate Change in Science & Society  
+<br>
+Utah Valley University
+</p>

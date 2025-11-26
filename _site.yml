@@ -6,10 +6,6 @@ navbar:
   left:
     - text: "Home"
       href: index.html
-    - text: "Data"
-      href: data.html
-    - text: "Methods"
-      href: methods.html
     - text: "Climate Trends"
       href: climate-trends.html
     - text: "Disease Trends"
@@ -20,18 +16,18 @@ navbar:
       href: utah-focus.html
     - text: "How to Read These Graphs"
       href: how-to-read.html
+    - text: "Methods"
+      href: methods.html
     - text: "About This Project"
       href: about.html
     - text: "Reflection"
       href: reflection.html
-    - text: "References"
-      href: references.html
 
 output:
   html_document:
-    theme: flatly      # you can switch back to "cosmo" if you prefer
+    theme: flatly
     highlight: tango
     toc: true
     toc_float: true
     df_print: paged
-    css: styles.css    # <- this is where we’ll control colors and visual polish
+    css: styles.css

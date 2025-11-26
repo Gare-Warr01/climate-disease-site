@@ -1,30 +1,180 @@
 ---
-title: "methods"
-author: "Garrett Warr"
-date: "2025-11-25"
-output: html_document
+output:
+  html_document:
+    toc: false
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
+<div style="background-color:#f5f9ff; border-left:4px solid #2c3e50; padding:20px 24px; margin-bottom:30px; border-radius:4px;">
 
-## R Markdown
+## Overview of the Methods
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+<p style="margin-top:10px;">
+This project was built to be <strong>transparent, reproducible, and easy to follow</strong>.  
+Every graph, table, and comparison on this website comes from a clear, step-by-step workflow in R that someone else could recreate.
+</p>
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+</div>
 
-```{r cars}
-summary(cars)
-```
+---
 
-## Including Plots
+<div style="background-color:#fcfcfc; padding:20px 24px; border-radius:4px; margin-bottom:25px; box-shadow:0 0 0 1px #eeeeee;">
 
-You can also embed plots, for example:
+## Data Sources
 
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
+To explore how climate conditions relate to mosquito-borne disease, this project draws from two major groups of datasets.
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+### **Climate Data**
+- Sourced from NOAA climate summaries.  
+- Includes <strong>temperature</strong>, <strong>precipitation</strong>, and <strong>drought indices</strong> such as PDSI.  
+- Aggregated to the <strong>state–year</strong> level for consistent national comparison.
+
+### **Disease Data**
+- Built from human case data for <strong>West Nile virus (WNV)</strong> from CDC public health surveillance.  
+- Includes reported cases per <strong>state</strong> and <strong>year</strong>.  
+- Focuses on long-term, national patterns rather than short-term outbreaks.
+
+All datasets were used strictly for <strong>educational purposes</strong> in GEOG 3000.
+
+</div>
+
+---
+
+<div style="background-color:#f9fbf9; padding:20px 24px; border-radius:4px; margin-bottom:25px; box-shadow:0 0 0 1px #e9f0e9;">
+
+## Data Cleaning & Preparation
+
+All data cleaning was performed in R using the <strong>tidyverse</strong>.
+
+Key steps included:
+
+- Importing CSVs with <code>readr</code>  
+- Standardizing column names for readability  
+- Filtering to valid states and meaningful years  
+- Checking for missing or inconsistent values  
+- Removing invalid observations (e.g., negative case counts)  
+- Creating tidy, analysis-ready tables  
+
+<p style="margin-top:10px;">
+One of the biggest lessons here: <strong>real-world data is imperfect</strong>, and careful cleaning is essential for honest analysis.
+</p>
+
+</div>
+
+---
+
+<div style="background-color:#fcfcff; padding:20px 24px; border-radius:4px; margin-bottom:25px; box-shadow:0 0 0 1px #ececff;">
+
+## Combining Climate & Disease Data
+
+To make meaningful comparisons, the datasets needed to align.
+
+This involved:
+
+- Standardizing state abbreviations  
+- Ensuring matching year formats  
+- Creating a shared <strong>state–year</strong> joining key  
+- Using <code>dplyr::left_join()</code> to merge climate indicators with WNV case counts  
+
+The unified dataset supports the visuals throughout:
+
+- <strong>Climate Trends</strong>  
+- <strong>Disease Trends</strong>  
+- <strong>Climate–Disease Comparison</strong>  
+- <strong>Utah Focus</strong>  
+
+<p style="margin-top:10px;">
+The goal was not prediction, but to create a clean structure where <strong>visual patterns</strong> could be explored with confidence.
+</p>
+
+</div>
+
+---
+
+<div style="background-color:#ffffff; padding:20px 24px; border-radius:4px; margin-bottom:25px; box-shadow:0 0 0 1px #eeeeee;">
+
+## Visualization & Analysis in R
+
+All graphs were created using <strong>ggplot2</strong>, chosen for its clear, consistent visual style.
+
+The project uses:
+
+- <strong>Line charts</strong> for long-term climate and disease trends  
+- <strong>Faceted plots</strong> for comparing states  
+- <strong>Paired or overlayed visuals</strong> to explore climate–disease relationships  
+- Clean color palettes for accessibility  
+
+This project emphasizes:
+
+- Visual storytelling  
+- Exploratory data analysis  
+- Clear communication  
+
+Readers should be able to interpret trends without needing advanced statistical training.
+
+</div>
+
+---
+
+<div style="background-color:#f8fafc; padding:20px 24px; border-radius:4px; margin-bottom:25px; box-shadow:0 0 0 1px #e5ecf3;">
+
+## Reproducibility & Workflow
+
+A major priority was ensuring this project was reproducible.
+
+This was supported by:
+
+- Building each page in <strong>R Markdown</strong>  
+- Keeping explanations and code together  
+- Using self-updating graphics that knit automatically  
+- Hosting the entire project on <strong>GitHub Pages</strong>  
+- Maintaining a clear and traceable workflow  
+
+<p style="margin-top:10px;">
+Reproducibility is not just a coding goal — it’s a commitment to scientific clarity and transparency.
+</p>
+
+</div>
+
+---
+
+<div style="background-color:#eef5ff; padding:20px 24px; border-radius:4px; margin-bottom:25px; box-shadow:0 0 0 1px #d3dff5;">
+
+## Analytical Choices & Limitations
+
+This project uses <strong>descriptive and visual analysis</strong> rather than predictive modeling.  
+This choice keeps the results accessible and avoids overstating what the datasets can support.
+
+Limitations include:
+
+- Differences in reporting practices between states  
+- Possible under-reporting of human WNV cases  
+- Occasional gaps or inconsistencies in climate data  
+- State-level aggregation that cannot capture city-level variation  
+
+These limitations do not prevent meaningful exploration — they simply frame how the trends should be interpreted.
+
+</div>
+
+---
+
+<div style="background-color:#eaf1ff; padding:20px 24px; border-radius:4px; margin-bottom:30px; box-shadow:0 0 0 1px #d3dff5;">
+
+## Software & Versioning
+
+To support reproducibility, all work was completed using:
+
+- <strong>R</strong> (version 4.x)  
+- <strong>RStudio</strong>  
+- <strong>tidyverse</strong>  
+- <strong>ggplot2</strong>  
+- <strong>knitr</strong> and <strong>rmarkdown</strong> for site rendering  
+
+Using consistent versions ensures that graphs and results remain stable over time.
+
+</div>
+
+<p style="font-size:0.9em; color:#555; margin-top:20px;">
+Methods summary for GEOG 3000 – Climate Change in Science & Society  
+<br>
+Utah Valley University
+</p>
