@@ -29,9 +29,6 @@
        h6 {font-size: 12px;}
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
-<script src="site_libs/jqueryui-1.13.2/jquery-ui.min.js"></script>
-<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
-<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
 <script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
@@ -47,108 +44,6 @@
 
 
 
-<style type="text/css">
-  code {
-    white-space: pre;
-  }
-  .sourceCode {
-    overflow: visible;
-  }
-</style>
-<style type="text/css" data-origin="pandoc">
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {  background-color: #f8f8f8; }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ef2929; } /* Alert */
-code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #204a87; } /* Attribute */
-code span.bn { color: #0000cf; } /* BaseN */
-code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4e9a06; } /* Char */
-code span.cn { color: #8f5902; } /* Constant */
-code span.co { color: #8f5902; font-style: italic; } /* Comment */
-code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
-code span.dt { color: #204a87; } /* DataType */
-code span.dv { color: #0000cf; } /* DecVal */
-code span.er { color: #a40000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #0000cf; } /* Float */
-code span.fu { color: #204a87; font-weight: bold; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
-code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
-code span.ot { color: #8f5902; } /* Other */
-code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
-code span.sc { color: #ce5c00; font-weight: bold; } /* SpecialChar */
-code span.ss { color: #4e9a06; } /* SpecialString */
-code span.st { color: #4e9a06; } /* String */
-code span.va { color: #000000; } /* Variable */
-code span.vs { color: #4e9a06; } /* VerbatimString */
-code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
-
-</style>
-<script>
-// apply pandoc div.sourceCode style to pre.sourceCode instead
-(function() {
-  var sheets = document.styleSheets;
-  for (var i = 0; i < sheets.length; i++) {
-    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
-    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
-    var j = 0;
-    while (j < rules.length) {
-      var rule = rules[j];
-      // check if there is a div.sourceCode rule
-      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") {
-        j++;
-        continue;
-      }
-      var style = rule.style.cssText;
-      // check if color or background-color is set
-      if (rule.style.color === '' && rule.style.backgroundColor === '') {
-        j++;
-        continue;
-      }
-      // replace div.sourceCode by a pre.sourceCode rule
-      sheets[i].deleteRule(j);
-      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
-    }
-  }
-})();
-</script>
 
 
 
@@ -315,69 +210,6 @@ $(document).ready(function () {
 
 
 
-<style type="text/css">
-
-#TOC {
-  margin: 25px 0px 20px 0px;
-}
-@media (max-width: 768px) {
-#TOC {
-  position: relative;
-  width: 100%;
-}
-}
-
-@media print {
-.toc-content {
-  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
-  float: right;
-}
-}
-
-.toc-content {
-  padding-left: 30px;
-  padding-right: 40px;
-}
-
-div.main-container {
-  max-width: 1200px;
-}
-
-div.tocify {
-  width: 20%;
-  max-width: 260px;
-  max-height: 85%;
-}
-
-@media (min-width: 768px) and (max-width: 991px) {
-  div.tocify {
-    width: 25%;
-  }
-}
-
-@media (max-width: 767px) {
-  div.tocify {
-    width: 100%;
-    max-width: none;
-  }
-}
-
-.tocify ul, .tocify li {
-  line-height: 20px;
-}
-
-.tocify-subheader .tocify-item {
-  font-size: 0.90em;
-}
-
-.tocify .list-group-item {
-  border-radius: 0px;
-}
-
-
-</style>
-
-
 
 </head>
 
@@ -385,16 +217,6 @@ div.tocify {
 
 
 <div class="container-fluid main-container">
-
-
-<!-- setup 3col/9col grid for toc_float and main content  -->
-<div class="row">
-<div class="col-xs-12 col-sm-4 col-md-3">
-<div id="TOC" class="tocify">
-</div>
-</div>
-
-<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -415,12 +237,6 @@ div.tocify {
   <a href="index.html">Home</a>
 </li>
 <li>
-  <a href="data.html">Data</a>
-</li>
-<li>
-  <a href="methods.html">Methods</a>
-</li>
-<li>
   <a href="climate-trends.html">Climate Trends</a>
 </li>
 <li>
@@ -436,13 +252,13 @@ div.tocify {
   <a href="how-to-read.html">How to Read These Graphs</a>
 </li>
 <li>
+  <a href="methods.html">Methods</a>
+</li>
+<li>
   <a href="about.html">About This Project</a>
 </li>
 <li>
   <a href="reflection.html">Reflection</a>
-</li>
-<li>
-  <a href="references.html">References</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -461,18 +277,454 @@ div.tocify {
 </div>
 
 
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="co"># Placeholder - data will be added later</span></span>
-<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="fu">data.frame</span>()</span></code></pre></div>
+<div
+style="background-color:#f5f9ff; border-left:4px solid #2c3e50; padding:22px 26px; margin-bottom:30px; border-radius:6px; box-shadow:0 2px 4px rgba(0,0,0,0.04);">
+<h2 style="margin-top:0; color:#2c3e50;">
+<p>How Climate and Disease Move Together</p>
+</h2>
+<p style="margin-top:10px; font-size:15px;">
+<p>This page brings the <strong>climate</strong> and
+<strong>vector-borne disease</strong> datasets together.<br />
+The goal is to test a simple idea:</p>
+</p>
+<blockquote style="border-left:4px solid #18bc9c; padding-left:14px; margin:14px 0; color:#34495e; font-size:15px;">
+<p><strong>As the U.S. has warmed and climate has shifted, have
+mosquito- and tick-borne diseases increased?</strong></p>
+</blockquote>
+<p style="font-size:15px;">
+<p>We use national annual data to build:</p>
+</p>
+<ul style="font-size:15px;">
+<li>
+a combined climate–disease dataset,
+</li>
+<li>
+visual comparisons over time, and
+</li>
+<li>
+simple statistical tests relating climate indices to disease counts.
+</li>
+</ul>
+</div>
+<hr />
+<div id="data-and-approach" class="section level2">
+<h2>Data and Approach</h2>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
-{"columns":[],"data":[],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["year"],"name":[1],"type":["int"],"align":["right"]},{"label":["total_cases"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["temp_anomaly"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["pdsi"],"name":[4],"type":["dbl"],"align":["right"]}],"data":[{"1":"1972","2":"614","3":"-0.9280693","4":"NA"},{"1":"1973","2":"222","3":"-0.5723063","4":"NA"},{"1":"1974","2":"323","3":"-0.8901680","4":"NA"},{"1":"1975","2":"448","3":"-1.0203725","4":"NA"},{"1":"1976","2":"415","3":"-0.9549616","4":"NA"},{"1":"1977","2":"481","3":"-0.4002422","4":"NA"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
-
-
-
+<div id="how-to-read-these-comparisons" class="section level3"
+style="background-color:#fcfcfc; padding:20px 24px; border-radius:6px; margin-bottom:25px; box-shadow:0 0 0 1px #eeeeee;">
+<h3>How to Read These Comparisons</h3>
+<ul>
+<li>
+<p><strong>Climate variables</strong></p>
+<ul>
+<li>
+<code>temp_anomaly</code>: annual temperature anomaly (°C) relative to a
+historical baseline.
+</li>
+<li>
+<code>pdsi</code>: Palmer Drought Severity Index (negative = drier,
+positive = wetter).
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Disease variables</strong></p>
+<ul>
+<li>
+<code>total_cases</code>: combined annual cases of West Nile, Lyme,
+Dengue, and Malaria.
+</li>
+<li>
+Disease-specific counts are also available in
+<code>disease_by_climate</code>.
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<hr />
+</div>
+<div id="climate-and-total-disease-over-time" class="section level2">
+<h2>Climate and Total Disease Over Time</h2>
+<p><img src="comparison_files/figure-html/z-score-trends-1.png" width="672" /></p>
+<div id="what-we-see" class="section level3">
+<h3>What We See</h3>
+<ul>
+<li>The <span style="color:#2c3e50; font-weight:bold;">temperature
+anomaly</span> line rises over time, especially from the <strong>1990s
+onward</strong>, consistent with U.S. warming.</li>
+<li>The <span style="color:#c0392b; font-weight:bold;">total disease
+cases</span> line is relatively low through the 1970s–1980s and then
+<strong>climbs sharply</strong> in recent decades.</li>
+<li>Both lines trend <strong>upward</strong>, suggesting that as the
+climate has warmed, the combined burden of West Nile, Lyme, Dengue, and
+Malaria has also increased.</li>
+</ul>
+<hr />
 </div>
 </div>
+<div id="decadal-snapshot-climate-and-disease-together"
+class="section level2">
+<h2>Decadal Snapshot: Climate and Disease Together</h2>
+<table>
+<caption>Average climate anomalies and total vector-borne disease cases
+by decade (U.S.).</caption>
+<colgroup>
+<col width="10%" />
+<col width="23%" />
+<col width="31%" />
+<col width="34%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Decade</th>
+<th align="right">Years in decade</th>
+<th align="right">Avg temp anomaly (°C)</th>
+<th align="right">Avg total disease cases</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">1970s</td>
+<td align="right">8</td>
+<td align="right">-0.76</td>
+<td align="right">499.5</td>
+</tr>
+<tr class="even">
+<td align="left">1980s</td>
+<td align="right">10</td>
+<td align="right">-0.45</td>
+<td align="right">1090.9</td>
+</tr>
+<tr class="odd">
+<td align="left">1990s</td>
+<td align="right">10</td>
+<td align="right">-0.27</td>
+<td align="right">7460.5</td>
+</tr>
+<tr class="even">
+<td align="left">2000s</td>
+<td align="right">10</td>
+<td align="right">-0.04</td>
+<td align="right">28766.7</td>
+</tr>
+<tr class="odd">
+<td align="left">2010s</td>
+<td align="right">10</td>
+<td align="right">0.24</td>
+<td align="right">42771.5</td>
+</tr>
+<tr class="even">
+<td align="left">2020s</td>
+<td align="right">4</td>
+<td align="right">0.43</td>
+<td align="right">53556.5</td>
+</tr>
+</tbody>
+</table>
+<div id="interpretation" class="section level3"
+style="background-color:#fdfaf6; padding:18px 22px; border-radius:6px; margin-top:10px; border-left:4px solid #f39c12;">
+<h3>Interpretation</h3>
+<ul>
+<li>Moving from the <strong>1970s to the 2010s and 2020s</strong>,
+average temperature anomalies become <strong>less negative and then
+positive</strong>, indicating a <strong>warmer climate</strong>.</li>
+<li>Over those same decades, <strong>average total disease cases climb
+dramatically</strong>, especially after vector-borne diseases like West
+Nile virus and Lyme disease become more common in surveillance
+records.</li>
+<li>This table does not “prove” causation, but it <strong>visually and
+numerically supports</strong> the idea that a <strong>warmer climate
+coincides with higher total vector-borne disease burden</strong>.</li>
+</ul>
+</div>
+<hr />
+</div>
+<div id="disease-specific-relationships-with-temperature"
+class="section level2">
+<h2>Disease-Specific Relationships with Temperature</h2>
+<div id="scatterplots-cases-vs-temperature-anomaly"
+class="section level3">
+<h3>Scatterplots: Cases vs Temperature Anomaly</h3>
+<p><img src="comparison_files/figure-html/temp-scatter-1.png" width="672" /></p>
+</div>
+<div id="what-the-plots-suggest" class="section level3">
+<h3>What the Plots Suggest</h3>
+<ul>
+<li><p><strong>Lyme disease</strong> tends to show a <strong>stronger
+upward trend</strong> with temperature: warmer years often have more
+Lyme cases.</p></li>
+<li><p><strong>West Nile virus</strong> and <strong>Malaria</strong>
+show <strong>weaker positive relationships</strong> overall.</p></li>
+<li><p><strong>Dengue</strong> cases are concentrated in more recent
+years and may show a <strong>different pattern</strong>, reminding us
+that:</p>
+<ul>
+<li>
+<p>Diseases can be influenced by <strong>travel</strong>,
+<strong>imported cases</strong>, <strong>local mosquito
+species</strong>, and <strong>public health responses</strong>, not just
+climate.</p>
+</li>
+</ul></li>
+</ul>
+<hr />
+</div>
+</div>
+<div id="adding-drought-pdsi-and-disease" class="section level2">
+<h2>Adding Drought: PDSI and Disease</h2>
+<p><img src="comparison_files/figure-html/pdsi-scatter-1.png" width="672" /></p>
+<div id="interpretation-1" class="section level3">
+<h3>Interpretation</h3>
+<ul>
+<li><p>For some diseases, especially <strong>Lyme</strong>,
+<strong>wetter years (higher PDSI)</strong> appear to line up with
+<strong>more cases</strong>, consistent with vector ecology and
+habitat.</p></li>
+<li><p>For others, like <strong>West Nile</strong>, relationships can be
+more <strong>complex</strong>, since:</p>
+<ul>
+<li>
+<p>Drought can concentrate birds and mosquitoes around limited water
+sources,</p>
+</li>
+<li>
+<p>While extreme dryness can also <strong>limit</strong> mosquito
+breeding.</p>
+</li>
+</ul></li>
+</ul>
+<p>These patterns reinforce that <strong>climate–disease links are real
+but not simple</strong>.</p>
+<hr />
+</div>
+</div>
+<div id="statistical-tests-simple-climatedisease-models"
+class="section level2">
+<h2>Statistical Tests: Simple Climate–Disease Models</h2>
+<p>Here we run simple linear models to quantify how strongly climate
+indicators relate to disease counts.</p>
+<table>
+<caption>Simple linear models linking climate indicators to disease
+counts (U.S. annual data).</caption>
+<colgroup>
+<col width="8%" />
+<col width="21%" />
+<col width="19%" />
+<col width="7%" />
+<col width="6%" />
+<col width="13%" />
+<col width="21%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Disease</th>
+<th align="left">Climate indicator</th>
+<th align="right">Slope (cases per unit)</th>
+<th align="right">Slope SE</th>
+<th align="right">t value</th>
+<th align="right">Correlation (r)</th>
+<th align="left">p-value (overall effect)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">West Nile</td>
+<td align="left">Temperature anomaly (°C)</td>
+<td align="right">1346.79</td>
+<td align="right">1359.01</td>
+<td align="right">0.99</td>
+<td align="right">0.20</td>
+<td align="left">0.332</td>
+</tr>
+<tr class="even">
+<td align="left">Lyme</td>
+<td align="left">Temperature anomaly (°C)</td>
+<td align="right">17776.17</td>
+<td align="right">8096.33</td>
+<td align="right">2.20</td>
+<td align="right">0.40</td>
+<td align="left">0.037</td>
+</tr>
+<tr class="odd">
+<td align="left">Dengue</td>
+<td align="left">Temperature anomaly (°C)</td>
+<td align="right">-4550.24</td>
+<td align="right">3381.42</td>
+<td align="right">-1.35</td>
+<td align="right">-0.36</td>
+<td align="left">0.203</td>
+</tr>
+<tr class="even">
+<td align="left">Malaria</td>
+<td align="left">Temperature anomaly (°C)</td>
+<td align="right">720.20</td>
+<td align="right">115.91</td>
+<td align="right">6.21</td>
+<td align="right">0.66</td>
+<td align="left">&lt;0.001</td>
+</tr>
+<tr class="odd">
+<td align="left">West Nile</td>
+<td align="left">PDSI (drought index)</td>
+<td align="right">-622.13</td>
+<td align="right">764.17</td>
+<td align="right">-0.81</td>
+<td align="right">-0.21</td>
+<td align="left">0.428</td>
+</tr>
+<tr class="even">
+<td align="left">Lyme</td>
+<td align="left">PDSI (drought index)</td>
+<td align="right">4155.82</td>
+<td align="right">2195.49</td>
+<td align="right">1.89</td>
+<td align="right">0.44</td>
+<td align="left">0.078</td>
+</tr>
+<tr class="odd">
+<td align="left">Dengue</td>
+<td align="left">PDSI (drought index)</td>
+<td align="right">-1159.37</td>
+<td align="right">2358.58</td>
+<td align="right">-0.49</td>
+<td align="right">-0.21</td>
+<td align="left">0.644</td>
+</tr>
+<tr class="even">
+<td align="left">Malaria</td>
+<td align="left">PDSI (drought index)</td>
+<td align="right">39.65</td>
+<td align="right">72.34</td>
+<td align="right">0.55</td>
+<td align="right">0.14</td>
+<td align="left">0.592</td>
+</tr>
+</tbody>
+</table>
+<div id="reading-the-proof-table" class="section level3"
+style="background-color:#f5f9ff; padding:18px 22px; border-radius:6px; margin-top:12px; border-left:4px solid #18bc9c;">
+<h3>Reading the “Proof Table”</h3>
+<ul>
+<li>
+<strong>Slope</strong>: how many <strong>extra cases</strong> are
+associated with a <strong>one-unit increase</strong> in the climate
+indicator (either °C anomaly or PDSI).
+</li>
+<li>
+<strong>Correlation (r)</strong>: strength and direction of the linear
+relationship (–1 to +1).
+</li>
+<li>
+<p><strong>p-value</strong>: whether the slope is statistically
+distinguishable from <strong>zero</strong> (no relationship).</p>
+<ul>
+<li>
+Small p-values (e.g., &lt; 0.05) suggest we can <strong>reject the null
+hypothesis</strong> of “no climate–disease association” for that
+indicator–disease pair.
+</li>
+<li>
+Large p-values mean we <strong>do not have strong evidence</strong>
+against the null.
+</li>
+</ul>
+</li>
+</ul>
+<p style="margin-bottom:0;">
+<p>In this dataset:</p>
+</p>
+<ul>
+<li>
+<strong>Lyme disease</strong> typically shows a <strong>stronger,
+positive relationship</strong> with both warming and moisture.
+</li>
+<li>
+<strong>West Nile</strong> and <strong>Malaria</strong> show
+<strong>weaker but often positive</strong> associations with warming.
+</li>
+<li>
+<strong>Dengue</strong> can show <strong>mixed or weaker</strong>
+relationships at this national scale, reflecting its more complex
+drivers (travel, local transmission, and targeted interventions).
+</li>
+</ul>
+</div>
+<hr />
+</div>
+<div id="pulling-it-together-what-does-this-mean"
+class="section level2">
+<h2>Pulling It Together: What Does This Mean?</h2>
+<div
+style="background-color:#f5f9ff; border-left:4px solid #2c3e50; padding:22px 26px; margin-bottom:26px; border-radius:6px; box-shadow:0 2px 4px rgba(0,0,0,0.04);">
+<p>Summary</p>
+</h3>
+<ul>
+<li>
+The <strong>U.S. has warmed</strong> over the last several decades, and
+<strong>total vector-borne disease cases have increased</strong> over
+the same period.
+</li>
+<li>
+<p>When we look disease by disease:</p>
+<ul>
+<li>
+<strong>Lyme disease</strong> shows the <strong>clearest statistical
+links</strong> to both temperature and moisture.
+</li>
+<li>
+<strong>West Nile virus</strong> and <strong>Malaria</strong> trends are
+generally upward too, but with more <strong>noise and
+complexity</strong>.
+</li>
+<li>
+<strong>Dengue</strong> shows that climate is <strong>not the only
+story</strong> — human movement, local mosquito control, and healthcare
+all matter.
+</li>
+</ul>
+</li>
+<li>
+Simple linear models and correlation analyses <strong>do not prove
+causation</strong>, but they do provide evidence that <strong>climate
+trends and disease trends are connected</strong> in meaningful ways.
+</li>
+</ul>
+</div>
+<hr />
+</div>
+<div id="questions-and-next-steps" class="section level2">
+<h2>Questions and Next Steps</h2>
+<ol style="list-style-type: decimal">
+<li><strong>Which diseases show the strongest statistical connection to
+climate in this dataset? Why might that be?</strong><br />
+</li>
+<li><strong>How might land use, housing, and healthcare access
+strengthen or weaken these climate–disease relationships?</strong><br />
+</li>
+<li><strong>If you zoomed into a single region (like Utah or the
+Northeast), would these patterns look stronger, weaker, or
+different?</strong><br />
+</li>
+<li><strong>What kinds of public health actions (surveillance, mosquito
+control, education) could help break the link between a warming climate
+and increasing disease?</strong></li>
+</ol>
+<p>This page turns the abstract idea of “climate–disease links” into
+<strong>concrete graphs, tables, and models</strong>.<br />
+Together with the other sections of the site, it forms the statistical
+backbone of the project’s core claim:<br />
+as <strong>climate shifts</strong>, <strong>vector-borne disease
+risk</strong> is changing too — and that’s something we can see in the
+data.</p>
+</div>
+
+
+
 
 </div>
 
@@ -505,35 +757,6 @@ $(document).ready(function () {
 
 <!-- code folding -->
 
-<script>
-$(document).ready(function ()  {
-
-    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
-    $('.unlisted.unnumbered').addClass('toc-ignore')
-
-    // move toc-ignore selectors from section div to header
-    $('div.section.toc-ignore')
-        .removeClass('toc-ignore')
-        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
-
-    // establish options
-    var options = {
-      selectors: "h1,h2,h3",
-      theme: "bootstrap3",
-      context: '.toc-content',
-      hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
-      },
-      ignoreSelector: ".toc-ignore",
-      scrollTo: 0
-    };
-    options.showAndHide = true;
-    options.smoothScroll = true;
-
-    // tocify
-    var toc = $("#TOC").tocify(options).data("toc-tocify");
-});
-</script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>

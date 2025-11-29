@@ -1,8 +1,443 @@
 ---
 title: "Disease Trends"
-output: html_document
+output:
+  html_document:
+    toc: false
 ---
 
-```{r}
-# Placeholder - data will be added later
-data.frame()
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo    = FALSE,   # hide code by default
+  message = FALSE,
+  warning = FALSE
+)
+
+library(tidyverse)
+library(broom)
+library(scales)
+library(knitr)
+
+# Global plotting theme + color palettes to make things feel cohesive
+theme_set(
+  theme_minimal(base_size = 13) +
+    theme(
+      plot.title       = element_text(face = "bold", size = 15),
+      plot.subtitle    = element_text(color = "#555555"),
+      panel.grid.minor = element_blank()
+    )
+)
+
+# Color palette for diseases (used across plots)
+disease_palette <- c(
+  "West Nile" = "#0072B2",
+  "Lyme"      = "#D55E00",
+  "Dengue"    = "#009E73",
+  "Malaria"   = "#CC79A7"
+)
+
+# Color palette for regions (for Lyme by region)
+region_palette <- c(
+  "Northeast"       = "#1b9e77",
+  "Midwest"         = "#d95f02",
+  "South"           = "#7570b3",
+  "West"            = "#e7298a",
+  "Pacific"         = "#66a61e",
+  "Mountain"        = "#1f78b4",
+  "New England"     = "#a6761d",
+  "Middle Atlantic" = "#6a3d9a",
+  "Other"           = "#e6ab02"
+)
+```
+
+```{r load-data}
+# This page uses the cleaned disease datasets used across the project.
+# Adjust file paths if your folder structure is different.
+
+master_disease <- readr::read_csv("data/master_disease_comparison.csv") |>
+  mutate(
+    year    = as.integer(year),
+    cases   = as.numeric(cases),
+    disease = factor(
+      disease,
+      levels = c("West Nile", "Lyme", "Dengue", "Malaria")
+    )
+  )
+
+lyme_year    <- readr::read_csv("data/lyme_year.csv")
+lyme_region  <- readr::read_csv("data/lyme_region.csv")
+west_nile    <- readr::read_csv("data/west_nile_year.csv")
+malaria_long <- readr::read_csv("data/malaria_long_combined.csv")
+dengue_week  <- readr::read_csv("data/dengue_weekly_clean.csv")
+```
+
+<div style="background-color:#f5f9ff; border-left:4px solid #2c3e50; padding:20px 24px; margin-bottom:30px; border-radius:4px;">
+
+## Overview of U.S. Disease Trends
+
+<p style="margin-top:10px;">
+This page looks at how <strong>vector-borne diseases</strong> have changed over time in the United States:
+<strong>Lyme disease</strong>, <strong>West Nile virus</strong>, <strong>Dengue</strong>, and <strong>Malaria</strong>.
+</p>
+
+<p>
+The goal here is simple: show the patterns clearly, explain what they mean in <strong>plain language</strong>, and keep the heavy R code hidden in the background.
+Every chart and table comes directly from the cleaned datasets used throughout this project.
+</p>
+
+</div>
+
+---
+
+## What Are These Diseases?
+
+```{r disease-info-table}
+disease_info <- tribble(
+  ~Disease,   ~Main_vector,                       ~Typical_exposure,                                  ~Why_it_matters_in_climate_work,
+  "Lyme",     "Blacklegged ticks",               "Wooded / brushy areas where ticks live",          "Tick habitat and season length are climate-sensitive.",
+  "West Nile","Culex mosquitoes",                "Mosquito bites, often in warm seasons",           "Mosquito abundance depends on temperature and water.",
+  "Dengue",   "Aedes aegypti / Aedes albopictus","Mosquitoes in warm, often urban environments",    "Expands with warming, urbanization, and global travel.",
+  "Malaria",  "Anopheles mosquitoes",            "Mostly acquired while traveling to endemic areas","Classic climate-sensitive disease globally; still a travel risk."
+)
+
+kable(
+  disease_info,
+  caption = "Quick overview of each disease and why it shows up in a climate project."
+)
+```
+
+This table sets the stage: all four diseases involve **vectors** (ticks or mosquitoes) whose ranges and activity patterns are shaped by **temperature, moisture, and habitat**.
+
+---
+
+## Big Picture: Comparing Disease Trends Over Time
+
+```{r all-diseases-plot}
+plot_all_trends <- master_disease |>
+  ggplot(aes(x = year, y = cases, color = disease)) +
+  geom_line(linewidth = 1.2, alpha = 0.9) +
+  geom_point(size = 1.8,   alpha = 0.9) +
+  scale_color_manual(values = disease_palette) +
+  scale_y_continuous(labels = comma) +
+  labs(
+    title    = "Reported Vector-Borne Disease Cases in the U.S. Over Time",
+    subtitle = "Lyme disease shows a steady climb; others appear as lower-level or spiky risks",
+    x        = "Year",
+    y        = "Reported cases (U.S. total)",
+    color    = "Disease"
+  ) +
+  theme(
+    legend.position = "bottom",
+    legend.title    = element_text(face = "bold")
+  )
+
+plot_all_trends
+```
+
+<p style="margin-top:10px;">
+Each colored line is the <strong>national case count</strong> over time for one disease.
+Think of this as four different “heartbeats” on the same chart.
+</p>
+
+Key visual takeaways:
+
+- **Lyme disease (orange)**: A clear, long-term <strong>upward climb</strong>.
+- **West Nile (blue)**: Big <strong>early spikes</strong> after it appears, then ongoing activity at lower levels.
+- **Dengue (green)** and **Malaria (pink)**: Much <strong>lower national totals</strong>, but still important for travel and future climate risk.
+
+---
+
+### Are These Trends Statistically Meaningful?
+
+To put numbers behind what we see, we can fit a simple **straight-line trend** for each disease:  
+“On average, are cases going up, going down, or staying flat over time?”
+
+```{r trend-stats}
+trend_stats <- master_disease |>
+  group_by(disease) |>
+  nest() |>
+  mutate(
+    model  = map(data, ~ lm(cases ~ year, data = .x)),
+    tidied = map(model, broom::tidy)
+  ) |>
+  unnest(tidied) |>
+  filter(term == "year") |>
+  mutate(
+    slope_per_decade = estimate * 10,
+    direction = case_when(
+      estimate > 0 & p.value < 0.05 ~ "Increasing (statistically significant)",
+      estimate < 0 & p.value < 0.05 ~ "Decreasing (statistically significant)",
+      TRUE ~ "No clear linear trend"
+    )
+  ) |>
+  select(
+    Disease = disease,
+    `Trend direction` = direction,
+    `Change in cases per decade (model slope)` = slope_per_decade,
+    `p-value` = p.value
+  )
+
+kable(
+  trend_stats,
+  digits  = c(NA, NA, 0, 3),
+  caption = "Simple straight-line trends in reported cases over time for each disease."
+)
+```
+
+How to read this without a stats class:
+
+- **Trend direction** tells you if the data support a real increase or decrease.
+- **Change in cases per decade** is a rough “speed” of change.
+- A **p-value below 0.05** means the model is confident the trend is not just noise.
+
+In this dataset:
+
+- **Lyme disease**: A clear, statistically significant **increase**.
+- **West Nile, Dengue, Malaria**: No single clean up-or-down line; their stories are more about **outbreaks** and **low-level persistence** than a steady climb.
+
+---
+
+## Extra View: Which Disease Dominates Each Year?
+
+Sometimes it helps to see **relative share**, not just raw counts.
+
+```{r share-plot}
+share_df <- master_disease |>
+  group_by(year) |>
+  mutate(
+    total_cases_year = sum(cases, na.rm = TRUE),
+    share            = cases / total_cases_year
+  ) |>
+  ungroup()
+
+plot_share <- share_df |>
+  ggplot(aes(x = year, y = share, fill = disease)) +
+  geom_area(alpha = 0.9) +
+  scale_fill_manual(values = disease_palette) +
+  scale_y_continuous(labels = percent_format(accuracy = 1)) +
+  labs(
+    title    = "Share of Total Vector-Borne Disease Cases by Disease",
+    subtitle = "Shows which disease makes up most of the reported burden each year",
+    x        = "Year",
+    y        = "Share of all reported vector-borne cases",
+    fill     = "Disease"
+  ) +
+  theme(
+    legend.position = "bottom",
+    legend.title    = element_text(face = "bold")
+  )
+
+plot_share
+```
+
+This area plot shows, year by year, **which disease dominates** the total reported vector-borne disease burden in the dataset.
+
+---
+
+## Lyme Disease: A Slow, Steady Climb
+
+```{r lyme-national-plot}
+plot_lyme_national <- lyme_year |>
+  ggplot(aes(x = year, y = cases)) +
+  geom_col(fill = "#D55E00", alpha = 0.9) +
+  geom_smooth(
+    method    = "loess",
+    se        = FALSE,
+    linewidth = 1.2,
+    color     = "#333333"
+  ) +
+  scale_y_continuous(labels = comma) +
+  labs(
+    title    = "Lyme Disease Cases in the U.S. Over Time",
+    subtitle = "Bars show yearly totals; the black curve highlights the long-term rise",
+    x        = "Year",
+    y        = "Reported Lyme cases"
+  )
+
+plot_lyme_national
+```
+
+What this shows in everyday language:
+
+- Cases were **much lower** in the earlier part of the record.
+- The black curve is the **smoothed trend** – it climbs steadily, even when individual years bounce up and down.
+- This fits what we hear from public health agencies: Lyme risk has become **more widespread and intense**.
+
+---
+
+### Lyme by Region: Place Matters
+
+```{r lyme-region-plot}
+plot_lyme_region <- lyme_region |>
+  ggplot(aes(x = year, y = cases, color = region)) +
+  geom_line(linewidth = 1.1) +
+  scale_color_manual(values = region_palette) +
+  scale_y_continuous(labels = scales::comma) +
+  labs(
+    title    = "Lyme Disease by U.S. Region",
+    subtitle = "Stronger regional clustering shows where Lyme risk is highest",
+    x        = "Year",
+    y        = "Reported Lyme cases",
+    color    = "Region"
+  ) +
+  theme(
+    legend.position = "bottom",
+    legend.title    = element_text(face = "bold")
+  )
+
+plot_lyme_region
+```
+
+How to read this:
+
+- Each line is a **broad U.S. region**, not an individual state.
+- Some regions sit **much higher** than others — a sign that Lyme is **geographically concentrated**.
+- Lower lines don’t mean “no risk,” but they do show that **where you live** shapes your odds of exposure.
+
+---
+
+## West Nile Virus: Big Outbreaks, Then a Persistent Background
+
+```{r west-nile-plot}
+plot_west_nile <- west_nile |>
+  ggplot(aes(x = year, y = reported_cases)) +
+  geom_col(fill = "#0072B2", alpha = 0.9) +
+  scale_y_continuous(labels = comma) +
+  labs(
+    title    = "West Nile Virus Cases in the U.S. Over Time",
+    subtitle = "A major early outbreak followed by recurring, lower-level activity",
+    x        = "Year",
+    y        = "Reported West Nile cases"
+  )
+
+plot_west_nile
+```
+
+What stands out:
+
+- After West Nile arrived in the U.S., the early 2000s saw **huge spikes**.
+- It never fully disappeared — instead, it settled into a pattern of **recurring outbreaks**.
+- That “spiky” shape is exactly what you might expect from a **mosquito-borne disease** shaped by **weather, birds, and water**.
+
+---
+
+## Malaria: Low Numbers, High Global Relevance
+
+```{r malaria-plot}
+malaria_cases <- malaria_long |>
+  filter(metric == "cases")
+
+plot_malaria <- malaria_cases |>
+  ggplot(aes(x = year, y = value)) +
+  geom_line(linewidth = 1.2, alpha = 0.9, color = "#CC79A7") +
+  geom_point(size = 1.8, alpha = 0.9, color = "#CC79A7") +
+  scale_y_continuous(labels = comma) +
+  labs(
+    title    = "Reported Malaria Cases in the U.S.",
+    subtitle = "Mostly travel-related infections; local transmission is rare",
+    x        = "Year",
+    y        = "Reported malaria cases"
+  )
+
+plot_malaria
+```
+
+Reading this:
+
+- Case counts stay **relatively low** throughout the record.
+- The year-to-year wiggles reflect changes in **travel patterns** and **screening**, more than major local outbreaks.
+- Malaria is still important in a climate project because globally it is **highly climate-sensitive**, and travel keeps it on the radar for U.S. public health.
+
+---
+
+## Dengue: Seasonal Peaks and an Emerging Signal
+
+```{r dengue-weekly-plot}
+plot_dengue_week <- dengue_week |>
+  ggplot(aes(x = week, y = cases)) +
+  geom_line(linewidth = 1.2, alpha = 0.9, color = "#009E73") +
+  geom_point(size = 1.4, alpha = 0.9, color = "#00664D") +
+  labs(
+    title    = "Dengue Cases by Week of Year (Combined 2010–2024)",
+    subtitle = "Peaks in certain weeks hint at a seasonal pattern",
+    x        = "Week of year",
+    y        = "Reported dengue cases"
+  )
+
+plot_dengue_week
+```
+
+How to interpret a “week-of-year” graph:
+
+- The x-axis is 1–52, representing the **weeks of a calendar year**.
+- The line shows **combined weekly totals** across multiple years.
+- Peaks around certain weeks suggest that dengue cases are more common during **specific parts of the year**, which echoes what we know about **warm-season mosquito activity**.
+
+---
+
+## Side-by-Side Summary: How Do These Diseases Compare?
+
+```{r summary-table}
+summary_table <- master_disease |>
+  group_by(disease) |>
+  summarise(
+    first_year          = min(year, na.rm = TRUE),
+    last_year           = max(year, na.rm = TRUE),
+    total_cases         = sum(cases, na.rm = TRUE),
+    mean_cases_per_year = mean(cases, na.rm = TRUE),
+    max_cases           = max(cases, na.rm = TRUE),
+    year_max_cases      = year[which.max(cases)]
+  ) |>
+  ungroup() |>
+  mutate(
+    total_cases         = round(total_cases, 0),
+    mean_cases_per_year = round(mean_cases_per_year, 0),
+    max_cases           = round(max_cases, 0)
+  )
+
+kable(
+  summary_table,
+  format  = "html",
+  caption = "Overall comparison of reported cases by disease (U.S. totals).",
+  col.names = c(
+    "Disease",
+    "First year in dataset",
+    "Last year in dataset",
+    "Total cases (all years)",
+    "Average cases per year",
+    "Highest single-year case count",
+    "Year with highest count"
+  )
+)
+```
+
+How to read this in everyday terms:
+
+- **Total cases** and **average per year** tell you how common each disease has been in this dataset.
+- **Highest single-year count** and its year highlight **big outbreak years**.
+- Together, these numbers confirm what the graphs show: Lyme is the **slow burn**, West Nile is the **spiky newcomer**, and Dengue and Malaria are **lower but important signals**.
+
+---
+
+<div style="background-color:#fcfcfc; padding:20px 24px; border-radius:4px; margin-bottom:25px; box-shadow:0 0 0 1px #eeeeee;">
+
+## Putting It All Together
+
+- **Lyme disease**: Long-term, statistically significant <strong>increase</strong>, with strong regional patterns.
+- **West Nile virus**: <strong>Explosive introduction</strong> followed by recurring outbreaks.
+- **Malaria and Dengue**: Lower U.S. case counts but tightly tied to <strong>global climate and travel</strong>.
+
+<p style="margin-top:10px;">
+All four are examples of how <strong>climate, ecology, and human behavior</strong> interact:
+warming temperatures, changing precipitation, land use, and travel patterns all play a role.
+</p>
+
+<p>
+This page is the “disease-only” side of the story.  
+In the next sections of the website, these patterns are compared against <strong>climate indicators</strong> to ask:
+</p>
+
+<p style="margin-top:5px; font-style:italic;">
+“When climate shifts, do these disease curves shift with it?”
+</p>
+
+</div>

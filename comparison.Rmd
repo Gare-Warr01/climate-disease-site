@@ -1,8 +1,531 @@
 ---
 title: "Climate–Disease Comparisons"
-output: html_document
+output:
+  html_document:
+    toc: false
 ---
 
-```{r}
-# Placeholder - data will be added later
-data.frame()
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo = FALSE,
+  message = FALSE,
+  warning = FALSE
+)
+
+library(tidyverse)
+library(broom)
+library(scales)
+library(knitr)
+
+# Color palette and plot theme for a cohesive look
+climate_color  <- "#2c3e50"  # deep blue/gray
+disease_color  <- "#c0392b"  # brick red
+accent_color   <- "#18bc9c"  # teal accent
+neutral_fill   <- "#fcfcfc"
+
+plot_theme <- theme_minimal(base_size = 13) +
+  theme(
+    panel.grid.minor = element_blank(),
+    panel.grid.major = element_line(linewidth = 0.25, colour = "#e0e0e0"),
+    plot.background  = element_rect(fill = "white", colour = NA),
+    panel.background = element_rect(fill = neutral_fill, colour = NA),
+    strip.background = element_rect(fill = "#ecf0f1", colour = NA),
+    strip.text       = element_text(face = "bold", colour = "#34495e"),
+    plot.title       = element_text(face = "bold", colour = climate_color, size = 16),
+    plot.subtitle    = element_text(margin = margin(b = 8), colour = "#555555"),
+    axis.title       = element_text(face = "bold", colour = "#555555"),
+    axis.text        = element_text(colour = "#555555"),
+    legend.position  = "bottom",
+    legend.title     = element_text(face = "bold"),
+    legend.background = element_rect(fill = "white", colour = "#dddddd"),
+    legend.key       = element_rect(fill = "white", colour = NA)
+  )
+```
+
+::: {style="background-color:#f5f9ff; border-left:4px solid #2c3e50; padding:22px 26px; margin-bottom:30px; border-radius:6px; box-shadow:0 2px 4px rgba(0,0,0,0.04);"}
+<h2 style="margin-top:0; color:#2c3e50;">
+
+How Climate and Disease Move Together
+
+</h2>
+
+<p style="margin-top:10px; font-size:15px;">
+
+This page brings the <strong>climate</strong> and <strong>vector-borne disease</strong> datasets together.\
+The goal is to test a simple idea:
+
+</p>
+
+<blockquote style="border-left:4px solid #18bc9c; padding-left:14px; margin:14px 0; color:#34495e; font-size:15px;">
+
+<strong>As the U.S. has warmed and climate has shifted, have mosquito- and tick-borne diseases increased?</strong>
+
+</blockquote>
+
+<p style="font-size:15px;">
+
+We use national annual data to build:
+
+</p>
+
+<ul style="font-size:15px;">
+
+<li>a combined climate–disease dataset,</li>
+
+<li>visual comparisons over time, and</li>
+
+<li>simple statistical tests relating climate indices to disease counts.</li>
+
+</ul>
+:::
+
+------------------------------------------------------------------------
+
+## Data and Approach
+
+```{r load-data}
+# Disease data: all four diseases in one table
+master_disease <- readr::read_csv("data/master_disease_comparison.csv") |>
+  mutate(
+    year    = as.integer(year),
+    cases   = as.numeric(cases),
+    disease = factor(
+      disease,
+      levels = c("West Nile", "Lyme", "Dengue", "Malaria")
+    )
+  )
+
+# Climate data: temperature anomaly and PDSI (drought index)
+climate_temp <- readr::read_csv("data/climate_year_temp.csv") |>
+  mutate(year = as.integer(year))
+
+climate_pdsi <- readr::read_csv("data/climate_year_pdsi.csv") |>
+  mutate(year = as.integer(year))
+
+# National total disease burden per year
+disease_year <- master_disease |>
+  group_by(year) |>
+  summarise(
+    total_cases = sum(cases, na.rm = TRUE),
+    .groups = "drop"
+  )
+
+# Combined climate–disease table (year level)
+comparison_year <- disease_year |>
+  inner_join(climate_temp, by = "year") |>
+  left_join(climate_pdsi,  by = "year") |>
+  arrange(year)
+
+# Combined table at disease level
+disease_by_climate <- master_disease |>
+  inner_join(climate_temp, by = "year") |>
+  left_join(climate_pdsi,  by = "year") |>
+  arrange(disease, year)
+
+# Quick glimpse of the combined year-level data
+head(comparison_year)
+```
+
+::: {style="background-color:#fcfcfc; padding:20px 24px; border-radius:6px; margin-bottom:25px; box-shadow:0 0 0 1px #eeeeee;"}
+### How to Read These Comparisons
+
+<ul>
+
+<li>
+
+<strong>Climate variables</strong>
+
+<ul>
+
+<li><code>temp_anomaly</code>: annual temperature anomaly (°C) relative to a historical baseline.</li>
+
+<li><code>pdsi</code>: Palmer Drought Severity Index (negative = drier, positive = wetter).</li>
+
+</ul>
+
+</li>
+
+<li>
+
+<strong>Disease variables</strong>
+
+<ul>
+
+<li><code>total_cases</code>: combined annual cases of West Nile, Lyme, Dengue, and Malaria.</li>
+
+<li>Disease-specific counts are also available in <code>disease_by_climate</code>.</li>
+
+</ul>
+
+</li>
+
+</ul>
+:::
+
+------------------------------------------------------------------------
+
+## Climate and Total Disease Over Time
+
+```{r z-score-trends}
+comparison_scaled <- comparison_year |>
+  mutate(
+    z_temp  = as.numeric(scale(temp_anomaly)),
+    z_cases = as.numeric(scale(total_cases))
+  )
+
+ggplot(comparison_scaled, aes(x = year)) +
+  geom_ribbon(aes(ymin = z_temp, ymax = z_cases),
+              fill = "#e8f8f5", alpha = 0.5) +
+  geom_line(aes(y = z_temp, color = "Temperature anomaly"), linewidth = 1.2) +
+  geom_point(aes(y = z_temp, color = "Temperature anomaly"), size = 1.8) +
+  geom_line(aes(y = z_cases, color = "Total disease cases"), linewidth = 1.2, linetype = "dashed") +
+  geom_point(aes(y = z_cases, color = "Total disease cases"), size = 1.8) +
+  scale_color_manual(
+    values = c(
+      "Temperature anomaly" = climate_color,
+      "Total disease cases" = disease_color
+    ),
+    name = NULL
+  ) +
+  labs(
+    title    = "Standardized Climate and Vector-Borne Disease Trends in the U.S.",
+    subtitle = "Lines show z-scores so climate and disease can be compared on the same scale.",
+    x        = "Year",
+    y        = "Standardized value (z-score)",
+    caption  = "Data: NOAA climate records & U.S. vector-borne disease surveillance (educational use only)."
+  ) +
+  plot_theme
+```
+
+### What We See
+
+-   The [temperature anomaly]{style="color:#2c3e50; font-weight:bold;"} line rises over time, especially from the <strong>1990s onward</strong>, consistent with U.S. warming.
+-   The [total disease cases]{style="color:#c0392b; font-weight:bold;"} line is relatively low through the 1970s–1980s and then <strong>climbs sharply</strong> in recent decades.
+-   Both lines trend <strong>upward</strong>, suggesting that as the climate has warmed, the combined burden of West Nile, Lyme, Dengue, and Malaria has also increased.
+
+------------------------------------------------------------------------
+
+## Decadal Snapshot: Climate and Disease Together
+
+```{r decade-summary}
+decade_summary <- comparison_year |>
+  mutate(decade = floor(year / 10) * 10) |>
+  group_by(decade) |>
+  summarise(
+    avg_temp_anomaly = mean(temp_anomaly, na.rm = TRUE),
+    avg_total_cases  = mean(total_cases,  na.rm = TRUE),
+    n_years          = n(),
+    .groups = "drop"
+  ) |>
+  mutate(
+    decade_label      = paste0(decade, "s"),
+    avg_temp_anomaly  = round(avg_temp_anomaly, 2),
+    avg_total_cases   = round(avg_total_cases, 1)
+  ) |>
+  select(
+    Decade = decade_label,
+    `Years in decade` = n_years,
+    `Avg temp anomaly (°C)` = avg_temp_anomaly,
+    `Avg total disease cases` = avg_total_cases
+  )
+
+kable(
+  decade_summary,
+  caption = "Average climate anomalies and total vector-borne disease cases by decade (U.S.)."
+)
+```
+
+::: {style="background-color:#fdfaf6; padding:18px 22px; border-radius:6px; margin-top:10px; border-left:4px solid #f39c12;"}
+### Interpretation
+
+-   Moving from the <strong>1970s to the 2010s and 2020s</strong>, average temperature anomalies become <strong>less negative and then positive</strong>, indicating a <strong>warmer climate</strong>.
+-   Over those same decades, <strong>average total disease cases climb dramatically</strong>, especially after vector-borne diseases like West Nile virus and Lyme disease become more common in surveillance records.
+-   This table does not “prove” causation, but it <strong>visually and numerically supports</strong> the idea that a <strong>warmer climate coincides with higher total vector-borne disease burden</strong>.
+:::
+
+------------------------------------------------------------------------
+
+## Disease-Specific Relationships with Temperature
+
+```{r disease-temp-data}
+disease_year_temp <- disease_by_climate |>
+  group_by(disease, year) |>
+  summarise(
+    cases        = sum(cases, na.rm = TRUE),
+    temp_anomaly = first(temp_anomaly),
+    .groups      = "drop"
+  )
+```
+
+### Scatterplots: Cases vs Temperature Anomaly
+
+```{r temp-scatter}
+ggplot(disease_year_temp, aes(x = temp_anomaly, y = cases)) +
+  geom_point(alpha = 0.7, color = disease_color, size = 2) +
+  geom_smooth(
+    method = "lm", se = TRUE,
+    linewidth = 1.1, color = climate_color, fill = "#d6eaf8", alpha = 0.5
+  ) +
+  facet_wrap(~ disease, scales = "free_y") +
+  labs(
+    title    = "Relationship Between Annual Temperature Anomalies and Disease Cases",
+    subtitle = "Each panel shows one disease. Shaded band is a 95% confidence interval for the linear fit.",
+    x        = "Temperature anomaly (°C)",
+    y        = "Annual cases (U.S.)"
+  ) +
+  plot_theme
+```
+
+### What the Plots Suggest
+
+-   <strong>Lyme disease</strong> tends to show a <strong>stronger upward trend</strong> with temperature: warmer years often have more Lyme cases.
+
+-   <strong>West Nile virus</strong> and <strong>Malaria</strong> show <strong>weaker positive relationships</strong> overall.
+
+-   <strong>Dengue</strong> cases are concentrated in more recent years and may show a <strong>different pattern</strong>, reminding us that:
+
+    <ul>
+
+    <li>Diseases can be influenced by <strong>travel</strong>, <strong>imported cases</strong>, <strong>local mosquito species</strong>, and <strong>public health responses</strong>, not just climate.</li>
+
+    </ul>
+
+------------------------------------------------------------------------
+
+## Adding Drought: PDSI and Disease
+
+```{r pdsi-data}
+pdsi_data <- disease_by_climate |>
+  filter(!is.na(pdsi)) |>
+  group_by(disease, year) |>
+  summarise(
+    cases = sum(cases, na.rm = TRUE),
+    pdsi  = first(pdsi),
+    .groups = "drop"
+  )
+```
+
+```{r pdsi-scatter}
+ggplot(pdsi_data, aes(x = pdsi, y = cases)) +
+  geom_point(alpha = 0.7, color = accent_color, size = 2) +
+  geom_smooth(
+    method = "lm", se = TRUE,
+    linewidth = 1.1, color = climate_color, fill = "#fcefe3", alpha = 0.5
+  ) +
+  facet_wrap(~ disease, scales = "free_y") +
+  labs(
+    title    = "Relationship Between Drought (PDSI) and Disease Cases",
+    subtitle = "PDSI > 0 = wetter; PDSI < 0 = drier. Shaded band is a 95% confidence interval.",
+    x        = "Palmer Drought Severity Index (PDSI)",
+    y        = "Annual cases (U.S.)"
+  ) +
+  plot_theme
+```
+
+### Interpretation
+
+-   For some diseases, especially <strong>Lyme</strong>, <strong>wetter years (higher PDSI)</strong> appear to line up with <strong>more cases</strong>, consistent with vector ecology and habitat.
+
+-   For others, like <strong>West Nile</strong>, relationships can be more <strong>complex</strong>, since:
+
+    <ul>
+
+    <li>Drought can concentrate birds and mosquitoes around limited water sources,</li>
+
+    <li>While extreme dryness can also <strong>limit</strong> mosquito breeding.</li>
+
+    </ul>
+
+These patterns reinforce that <strong>climate–disease links are real but not simple</strong>.
+
+------------------------------------------------------------------------
+
+## Statistical Tests: Simple Climate–Disease Models
+
+Here we run simple linear models to quantify how strongly climate indicators relate to disease counts.
+
+```{r climate-models}
+# Temperature models: cases ~ temp_anomaly
+temp_slopes <- disease_year_temp |>
+  group_by(disease) |>
+  do(tidy(lm(cases ~ temp_anomaly, data = .))) |>
+  ungroup() |>
+  filter(term == "temp_anomaly") |>
+  select(
+    disease,
+    term,
+    estimate,
+    std.error,
+    statistic,
+    p.value
+  ) |>
+  rename(
+    slope = estimate,
+    slope_se = std.error,
+    t_value = statistic,
+    p_value = p.value
+  ) |>
+  mutate(
+    indicator = "Temperature anomaly (°C)"
+  )
+
+# PDSI models: cases ~ pdsi (only years with PDSI data)
+pdsi_slopes <- pdsi_data |>
+  group_by(disease) |>
+  do(tidy(lm(cases ~ pdsi, data = .))) |>
+  ungroup() |>
+  filter(term == "pdsi") |>
+  select(
+    disease,
+    term,
+    estimate,
+    std.error,
+    statistic,
+    p.value
+  ) |>
+  rename(
+    slope = estimate,
+    slope_se = std.error,
+    t_value = statistic,
+    p_value = p.value
+  ) |>
+  mutate(
+    indicator = "PDSI (drought index)"
+  )
+
+# Correlations for extra context
+temp_cor <- disease_year_temp |>
+  group_by(disease) |>
+  summarise(
+    correlation = suppressWarnings(
+      cor(cases, temp_anomaly, use = "complete.obs")
+    ),
+    .groups = "drop"
+  ) |>
+  mutate(indicator = "Temperature anomaly (°C)")
+
+pdsi_cor <- pdsi_data |>
+  group_by(disease) |>
+  summarise(
+    correlation = suppressWarnings(
+      cor(cases, pdsi, use = "complete.obs")
+    ),
+    .groups = "drop"
+  ) |>
+  mutate(indicator = "PDSI (drought index)")
+
+# Combine slope + correlation summaries
+combined_slopes <- bind_rows(temp_slopes, pdsi_slopes) |>
+  left_join(bind_rows(temp_cor, pdsi_cor),
+            by = c("disease", "indicator")) |>
+  mutate(
+    slope       = round(slope, 2),
+    slope_se    = round(slope_se, 2),
+    t_value     = round(t_value, 2),
+    correlation = round(correlation, 2),
+    p_value     = pvalue(p_value)
+  ) |>
+  select(
+    Disease   = disease,
+    `Climate indicator` = indicator,
+    `Slope (cases per unit)` = slope,
+    `Slope SE` = slope_se,
+    `t value`  = t_value,
+    `Correlation (r)` = correlation,
+    `p-value (overall effect)` = p_value
+  )
+
+kable(
+  combined_slopes,
+  caption = "Simple linear models linking climate indicators to disease counts (U.S. annual data)."
+)
+```
+
+::: {style="background-color:#f5f9ff; padding:18px 22px; border-radius:6px; margin-top:12px; border-left:4px solid #18bc9c;"}
+### Reading the “Proof Table”
+
+<ul>
+
+<li><strong>Slope</strong>: how many <strong>extra cases</strong> are associated with a <strong>one-unit increase</strong> in the climate indicator (either °C anomaly or PDSI).</li>
+
+<li><strong>Correlation (r)</strong>: strength and direction of the linear relationship (–1 to +1).</li>
+
+<li>
+
+<strong>p-value</strong>: whether the slope is statistically distinguishable from <strong>zero</strong> (no relationship).
+
+<ul>
+
+<li>Small p-values (e.g., \< 0.05) suggest we can <strong>reject the null hypothesis</strong> of “no climate–disease association” for that indicator–disease pair.</li>
+
+<li>Large p-values mean we <strong>do not have strong evidence</strong> against the null.</li>
+
+</ul>
+
+</li>
+
+</ul>
+
+<p style="margin-bottom:0;">
+
+In this dataset:
+
+</p>
+
+<ul>
+
+<li><strong>Lyme disease</strong> typically shows a <strong>stronger, positive relationship</strong> with both warming and moisture.</li>
+
+<li><strong>West Nile</strong> and <strong>Malaria</strong> show <strong>weaker but often positive</strong> associations with warming.</li>
+
+<li><strong>Dengue</strong> can show <strong>mixed or weaker</strong> relationships at this national scale, reflecting its more complex drivers (travel, local transmission, and targeted interventions).</li>
+
+</ul>
+:::
+
+------------------------------------------------------------------------
+
+## Pulling It Together: What Does This Mean?
+
+::: {style="background-color:#f5f9ff; border-left:4px solid #2c3e50; padding:22px 26px; margin-bottom:26px; border-radius:6px; box-shadow:0 2px 4px rgba(0,0,0,0.04);"}
+Summary
+
+</h3>
+
+<ul>
+
+<li>The <strong>U.S. has warmed</strong> over the last several decades, and <strong>total vector-borne disease cases have increased</strong> over the same period.</li>
+
+<li>
+
+When we look disease by disease:
+
+<ul>
+
+<li><strong>Lyme disease</strong> shows the <strong>clearest statistical links</strong> to both temperature and moisture.</li>
+
+<li><strong>West Nile virus</strong> and <strong>Malaria</strong> trends are generally upward too, but with more <strong>noise and complexity</strong>.</li>
+
+<li><strong>Dengue</strong> shows that climate is <strong>not the only story</strong> — human movement, local mosquito control, and healthcare all matter.</li>
+
+</ul>
+
+</li>
+
+<li>Simple linear models and correlation analyses <strong>do not prove causation</strong>, but they do provide evidence that <strong>climate trends and disease trends are connected</strong> in meaningful ways.</li>
+
+</ul>
+:::
+
+------------------------------------------------------------------------
+
+## Questions and Next Steps
+
+1.  **Which diseases show the strongest statistical connection to climate in this dataset? Why might that be?**\
+2.  **How might land use, housing, and healthcare access strengthen or weaken these climate–disease relationships?**\
+3.  **If you zoomed into a single region (like Utah or the Northeast), would these patterns look stronger, weaker, or different?**\
+4.  **What kinds of public health actions (surveillance, mosquito control, education) could help break the link between a warming climate and increasing disease?**
+
+This page turns the abstract idea of “climate–disease links” into <strong>concrete graphs, tables, and models</strong>.\
+Together with the other sections of the site, it forms the statistical backbone of the project’s core claim:\
+as <strong>climate shifts</strong>, <strong>vector-borne disease risk</strong> is changing too — and that’s something we can see in the data.

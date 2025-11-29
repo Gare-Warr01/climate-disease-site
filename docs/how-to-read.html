@@ -9,11 +9,9 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
-<meta name="author" content="Garrett Warr" />
 
-<meta name="date" content="2025-11-25" />
 
-<title>how-to-read</title>
+<title>How to Read These Graphs</title>
 
 <script src="site_libs/header-attrs-2.30/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -31,12 +29,11 @@
        h6 {font-size: 12px;}
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
-<script src="site_libs/jqueryui-1.13.2/jquery-ui.min.js"></script>
-<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
-<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
 <script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -317,69 +314,6 @@ $(document).ready(function () {
 
 
 
-<style type="text/css">
-
-#TOC {
-  margin: 25px 0px 20px 0px;
-}
-@media (max-width: 768px) {
-#TOC {
-  position: relative;
-  width: 100%;
-}
-}
-
-@media print {
-.toc-content {
-  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
-  float: right;
-}
-}
-
-.toc-content {
-  padding-left: 30px;
-  padding-right: 40px;
-}
-
-div.main-container {
-  max-width: 1200px;
-}
-
-div.tocify {
-  width: 20%;
-  max-width: 260px;
-  max-height: 85%;
-}
-
-@media (min-width: 768px) and (max-width: 991px) {
-  div.tocify {
-    width: 25%;
-  }
-}
-
-@media (max-width: 767px) {
-  div.tocify {
-    width: 100%;
-    max-width: none;
-  }
-}
-
-.tocify ul, .tocify li {
-  line-height: 20px;
-}
-
-.tocify-subheader .tocify-item {
-  font-size: 0.90em;
-}
-
-.tocify .list-group-item {
-  border-radius: 0px;
-}
-
-
-</style>
-
-
 
 </head>
 
@@ -387,16 +321,6 @@ div.tocify {
 
 
 <div class="container-fluid main-container">
-
-
-<!-- setup 3col/9col grid for toc_float and main content  -->
-<div class="row">
-<div class="col-xs-12 col-sm-4 col-md-3">
-<div id="TOC" class="tocify">
-</div>
-</div>
-
-<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -417,12 +341,6 @@ div.tocify {
   <a href="index.html">Home</a>
 </li>
 <li>
-  <a href="data.html">Data</a>
-</li>
-<li>
-  <a href="methods.html">Methods</a>
-</li>
-<li>
   <a href="climate-trends.html">Climate Trends</a>
 </li>
 <li>
@@ -438,13 +356,13 @@ div.tocify {
   <a href="how-to-read.html">How to Read These Graphs</a>
 </li>
 <li>
+  <a href="methods.html">Methods</a>
+</li>
+<li>
   <a href="about.html">About This Project</a>
 </li>
 <li>
   <a href="reflection.html">Reflection</a>
-</li>
-<li>
-  <a href="references.html">References</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -458,45 +376,806 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">how-to-read</h1>
-<h4 class="author">Garrett Warr</h4>
-<h4 class="date">2025-11-25</h4>
+<h1 class="title toc-ignore">How to Read These Graphs</h1>
 
 </div>
 
 
-<div id="r-markdown" class="section level2">
-<h2>R Markdown</h2>
-<p>This is an R Markdown document. Markdown is a simple formatting
-syntax for authoring HTML, PDF, and MS Word documents. For more details
-on using R Markdown see <a href="http://rmarkdown.rstudio.com"
-class="uri">http://rmarkdown.rstudio.com</a>.</p>
-<p>When you click the <strong>Knit</strong> button a document will be
-generated that includes both content as well as the output of any
-embedded R code chunks within the document. You can embed an R code
-chunk like this:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">summary</span>(cars)</span></code></pre></div>
-<pre><code>##      speed           dist       
-##  Min.   : 4.0   Min.   :  2.00  
-##  1st Qu.:12.0   1st Qu.: 26.00  
-##  Median :15.0   Median : 36.00  
-##  Mean   :15.4   Mean   : 42.98  
-##  3rd Qu.:19.0   3rd Qu.: 56.00  
-##  Max.   :25.0   Max.   :120.00</code></pre>
+<div id="how-to-read-the-graphs-on-this-site" class="section level2"
+style="background-color:#f5f9ff; border-left:4px solid #2c3e50; padding:20px 24px; margin-bottom:30px; border-radius:4px;">
+<h2>How to Read the Graphs on This Site</h2>
+<p style="margin-top:10px;">
+This page is a <strong>help guide</strong> for all of the graphs and
+tables on this website.<br />
+You’ll see:
+</p>
+<ul>
+<li>
+How to read the <strong>axes</strong>, <strong>lines</strong>, and
+<strong>colors</strong>.
+</li>
+<li>
+Examples of climate, disease, and climate–disease graphs.
+</li>
+<li>
+<strong>Click-to-open R code</strong> for every example — so you can
+recreate them.
+</li>
+</ul>
+<p>
+If you’re new to R, climate data, or disease surveillance, this page is
+meant to make everything as clear and reproducible as possible.
+</p>
 </div>
-<div id="including-plots" class="section level2">
-<h2>Including Plots</h2>
-<p>You can also embed plots, for example:</p>
-<p><img src="how-to-read_files/figure-html/pressure-1.png" width="672" /></p>
-<p>Note that the <code>echo = FALSE</code> parameter was added to the
-code chunk to prevent printing of the R code that generated the
-plot.</p>
+<hr />
+<div id="how-the-data-are-loaded" class="section level2">
+<h2>1. How the Data Are Loaded</h2>
+<p>All of the graphs and tables in this project start from the same few
+cleaned datasets.</p>
+<ul>
+<li><strong>Climate:</strong> yearly temperature anomalies, drought
+index (PDSI), etc.<br />
+</li>
+<li><strong>Disease:</strong> yearly counts of West Nile, Lyme, Dengue,
+and Malaria.<br />
+</li>
+<li><strong>Regional data:</strong> Lyme disease by U.S. region.<br />
+</li>
+<li><strong>Joined data:</strong> a merged file that links climate and
+disease by year.</li>
+</ul>
+<details>
+<summary>
+<strong>Show R code: loading the main datasets</strong>
+</summary>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="fu">library</span>(scales)</span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="fu">library</span>(broom)</span>
+<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span>
+<span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" tabindex="-1"></a>climate_temp <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">&quot;data/climate_year_temp.csv&quot;</span>) <span class="sc">|&gt;</span></span>
+<span id="cb1-8"><a href="#cb1-8" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">year =</span> <span class="fu">as.integer</span>(year))</span>
+<span id="cb1-9"><a href="#cb1-9" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" tabindex="-1"></a>climate_pdsi <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">&quot;data/climate_year_pdsi.csv&quot;</span>) <span class="sc">|&gt;</span></span>
+<span id="cb1-11"><a href="#cb1-11" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">year =</span> <span class="fu">as.integer</span>(year))</span>
+<span id="cb1-12"><a href="#cb1-12" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" tabindex="-1"></a>master_disease <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">&quot;data/master_disease_comparison.csv&quot;</span>) <span class="sc">|&gt;</span></span>
+<span id="cb1-14"><a href="#cb1-14" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb1-15"><a href="#cb1-15" tabindex="-1"></a>    <span class="at">year    =</span> <span class="fu">as.integer</span>(year),</span>
+<span id="cb1-16"><a href="#cb1-16" tabindex="-1"></a>    <span class="at">cases   =</span> <span class="fu">as.numeric</span>(cases),</span>
+<span id="cb1-17"><a href="#cb1-17" tabindex="-1"></a>    <span class="at">disease =</span> <span class="fu">factor</span>(</span>
+<span id="cb1-18"><a href="#cb1-18" tabindex="-1"></a>      disease,</span>
+<span id="cb1-19"><a href="#cb1-19" tabindex="-1"></a>      <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;West Nile&quot;</span>, <span class="st">&quot;Lyme&quot;</span>, <span class="st">&quot;Dengue&quot;</span>, <span class="st">&quot;Malaria&quot;</span>)</span>
+<span id="cb1-20"><a href="#cb1-20" tabindex="-1"></a>    )</span>
+<span id="cb1-21"><a href="#cb1-21" tabindex="-1"></a>  )</span>
+<span id="cb1-22"><a href="#cb1-22" tabindex="-1"></a></span>
+<span id="cb1-23"><a href="#cb1-23" tabindex="-1"></a>lyme_region <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">&quot;data/lyme_region.csv&quot;</span>) <span class="sc">|&gt;</span></span>
+<span id="cb1-24"><a href="#cb1-24" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb1-25"><a href="#cb1-25" tabindex="-1"></a>    <span class="at">year  =</span> <span class="fu">as.integer</span>(year),</span>
+<span id="cb1-26"><a href="#cb1-26" tabindex="-1"></a>    <span class="at">cases =</span> <span class="fu">as.numeric</span>(cases)</span>
+<span id="cb1-27"><a href="#cb1-27" tabindex="-1"></a>  )</span>
+<span id="cb1-28"><a href="#cb1-28" tabindex="-1"></a></span>
+<span id="cb1-29"><a href="#cb1-29" tabindex="-1"></a>climate_disease_join <span class="ot">&lt;-</span> master_disease <span class="sc">|&gt;</span></span>
+<span id="cb1-30"><a href="#cb1-30" tabindex="-1"></a>  <span class="fu">filter</span>(disease <span class="sc">==</span> <span class="st">&quot;West Nile&quot;</span>) <span class="sc">|&gt;</span></span>
+<span id="cb1-31"><a href="#cb1-31" tabindex="-1"></a>  <span class="fu">inner_join</span>(climate_temp, <span class="at">by =</span> <span class="st">&quot;year&quot;</span>)</span></code></pre></div>
+</details>
+<hr />
+</div>
+<div id="general-tips-for-reading-the-graphs" class="section level2">
+<h2>2. General Tips for Reading the Graphs</h2>
+<div
+style="background-color:#fcfcfc; padding:18px 22px; border-radius:4px; margin-bottom:25px; box-shadow:0 0 0 1px #eeeeee;">
+<div id="axes" class="section level3">
+<h3>Axes</h3>
+<ul>
+<li>The <strong>x-axis</strong> is almost always <strong>time</strong>
+(year or week).<br />
+</li>
+<li>The <strong>y-axis</strong> is usually:
+<ul>
+<li>a <strong>climate value</strong> (temperature anomaly, drought
+index), or<br />
+</li>
+<li>a <strong>disease outcome</strong> (number of cases).</li>
+</ul></li>
+</ul>
+</div>
+<div id="lines-colors-and-panels" class="section level3">
+<h3>Lines, Colors, and Panels</h3>
+<ul>
+<li><strong>Lines</strong> show how values change over time.<br />
+</li>
+<li><strong>Smooth curves</strong> (trend lines) show the <em>overall
+pattern</em>, not just noisy ups and downs.<br />
+</li>
+<li><strong>Color</strong> usually separates:
+<ul>
+<li>different <strong>diseases</strong>, or<br />
+</li>
+<li>different <strong>regions</strong>.<br />
+</li>
+</ul></li>
+<li><strong>Facets/panels</strong> are small multiples:
+<ul>
+<li>each panel is a subgraph for one disease or region.</li>
+</ul></li>
+</ul>
+</div>
+<div id="tables" class="section level3">
+<h3>Tables</h3>
+<ul>
+<li>Tables give the <strong>exact numbers</strong> behind the
+graphs.<br />
+</li>
+<li>They are useful when you want to know “How many cases were there in
+this specific year?” instead of just seeing the pattern.</li>
+</ul>
+</div>
+</div>
+<hr />
+</div>
+<div id="example-climate-trend-line-graph" class="section level2">
+<h2>3. Example: Climate Trend Line Graph</h2>
+<p>This mirrors the national climate trend plots on the <strong>Climate
+Trends</strong> page.</p>
+<p><img src="how-to-read_files/figure-html/climate-line-plot-1.png" width="672" /></p>
+<div id="how-to-read-this-graph" class="section level3">
+<h3>How to Read This Graph</h3>
+<ul>
+<li>The <strong>dark line</strong> shows each year’s temperature
+anomaly.
+<ul>
+<li>Points above 0°C → warmer than the long-term average.<br />
+</li>
+<li>Points below 0°C → cooler than the long-term average.<br />
+</li>
+</ul></li>
+<li>The <strong>red curve</strong> is a smoothed trend across all years:
+<ul>
+<li>If it tilts upward, the U.S. is warming over time.</li>
+</ul></li>
+<li>The <strong>dashed horizontal line</strong> at 0°C is a reference
+“normal.”</li>
+</ul>
+<details>
+<summary>
+<strong>Show R code: climate trend plot</strong>
+</summary>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a>climate_temp <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">&quot;data/climate_year_temp.csv&quot;</span>) <span class="sc">|&gt;</span></span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">year =</span> <span class="fu">as.integer</span>(year))</span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a>climate_temp <span class="sc">|&gt;</span></span>
+<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> temp_anomaly)) <span class="sc">+</span></span>
+<span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">&quot;dashed&quot;</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb2-7"><a href="#cb2-7" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">linewidth =</span> <span class="fl">1.1</span>, <span class="at">alpha =</span> <span class="fl">0.8</span>, <span class="at">color =</span> <span class="st">&quot;#2c3e50&quot;</span>) <span class="sc">+</span></span>
+<span id="cb2-8"><a href="#cb2-8" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(</span>
+<span id="cb2-9"><a href="#cb2-9" tabindex="-1"></a>    <span class="at">method =</span> <span class="st">&quot;loess&quot;</span>,</span>
+<span id="cb2-10"><a href="#cb2-10" tabindex="-1"></a>    <span class="at">se     =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb2-11"><a href="#cb2-11" tabindex="-1"></a>    <span class="at">linewidth =</span> <span class="fl">1.1</span>,</span>
+<span id="cb2-12"><a href="#cb2-12" tabindex="-1"></a>    <span class="at">alpha  =</span> <span class="fl">0.4</span>,</span>
+<span id="cb2-13"><a href="#cb2-13" tabindex="-1"></a>    <span class="at">color  =</span> <span class="st">&quot;#e74c3c&quot;</span>,</span>
+<span id="cb2-14"><a href="#cb2-14" tabindex="-1"></a>    <span class="at">fill   =</span> <span class="st">&quot;#e74c3c&quot;</span></span>
+<span id="cb2-15"><a href="#cb2-15" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb2-16"><a href="#cb2-16" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">pretty_breaks</span>(<span class="dv">10</span>)) <span class="sc">+</span></span>
+<span id="cb2-17"><a href="#cb2-17" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb2-18"><a href="#cb2-18" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Year&quot;</span>,</span>
+<span id="cb2-19"><a href="#cb2-19" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;Temperature Anomaly (°C)&quot;</span>,</span>
+<span id="cb2-20"><a href="#cb2-20" tabindex="-1"></a>    <span class="at">title    =</span> <span class="st">&quot;U.S. Temperature Anomalies Over Time&quot;</span>,</span>
+<span id="cb2-21"><a href="#cb2-21" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">&quot;Dark line = yearly values; red curve = smoothed climate trend&quot;</span></span>
+<span id="cb2-22"><a href="#cb2-22" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb2-23"><a href="#cb2-23" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">13</span>) <span class="sc">+</span></span>
+<span id="cb2-24"><a href="#cb2-24" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb2-25"><a href="#cb2-25" tabindex="-1"></a>    <span class="at">plot.title.position =</span> <span class="st">&quot;plot&quot;</span>,</span>
+<span id="cb2-26"><a href="#cb2-26" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">&quot;bold&quot;</span>),</span>
+<span id="cb2-27"><a href="#cb2-27" tabindex="-1"></a>    <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">margin =</span> <span class="fu">margin</span>(<span class="at">b =</span> <span class="dv">10</span>)),</span>
+<span id="cb2-28"><a href="#cb2-28" tabindex="-1"></a>    <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>()</span>
+<span id="cb2-29"><a href="#cb2-29" tabindex="-1"></a>  )</span></code></pre></div>
+</details>
+<hr />
+</div>
+</div>
+<div id="example-multi-disease-trend-plot" class="section level2">
+<h2>4. Example: Multi-Disease Trend Plot</h2>
+<p>This mirrors the <strong>Disease Trends</strong> page, where we
+compare diseases over time.</p>
+<p><img src="how-to-read_files/figure-html/multi-disease-plot-1.png" width="672" /></p>
+<div id="how-to-read-this-graph-1" class="section level3">
+<h3>How to Read This Graph</h3>
+<ul>
+<li><strong>Each line</strong> is a different disease.<br />
+</li>
+<li><strong>x-axis</strong> = year; <strong>y-axis</strong> = total U.S.
+cases.<br />
+</li>
+<li>Look for:
+<ul>
+<li>Whether a disease is trending upward, downward, or flat.<br />
+</li>
+<li>Whether some diseases spike in certain years compared to
+others.</li>
+</ul></li>
+</ul>
+<details>
+<summary>
+<strong>Show R code: multi-disease trend plot</strong>
+</summary>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>master_disease <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">&quot;data/master_disease_comparison.csv&quot;</span>) <span class="sc">|&gt;</span></span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a>    <span class="at">year    =</span> <span class="fu">as.integer</span>(year),</span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a>    <span class="at">cases   =</span> <span class="fu">as.numeric</span>(cases),</span>
+<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a>    <span class="at">disease =</span> <span class="fu">factor</span>(</span>
+<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a>      disease,</span>
+<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a>      <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;West Nile&quot;</span>, <span class="st">&quot;Lyme&quot;</span>, <span class="st">&quot;Dengue&quot;</span>, <span class="st">&quot;Malaria&quot;</span>)</span>
+<span id="cb3-8"><a href="#cb3-8" tabindex="-1"></a>    )</span>
+<span id="cb3-9"><a href="#cb3-9" tabindex="-1"></a>  )</span>
+<span id="cb3-10"><a href="#cb3-10" tabindex="-1"></a></span>
+<span id="cb3-11"><a href="#cb3-11" tabindex="-1"></a>disease_year_summary <span class="ot">&lt;-</span> master_disease <span class="sc">|&gt;</span></span>
+<span id="cb3-12"><a href="#cb3-12" tabindex="-1"></a>  <span class="fu">group_by</span>(year, disease) <span class="sc">|&gt;</span></span>
+<span id="cb3-13"><a href="#cb3-13" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">total_cases =</span> <span class="fu">sum</span>(cases, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">.groups =</span> <span class="st">&quot;drop&quot;</span>)</span>
+<span id="cb3-14"><a href="#cb3-14" tabindex="-1"></a></span>
+<span id="cb3-15"><a href="#cb3-15" tabindex="-1"></a>disease_year_summary <span class="sc">|&gt;</span></span>
+<span id="cb3-16"><a href="#cb3-16" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> total_cases, <span class="at">color =</span> disease)) <span class="sc">+</span></span>
+<span id="cb3-17"><a href="#cb3-17" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">linewidth =</span> <span class="fl">1.1</span>, <span class="at">alpha =</span> <span class="fl">0.9</span>) <span class="sc">+</span></span>
+<span id="cb3-18"><a href="#cb3-18" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(</span>
+<span id="cb3-19"><a href="#cb3-19" tabindex="-1"></a>    <span class="st">&quot;West Nile&quot;</span> <span class="ot">=</span> <span class="st">&quot;#2980b9&quot;</span>,</span>
+<span id="cb3-20"><a href="#cb3-20" tabindex="-1"></a>    <span class="st">&quot;Lyme&quot;</span>      <span class="ot">=</span> <span class="st">&quot;#27ae60&quot;</span>,</span>
+<span id="cb3-21"><a href="#cb3-21" tabindex="-1"></a>    <span class="st">&quot;Dengue&quot;</span>    <span class="ot">=</span> <span class="st">&quot;#e67e22&quot;</span>,</span>
+<span id="cb3-22"><a href="#cb3-22" tabindex="-1"></a>    <span class="st">&quot;Malaria&quot;</span>   <span class="ot">=</span> <span class="st">&quot;#8e44ad&quot;</span></span>
+<span id="cb3-23"><a href="#cb3-23" tabindex="-1"></a>  )) <span class="sc">+</span></span>
+<span id="cb3-24"><a href="#cb3-24" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> <span class="fu">label_comma</span>()) <span class="sc">+</span></span>
+<span id="cb3-25"><a href="#cb3-25" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">pretty_breaks</span>(<span class="dv">10</span>)) <span class="sc">+</span></span>
+<span id="cb3-26"><a href="#cb3-26" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb3-27"><a href="#cb3-27" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Year&quot;</span>,</span>
+<span id="cb3-28"><a href="#cb3-28" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;Total U.S. Cases&quot;</span>,</span>
+<span id="cb3-29"><a href="#cb3-29" tabindex="-1"></a>    <span class="at">title    =</span> <span class="st">&quot;Total Vector-Borne Disease Cases by Year&quot;</span>,</span>
+<span id="cb3-30"><a href="#cb3-30" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">&quot;Each colored line shows a different disease&quot;</span></span>
+<span id="cb3-31"><a href="#cb3-31" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb3-32"><a href="#cb3-32" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">13</span>) <span class="sc">+</span></span>
+<span id="cb3-33"><a href="#cb3-33" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb3-34"><a href="#cb3-34" tabindex="-1"></a>    <span class="at">plot.title.position =</span> <span class="st">&quot;plot&quot;</span>,</span>
+<span id="cb3-35"><a href="#cb3-35" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">&quot;bold&quot;</span>),</span>
+<span id="cb3-36"><a href="#cb3-36" tabindex="-1"></a>    <span class="at">legend.position =</span> <span class="st">&quot;bottom&quot;</span>,</span>
+<span id="cb3-37"><a href="#cb3-37" tabindex="-1"></a>    <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>()</span>
+<span id="cb3-38"><a href="#cb3-38" tabindex="-1"></a>  )</span></code></pre></div>
+</details>
+<hr />
+</div>
+</div>
+<div id="example-regional-lyme-patterns" class="section level2">
+<h2>5. Example: Regional Lyme Patterns</h2>
+<p>Here we zoom in on Lyme disease and compare regions.</p>
+<p><img src="how-to-read_files/figure-html/lyme-region-plot-1.png" width="672" /></p>
+<div id="how-to-read-this-graph-2" class="section level3">
+<h3>How to Read This Graph</h3>
+<ul>
+<li>Each <strong>colored line</strong> is one U.S. region.<br />
+</li>
+<li>Regions with lines much higher on the graph have more Lyme
+cases.<br />
+</li>
+<li>The slope shows whether a region is experiencing a rise or decline
+in reported Lyme.</li>
+</ul>
+<details>
+<summary>
+<strong>Show R code: regional Lyme plot</strong>
+</summary>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a>lyme_region <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">&quot;data/lyme_region.csv&quot;</span>) <span class="sc">|&gt;</span></span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a>    <span class="at">year  =</span> <span class="fu">as.integer</span>(year),</span>
+<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a>    <span class="at">cases =</span> <span class="fu">as.numeric</span>(cases)</span>
+<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a>  )</span>
+<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" tabindex="-1"></a>lyme_region <span class="sc">|&gt;</span></span>
+<span id="cb4-8"><a href="#cb4-8" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> cases, <span class="at">color =</span> region)) <span class="sc">+</span></span>
+<span id="cb4-9"><a href="#cb4-9" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">linewidth =</span> <span class="fl">1.1</span>, <span class="at">alpha =</span> <span class="fl">0.9</span>) <span class="sc">+</span></span>
+<span id="cb4-10"><a href="#cb4-10" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> <span class="fu">label_comma</span>()) <span class="sc">+</span></span>
+<span id="cb4-11"><a href="#cb4-11" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">pretty_breaks</span>(<span class="dv">8</span>)) <span class="sc">+</span></span>
+<span id="cb4-12"><a href="#cb4-12" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb4-13"><a href="#cb4-13" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Year&quot;</span>,</span>
+<span id="cb4-14"><a href="#cb4-14" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;Reported Lyme Cases&quot;</span>,</span>
+<span id="cb4-15"><a href="#cb4-15" tabindex="-1"></a>    <span class="at">title    =</span> <span class="st">&quot;Lyme Disease Cases by Region&quot;</span>,</span>
+<span id="cb4-16"><a href="#cb4-16" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">&quot;Each line shows a different U.S. region&quot;</span></span>
+<span id="cb4-17"><a href="#cb4-17" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb4-18"><a href="#cb4-18" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">13</span>) <span class="sc">+</span></span>
+<span id="cb4-19"><a href="#cb4-19" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb4-20"><a href="#cb4-20" tabindex="-1"></a>    <span class="at">plot.title.position =</span> <span class="st">&quot;plot&quot;</span>,</span>
+<span id="cb4-21"><a href="#cb4-21" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">&quot;bold&quot;</span>),</span>
+<span id="cb4-22"><a href="#cb4-22" tabindex="-1"></a>    <span class="at">legend.position =</span> <span class="st">&quot;right&quot;</span>,</span>
+<span id="cb4-23"><a href="#cb4-23" tabindex="-1"></a>    <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>()</span>
+<span id="cb4-24"><a href="#cb4-24" tabindex="-1"></a>  )</span></code></pre></div>
+</details>
+<hr />
+</div>
+</div>
+<div id="example-climatedisease-comparison-scatterplot"
+class="section level2">
+<h2>6. Example: Climate–Disease Comparison (Scatterplot)</h2>
+<p>This kind of plot is used on the <strong>Climate–Disease
+Comparison</strong> page.</p>
+<p><img src="how-to-read_files/figure-html/climate-disease-scatter-1.png" width="672" /></p>
+<div id="how-to-read-this-graph-3" class="section level3">
+<h3>How to Read This Graph</h3>
+<ul>
+<li>Each <strong>point</strong> is a year:
+<ul>
+<li>Horizontal position = how warm/cool the year was.<br />
+</li>
+<li>Vertical position = how many West Nile cases that year.<br />
+</li>
+</ul></li>
+<li>The <strong>red line</strong> is a simple linear model:
+<ul>
+<li>Upward slope = warmer years tend to have more cases.<br />
+</li>
+<li>Downward slope = warmer years tend to have fewer cases.<br />
+</li>
+</ul></li>
+<li>The shaded band shows the <strong>uncertainty</strong> around the
+model.</li>
+</ul>
+<blockquote>
+<p>This kind of plot suggests a <strong>relationship</strong> but does
+<strong>not prove causation</strong>.<br />
+Mosquito control, reporting practices, and human behavior all matter
+too.</p>
+</blockquote>
+<details>
+<summary>
+<strong>Show R code: climate–disease scatterplot and model</strong>
+</summary>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a>climate_temp <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">&quot;data/climate_year_temp.csv&quot;</span>) <span class="sc">|&gt;</span></span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">year =</span> <span class="fu">as.integer</span>(year))</span>
+<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a>master_disease <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">&quot;data/master_disease_comparison.csv&quot;</span>) <span class="sc">|&gt;</span></span>
+<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a>    <span class="at">year    =</span> <span class="fu">as.integer</span>(year),</span>
+<span id="cb5-7"><a href="#cb5-7" tabindex="-1"></a>    <span class="at">cases   =</span> <span class="fu">as.numeric</span>(cases),</span>
+<span id="cb5-8"><a href="#cb5-8" tabindex="-1"></a>    <span class="at">disease =</span> <span class="fu">factor</span>(</span>
+<span id="cb5-9"><a href="#cb5-9" tabindex="-1"></a>      disease,</span>
+<span id="cb5-10"><a href="#cb5-10" tabindex="-1"></a>      <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;West Nile&quot;</span>, <span class="st">&quot;Lyme&quot;</span>, <span class="st">&quot;Dengue&quot;</span>, <span class="st">&quot;Malaria&quot;</span>)</span>
+<span id="cb5-11"><a href="#cb5-11" tabindex="-1"></a>    )</span>
+<span id="cb5-12"><a href="#cb5-12" tabindex="-1"></a>  )</span>
+<span id="cb5-13"><a href="#cb5-13" tabindex="-1"></a></span>
+<span id="cb5-14"><a href="#cb5-14" tabindex="-1"></a>climate_disease_join <span class="ot">&lt;-</span> master_disease <span class="sc">|&gt;</span></span>
+<span id="cb5-15"><a href="#cb5-15" tabindex="-1"></a>  <span class="fu">filter</span>(disease <span class="sc">==</span> <span class="st">&quot;West Nile&quot;</span>) <span class="sc">|&gt;</span></span>
+<span id="cb5-16"><a href="#cb5-16" tabindex="-1"></a>  <span class="fu">inner_join</span>(climate_temp, <span class="at">by =</span> <span class="st">&quot;year&quot;</span>)</span>
+<span id="cb5-17"><a href="#cb5-17" tabindex="-1"></a></span>
+<span id="cb5-18"><a href="#cb5-18" tabindex="-1"></a>climate_disease_join <span class="sc">|&gt;</span></span>
+<span id="cb5-19"><a href="#cb5-19" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> temp_anomaly, <span class="at">y =</span> cases)) <span class="sc">+</span></span>
+<span id="cb5-20"><a href="#cb5-20" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.8</span>, <span class="at">size =</span> <span class="fl">2.5</span>, <span class="at">color =</span> <span class="st">&quot;#2980b9&quot;</span>) <span class="sc">+</span></span>
+<span id="cb5-21"><a href="#cb5-21" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(</span>
+<span id="cb5-22"><a href="#cb5-22" tabindex="-1"></a>    <span class="at">method =</span> <span class="st">&quot;lm&quot;</span>,</span>
+<span id="cb5-23"><a href="#cb5-23" tabindex="-1"></a>    <span class="at">se     =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb5-24"><a href="#cb5-24" tabindex="-1"></a>    <span class="at">linewidth =</span> <span class="fl">1.1</span>,</span>
+<span id="cb5-25"><a href="#cb5-25" tabindex="-1"></a>    <span class="at">color  =</span> <span class="st">&quot;#e74c3c&quot;</span>,</span>
+<span id="cb5-26"><a href="#cb5-26" tabindex="-1"></a>    <span class="at">fill   =</span> <span class="st">&quot;#e74c3c&quot;</span>,</span>
+<span id="cb5-27"><a href="#cb5-27" tabindex="-1"></a>    <span class="at">alpha  =</span> <span class="fl">0.3</span></span>
+<span id="cb5-28"><a href="#cb5-28" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb5-29"><a href="#cb5-29" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb5-30"><a href="#cb5-30" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Temperature Anomaly (°C)&quot;</span>,</span>
+<span id="cb5-31"><a href="#cb5-31" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;West Nile Cases (U.S. Total)&quot;</span>,</span>
+<span id="cb5-32"><a href="#cb5-32" tabindex="-1"></a>    <span class="at">title    =</span> <span class="st">&quot;Example Climate–Disease Relationship&quot;</span>,</span>
+<span id="cb5-33"><a href="#cb5-33" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">&quot;Each point is a year; red line is a simple linear trend&quot;</span></span>
+<span id="cb5-34"><a href="#cb5-34" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb5-35"><a href="#cb5-35" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">13</span>) <span class="sc">+</span></span>
+<span id="cb5-36"><a href="#cb5-36" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb5-37"><a href="#cb5-37" tabindex="-1"></a>    <span class="at">plot.title.position =</span> <span class="st">&quot;plot&quot;</span>,</span>
+<span id="cb5-38"><a href="#cb5-38" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">&quot;bold&quot;</span>),</span>
+<span id="cb5-39"><a href="#cb5-39" tabindex="-1"></a>    <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>()</span>
+<span id="cb5-40"><a href="#cb5-40" tabindex="-1"></a>  )</span>
+<span id="cb5-41"><a href="#cb5-41" tabindex="-1"></a></span>
+<span id="cb5-42"><a href="#cb5-42" tabindex="-1"></a><span class="co"># Optional: look at the linear model itself</span></span>
+<span id="cb5-43"><a href="#cb5-43" tabindex="-1"></a>model_westnile <span class="ot">&lt;-</span> <span class="fu">lm</span>(cases <span class="sc">~</span> temp_anomaly, <span class="at">data =</span> climate_disease_join)</span>
+<span id="cb5-44"><a href="#cb5-44" tabindex="-1"></a>broom<span class="sc">::</span><span class="fu">tidy</span>(model_westnile)</span></code></pre></div>
+</details>
+<hr />
+</div>
+</div>
+<div id="example-tables-and-their-code" class="section level2">
+<h2>7. Example Tables and Their Code</h2>
+<p>Sometimes seeing the exact numbers is helpful.<br />
+Here are two simple table examples and the R code behind them.</p>
+<div id="summary-table-of-recent-disease-cases" class="section level3">
+<h3>7.1. Summary Table of Recent Disease Cases</h3>
+<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+Recent total U.S. cases by disease and year
+</caption>
+<thead>
+<tr>
+<th style="text-align:right;">
+Year
+</th>
+<th style="text-align:left;">
+Disease
+</th>
+<th style="text-align:right;">
+Total Cases
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+2024
+</td>
+<td style="text-align:left;">
+West Nile
+</td>
+<td style="text-align:right;">
+1791
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2024
+</td>
+<td style="text-align:left;">
+Dengue
+</td>
+<td style="text-align:right;">
+10283
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2023
+</td>
+<td style="text-align:left;">
+West Nile
+</td>
+<td style="text-align:right;">
+2628
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2023
+</td>
+<td style="text-align:left;">
+Lyme
+</td>
+<td style="text-align:right;">
+89468
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2023
+</td>
+<td style="text-align:left;">
+Dengue
+</td>
+<td style="text-align:right;">
+3352
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2022
+</td>
+<td style="text-align:left;">
+West Nile
+</td>
+<td style="text-align:right;">
+1132
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2022
+</td>
+<td style="text-align:left;">
+Lyme
+</td>
+<td style="text-align:right;">
+62551
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2022
+</td>
+<td style="text-align:left;">
+Dengue
+</td>
+<td style="text-align:right;">
+2540
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2022
+</td>
+<td style="text-align:left;">
+Malaria
+</td>
+<td style="text-align:right;">
+1999
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2021
+</td>
+<td style="text-align:left;">
+West Nile
+</td>
+<td style="text-align:right;">
+2911
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2021
+</td>
+<td style="text-align:left;">
+Lyme
+</td>
+<td style="text-align:right;">
+24611
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2021
+</td>
+<td style="text-align:left;">
+Dengue
+</td>
+<td style="text-align:right;">
+814
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2021
+</td>
+<td style="text-align:left;">
+Malaria
+</td>
+<td style="text-align:right;">
+1550
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2020
+</td>
+<td style="text-align:left;">
+West Nile
+</td>
+<td style="text-align:right;">
+731
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2020
+</td>
+<td style="text-align:left;">
+Lyme
+</td>
+<td style="text-align:right;">
+18000
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2020
+</td>
+<td style="text-align:left;">
+Dengue
+</td>
+<td style="text-align:right;">
+1337
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2020
+</td>
+<td style="text-align:left;">
+Malaria
+</td>
+<td style="text-align:right;">
+602
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2019
+</td>
+<td style="text-align:left;">
+West Nile
+</td>
+<td style="text-align:right;">
+971
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2019
+</td>
+<td style="text-align:left;">
+Lyme
+</td>
+<td style="text-align:right;">
+34945
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2019
+</td>
+<td style="text-align:left;">
+Dengue
+</td>
+<td style="text-align:right;">
+1593
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2019
+</td>
+<td style="text-align:left;">
+Malaria
+</td>
+<td style="text-align:right;">
+2048
+</td>
+</tr>
+</tbody>
+</table>
+<details>
+<summary>
+<strong>Show R code: recent disease table</strong>
+</summary>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a>disease_year_summary <span class="ot">&lt;-</span> master_disease <span class="sc">|&gt;</span></span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a>  <span class="fu">group_by</span>(year, disease) <span class="sc">|&gt;</span></span>
+<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">total_cases =</span> <span class="fu">sum</span>(cases, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">.groups =</span> <span class="st">&quot;drop&quot;</span>)</span>
+<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a>recent_disease_table <span class="ot">&lt;-</span> disease_year_summary <span class="sc">|&gt;</span></span>
+<span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">&gt;=</span> <span class="fu">max</span>(year) <span class="sc">-</span> <span class="dv">5</span>) <span class="sc">|&gt;</span></span>
+<span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(year), disease)</span>
+<span id="cb6-8"><a href="#cb6-8" tabindex="-1"></a></span>
+<span id="cb6-9"><a href="#cb6-9" tabindex="-1"></a>recent_disease_table <span class="sc">|&gt;</span></span>
+<span id="cb6-10"><a href="#cb6-10" tabindex="-1"></a>  <span class="fu">kbl</span>(</span>
+<span id="cb6-11"><a href="#cb6-11" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">&quot;Recent total U.S. cases by disease and year&quot;</span>,</span>
+<span id="cb6-12"><a href="#cb6-12" tabindex="-1"></a>    <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">&quot;Year&quot;</span>, <span class="st">&quot;Disease&quot;</span>, <span class="st">&quot;Total Cases&quot;</span>)</span>
+<span id="cb6-13"><a href="#cb6-13" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb6-14"><a href="#cb6-14" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">full_width =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+</details>
+<hr />
+</div>
+<div id="simple-model-output-table" class="section level3">
+<h3>7.2. Simple Model Output Table</h3>
+<p>This shows the kind of model summary used behind the climate–disease
+comparisons.</p>
+<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+Linear model: West Nile cases ~ temperature anomaly
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+term
+</th>
+<th style="text-align:right;">
+estimate
+</th>
+<th style="text-align:right;">
+std.error
+</th>
+<th style="text-align:right;">
+statistic
+</th>
+<th style="text-align:right;">
+p.value
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+(Intercept)
+</td>
+<td style="text-align:right;">
+2175.976
+</td>
+<td style="text-align:right;">
+465.036
+</td>
+<td style="text-align:right;">
+4.679
+</td>
+<td style="text-align:right;">
+0.000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+temp_anomaly
+</td>
+<td style="text-align:right;">
+1346.791
+</td>
+<td style="text-align:right;">
+1359.005
+</td>
+<td style="text-align:right;">
+0.991
+</td>
+<td style="text-align:right;">
+0.332
+</td>
+</tr>
+</tbody>
+</table>
+<details>
+<summary>
+<strong>Show R code: model summary table</strong>
+</summary>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a>model_westnile <span class="ot">&lt;-</span> <span class="fu">lm</span>(cases <span class="sc">~</span> temp_anomaly, <span class="at">data =</span> climate_disease_join)</span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a>model_tidy <span class="ot">&lt;-</span> broom<span class="sc">::</span><span class="fu">tidy</span>(model_westnile)</span>
+<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a>model_tidy <span class="sc">|&gt;</span></span>
+<span id="cb7-6"><a href="#cb7-6" tabindex="-1"></a>  <span class="fu">kbl</span>(</span>
+<span id="cb7-7"><a href="#cb7-7" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">&quot;Linear model: West Nile cases ~ temperature anomaly&quot;</span>,</span>
+<span id="cb7-8"><a href="#cb7-8" tabindex="-1"></a>    <span class="at">digits =</span> <span class="dv">3</span></span>
+<span id="cb7-9"><a href="#cb7-9" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb7-10"><a href="#cb7-10" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">full_width =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+</details>
+<hr />
+</div>
+</div>
+<div id="checklist-reading-any-graph-on-this-site"
+class="section level2">
+<h2>8. Checklist: Reading Any Graph on This Site</h2>
+<div
+style="background-color:#fcfcfc; padding:18px 22px; border-radius:4px; margin-bottom:25px; box-shadow:0 0 0 1px #eeeeee;">
+<p>When you look at a graph or table anywhere on this site, you can use
+this quick checklist:</p>
+<ol style="list-style-type: decimal">
+<li><strong>What is on each axis?</strong>
+<ul>
+<li>Time? Temperature anomaly? Cases? Index value?</li>
+</ul></li>
+<li><strong>What do the colors or panels represent?</strong>
+<ul>
+<li>Diseases, regions, or climate variables?</li>
+</ul></li>
+<li><strong>What is the big-picture shape?</strong>
+<ul>
+<li>Mostly going up, mostly going down, or staying flat?</li>
+</ul></li>
+<li><strong>Is there a trend line or model?</strong>
+<ul>
+<li>What does it suggest about the relationship?<br />
+</li>
+<li>How strong or uncertain does it look?</li>
+</ul></li>
+<li><strong>How might climate and disease be linked here — and what else
+could be going on?</strong>
+<ul>
+<li>Think about mosquito control, reporting changes, population
+movement, and other real-world factors.</li>
+</ul></li>
+</ol>
+<p style="margin-top:10px;">
+If you can walk through these questions, you’re reading the graphs like
+a scientist — and you’re ready to dig into the rest of the project with
+confidence.
+</p>
+</div>
 </div>
 
 
 
-</div>
-</div>
 
 </div>
 
@@ -529,35 +1208,6 @@ $(document).ready(function () {
 
 <!-- code folding -->
 
-<script>
-$(document).ready(function ()  {
-
-    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
-    $('.unlisted.unnumbered').addClass('toc-ignore')
-
-    // move toc-ignore selectors from section div to header
-    $('div.section.toc-ignore')
-        .removeClass('toc-ignore')
-        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
-
-    // establish options
-    var options = {
-      selectors: "h1,h2,h3",
-      theme: "bootstrap3",
-      context: '.toc-content',
-      hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
-      },
-      ignoreSelector: ".toc-ignore",
-      scrollTo: 0
-    };
-    options.showAndHide = true;
-    options.smoothScroll = true;
-
-    // tocify
-    var toc = $("#TOC").tocify(options).data("toc-tocify");
-});
-</script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>

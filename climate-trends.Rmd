@@ -1,8 +1,527 @@
 ---
 title: "Climate Trends"
-output: html_document
+output:
+  html_document:
+    toc: false
 ---
 
-```{r}
-# Placeholder - data will be added later
-data.frame()
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo = FALSE,   # hide code by default for a clean site
+  message = FALSE,
+  warning = FALSE
+)
+
+library(tidyverse)
+library(broom)
+
+# Color palette similar to your flu site look
+col_temp   <- "#e67e22"  # warm orange
+col_pdsi   <- "#2980b9"  # blue
+col_points <- "#34495e"  # dark slate
+col_cvi    <- "#8e44ad"  # purple
+```
+
+<div style="background-color:#f5f9ff; border-left:4px solid #2c3e50; padding:20px 24px; margin-bottom:30px; border-radius:4px;">
+
+## Overview of U.S. Climate Trends
+
+<p style="margin-top:10px;">
+This page presents the <strong>core climate evidence</strong> behind the entire project.  
+It is written so that someone with <strong>no statistics background</strong> can still follow what each graph is saying.
+</p>
+
+<p>
+We look at three core climate pieces:
+</p>
+
+<ul>
+  <li><strong>Temperature anomalies</strong> over time (how much warmer or cooler than a baseline year).</li>
+  <li><strong>Drought patterns</strong> using the Palmer Drought Severity Index (PDSI).</li>
+  <li><strong>Climate vulnerability</strong> by state using a Climate Vulnerability Index (CVI).</li>
+</ul>
+
+<p>
+For each section, you will see:
+</p>
+
+<ul>
+  <li>a <strong>graph</strong>,</li>
+  <li>a short “<strong>What you’re seeing</strong>” explanation,</li>
+  <li>and a <strong>small summary table</strong> with key numbers.</li>
+</ul>
+
+</div>
+
+---
+
+<div style="background-color:#fcfcfc; padding:20px 24px; border-radius:4px; margin-bottom:25px; box-shadow:0 0 0 1px #eeeeee;">
+
+## Data Used on This Page
+
+```{r load_data}
+climate_temp <- readr::read_csv("data/climate_year_temp.csv")
+climate_pdsi <- readr::read_csv("data/climate_year_pdsi.csv")
+climate_cvi  <- readr::read_csv("data/climate_state_cvi.csv")
+```
+
+<p>
+The analyses on this page draw from three cleaned datasets:
+</p>
+
+<ul>
+  <li><code>climate_year_temp.csv</code> – annual <strong>temperature anomalies</strong> (°C) with columns like <code>year</code> and <code>temp_anomaly</code>.</li>
+  <li><code>climate_year_pdsi.csv</code> – annual <strong>drought conditions</strong> using the Palmer Drought Severity Index, with columns like <code>year</code> and <code>pdsi</code>.</li>
+  <li><code>climate_state_cvi.csv</code> – <strong>state-level climate vulnerability</strong>, including <code>State</code>, <code>Overall CVI Score</code>, and related indicators.</li>
+</ul>
+
+<p>
+All of the graphs and tables below are built from these datasets.
+</p>
+
+</div>
+
+---
+
+<div style="background-color:#f9fbf9; padding:20px 24px; border-radius:4px; margin-bottom:25px; box-shadow:0 0 0 1px #e9f0e9;">
+
+## 1. Temperature Trends Over Time
+
+### 1.1 National Temperature Anomaly (Line Chart)
+
+```{r temp_plot}
+climate_temp |>
+  ggplot(aes(x = year, y = temp_anomaly)) +
+  geom_hline(yintercept = 0, linetype = "dotted", color = "gray60") +
+  geom_line(linewidth = 1, color = col_temp) +
+  geom_smooth(method = "lm", se = TRUE, linetype = "dashed", color = col_points) +
+  labs(
+    title = "U.S. Annual Temperature Anomalies Over Time",
+    x = "Year",
+    y = "Temperature Anomaly (°C)"
+  ) +
+  theme_minimal(base_size = 13) +
+  theme(
+    plot.title = element_text(face = "bold"),
+    panel.grid.minor = element_blank()
+  )
+```
+
+<div style="background-color:#ffffff; padding:16px 18px; border-radius:4px; margin-top:10px; box-shadow:0 0 0 1px #e5e5e5;">
+
+### What you’re seeing
+
+<ul>
+  <li>Each point on the orange line is a <strong>single year</strong>.</li>
+  <li>The y-axis shows how much warmer or cooler that year was compared to a baseline:
+    <ul>
+      <li><strong>Above 0</strong> = warmer-than-normal year</li>
+      <li><strong>Below 0</strong> = cooler-than-normal year</li>
+    </ul>
+  </li>
+  <li>The dashed dark line is the <strong>trend line</strong> summarizing the overall direction of change.</li>
+</ul>
+
+<p>
+If this trend line slopes upward, it means that on average, the U.S. is getting <strong>warmer over time</strong>.
+</p>
+
+</div>
+
+---
+
+### 1.2 Key Temperature Numbers
+
+```{r temp_summary_table}
+temp_summary <- climate_temp |>
+  summarise(
+    first_year   = min(year, na.rm = TRUE),
+    last_year    = max(year, na.rm = TRUE),
+    mean_anomaly = mean(temp_anomaly, na.rm = TRUE),
+    min_anomaly  = min(temp_anomaly, na.rm = TRUE),
+    max_anomaly  = max(temp_anomaly, na.rm = TRUE)
+  )
+
+temp_summary
+```
+
+<div style="background-color:#ffffff; padding:16px 18px; border-radius:4px; margin-top:10px; box-shadow:0 0 0 1px #e5e5e5;">
+
+### How to read this table
+
+<ul>
+  <li><strong>first_year / last_year</strong> – the time span covered by the data.</li>
+  <li><strong>mean_anomaly</strong> – the average temperature change relative to the baseline.</li>
+  <li><strong>min_anomaly / max_anomaly</strong> – the coolest and warmest years compared to the baseline.</li>
+</ul>
+
+<p>
+Together, this confirms that the dataset covers a long enough time window to see a clear <strong>warming signal</strong>.
+</p>
+
+</div>
+
+---
+
+### 1.3 Temperature Trend per Year
+
+```{r temp_lm}
+temp_lm <- lm(temp_anomaly ~ year, data = climate_temp)
+broom::tidy(temp_lm)
+```
+
+<div style="background-color:#ffffff; padding:16px 18px; border-radius:4px; margin-top:10px; box-shadow:0 0 0 1px #e5e5e5;">
+
+### What this model is saying
+
+<ul>
+  <li>This is a simple line that best fits the data: <code>temp_anomaly = a + b * year</code>.</li>
+  <li>The <strong>estimate</strong> for <code>year</code> (the slope <code>b</code>) tells you how much the anomaly changes per year.</li>
+  <li>If that value is positive, it means each year is, on average, a little <strong>warmer</strong> than the one before.</li>
+</ul>
+
+<p>
+You don’t need to focus on the exact numbers to get the message: this is another way of confirming there is a <strong>measurable warming trend</strong> across the study period.
+</p>
+
+</div>
+
+---
+
+### 1.4 Warmest Years in the Record
+
+```{r warmest_years}
+climate_temp |>
+  arrange(desc(temp_anomaly)) |>
+  slice_head(n = 10)
+```
+
+<div style="background-color:#ffffff; padding:16px 18px; border-radius:4px; margin-top:10px; box-shadow:0 0 0 1px #e5e5e5;">
+
+### What you’re seeing
+
+<p>
+This table lists the <strong>10 warmest years</strong> relative to the baseline.  
+If most of these years are clustered toward the end of the record, it visually reinforces the idea that <strong>recent years are unusually warm</strong>.
+</p>
+
+</div>
+
+</div>
+
+---
+
+<div style="background-color:#fcfcff; padding:20px 24px; border-radius:4px; margin-bottom:25px; box-shadow:0 0 0 1px #ececff;">
+
+## 2. Drought Patterns (PDSI)
+
+<p>
+The Palmer Drought Severity Index (PDSI) tracks dryness and wetness:
+</p>
+
+<ul>
+  <li><strong>Negative PDSI</strong> = drier than normal (possible drought).</li>
+  <li><strong>Positive PDSI</strong> = wetter than normal.</li>
+</ul>
+
+### 2.1 Drought Over Time
+
+```{r pdsi_plot}
+climate_pdsi |>
+  ggplot(aes(x = year, y = pdsi)) +
+  geom_hline(yintercept = 0, linetype = "dotted", color = "gray60") +
+  geom_line(linewidth = 1, color = col_pdsi) +
+  geom_smooth(method = "loess", se = TRUE, span = 0.3, color = col_points) +
+  labs(
+    title = "U.S. Drought and Moisture Conditions Over Time (PDSI)",
+    x = "Year",
+    y = "PDSI"
+  ) +
+  theme_minimal(base_size = 13) +
+  theme(
+    plot.title = element_text(face = "bold"),
+    panel.grid.minor = element_blank()
+  )
+```
+
+<div style="background-color:#ffffff; padding:16px 18px; border-radius:4px; margin-top:10px; box-shadow:0 0 0 1px #e5e5e5;">
+
+### What you’re seeing
+
+<ul>
+  <li>Each point on the blue line is a <strong>single year</strong>.</li>
+  <li><strong>Below 0</strong> = drier-than-normal years; <strong>above 0</strong> = wetter-than-normal years.</li>
+  <li>The smooth dark line shows longer-term swings between dry and wet periods.</li>
+</ul>
+
+<p>
+This highlights that U.S. climate doesn’t sit at “average.” It swings through <strong>periods of drought</strong> and <strong>periods of wetter conditions</strong>.
+</p>
+
+</div>
+
+---
+
+### 2.2 Key Drought Numbers
+
+```{r pdsi_summary}
+pdsi_summary <- climate_pdsi |>
+  summarise(
+    first_year = min(year, na.rm = TRUE),
+    last_year  = max(year, na.rm = TRUE),
+    mean_pdsi  = mean(pdsi, na.rm = TRUE),
+    min_pdsi   = min(pdsi, na.rm = TRUE),
+    max_pdsi   = max(pdsi, na.rm = TRUE)
+  )
+
+pdsi_summary
+```
+
+<div style="background-color:#ffffff; padding:16px 18px; border-radius:4px; margin-top:10px; box-shadow:0 0 0 1px #e5e5e5;">
+
+### How to read this table
+
+<ul>
+  <li><strong>mean_pdsi</strong> – the average moisture level across all years.</li>
+  <li><strong>min_pdsi / max_pdsi</strong> – the driest and wettest years in the record.</li>
+</ul>
+
+<p>
+Even if the average is near zero, the extremes (very dry or very wet years) can have major impacts on ecosystems and health.
+</p>
+
+</div>
+
+---
+
+### 2.3 Optional: Long-Term Drought Trend
+
+```{r pdsi_lm}
+pdsi_lm <- lm(pdsi ~ year, data = climate_pdsi)
+broom::tidy(pdsi_lm)
+```
+
+<div style="background-color:#ffffff; padding:16px 18px; border-radius:4px; margin-top:10px; box-shadow:0 0 0 1px #e5e5e5;">
+
+### What this model is checking
+
+<p>
+This model asks a simple question:  
+<strong>On average, are years slowly trending drier, wetter, or staying about the same?</strong>
+</p>
+
+<p>
+The main story, though, is usually not a smooth trend, but the <strong>swings and extremes</strong> seen in the plot above.
+</p>
+
+</div>
+
+</div>
+
+---
+
+<div style="background-color:#ffffff; padding:20px 24px; border-radius:4px; margin-bottom:25px; box-shadow:0 0 0 1px #eeeeee;">
+
+## 3. Temperature and Drought Together
+
+```{r combine}
+climate_combined <- inner_join(climate_temp, climate_pdsi, by = "year")
+```
+
+### 3.1 Scatterplot: Temperature Anomaly vs PDSI
+
+```{r temp_pdsi_scatter}
+climate_combined |>
+  ggplot(aes(x = temp_anomaly, y = pdsi)) +
+  geom_point(alpha = 0.8, color = col_points) +
+  geom_smooth(method = "lm", se = TRUE, color = col_temp) +
+  labs(
+    title = "Relationship Between Temperature and Drought",
+    x = "Temperature Anomaly (°C)",
+    y = "PDSI"
+  ) +
+  theme_minimal(base_size = 13) +
+  theme(
+    plot.title = element_text(face = "bold"),
+    panel.grid.minor = element_blank()
+  )
+```
+
+<div style="background-color:#ffffff; padding:16px 18px; border-radius:4px; margin-top:10px; box-shadow:0 0 0 1px #e5e5e5;">
+
+### How to read this scatterplot
+
+<ul>
+  <li>Each dot is one <strong>year</strong> in the dataset.</li>
+  <li>The x-axis shows how warm that year was compared to normal (<code>Temperature Anomaly</code>).</li>
+  <li>The y-axis shows how dry or wet that same year was (<code>PDSI</code>).</li>
+  <li>The smooth orange line summarizes the overall pattern:
+    <ul>
+      <li>If the line slopes <strong>down</strong>, warmer years tend to be <strong>drier</strong>.</li>
+      <li>If the line slopes <strong>up</strong>, warmer years tend to be <strong>wetter</strong>.</li>
+      <li>If the line is fairly <strong>flat</strong>, there is no strong relationship either way.</li>
+    </ul>
+  </li>
+</ul>
+
+<p>
+This plot does <strong>not</strong> prove that temperature “causes” drought or vice versa.  
+Instead, it answers a simpler question:  
+<strong>“When the U.S. has unusually warm years, do those same years also tend to be unusually dry or unusually wet?”</strong>
+</p>
+
+</div>
+
+---
+
+### 3.2 Correlation Between Temperature and PDSI
+
+```{r cor_test}
+cor_result <- cor.test(
+  ~ temp_anomaly + pdsi,
+  data = climate_combined,
+  method = "spearman"
+)
+
+tibble(
+  correlation = cor_result$estimate,
+  p_value     = cor_result$p.value
+)
+```
+
+<div style="background-color:#ffffff; padding:16px 18px; border-radius:4px; margin-top:10px; box-shadow:0 0 0 1px #e5e5e5;">
+
+### What this table means
+
+<ul>
+  <li><strong>correlation</strong> – how strongly temperature and PDSI move together:
+    <ul>
+      <li>Close to 0: no strong relationship.</li>
+      <li>Negative: warmer years tend to be drier.</li>
+      <li>Positive: warmer years tend to be wetter.</li>
+    </ul>
+  </li>
+  <li><strong>p_value</strong> – whether that pattern is likely to be real or just random noise.</li>
+</ul>
+
+<p>
+In context, this helps you describe whether warm years and drought years tend to line up, which sets the stage for thinking about <strong>climate and disease risk together</strong>.
+</p>
+
+</div>
+
+</div>
+
+---
+
+<div style="background-color:#f3f7ff; padding:20px 24px; border-radius:4px; margin-bottom:25px; box-shadow:0 0 0 1px #dbe4ff;">
+
+## 4. Climate Vulnerability by State (CVI)
+
+<p>
+Climate does not affect all places equally.  
+The Climate Vulnerability Index (CVI) summarizes how exposed and sensitive each U.S. state is to climate-related risks.
+</p>
+
+### 4.1 Overall Vulnerability Range
+
+```{r cvi_summary}
+summary(climate_cvi$`Overall CVI Score`)
+```
+
+<div style="background-color:#ffffff; padding:16px 18px; border-radius:4px; margin-top:10px; box-shadow:0 0 0 1px #e5e5e5;">
+
+### What you’re seeing
+
+<p>
+This summary shows the <strong>minimum</strong>, <strong>maximum</strong>, and <strong>typical (median)</strong> CVI scores across states.  
+It gives a quick sense of how wide the gap is between the least and most vulnerable states.
+</p>
+
+</div>
+
+---
+
+### 4.2 Top 10 Most Vulnerable States
+
+```{r cvi_top10}
+cvi_top10 <- climate_cvi |>
+  arrange(desc(`Overall CVI Score`)) |>
+  slice_head(n = 10)
+
+cvi_top10
+```
+
+```{r cvi_plot}
+cvi_top10 |>
+  ggplot(aes(x = reorder(State, `Overall CVI Score`),
+             y = `Overall CVI Score`)) +
+  geom_col(fill = col_cvi) +
+  coord_flip() +
+  theme_minimal(base_size = 13) +
+  labs(
+    title = "Top 10 Most Climate-Vulnerable States",
+    x = "State",
+    y = "Overall CVI Score"
+  ) +
+  theme(
+    plot.title = element_text(face = "bold"),
+    panel.grid.minor = element_blank()
+  )
+```
+
+<div style="background-color:#ffffff; padding:16px 18px; border-radius:4px; margin-top:10px; box-shadow:0 0 0 1px #e5e5e5;">
+
+### How to read this table and chart
+
+<ul>
+  <li>The table lists the <strong>10 highest</strong> CVI scores.</li>
+  <li>In the bar chart, each bar is a state, and higher bars mean higher climate vulnerability.</li>
+  <li>States at the top of the chart are those that may face the <strong>greatest climate-related risks</strong>.</li>
+</ul>
+
+<p>
+These are the places where shifts in temperature and drought could have especially strong impacts on health, infrastructure, and ecosystems.
+</p>
+
+</div>
+
+</div>
+
+---
+
+<div style="background-color:#eaf2ff; padding:20px 24px; border-radius:4px; margin-bottom:25px; box-shadow:0 0 0 1px #d3dff5;">
+
+## 5. Why These Climate Trends Matter for Disease
+
+<p>
+Across all of these graphs and tables, a few big messages stand out:
+</p>
+
+<ul>
+  <li>The U.S. is experiencing a <strong>long-term warming trend</strong>.</li>
+  <li>The climate shows strong <strong>swings between dry and wet years</strong>.</li>
+  <li>Some states are much more <strong>climate-vulnerable</strong> than others.</li>
+</ul>
+
+<p>
+These patterns matter for vector-borne diseases because:
+</p>
+
+<ul>
+  <li><strong>Warmer conditions</strong> can speed up mosquito and tick life cycles and pathogen replication.</li>
+  <li><strong>Drought and moisture extremes</strong> can reshape breeding sites, standing water, and host movement.</li>
+  <li><strong>Highly vulnerable states</strong> may see greater health impacts from the same climate shifts.</li>
+</ul>
+
+<p>
+This page is designed so that, even without a statistics background, readers can see the climate story:<br>
+the U.S. is <strong>warming</strong>, conditions are <strong>variable</strong>, and some places are <strong>more at risk</strong>.  
+That is the foundation for the <strong>Disease Trends</strong>, <strong>Climate–Disease Comparison</strong>, and <strong>Utah Focus</strong> pages.
+</p>
+
+</div>
+
+<p style="font-size:0.9em; color:#555; margin-top:20px;">
+Climate Trends – GEOG 3000, Utah Valley University
+</p>

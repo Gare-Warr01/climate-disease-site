@@ -1,30 +1,598 @@
 ---
-title: "how-to-read"
-author: "Garrett Warr"
-date: "2025-11-25"
-output: html_document
+title: "How to Read These Graphs"
+output:
+  html_document:
+    toc: false
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(
+  echo = FALSE,   # we'll show code in dedicated, collapsible blocks
+  message = FALSE,
+  warning = FALSE
+)
+
+library(tidyverse)
+library(scales)
+library(broom)
+library(knitr)
+library(kableExtra)
 ```
 
-## R Markdown
+```{r load-data, include=FALSE}
+# These are the same cleaned datasets used across the site.
+# All paths assume a "data" folder in the project directory.
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+climate_temp <- readr::read_csv("data/climate_year_temp.csv") |>
+  mutate(year = as.integer(year))
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+climate_pdsi <- readr::read_csv("data/climate_year_pdsi.csv") |>
+  mutate(year = as.integer(year))
 
-```{r cars}
-summary(cars)
+master_disease <- readr::read_csv("data/master_disease_comparison.csv") |>
+  mutate(
+    year    = as.integer(year),
+    cases   = as.numeric(cases),
+    disease = factor(
+      disease,
+      levels = c("West Nile", "Lyme", "Dengue", "Malaria")
+    )
+  )
+
+lyme_region <- readr::read_csv("data/lyme_region.csv") |>
+  mutate(
+    year  = as.integer(year),
+    cases = as.numeric(cases)
+  )
+
+# Simple example dataset for climate–disease comparison
+climate_disease_join <- master_disease |>
+  filter(disease == "West Nile") |>
+  inner_join(climate_temp, by = "year")
 ```
 
-## Including Plots
+<div style="background-color:#f5f9ff; border-left:4px solid #2c3e50; padding:20px 24px; margin-bottom:30px; border-radius:4px;">
 
-You can also embed plots, for example:
+## How to Read the Graphs on This Site
 
-```{r pressure, echo=FALSE}
-plot(pressure)
+<p style="margin-top:10px;">
+This page is a <strong>help guide</strong> for all of the graphs and tables on this website.  
+You’ll see:
+</p>
+
+<ul>
+<li>How to read the <strong>axes</strong>, <strong>lines</strong>, and <strong>colors</strong>.</li>
+<li>Examples of climate, disease, and climate–disease graphs.</li>
+<li><strong>Click-to-open R code</strong> for every example &mdash; so you can recreate them.</li>
+</ul>
+
+<p>
+If you’re new to R, climate data, or disease surveillance, this page is meant to make everything as clear and reproducible as possible.
+</p>
+
+</div>
+
+---
+
+## 1. How the Data Are Loaded
+
+All of the graphs and tables in this project start from the same few cleaned datasets.
+
+- **Climate:** yearly temperature anomalies, drought index (PDSI), etc.  
+- **Disease:** yearly counts of West Nile, Lyme, Dengue, and Malaria.  
+- **Regional data:** Lyme disease by U.S. region.  
+- **Joined data:** a merged file that links climate and disease by year.
+
+<details>
+<summary><strong>Show R code: loading the main datasets</strong></summary>
+
+```{r load-data-code, echo=TRUE, eval=FALSE}
+library(tidyverse)
+library(scales)
+library(broom)
+library(knitr)
+library(kableExtra)
+
+climate_temp <- readr::read_csv("data/climate_year_temp.csv") |>
+  mutate(year = as.integer(year))
+
+climate_pdsi <- readr::read_csv("data/climate_year_pdsi.csv") |>
+  mutate(year = as.integer(year))
+
+master_disease <- readr::read_csv("data/master_disease_comparison.csv") |>
+  mutate(
+    year    = as.integer(year),
+    cases   = as.numeric(cases),
+    disease = factor(
+      disease,
+      levels = c("West Nile", "Lyme", "Dengue", "Malaria")
+    )
+  )
+
+lyme_region <- readr::read_csv("data/lyme_region.csv") |>
+  mutate(
+    year  = as.integer(year),
+    cases = as.numeric(cases)
+  )
+
+climate_disease_join <- master_disease |>
+  filter(disease == "West Nile") |>
+  inner_join(climate_temp, by = "year")
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+</details>
+
+---
+
+## 2. General Tips for Reading the Graphs
+
+<div style="background-color:#fcfcfc; padding:18px 22px; border-radius:4px; margin-bottom:25px; box-shadow:0 0 0 1px #eeeeee;">
+
+### Axes
+
+- The **x-axis** is almost always **time** (year or week).  
+- The **y-axis** is usually:
+  - a **climate value** (temperature anomaly, drought index), or  
+  - a **disease outcome** (number of cases).
+
+### Lines, Colors, and Panels
+
+- **Lines** show how values change over time.  
+- **Smooth curves** (trend lines) show the <em>overall pattern</em>, not just noisy ups and downs.  
+- **Color** usually separates:
+  - different <strong>diseases</strong>, or  
+  - different <strong>regions</strong>.  
+- **Facets/panels** are small multiples:
+  - each panel is a subgraph for one disease or region.
+
+### Tables
+
+- Tables give the <strong>exact numbers</strong> behind the graphs.  
+- They are useful when you want to know “How many cases were there in this specific year?” instead of just seeing the pattern.
+
+</div>
+
+---
+
+## 3. Example: Climate Trend Line Graph
+
+This mirrors the national climate trend plots on the **Climate Trends** page.
+
+```{r climate-line-plot}
+climate_temp |>
+  ggplot(aes(x = year, y = temp_anomaly)) +
+  geom_hline(yintercept = 0, linetype = "dashed", alpha = 0.5) +
+  geom_line(linewidth = 1.1, alpha = 0.8, color = "#2c3e50") +
+  geom_smooth(
+    method = "loess",
+    se     = TRUE,
+    linewidth = 1.1,
+    alpha  = 0.4,
+    color  = "#e74c3c",
+    fill   = "#e74c3c"
+  ) +
+  scale_x_continuous(breaks = pretty_breaks(10)) +
+  labs(
+    x = "Year",
+    y = "Temperature Anomaly (°C)",
+    title    = "U.S. Temperature Anomalies Over Time",
+    subtitle = "Dark line = yearly values; red curve = smoothed climate trend"
+  ) +
+  theme_minimal(base_size = 13) +
+  theme(
+    plot.title.position = "plot",
+    plot.title = element_text(face = "bold"),
+    plot.subtitle = element_text(margin = margin(b = 10)),
+    panel.grid.minor = element_blank()
+  )
+```
+
+### How to Read This Graph
+
+- The **dark line** shows each year’s temperature anomaly.  
+  - Points above 0°C &rarr; warmer than the long-term average.  
+  - Points below 0°C &rarr; cooler than the long-term average.  
+- The **red curve** is a smoothed trend across all years:
+  - If it tilts upward, the U.S. is warming over time.
+- The **dashed horizontal line** at 0°C is a reference “normal.”
+
+<details>
+<summary><strong>Show R code: climate trend plot</strong></summary>
+
+```{r climate-line-code, echo=TRUE, eval=FALSE}
+climate_temp <- readr::read_csv("data/climate_year_temp.csv") |>
+  mutate(year = as.integer(year))
+
+climate_temp |>
+  ggplot(aes(x = year, y = temp_anomaly)) +
+  geom_hline(yintercept = 0, linetype = "dashed", alpha = 0.5) +
+  geom_line(linewidth = 1.1, alpha = 0.8, color = "#2c3e50") +
+  geom_smooth(
+    method = "loess",
+    se     = TRUE,
+    linewidth = 1.1,
+    alpha  = 0.4,
+    color  = "#e74c3c",
+    fill   = "#e74c3c"
+  ) +
+  scale_x_continuous(breaks = pretty_breaks(10)) +
+  labs(
+    x = "Year",
+    y = "Temperature Anomaly (°C)",
+    title    = "U.S. Temperature Anomalies Over Time",
+    subtitle = "Dark line = yearly values; red curve = smoothed climate trend"
+  ) +
+  theme_minimal(base_size = 13) +
+  theme(
+    plot.title.position = "plot",
+    plot.title = element_text(face = "bold"),
+    plot.subtitle = element_text(margin = margin(b = 10)),
+    panel.grid.minor = element_blank()
+  )
+```
+
+</details>
+
+---
+
+## 4. Example: Multi-Disease Trend Plot
+
+This mirrors the **Disease Trends** page, where we compare diseases over time.
+
+```{r multi-disease-plot}
+disease_year_summary <- master_disease |>
+  group_by(year, disease) |>
+  summarize(total_cases = sum(cases, na.rm = TRUE), .groups = "drop")
+
+disease_year_summary |>
+  ggplot(aes(x = year, y = total_cases, color = disease)) +
+  geom_line(linewidth = 1.1, alpha = 0.9) +
+  scale_color_manual(values = c(
+    "West Nile" = "#2980b9",
+    "Lyme"      = "#27ae60",
+    "Dengue"    = "#e67e22",
+    "Malaria"   = "#8e44ad"
+  )) +
+  scale_y_continuous(labels = label_comma()) +
+  scale_x_continuous(breaks = pretty_breaks(10)) +
+  labs(
+    x = "Year",
+    y = "Total U.S. Cases",
+    title    = "Total Vector-Borne Disease Cases by Year",
+    subtitle = "Each colored line shows a different disease"
+  ) +
+  theme_minimal(base_size = 13) +
+  theme(
+    plot.title.position = "plot",
+    plot.title = element_text(face = "bold"),
+    legend.position = "bottom",
+    panel.grid.minor = element_blank()
+  )
+```
+
+### How to Read This Graph
+
+- **Each line** is a different disease.  
+- **x-axis** = year; **y-axis** = total U.S. cases.  
+- Look for:
+  - Whether a disease is trending upward, downward, or flat.  
+  - Whether some diseases spike in certain years compared to others.
+
+<details>
+<summary><strong>Show R code: multi-disease trend plot</strong></summary>
+
+```{r multi-disease-code, echo=TRUE, eval=FALSE}
+master_disease <- readr::read_csv("data/master_disease_comparison.csv") |>
+  mutate(
+    year    = as.integer(year),
+    cases   = as.numeric(cases),
+    disease = factor(
+      disease,
+      levels = c("West Nile", "Lyme", "Dengue", "Malaria")
+    )
+  )
+
+disease_year_summary <- master_disease |>
+  group_by(year, disease) |>
+  summarize(total_cases = sum(cases, na.rm = TRUE), .groups = "drop")
+
+disease_year_summary |>
+  ggplot(aes(x = year, y = total_cases, color = disease)) +
+  geom_line(linewidth = 1.1, alpha = 0.9) +
+  scale_color_manual(values = c(
+    "West Nile" = "#2980b9",
+    "Lyme"      = "#27ae60",
+    "Dengue"    = "#e67e22",
+    "Malaria"   = "#8e44ad"
+  )) +
+  scale_y_continuous(labels = label_comma()) +
+  scale_x_continuous(breaks = pretty_breaks(10)) +
+  labs(
+    x = "Year",
+    y = "Total U.S. Cases",
+    title    = "Total Vector-Borne Disease Cases by Year",
+    subtitle = "Each colored line shows a different disease"
+  ) +
+  theme_minimal(base_size = 13) +
+  theme(
+    plot.title.position = "plot",
+    plot.title = element_text(face = "bold"),
+    legend.position = "bottom",
+    panel.grid.minor = element_blank()
+  )
+```
+
+</details>
+
+---
+
+## 5. Example: Regional Lyme Patterns
+
+Here we zoom in on Lyme disease and compare regions.
+
+```{r lyme-region-plot}
+lyme_region |>
+  ggplot(aes(x = year, y = cases, color = region)) +
+  geom_line(linewidth = 1.1, alpha = 0.9) +
+  scale_y_continuous(labels = label_comma()) +
+  scale_x_continuous(breaks = pretty_breaks(8)) +
+  labs(
+    x = "Year",
+    y = "Reported Lyme Cases",
+    title    = "Lyme Disease Cases by Region",
+    subtitle = "Each line shows a different U.S. region"
+  ) +
+  theme_minimal(base_size = 13) +
+  theme(
+    plot.title.position = "plot",
+    plot.title = element_text(face = "bold"),
+    legend.position = "right",
+    panel.grid.minor = element_blank()
+  )
+```
+
+### How to Read This Graph
+
+- Each **colored line** is one U.S. region.  
+- Regions with lines much higher on the graph have more Lyme cases.  
+- The slope shows whether a region is experiencing a rise or decline in reported Lyme.
+
+<details>
+<summary><strong>Show R code: regional Lyme plot</strong></summary>
+
+```{r lyme-region-code, echo=TRUE, eval=FALSE}
+lyme_region <- readr::read_csv("data/lyme_region.csv") |>
+  mutate(
+    year  = as.integer(year),
+    cases = as.numeric(cases)
+  )
+
+lyme_region |>
+  ggplot(aes(x = year, y = cases, color = region)) +
+  geom_line(linewidth = 1.1, alpha = 0.9) +
+  scale_y_continuous(labels = label_comma()) +
+  scale_x_continuous(breaks = pretty_breaks(8)) +
+  labs(
+    x = "Year",
+    y = "Reported Lyme Cases",
+    title    = "Lyme Disease Cases by Region",
+    subtitle = "Each line shows a different U.S. region"
+  ) +
+  theme_minimal(base_size = 13) +
+  theme(
+    plot.title.position = "plot",
+    plot.title = element_text(face = "bold"),
+    legend.position = "right",
+    panel.grid.minor = element_blank()
+  )
+```
+
+</details>
+
+---
+
+## 6. Example: Climate–Disease Comparison (Scatterplot)
+
+This kind of plot is used on the **Climate–Disease Comparison** page.
+
+```{r climate-disease-scatter}
+climate_disease_join |>
+  ggplot(aes(x = temp_anomaly, y = cases)) +
+  geom_point(alpha = 0.8, size = 2.5, color = "#2980b9") +
+  geom_smooth(
+    method = "lm",
+    se     = TRUE,
+    linewidth = 1.1,
+    color  = "#e74c3c",
+    fill   = "#e74c3c",
+    alpha  = 0.3
+  ) +
+  labs(
+    x = "Temperature Anomaly (°C)",
+    y = "West Nile Cases (U.S. Total)",
+    title    = "Example Climate–Disease Relationship",
+    subtitle = "Each point is a year; red line is a simple linear trend"
+  ) +
+  theme_minimal(base_size = 13) +
+  theme(
+    plot.title.position = "plot",
+    plot.title = element_text(face = "bold"),
+    panel.grid.minor = element_blank()
+  )
+```
+
+### How to Read This Graph
+
+- Each **point** is a year:
+  - Horizontal position = how warm/cool the year was.  
+  - Vertical position   = how many West Nile cases that year.  
+- The **red line** is a simple linear model:
+  - Upward slope = warmer years tend to have more cases.  
+  - Downward slope = warmer years tend to have fewer cases.  
+- The shaded band shows the **uncertainty** around the model.
+
+> This kind of plot suggests a <strong>relationship</strong> but does <strong>not prove causation</strong>.  
+> Mosquito control, reporting practices, and human behavior all matter too.
+
+<details>
+<summary><strong>Show R code: climate–disease scatterplot and model</strong></summary>
+
+```{r climate-disease-code, echo=TRUE, eval=FALSE}
+climate_temp <- readr::read_csv("data/climate_year_temp.csv") |>
+  mutate(year = as.integer(year))
+
+master_disease <- readr::read_csv("data/master_disease_comparison.csv") |>
+  mutate(
+    year    = as.integer(year),
+    cases   = as.numeric(cases),
+    disease = factor(
+      disease,
+      levels = c("West Nile", "Lyme", "Dengue", "Malaria")
+    )
+  )
+
+climate_disease_join <- master_disease |>
+  filter(disease == "West Nile") |>
+  inner_join(climate_temp, by = "year")
+
+climate_disease_join |>
+  ggplot(aes(x = temp_anomaly, y = cases)) +
+  geom_point(alpha = 0.8, size = 2.5, color = "#2980b9") +
+  geom_smooth(
+    method = "lm",
+    se     = TRUE,
+    linewidth = 1.1,
+    color  = "#e74c3c",
+    fill   = "#e74c3c",
+    alpha  = 0.3
+  ) +
+  labs(
+    x = "Temperature Anomaly (°C)",
+    y = "West Nile Cases (U.S. Total)",
+    title    = "Example Climate–Disease Relationship",
+    subtitle = "Each point is a year; red line is a simple linear trend"
+  ) +
+  theme_minimal(base_size = 13) +
+  theme(
+    plot.title.position = "plot",
+    plot.title = element_text(face = "bold"),
+    panel.grid.minor = element_blank()
+  )
+
+# Optional: look at the linear model itself
+model_westnile <- lm(cases ~ temp_anomaly, data = climate_disease_join)
+broom::tidy(model_westnile)
+```
+
+</details>
+
+---
+
+## 7. Example Tables and Their Code
+
+Sometimes seeing the exact numbers is helpful.  
+Here are two simple table examples and the R code behind them.
+
+### 7.1. Summary Table of Recent Disease Cases
+
+```{r disease-table}
+recent_disease_table <- disease_year_summary |>
+  filter(year >= max(year) - 5) |>
+  arrange(desc(year), disease)
+
+recent_disease_table |>
+  kbl(
+    caption = "Recent total U.S. cases by disease and year",
+    col.names = c("Year", "Disease", "Total Cases")
+  ) |>
+  kable_styling(full_width = FALSE)
+```
+
+<details>
+<summary><strong>Show R code: recent disease table</strong></summary>
+
+```{r disease-table-code, echo=TRUE, eval=FALSE}
+disease_year_summary <- master_disease |>
+  group_by(year, disease) |>
+  summarize(total_cases = sum(cases, na.rm = TRUE), .groups = "drop")
+
+recent_disease_table <- disease_year_summary |>
+  filter(year >= max(year) - 5) |>
+  arrange(desc(year), disease)
+
+recent_disease_table |>
+  kbl(
+    caption = "Recent total U.S. cases by disease and year",
+    col.names = c("Year", "Disease", "Total Cases")
+  ) |>
+  kable_styling(full_width = FALSE)
+```
+
+</details>
+
+---
+
+### 7.2. Simple Model Output Table
+
+This shows the kind of model summary used behind the climate–disease comparisons.
+
+```{r model-table}
+model_westnile <- lm(cases ~ temp_anomaly, data = climate_disease_join)
+
+model_tidy <- broom::tidy(model_westnile)
+
+model_tidy |>
+  kbl(
+    caption = "Linear model: West Nile cases ~ temperature anomaly",
+    digits = 3
+  ) |>
+  kable_styling(full_width = FALSE)
+```
+
+<details>
+<summary><strong>Show R code: model summary table</strong></summary>
+
+```{r model-table-code, echo=TRUE, eval=FALSE}
+model_westnile <- lm(cases ~ temp_anomaly, data = climate_disease_join)
+
+model_tidy <- broom::tidy(model_westnile)
+
+model_tidy |>
+  kbl(
+    caption = "Linear model: West Nile cases ~ temperature anomaly",
+    digits = 3
+  ) |>
+  kable_styling(full_width = FALSE)
+```
+
+</details>
+
+---
+
+## 8. Checklist: Reading Any Graph on This Site
+
+<div style="background-color:#fcfcfc; padding:18px 22px; border-radius:4px; margin-bottom:25px; box-shadow:0 0 0 1px #eeeeee;">
+
+When you look at a graph or table anywhere on this site, you can use this quick checklist:
+
+1. **What is on each axis?**  
+   - Time? Temperature anomaly? Cases? Index value?
+
+2. **What do the colors or panels represent?**  
+   - Diseases, regions, or climate variables?
+
+3. **What is the big-picture shape?**  
+   - Mostly going up, mostly going down, or staying flat?
+
+4. **Is there a trend line or model?**  
+   - What does it suggest about the relationship?  
+   - How strong or uncertain does it look?
+
+5. **How might climate and disease be linked here &mdash; and what else could be going on?**  
+   - Think about mosquito control, reporting changes, population movement, and other real-world factors.
+
+<p style="margin-top:10px;">
+If you can walk through these questions, you’re reading the graphs like a scientist &mdash; and you’re ready to dig into the rest of the project with confidence.
+</p>
+
+</div>

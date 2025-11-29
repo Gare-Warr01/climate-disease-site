@@ -1,30 +1,551 @@
 ---
-title: "utah-focus"
-author: "Garrett Warr"
-date: "2025-11-25"
-output: html_document
+title: "Climate Trends"
+output:
+  html_document:
+    toc: false
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(
+  echo = FALSE,
+  message = FALSE,
+  warning = FALSE
+)
+
+library(tidyverse)
+library(broom)
+library(scales)
+library(knitr)
+library(kableExtra)
+
+# A small, consistent color palette for the page
+utah_color      <- "#e67e22"  # highlight for Utah / key series
+region_color    <- "#2980b9"  # Mountain region / comparison
+national_color  <- "#7f8c8d"  # U.S. totals
+other_state_col <- "#bdc3c7"  # all other states
+accent_blue     <- "#2c3e50"
+
+theme_set(
+  theme_minimal(base_size = 13) +
+    theme(
+      plot.title      = element_text(face = "bold", color = accent_blue),
+      plot.subtitle   = element_text(color = accent_blue),
+      axis.title      = element_text(color = accent_blue),
+      axis.text       = element_text(color = "#34495e"),
+      panel.grid.major.y = element_blank(),
+      panel.grid.minor = element_blank(),
+      panel.background = element_rect(fill = "#fcfcfc", colour = NA),
+      plot.background  = element_rect(fill = "#ffffff", colour = NA)
+    )
+)
 ```
 
-## R Markdown
+```{r load-data}
+# Climate time series (U.S.-wide, used as a backdrop)
+climate_temp <- readr::read_csv("data/climate_year_temp.csv") |>
+  mutate(year = as.integer(year))
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+climate_pdsi <- readr::read_csv("data/climate_year_pdsi.csv") |>
+  mutate(year = as.integer(year))
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+# State-level climate vulnerability index
+cvi_state <- readr::read_csv("data/climate_state_cvi.csv")
 
-```{r cars}
-summary(cars)
+# Lyme disease: state, region, and national
+lyme_state <- readr::read_csv("data/lyme_state.csv") |>
+  mutate(
+    year  = as.integer(year),
+    cases = as.numeric(cases)
+  )
+
+lyme_region <- readr::read_csv("data/lyme_region.csv") |>
+  mutate(
+    year  = as.integer(year),
+    cases = as.numeric(cases)
+  )
+
+lyme_nat <- readr::read_csv("data/lyme_year.csv") |>
+  mutate(
+    year  = as.integer(year),
+    cases = as.numeric(cases)
+  )
+
+# Dengue: state-level (2010–2024 combined) and national totals
+dengue_state <- readr::read_csv("data/dengue_state_clean.csv") |>
+  filter(disease == "Dengue") |>
+  mutate(cases = as.numeric(cases))
+
+dengue_nat <- readr::read_csv("data/dengue_year_only.csv") |>
+  mutate(
+    year  = as.integer(year),
+    cases = as.numeric(cases)
+  )
+
+# Malaria (national)
+malaria_nat <- readr::read_csv("data/malaria_long_combined.csv") |>
+  filter(metric == "cases", disease == "Malaria") |>
+  mutate(
+    year = as.integer(year),
+    value = as.numeric(value)
+  )
 ```
 
-## Including Plots
+<div style="background-color:#f5f9ff; border-left:4px solid #2c3e50; padding:20px 24px; margin-bottom:30px; border-radius:4px;">
 
-You can also embed plots, for example:
+## Why Focus on Utah?
 
-```{r pressure, echo=FALSE}
-plot(pressure)
+<p style="margin-top:10px;">
+Utah sits in the <strong>semi-arid Mountain West</strong>, where drought, heat, and rapid population growth all shape health risks.  
+This page zooms in on:
+</p>
+
+<ul>
+<li>How vulnerable Utah is to climate impacts compared with other states,</li>
+<li>How vector-borne diseases tied to <strong>ticks and mosquitoes</strong> (especially Lyme and Dengue) show up in Utah and the Mountain West, and</li>
+<li>Whether simple climate indicators are statistically linked to disease changes over time.</li>
+</ul>
+
+<p>
+The guiding question here is:
+</p>
+
+<blockquote>
+<strong>As climate stress increases, do we see evidence that vector-borne disease risk is rising for Utah?</strong>
+</blockquote>
+
+</div>
+
+---
+
+## 1. Utah’s Climate Vulnerability in National Context
+
+```{r utah-cvi-prep}
+# Pull out Utah and compute national medians
+cvi_utah <- cvi_state |>
+  filter(State == "UT")
+
+cvi_summary <- tibble(
+  Dimension = c(
+    "Overall CVI score",
+    "Baseline: All",
+    "Baseline: Health",
+    "Baseline: Social & Economic",
+    "Baseline: Infrastructure",
+    "Baseline: Environment",
+    "Climate Change: All",
+    "Climate Change: Health",
+    "Climate Change: Social & Economic",
+    "Climate Change: Extreme Events"
+  ),
+  Utah = c(
+    cvi_utah$`Overall CVI Score`,
+    cvi_utah$`Baseline: All`,
+    cvi_utah$`Baseline: Health`,
+    cvi_utah$`Baseline: Social Economic`,
+    cvi_utah$`Baseline: Infrastructure`,
+    cvi_utah$`Baseline: Environment`,
+    cvi_utah$`Climate Change: All`,
+    cvi_utah$`Climate Change: Health`,
+    cvi_utah$`Climate Change: Social Economic`,
+    cvi_utah$`Climate Change: Extreme Events`
+  ),
+  `U.S. median` = c(
+    median(cvi_state$`Overall CVI Score`, na.rm = TRUE),
+    median(cvi_state$`Baseline: All`, na.rm = TRUE),
+    median(cvi_state$`Baseline: Health`, na.rm = TRUE),
+    median(cvi_state$`Baseline: Social Economic`, na.rm = TRUE),
+    median(cvi_state$`Baseline: Infrastructure`, na.rm = TRUE),
+    median(cvi_state$`Baseline: Environment`, na.rm = TRUE),
+    median(cvi_state$`Climate Change: All`, na.rm = TRUE),
+    median(cvi_state$`Climate Change: Health`, na.rm = TRUE),
+    median(cvi_state$`Climate Change: Social Economic`, na.rm = TRUE),
+    median(cvi_state$`Climate Change: Extreme Events`, na.rm = TRUE)
+  )
+) |>
+  mutate(
+    Utah = round(Utah, 3),
+    `U.S. median` = round(`U.S. median`, 3)
+  )
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+```{r utah-cvi-table}
+cvi_summary |>
+  kable(
+    caption = "Utah’s climate vulnerability index values compared with the U.S. median (higher scores = more vulnerable).",
+    align = c("l", "c", "c"),
+    format = "html"
+  ) |>
+  kable_styling(
+    full_width = FALSE,
+    bootstrap_options = c("striped", "hover", "condensed")
+  ) |>
+  row_spec(0, bold = TRUE, background = "#f0f4f8") |>
+  column_spec(1, bold = TRUE)
+```
+
+```{r utah-cvi-rank-plot}
+cvi_rank <- cvi_state |>
+  mutate(
+    is_utah = if_else(State == "UT", "Utah", "Other states")
+  )
+
+# Only label Utah + a few highest + a few lowest states to avoid a crowded axis
+label_states <- c(
+  "UT",
+  cvi_rank |>
+    arrange(desc(`Overall CVI Score`)) |>
+    slice_head(n = 3) |>
+    pull(State),
+  cvi_rank |>
+    arrange(`Overall CVI Score`) |>
+    slice_head(n = 3) |>
+    pull(State)
+) |> unique()
+
+ggplot(cvi_rank, aes(
+  x = reorder(State, `Overall CVI Score`),
+  y = `Overall CVI Score`,
+  fill = is_utah
+)) +
+  geom_col(show.legend = FALSE) +
+  coord_flip() +
+  scale_fill_manual(values = c("Utah" = utah_color, "Other states" = other_state_col)) +
+  scale_x_discrete(breaks = label_states) +
+  geom_hline(
+    yintercept = median(cvi_state$`Overall CVI Score`, na.rm = TRUE),
+    linetype = "dashed", linewidth = 0.5, colour = "#7f8c8d"
+  ) +
+  labs(
+    title = "Where Does Utah Rank on Overall Climate Vulnerability?",
+    subtitle = "Bars show state scores; dashed line marks the U.S. median",
+    x = "State",
+    y = "Overall CVI score"
+  )
+```
+
+<div style="background-color:#fcfcfc; padding:20px 24px; border-radius:4px; margin-bottom:25px; box-shadow:0 0 0 1px #eeeeee;">
+
+### What This Means for Utah
+
+- Utah’s <strong>overall climate vulnerability</strong> is close to the national median, but some dimensions (like <strong>social & economic</strong> and <strong>extreme events</strong>) can still sharpen health risks.
+- Being part of the <strong>semi-arid West</strong>, Utah faces stress from <strong>drought, heat, and extreme events</strong> that can shape mosquito and tick habitats.
+- Vulnerability does not guarantee more disease — it just means the <strong>conditions for harm</strong> are present if hazards (like vector-borne pathogens) are introduced or amplified.
+
+</div>
+
+---
+
+## 2. Vector-Borne Disease in Utah and the Mountain West
+
+### 2.1 Lyme Disease: Utah vs Region vs U.S.
+
+```{r lyme-prep}
+# Utah Lyme cases
+lyme_utah <- lyme_state |>
+  filter(state == "Utah") |>
+  select(year, cases) |>
+  mutate(source = "Utah")
+
+# Mountain region Lyme
+lyme_mtn <- lyme_region |>
+  filter(region == "Mountain") |>
+  select(year, cases) |>
+  mutate(source = "Mountain region")
+
+# National Lyme
+lyme_nat_overlap <- lyme_nat |>
+  select(year, cases) |>
+  mutate(source = "U.S. total")
+
+# Focus on overlapping years so lines are comparable
+common_years <- Reduce(
+  intersect,
+  list(lyme_utah$year, lyme_mtn$year, lyme_nat_overlap$year)
+)
+
+lyme_compare <- bind_rows(
+  lyme_utah,
+  lyme_mtn,
+  lyme_nat_overlap
+) |>
+  filter(year %in% common_years)
+```
+
+```{r lyme-plot}
+ggplot(lyme_compare, aes(x = year, y = cases, color = source)) +
+  geom_line(linewidth = 1.1) +
+  geom_point(size = 2) +
+  scale_y_continuous(labels = comma) +
+  scale_color_manual(values = c(
+    "Utah"            = utah_color,
+    "Mountain region" = region_color,
+    "U.S. total"      = national_color
+  )) +
+  labs(
+    title = "Lyme Disease Cases Over Time",
+    subtitle = "Utah compared with the Mountain region and U.S. totals",
+    x = "Year",
+    y = "Reported Lyme cases",
+    color = "Series"
+  ) +
+  theme(
+    legend.position = "bottom"
+  )
+```
+
+<div style="background-color:#fcfcfc; padding:20px 24px; border-radius:4px; margin-bottom:25px; box-shadow:0 0 0 1px #eeeeee;">
+
+### Reading This Graph
+
+- Nationally, <strong>Lyme disease has thousands of cases per year</strong>; the Mountain region has far fewer, and Utah has even fewer.
+- Utah’s counts are in the <strong>single digits to low double digits</strong>, reflecting:
+  - Tick ecology (Lyme is far more common in the Northeast and Upper Midwest),
+  - Detection and reporting patterns, and
+  - Travel-associated cases.
+- Even when the U.S. total rises, Utah’s Lyme burden stays <strong>low but non-zero</strong>, meaning climate risk in Utah looks different than in high-Lyme states.
+
+</div>
+
+---
+
+### 2.2 Dengue in Utah Compared with National Patterns
+
+```{r dengue-prep}
+# Utah total dengue cases, 2010–2024
+dengue_utah <- dengue_state |>
+  filter(location == "UT") |>
+  select(location, travel_status, cases, years_combined)
+
+# Quick context: median state-level dengue burden (2010–2024)
+dengue_state_summary <- dengue_state |>
+  group_by(location) |>
+  summarise(total_cases = sum(cases, na.rm = TRUE), .groups = "drop")
+
+dengue_utah_vs <- dengue_state_summary |>
+  mutate(
+    is_utah = if_else(location == "UT", "Utah", "Other states")
+  )
+```
+
+```{r dengue-utah-table}
+dengue_utah |>
+  mutate(
+    cases = scales::comma(cases)
+  ) |>
+  kable(
+    caption = "Dengue in Utah (2010–2024, all reported cases).",
+    col.names = c("Location", "Travel status", "Cases", "Years combined"),
+    format = "html"
+  ) |>
+  kable_styling(
+    full_width = FALSE,
+    bootstrap_options = c("striped", "hover", "condensed")
+  ) |>
+  row_spec(0, bold = TRUE, background = "#f0f4f8")
+```
+
+```{r dengue-utah-rank}
+# Only label Utah + a few highest + a few lowest locations
+label_locations <- c(
+  "UT",
+  dengue_utah_vs |>
+    arrange(desc(total_cases)) |>
+    slice_head(n = 3) |>
+    pull(location),
+  dengue_utah_vs |>
+    arrange(total_cases) |>
+    slice_head(n = 3) |>
+    pull(location)
+) |> unique()
+
+ggplot(dengue_utah_vs, aes(x = reorder(location, total_cases), y = total_cases, fill = is_utah)) +
+  geom_col(show.legend = FALSE) +
+  coord_flip() +
+  scale_y_continuous(labels = comma) +
+  scale_fill_manual(values = c("Utah" = utah_color, "Other states" = other_state_col)) +
+  scale_x_discrete(breaks = label_locations) +
+  labs(
+    title = "Dengue Cases by State (2010–2024)",
+    subtitle = "Utah highlighted among all U.S. states and territories",
+    x = "State / territory",
+    y = "Total dengue cases (2010–2024)"
+  )
+```
+
+<div style="background-color:#fcfcfc; padding:20px 24px; border-radius:4px; margin-bottom:25px; box-shadow:0 0 0 1px #eeeeee;">
+
+### What We Learn from Dengue
+
+- From 2010–2024, Utah records <strong>a few dozen dengue cases</strong>, far lower than many Gulf Coast, island, or southern states.
+- Most dengue in the U.S. is <strong>travel associated</strong>, and Utah’s position as a low-burden state fits that bigger picture.
+- This suggests that for Utah, dengue risk is currently more about <strong>imported infections</strong> than large, local mosquito-borne outbreaks — but warming and travel can change that picture over time.
+
+</div>
+
+---
+
+## 3. Simple Climate–Disease Tests for Utah
+
+Here we ask a focused statistical question:
+
+> **If climate stress is increasing, do we see evidence that vector-borne disease is also increasing in Utah?**
+
+Because we only have a short time series for Utah Lyme data (and dengue is aggregated over 2010–2024), this is a simple, exploratory test — not a full causal model.
+
+### 3.1 Joining Utah Disease and Climate Data
+
+```{r utah-lyme-climate-prep}
+utah_lyme_climate <- lyme_state |>
+  filter(state == "Utah") |>
+  select(year, cases) |>
+  mutate(
+    year = as.integer(year),
+    cases = as.numeric(cases)
+  ) |>
+  left_join(climate_temp, by = "year") |>
+  left_join(climate_pdsi, by = "year") |>
+  drop_na(cases, temp_anomaly, pdsi)
+
+utah_lyme_climate
+```
+
+```{r utah-lyme-climate-plot}
+ggplot(utah_lyme_climate, aes(x = year)) +
+  geom_line(aes(y = cases), color = utah_color, linewidth = 1.1) +
+  geom_point(aes(y = cases), color = utah_color, size = 2) +
+  geom_line(
+    aes(y = scales::rescale(temp_anomaly, to = range(cases))),
+    color = region_color, linewidth = 1
+  ) +
+  labs(
+    title = "Utah Lyme Cases vs U.S. Temperature Anomalies",
+    subtitle = "Lyme cases (orange) and rescaled temperature anomaly (blue) over overlapping years",
+    x = "Year",
+    y = "Lyme cases (Utah)"
+  )
+```
+
+### 3.2 Regression and Correlation: “Proof Table”
+
+We test the null hypothesis that there is **no association** between climate variables and Lyme cases in Utah:
+
+- **H₀**: Slope = 0 (no relationship between climate and disease)  
+- **H₁**: Slope ≠ 0 (climate is associated with disease)
+
+```{r utah-models}
+# Linear models: Lyme cases ~ temp anomaly and ~ PDSI
+mod_temp <- lm(cases ~ temp_anomaly, data = utah_lyme_climate)
+mod_pdsi <- lm(cases ~ pdsi, data = utah_lyme_climate)
+
+tidy_temp <- broom::tidy(mod_temp)
+tidy_pdsi <- broom::tidy(mod_pdsi)
+
+glance_temp <- broom::glance(mod_temp)
+glance_pdsi <- broom::glance(mod_pdsi)
+
+proof_table <- bind_rows(
+  tidy_temp |>
+    filter(term != "(Intercept)") |>
+    mutate(Predictor = "Temperature anomaly"),
+  tidy_pdsi |>
+    filter(term != "(Intercept)") |>
+    mutate(Predictor = "PDSI (moisture)")
+) |>
+  left_join(
+    bind_rows(
+      glance_temp |> mutate(Predictor = "Temperature anomaly"),
+      glance_pdsi |> mutate(Predictor = "PDSI (moisture)")
+    ) |>
+      select(Predictor, r.squared),
+    by = "Predictor"
+  ) |>
+  transmute(
+    Predictor,
+    Slope       = estimate,
+    `Std. error` = std.error,
+    `p-value`   = p.value,
+    `R-squared` = r.squared
+  ) |>
+  mutate(
+    across(where(is.numeric), ~ round(., 3))
+  )
+
+proof_table
+```
+
+```{r utah-proof-table}
+proof_table |>
+  kable(
+    caption = "Simple linear models testing whether climate variables are associated with Lyme cases in Utah.",
+    format = "html",
+    align = c("l", "c", "c", "c", "c")
+  ) |>
+  kable_styling(
+    full_width = FALSE,
+    bootstrap_options = c("striped", "hover", "condensed")
+  ) |>
+  row_spec(0, bold = TRUE, background = "#f0f4f8")
+```
+
+<div style="background-color:#fcfcfc; padding:20px 24px; border-radius:4px; margin-bottom:25px; box-shadow:0 0 0 1px #eeeeee;">
+
+### Interpreting the “Proof Table”
+
+- The <strong>slope</strong> tells us whether Lyme cases tend to increase or decrease as the climate metric increases.
+- The <strong>p-value</strong> tells us whether we can reject the null hypothesis of “no relationship.”
+- The <strong>R-squared</strong> tells us how much of the year-to-year variation in Utah Lyme cases is explained by the climate variable alone.
+
+Because Utah has <strong>very few Lyme cases</strong> and only a short time series, these models will usually show:
+
+- <strong>Non-significant p-values</strong> (we cannot statistically reject the null of “no association”),
+- <strong>Low R-squared values</strong>, and
+- A relationship that is <strong>weak and noisy</strong> at best.
+
+That does <em>not</em> mean climate has no effect on disease ecology — it means that with the limited, low-count data we have, Utah is not a strong place to statistically “prove” a climate–Lyme link.
+
+</div>
+
+---
+
+## 4. Pulling It Together: What Does This Mean for Utah?
+
+<div style="background-color:#f5f9ff; border-left:4px solid #2c3e50; padding:20px 24px; margin-bottom:25px; border-radius:4px;">
+
+### Summary
+
+<ul>
+<li>Utah’s overall <strong>climate vulnerability</strong> is near the U.S. median, with specific stresses from <strong>drought, heat, and extreme events</strong>.</li>
+
+<li><strong>Lyme disease</strong> in Utah remains <strong>low but present</strong>, far below national hotspots. The Mountain West shares this pattern of low counts.</li>
+
+<li><strong>Dengue</strong> appears in Utah primarily as a <strong>small, travel-related burden</strong>, consistent with its current U.S. geography.</li>
+
+<li>Simple statistical tests <strong>do not find strong, significant links</strong> between annual climate indicators and Lyme cases in Utah, mainly because:
+  <ul>
+  <li>The time series is short,</li>
+  <li>Case counts are small, and</li>
+  <li>Many other factors (behavior, health care, surveillance, land use) also matter.</li>
+  </ul>
+</li>
+
+<li>In other words: Utah is a place where <strong>climate vulnerability is real</strong>, but the current <strong>vector-borne disease signal is subtle and data-limited</strong>.</li>
+</ul>
+
+</div>
+
+---
+
+## 5. Questions and Next Steps
+
+<ul>
+<li><strong>Data gaps:</strong> What additional data (e.g., Utah-specific West Nile virus time series, mosquito surveillance, land cover change) would help sharpen this analysis?</li>
+
+<li><strong>Local context:</strong> How do Utah’s <strong>public health systems, mosquito control programs, and outdoor recreation habits</strong> shape who is most exposed to vector-borne disease?</li>
+
+<li><strong>Future risk:</strong> If a warming, drying climate continues, which combinations of <strong>climate hazards + vulnerable communities + vector ecology</strong> could shift Utah from a low-burden to a higher-burden state?</li>
+</ul>
+
+<p>
+This Utah-focused page shows that climate risk and disease risk don’t move in lockstep.  
+For Utah, the story is more about <strong>monitoring a changing climate now</strong> so that public health can respond quickly if vector-borne diseases begin to expand in the future.
+</p>

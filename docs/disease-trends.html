@@ -29,9 +29,6 @@
        h6 {font-size: 12px;}
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
-<script src="site_libs/jqueryui-1.13.2/jquery-ui.min.js"></script>
-<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
-<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
 <script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
@@ -47,108 +44,6 @@
 
 
 
-<style type="text/css">
-  code {
-    white-space: pre;
-  }
-  .sourceCode {
-    overflow: visible;
-  }
-</style>
-<style type="text/css" data-origin="pandoc">
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {  background-color: #f8f8f8; }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ef2929; } /* Alert */
-code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #204a87; } /* Attribute */
-code span.bn { color: #0000cf; } /* BaseN */
-code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4e9a06; } /* Char */
-code span.cn { color: #8f5902; } /* Constant */
-code span.co { color: #8f5902; font-style: italic; } /* Comment */
-code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
-code span.dt { color: #204a87; } /* DataType */
-code span.dv { color: #0000cf; } /* DecVal */
-code span.er { color: #a40000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #0000cf; } /* Float */
-code span.fu { color: #204a87; font-weight: bold; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
-code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
-code span.ot { color: #8f5902; } /* Other */
-code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
-code span.sc { color: #ce5c00; font-weight: bold; } /* SpecialChar */
-code span.ss { color: #4e9a06; } /* SpecialString */
-code span.st { color: #4e9a06; } /* String */
-code span.va { color: #000000; } /* Variable */
-code span.vs { color: #4e9a06; } /* VerbatimString */
-code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
-
-</style>
-<script>
-// apply pandoc div.sourceCode style to pre.sourceCode instead
-(function() {
-  var sheets = document.styleSheets;
-  for (var i = 0; i < sheets.length; i++) {
-    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
-    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
-    var j = 0;
-    while (j < rules.length) {
-      var rule = rules[j];
-      // check if there is a div.sourceCode rule
-      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") {
-        j++;
-        continue;
-      }
-      var style = rule.style.cssText;
-      // check if color or background-color is set
-      if (rule.style.color === '' && rule.style.backgroundColor === '') {
-        j++;
-        continue;
-      }
-      // replace div.sourceCode by a pre.sourceCode rule
-      sheets[i].deleteRule(j);
-      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
-    }
-  }
-})();
-</script>
 
 
 
@@ -315,69 +210,6 @@ $(document).ready(function () {
 
 
 
-<style type="text/css">
-
-#TOC {
-  margin: 25px 0px 20px 0px;
-}
-@media (max-width: 768px) {
-#TOC {
-  position: relative;
-  width: 100%;
-}
-}
-
-@media print {
-.toc-content {
-  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
-  float: right;
-}
-}
-
-.toc-content {
-  padding-left: 30px;
-  padding-right: 40px;
-}
-
-div.main-container {
-  max-width: 1200px;
-}
-
-div.tocify {
-  width: 20%;
-  max-width: 260px;
-  max-height: 85%;
-}
-
-@media (min-width: 768px) and (max-width: 991px) {
-  div.tocify {
-    width: 25%;
-  }
-}
-
-@media (max-width: 767px) {
-  div.tocify {
-    width: 100%;
-    max-width: none;
-  }
-}
-
-.tocify ul, .tocify li {
-  line-height: 20px;
-}
-
-.tocify-subheader .tocify-item {
-  font-size: 0.90em;
-}
-
-.tocify .list-group-item {
-  border-radius: 0px;
-}
-
-
-</style>
-
-
 
 </head>
 
@@ -385,16 +217,6 @@ div.tocify {
 
 
 <div class="container-fluid main-container">
-
-
-<!-- setup 3col/9col grid for toc_float and main content  -->
-<div class="row">
-<div class="col-xs-12 col-sm-4 col-md-3">
-<div id="TOC" class="tocify">
-</div>
-</div>
-
-<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -415,12 +237,6 @@ div.tocify {
   <a href="index.html">Home</a>
 </li>
 <li>
-  <a href="data.html">Data</a>
-</li>
-<li>
-  <a href="methods.html">Methods</a>
-</li>
-<li>
   <a href="climate-trends.html">Climate Trends</a>
 </li>
 <li>
@@ -436,13 +252,13 @@ div.tocify {
   <a href="how-to-read.html">How to Read These Graphs</a>
 </li>
 <li>
+  <a href="methods.html">Methods</a>
+</li>
+<li>
   <a href="about.html">About This Project</a>
 </li>
 <li>
   <a href="reflection.html">Reflection</a>
-</li>
-<li>
-  <a href="references.html">References</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -461,18 +277,426 @@ div.tocify {
 </div>
 
 
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="co"># Placeholder - data will be added later</span></span>
-<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="fu">data.frame</span>()</span></code></pre></div>
-<div data-pagedtable="false">
-<script data-pagedtable-source type="application/json">
-{"columns":[],"data":[],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
+<div id="overview-of-u.s.-disease-trends" class="section level2"
+style="background-color:#f5f9ff; border-left:4px solid #2c3e50; padding:20px 24px; margin-bottom:30px; border-radius:4px;">
+<h2>Overview of U.S. Disease Trends</h2>
+<p style="margin-top:10px;">
+This page looks at how <strong>vector-borne diseases</strong> have
+changed over time in the United States: <strong>Lyme disease</strong>,
+<strong>West Nile virus</strong>, <strong>Dengue</strong>, and
+<strong>Malaria</strong>.
+</p>
+<p>
+The goal here is simple: show the patterns clearly, explain what they
+mean in <strong>plain language</strong>, and keep the heavy R code
+hidden in the background. Every chart and table comes directly from the
+cleaned datasets used throughout this project.
+</p>
+</div>
+<hr />
+<div id="what-are-these-diseases" class="section level2">
+<h2>What Are These Diseases?</h2>
+<table>
+<caption>Quick overview of each disease and why it shows up in a climate
+project.</caption>
+<colgroup>
+<col width="6%" />
+<col width="21%" />
+<col width="31%" />
+<col width="41%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Disease</th>
+<th align="left">Main_vector</th>
+<th align="left">Typical_exposure</th>
+<th align="left">Why_it_matters_in_climate_work</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Lyme</td>
+<td align="left">Blacklegged ticks</td>
+<td align="left">Wooded / brushy areas where ticks live</td>
+<td align="left">Tick habitat and season length are
+climate-sensitive.</td>
+</tr>
+<tr class="even">
+<td align="left">West Nile</td>
+<td align="left">Culex mosquitoes</td>
+<td align="left">Mosquito bites, often in warm seasons</td>
+<td align="left">Mosquito abundance depends on temperature and
+water.</td>
+</tr>
+<tr class="odd">
+<td align="left">Dengue</td>
+<td align="left">Aedes aegypti / Aedes albopictus</td>
+<td align="left">Mosquitoes in warm, often urban environments</td>
+<td align="left">Expands with warming, urbanization, and global
+travel.</td>
+</tr>
+<tr class="even">
+<td align="left">Malaria</td>
+<td align="left">Anopheles mosquitoes</td>
+<td align="left">Mostly acquired while traveling to endemic areas</td>
+<td align="left">Classic climate-sensitive disease globally; still a
+travel risk.</td>
+</tr>
+</tbody>
+</table>
+<p>This table sets the stage: all four diseases involve
+<strong>vectors</strong> (ticks or mosquitoes) whose ranges and activity
+patterns are shaped by <strong>temperature, moisture, and
+habitat</strong>.</p>
+<hr />
+</div>
+<div id="big-picture-comparing-disease-trends-over-time"
+class="section level2">
+<h2>Big Picture: Comparing Disease Trends Over Time</h2>
+<p><img src="disease-trends_files/figure-html/all-diseases-plot-1.png" width="672" /></p>
+<p style="margin-top:10px;">
+Each colored line is the <strong>national case count</strong> over time
+for one disease. Think of this as four different “heartbeats” on the
+same chart.
+</p>
+<p>Key visual takeaways:</p>
+<ul>
+<li><strong>Lyme disease (orange)</strong>: A clear, long-term
+<strong>upward climb</strong>.</li>
+<li><strong>West Nile (blue)</strong>: Big <strong>early spikes</strong>
+after it appears, then ongoing activity at lower levels.</li>
+<li><strong>Dengue (green)</strong> and <strong>Malaria (pink)</strong>:
+Much <strong>lower national totals</strong>, but still important for
+travel and future climate risk.</li>
+</ul>
+<hr />
+<div id="are-these-trends-statistically-meaningful"
+class="section level3">
+<h3>Are These Trends Statistically Meaningful?</h3>
+<p>To put numbers behind what we see, we can fit a simple
+<strong>straight-line trend</strong> for each disease:<br />
+“On average, are cases going up, going down, or staying flat over
+time?”</p>
+<table>
+<caption>Simple straight-line trends in reported cases over time for
+each disease.</caption>
+<colgroup>
+<col width="10%" />
+<col width="39%" />
+<col width="41%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Disease</th>
+<th align="left">Trend direction</th>
+<th align="right">Change in cases per decade (model slope)</th>
+<th align="right">p-value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Malaria</td>
+<td align="left">Increasing (statistically significant)</td>
+<td align="right">256</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="even">
+<td align="left">Lyme</td>
+<td align="left">Increasing (statistically significant)</td>
+<td align="right">13497</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="odd">
+<td align="left">West Nile</td>
+<td align="left">No clear linear trend</td>
+<td align="right">-329</td>
+<td align="right">0.555</td>
+</tr>
+<tr class="even">
+<td align="left">Dengue</td>
+<td align="left">No clear linear trend</td>
+<td align="right">-2126</td>
+<td align="right">0.394</td>
+</tr>
+</tbody>
+</table>
+<p>How to read this without a stats class:</p>
+<ul>
+<li><strong>Trend direction</strong> tells you if the data support a
+real increase or decrease.</li>
+<li><strong>Change in cases per decade</strong> is a rough “speed” of
+change.</li>
+<li>A <strong>p-value below 0.05</strong> means the model is confident
+the trend is not just noise.</li>
+</ul>
+<p>In this dataset:</p>
+<ul>
+<li><strong>Lyme disease</strong>: A clear, statistically significant
+<strong>increase</strong>.</li>
+<li><strong>West Nile, Dengue, Malaria</strong>: No single clean
+up-or-down line; their stories are more about <strong>outbreaks</strong>
+and <strong>low-level persistence</strong> than a steady climb.</li>
+</ul>
+<hr />
+</div>
+</div>
+<div id="extra-view-which-disease-dominates-each-year"
+class="section level2">
+<h2>Extra View: Which Disease Dominates Each Year?</h2>
+<p>Sometimes it helps to see <strong>relative share</strong>, not just
+raw counts.</p>
+<p><img src="disease-trends_files/figure-html/share-plot-1.png" width="672" /></p>
+<p>This area plot shows, year by year, <strong>which disease
+dominates</strong> the total reported vector-borne disease burden in the
+dataset.</p>
+<hr />
+</div>
+<div id="lyme-disease-a-slow-steady-climb" class="section level2">
+<h2>Lyme Disease: A Slow, Steady Climb</h2>
+<p><img src="disease-trends_files/figure-html/lyme-national-plot-1.png" width="672" /></p>
+<p>What this shows in everyday language:</p>
+<ul>
+<li>Cases were <strong>much lower</strong> in the earlier part of the
+record.</li>
+<li>The black curve is the <strong>smoothed trend</strong> – it climbs
+steadily, even when individual years bounce up and down.</li>
+<li>This fits what we hear from public health agencies: Lyme risk has
+become <strong>more widespread and intense</strong>.</li>
+</ul>
+<hr />
+<div id="lyme-by-region-place-matters" class="section level3">
+<h3>Lyme by Region: Place Matters</h3>
+<p><img src="disease-trends_files/figure-html/lyme-region-plot-1.png" width="672" /></p>
+<p>How to read this:</p>
+<ul>
+<li>Each line is a <strong>broad U.S. region</strong>, not an individual
+state.</li>
+<li>Some regions sit <strong>much higher</strong> than others — a sign
+that Lyme is <strong>geographically concentrated</strong>.</li>
+<li>Lower lines don’t mean “no risk,” but they do show that
+<strong>where you live</strong> shapes your odds of exposure.</li>
+</ul>
+<hr />
+</div>
+</div>
+<div id="west-nile-virus-big-outbreaks-then-a-persistent-background"
+class="section level2">
+<h2>West Nile Virus: Big Outbreaks, Then a Persistent Background</h2>
+<p><img src="disease-trends_files/figure-html/west-nile-plot-1.png" width="672" /></p>
+<p>What stands out:</p>
+<ul>
+<li>After West Nile arrived in the U.S., the early 2000s saw
+<strong>huge spikes</strong>.</li>
+<li>It never fully disappeared — instead, it settled into a pattern of
+<strong>recurring outbreaks</strong>.</li>
+<li>That “spiky” shape is exactly what you might expect from a
+<strong>mosquito-borne disease</strong> shaped by <strong>weather,
+birds, and water</strong>.</li>
+</ul>
+<hr />
+</div>
+<div id="malaria-low-numbers-high-global-relevance"
+class="section level2">
+<h2>Malaria: Low Numbers, High Global Relevance</h2>
+<p><img src="disease-trends_files/figure-html/malaria-plot-1.png" width="672" /></p>
+<p>Reading this:</p>
+<ul>
+<li>Case counts stay <strong>relatively low</strong> throughout the
+record.</li>
+<li>The year-to-year wiggles reflect changes in <strong>travel
+patterns</strong> and <strong>screening</strong>, more than major local
+outbreaks.</li>
+<li>Malaria is still important in a climate project because globally it
+is <strong>highly climate-sensitive</strong>, and travel keeps it on the
+radar for U.S. public health.</li>
+</ul>
+<hr />
+</div>
+<div id="dengue-seasonal-peaks-and-an-emerging-signal"
+class="section level2">
+<h2>Dengue: Seasonal Peaks and an Emerging Signal</h2>
+<p><img src="disease-trends_files/figure-html/dengue-weekly-plot-1.png" width="672" /></p>
+<p>How to interpret a “week-of-year” graph:</p>
+<ul>
+<li>The x-axis is 1–52, representing the <strong>weeks of a calendar
+year</strong>.</li>
+<li>The line shows <strong>combined weekly totals</strong> across
+multiple years.</li>
+<li>Peaks around certain weeks suggest that dengue cases are more common
+during <strong>specific parts of the year</strong>, which echoes what we
+know about <strong>warm-season mosquito activity</strong>.</li>
+</ul>
+<hr />
+</div>
+<div id="side-by-side-summary-how-do-these-diseases-compare"
+class="section level2">
+<h2>Side-by-Side Summary: How Do These Diseases Compare?</h2>
+<table>
+<caption>
+Overall comparison of reported cases by disease (U.S. totals).
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Disease
+</th>
+<th style="text-align:right;">
+First year in dataset
+</th>
+<th style="text-align:right;">
+Last year in dataset
+</th>
+<th style="text-align:right;">
+Total cases (all years)
+</th>
+<th style="text-align:right;">
+Average cases per year
+</th>
+<th style="text-align:right;">
+Highest single-year case count
+</th>
+<th style="text-align:right;">
+Year with highest count
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+West Nile
+</td>
+<td style="text-align:right;">
+1999
+</td>
+<td style="text-align:right;">
+2024
+</td>
+<td style="text-align:right;">
+60992
+</td>
+<td style="text-align:right;">
+2346
+</td>
+<td style="text-align:right;">
+9862
+</td>
+<td style="text-align:right;">
+2003
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Lyme
+</td>
+<td style="text-align:right;">
+1996
+</td>
+<td style="text-align:right;">
+2023
+</td>
+<td style="text-align:right;">
+850611
+</td>
+<td style="text-align:right;">
+30379
+</td>
+<td style="text-align:right;">
+89468
+</td>
+<td style="text-align:right;">
+2023
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Dengue
+</td>
+<td style="text-align:right;">
+2010
+</td>
+<td style="text-align:right;">
+2024
+</td>
+<td style="text-align:right;">
+55814
+</td>
+<td style="text-align:right;">
+3721
+</td>
+<td style="text-align:right;">
+11611
+</td>
+<td style="text-align:right;">
+2010
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Malaria
+</td>
+<td style="text-align:right;">
+1972
+</td>
+<td style="text-align:right;">
+2022
+</td>
+<td style="text-align:right;">
+63775
+</td>
+<td style="text-align:right;">
+1250
+</td>
+<td style="text-align:right;">
+2161
+</td>
+<td style="text-align:right;">
+2017
+</td>
+</tr>
+</tbody>
+</table>
+<p>How to read this in everyday terms:</p>
+<ul>
+<li><strong>Total cases</strong> and <strong>average per year</strong>
+tell you how common each disease has been in this dataset.</li>
+<li><strong>Highest single-year count</strong> and its year highlight
+<strong>big outbreak years</strong>.</li>
+<li>Together, these numbers confirm what the graphs show: Lyme is the
+<strong>slow burn</strong>, West Nile is the <strong>spiky
+newcomer</strong>, and Dengue and Malaria are <strong>lower but
+important signals</strong>.</li>
+</ul>
+<hr />
+</div>
+<div id="putting-it-all-together" class="section level2"
+style="background-color:#fcfcfc; padding:20px 24px; border-radius:4px; margin-bottom:25px; box-shadow:0 0 0 1px #eeeeee;">
+<h2>Putting It All Together</h2>
+<ul>
+<li><strong>Lyme disease</strong>: Long-term, statistically significant
+<strong>increase</strong>, with strong regional patterns.</li>
+<li><strong>West Nile virus</strong>: <strong>Explosive
+introduction</strong> followed by recurring outbreaks.</li>
+<li><strong>Malaria and Dengue</strong>: Lower U.S. case counts but
+tightly tied to <strong>global climate and travel</strong>.</li>
+</ul>
+<p style="margin-top:10px;">
+All four are examples of how <strong>climate, ecology, and human
+behavior</strong> interact: warming temperatures, changing
+precipitation, land use, and travel patterns all play a role.
+</p>
+<p>
+This page is the “disease-only” side of the story.<br />
+In the next sections of the website, these patterns are compared against
+<strong>climate indicators</strong> to ask:
+</p>
+<p style="margin-top:5px; font-style:italic;">
+“When climate shifts, do these disease curves shift with it?”
+</p>
 </div>
 
 
 
-</div>
-</div>
 
 </div>
 
@@ -505,35 +729,6 @@ $(document).ready(function () {
 
 <!-- code folding -->
 
-<script>
-$(document).ready(function ()  {
-
-    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
-    $('.unlisted.unnumbered').addClass('toc-ignore')
-
-    // move toc-ignore selectors from section div to header
-    $('div.section.toc-ignore')
-        .removeClass('toc-ignore')
-        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
-
-    // establish options
-    var options = {
-      selectors: "h1,h2,h3",
-      theme: "bootstrap3",
-      context: '.toc-content',
-      hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
-      },
-      ignoreSelector: ".toc-ignore",
-      scrollTo: 0
-    };
-    options.showAndHide = true;
-    options.smoothScroll = true;
-
-    // tocify
-    var toc = $("#TOC").tocify(options).data("toc-tocify");
-});
-</script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>

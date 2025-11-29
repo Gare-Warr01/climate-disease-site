@@ -29,9 +29,6 @@
        h6 {font-size: 12px;}
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
-<script src="site_libs/jqueryui-1.13.2/jquery-ui.min.js"></script>
-<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
-<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
 <script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
@@ -47,108 +44,6 @@
 
 
 
-<style type="text/css">
-  code {
-    white-space: pre;
-  }
-  .sourceCode {
-    overflow: visible;
-  }
-</style>
-<style type="text/css" data-origin="pandoc">
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {  background-color: #f8f8f8; }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ef2929; } /* Alert */
-code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #204a87; } /* Attribute */
-code span.bn { color: #0000cf; } /* BaseN */
-code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4e9a06; } /* Char */
-code span.cn { color: #8f5902; } /* Constant */
-code span.co { color: #8f5902; font-style: italic; } /* Comment */
-code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
-code span.dt { color: #204a87; } /* DataType */
-code span.dv { color: #0000cf; } /* DecVal */
-code span.er { color: #a40000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #0000cf; } /* Float */
-code span.fu { color: #204a87; font-weight: bold; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
-code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
-code span.ot { color: #8f5902; } /* Other */
-code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
-code span.sc { color: #ce5c00; font-weight: bold; } /* SpecialChar */
-code span.ss { color: #4e9a06; } /* SpecialString */
-code span.st { color: #4e9a06; } /* String */
-code span.va { color: #000000; } /* Variable */
-code span.vs { color: #4e9a06; } /* VerbatimString */
-code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
-
-</style>
-<script>
-// apply pandoc div.sourceCode style to pre.sourceCode instead
-(function() {
-  var sheets = document.styleSheets;
-  for (var i = 0; i < sheets.length; i++) {
-    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
-    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
-    var j = 0;
-    while (j < rules.length) {
-      var rule = rules[j];
-      // check if there is a div.sourceCode rule
-      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") {
-        j++;
-        continue;
-      }
-      var style = rule.style.cssText;
-      // check if color or background-color is set
-      if (rule.style.color === '' && rule.style.backgroundColor === '') {
-        j++;
-        continue;
-      }
-      // replace div.sourceCode by a pre.sourceCode rule
-      sheets[i].deleteRule(j);
-      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
-    }
-  }
-})();
-</script>
 
 
 
@@ -315,69 +210,6 @@ $(document).ready(function () {
 
 
 
-<style type="text/css">
-
-#TOC {
-  margin: 25px 0px 20px 0px;
-}
-@media (max-width: 768px) {
-#TOC {
-  position: relative;
-  width: 100%;
-}
-}
-
-@media print {
-.toc-content {
-  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
-  float: right;
-}
-}
-
-.toc-content {
-  padding-left: 30px;
-  padding-right: 40px;
-}
-
-div.main-container {
-  max-width: 1200px;
-}
-
-div.tocify {
-  width: 20%;
-  max-width: 260px;
-  max-height: 85%;
-}
-
-@media (min-width: 768px) and (max-width: 991px) {
-  div.tocify {
-    width: 25%;
-  }
-}
-
-@media (max-width: 767px) {
-  div.tocify {
-    width: 100%;
-    max-width: none;
-  }
-}
-
-.tocify ul, .tocify li {
-  line-height: 20px;
-}
-
-.tocify-subheader .tocify-item {
-  font-size: 0.90em;
-}
-
-.tocify .list-group-item {
-  border-radius: 0px;
-}
-
-
-</style>
-
-
 
 </head>
 
@@ -385,16 +217,6 @@ div.tocify {
 
 
 <div class="container-fluid main-container">
-
-
-<!-- setup 3col/9col grid for toc_float and main content  -->
-<div class="row">
-<div class="col-xs-12 col-sm-4 col-md-3">
-<div id="TOC" class="tocify">
-</div>
-</div>
-
-<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -415,12 +237,6 @@ div.tocify {
   <a href="index.html">Home</a>
 </li>
 <li>
-  <a href="data.html">Data</a>
-</li>
-<li>
-  <a href="methods.html">Methods</a>
-</li>
-<li>
   <a href="climate-trends.html">Climate Trends</a>
 </li>
 <li>
@@ -436,13 +252,13 @@ div.tocify {
   <a href="how-to-read.html">How to Read These Graphs</a>
 </li>
 <li>
+  <a href="methods.html">Methods</a>
+</li>
+<li>
   <a href="about.html">About This Project</a>
 </li>
 <li>
   <a href="reflection.html">Reflection</a>
-</li>
-<li>
-  <a href="references.html">References</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -461,18 +277,489 @@ div.tocify {
 </div>
 
 
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="co"># Placeholder - data will be added later</span></span>
-<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="fu">data.frame</span>()</span></code></pre></div>
+<div id="overview-of-u.s.-climate-trends" class="section level2"
+style="background-color:#f5f9ff; border-left:4px solid #2c3e50; padding:20px 24px; margin-bottom:30px; border-radius:4px;">
+<h2>Overview of U.S. Climate Trends</h2>
+<p style="margin-top:10px;">
+This page presents the <strong>core climate evidence</strong> behind the
+entire project.<br />
+It is written so that someone with <strong>no statistics
+background</strong> can still follow what each graph is saying.
+</p>
+<p>
+We look at three core climate pieces:
+</p>
+<ul>
+<li>
+<strong>Temperature anomalies</strong> over time (how much warmer or
+cooler than a baseline year).
+</li>
+<li>
+<strong>Drought patterns</strong> using the Palmer Drought Severity
+Index (PDSI).
+</li>
+<li>
+<strong>Climate vulnerability</strong> by state using a Climate
+Vulnerability Index (CVI).
+</li>
+</ul>
+<p>
+For each section, you will see:
+</p>
+<ul>
+<li>
+a <strong>graph</strong>,
+</li>
+<li>
+a short “<strong>What you’re seeing</strong>” explanation,
+</li>
+<li>
+and a <strong>small summary table</strong> with key numbers.
+</li>
+</ul>
+</div>
+<hr />
+<div id="data-used-on-this-page" class="section level2"
+style="background-color:#fcfcfc; padding:20px 24px; border-radius:4px; margin-bottom:25px; box-shadow:0 0 0 1px #eeeeee;">
+<h2>Data Used on This Page</h2>
+<p>
+The analyses on this page draw from three cleaned datasets:
+</p>
+<ul>
+<li>
+<code>climate_year_temp.csv</code> – annual <strong>temperature
+anomalies</strong> (°C) with columns like <code>year</code> and
+<code>temp_anomaly</code>.
+</li>
+<li>
+<code>climate_year_pdsi.csv</code> – annual <strong>drought
+conditions</strong> using the Palmer Drought Severity Index, with
+columns like <code>year</code> and <code>pdsi</code>.
+</li>
+<li>
+<code>climate_state_cvi.csv</code> – <strong>state-level climate
+vulnerability</strong>, including <code>State</code>, <code>Overall CVI
+Score</code>, and related indicators.
+</li>
+</ul>
+<p>
+All of the graphs and tables below are built from these datasets.
+</p>
+</div>
+<hr />
+<div id="temperature-trends-over-time" class="section level2"
+style="background-color:#f9fbf9; padding:20px 24px; border-radius:4px; margin-bottom:25px; box-shadow:0 0 0 1px #e9f0e9;">
+<h2>1. Temperature Trends Over Time</h2>
+<div id="national-temperature-anomaly-line-chart"
+class="section level3">
+<h3>1.1 National Temperature Anomaly (Line Chart)</h3>
+<p><img src="climate-trends_files/figure-html/temp_plot-1.png" width="672" /></p>
+</div>
+<div id="what-youre-seeing" class="section level3"
+style="background-color:#ffffff; padding:16px 18px; border-radius:4px; margin-top:10px; box-shadow:0 0 0 1px #e5e5e5;">
+<h3>What you’re seeing</h3>
+<ul>
+<li>
+Each point on the orange line is a <strong>single year</strong>.
+</li>
+<li>
+The y-axis shows how much warmer or cooler that year was compared to a
+baseline:
+<ul>
+<li>
+<strong>Above 0</strong> = warmer-than-normal year
+</li>
+<li>
+<strong>Below 0</strong> = cooler-than-normal year
+</li>
+</ul>
+</li>
+<li>
+The dashed dark line is the <strong>trend line</strong> summarizing the
+overall direction of change.
+</li>
+</ul>
+<p>
+If this trend line slopes upward, it means that on average, the U.S. is
+getting <strong>warmer over time</strong>.
+</p>
+</div>
+<hr />
+<div id="key-temperature-numbers" class="section level3">
+<h3>1.2 Key Temperature Numbers</h3>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
-{"columns":[],"data":[],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["first_year"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["last_year"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["mean_anomaly"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["min_anomaly"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["max_anomaly"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"1940","2":"2023","3":"-0.3883708","4":"-1.038188","5":"0.764532"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
-
-
-
+</div>
+<div id="how-to-read-this-table" class="section level3"
+style="background-color:#ffffff; padding:16px 18px; border-radius:4px; margin-top:10px; box-shadow:0 0 0 1px #e5e5e5;">
+<h3>How to read this table</h3>
+<ul>
+<li>
+<strong>first_year / last_year</strong> – the time span covered by the
+data.
+</li>
+<li>
+<strong>mean_anomaly</strong> – the average temperature change relative
+to the baseline.
+</li>
+<li>
+<strong>min_anomaly / max_anomaly</strong> – the coolest and warmest
+years compared to the baseline.
+</li>
+</ul>
+<p>
+Together, this confirms that the dataset covers a long enough time
+window to see a clear <strong>warming signal</strong>.
+</p>
+</div>
+<hr />
+<div id="temperature-trend-per-year" class="section level3">
+<h3>1.3 Temperature Trend per Year</h3>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["term"],"name":[1],"type":["chr"],"align":["left"]},{"label":["estimate"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["std.error"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["statistic"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["p.value"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"(Intercept)","2":"-30.67178572","3":"2.439768315","4":"-12.57160","5":"8.057222e-21"},{"1":"year","2":"0.01528308","3":"0.001231181","4":"12.41334","5":"1.598652e-20"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
 </div>
 </div>
+<div id="what-this-model-is-saying" class="section level3"
+style="background-color:#ffffff; padding:16px 18px; border-radius:4px; margin-top:10px; box-shadow:0 0 0 1px #e5e5e5;">
+<h3>What this model is saying</h3>
+<ul>
+<li>
+This is a simple line that best fits the data: <code>temp_anomaly = a +
+b * year</code>.
+</li>
+<li>
+The <strong>estimate</strong> for <code>year</code> (the slope
+<code>b</code>) tells you how much the anomaly changes per year.
+</li>
+<li>
+If that value is positive, it means each year is, on average, a little
+<strong>warmer</strong> than the one before.
+</li>
+</ul>
+<p>
+You don’t need to focus on the exact numbers to get the message: this is
+another way of confirming there is a <strong>measurable warming
+trend</strong> across the study period.
+</p>
+</div>
+<hr />
+<div id="warmest-years-in-the-record" class="section level3">
+<h3>1.4 Warmest Years in the Record</h3>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["year"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["temp_anomaly"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"2016","2":"0.7645320"},{"1":"2023","2":"0.6740460"},{"1":"2020","2":"0.5184530"},{"1":"2017","2":"0.5063890"},{"1":"2015","2":"0.4734951"},{"1":"2012","2":"0.4235712"},{"1":"2021","2":"0.3928058"},{"1":"1998","2":"0.3199275"},{"1":"2006","2":"0.2718885"},{"1":"2005","2":"0.2465940"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+<div id="what-youre-seeing-1" class="section level3"
+style="background-color:#ffffff; padding:16px 18px; border-radius:4px; margin-top:10px; box-shadow:0 0 0 1px #e5e5e5;">
+<h3>What you’re seeing</h3>
+<p>
+This table lists the <strong>10 warmest years</strong> relative to the
+baseline.<br />
+If most of these years are clustered toward the end of the record, it
+visually reinforces the idea that <strong>recent years are unusually
+warm</strong>.
+</p>
+</div>
+</div>
+<hr />
+<div id="drought-patterns-pdsi" class="section level2"
+style="background-color:#fcfcff; padding:20px 24px; border-radius:4px; margin-bottom:25px; box-shadow:0 0 0 1px #ececff;">
+<h2>2. Drought Patterns (PDSI)</h2>
+<p>
+The Palmer Drought Severity Index (PDSI) tracks dryness and wetness:
+</p>
+<ul>
+<li>
+<strong>Negative PDSI</strong> = drier than normal (possible drought).
+</li>
+<li>
+<strong>Positive PDSI</strong> = wetter than normal.
+</li>
+</ul>
+<div id="drought-over-time" class="section level3">
+<h3>2.1 Drought Over Time</h3>
+<p><img src="climate-trends_files/figure-html/pdsi_plot-1.png" width="672" /></p>
+</div>
+<div id="what-youre-seeing-2" class="section level3"
+style="background-color:#ffffff; padding:16px 18px; border-radius:4px; margin-top:10px; box-shadow:0 0 0 1px #e5e5e5;">
+<h3>What you’re seeing</h3>
+<ul>
+<li>
+Each point on the blue line is a <strong>single year</strong>.
+</li>
+<li>
+<strong>Below 0</strong> = drier-than-normal years; <strong>above
+0</strong> = wetter-than-normal years.
+</li>
+<li>
+The smooth dark line shows longer-term swings between dry and wet
+periods.
+</li>
+</ul>
+<p>
+This highlights that U.S. climate doesn’t sit at “average.” It swings
+through <strong>periods of drought</strong> and <strong>periods of
+wetter conditions</strong>.
+</p>
+</div>
+<hr />
+<div id="key-drought-numbers" class="section level3">
+<h3>2.2 Key Drought Numbers</h3>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["first_year"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["last_year"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["mean_pdsi"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["min_pdsi"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["max_pdsi"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"2000","2":"2016","3":"0.05636973","4":"-1.633095","5":"1.113495"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+<div id="how-to-read-this-table-1" class="section level3"
+style="background-color:#ffffff; padding:16px 18px; border-radius:4px; margin-top:10px; box-shadow:0 0 0 1px #e5e5e5;">
+<h3>How to read this table</h3>
+<ul>
+<li>
+<strong>mean_pdsi</strong> – the average moisture level across all
+years.
+</li>
+<li>
+<strong>min_pdsi / max_pdsi</strong> – the driest and wettest years in
+the record.
+</li>
+</ul>
+<p>
+Even if the average is near zero, the extremes (very dry or very wet
+years) can have major impacts on ecosystems and health.
+</p>
+</div>
+<hr />
+<div id="optional-long-term-drought-trend" class="section level3">
+<h3>2.3 Optional: Long-Term Drought Trend</h3>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["term"],"name":[1],"type":["chr"],"align":["left"]},{"label":["estimate"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["std.error"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["statistic"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["p.value"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"(Intercept)","2":"-119.16938880","3":"75.92819140","4":"-1.569501","5":"0.1373820"},{"1":"year","2":"0.05937538","3":"0.03781273","4":"1.570248","5":"0.1372084"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+<div id="what-this-model-is-checking" class="section level3"
+style="background-color:#ffffff; padding:16px 18px; border-radius:4px; margin-top:10px; box-shadow:0 0 0 1px #e5e5e5;">
+<h3>What this model is checking</h3>
+<p>
+This model asks a simple question:<br />
+<strong>On average, are years slowly trending drier, wetter, or staying
+about the same?</strong>
+</p>
+<p>
+The main story, though, is usually not a smooth trend, but the
+<strong>swings and extremes</strong> seen in the plot above.
+</p>
+</div>
+</div>
+<hr />
+<div id="temperature-and-drought-together" class="section level2"
+style="background-color:#ffffff; padding:20px 24px; border-radius:4px; margin-bottom:25px; box-shadow:0 0 0 1px #eeeeee;">
+<h2>3. Temperature and Drought Together</h2>
+<div id="scatterplot-temperature-anomaly-vs-pdsi"
+class="section level3">
+<h3>3.1 Scatterplot: Temperature Anomaly vs PDSI</h3>
+<p><img src="climate-trends_files/figure-html/temp_pdsi_scatter-1.png" width="672" /></p>
+</div>
+<div id="how-to-read-this-scatterplot" class="section level3"
+style="background-color:#ffffff; padding:16px 18px; border-radius:4px; margin-top:10px; box-shadow:0 0 0 1px #e5e5e5;">
+<h3>How to read this scatterplot</h3>
+<ul>
+<li>
+Each dot is one <strong>year</strong> in the dataset.
+</li>
+<li>
+The x-axis shows how warm that year was compared to normal
+(<code>Temperature Anomaly</code>).
+</li>
+<li>
+The y-axis shows how dry or wet that same year was (<code>PDSI</code>).
+</li>
+<li>
+The smooth orange line summarizes the overall pattern:
+<ul>
+<li>
+If the line slopes <strong>down</strong>, warmer years tend to be
+<strong>drier</strong>.
+</li>
+<li>
+If the line slopes <strong>up</strong>, warmer years tend to be
+<strong>wetter</strong>.
+</li>
+<li>
+If the line is fairly <strong>flat</strong>, there is no strong
+relationship either way.
+</li>
+</ul>
+</li>
+</ul>
+<p>
+This plot does <strong>not</strong> prove that temperature “causes”
+drought or vice versa.<br />
+Instead, it answers a simpler question:<br />
+<strong>“When the U.S. has unusually warm years, do those same years
+also tend to be unusually dry or unusually wet?”</strong>
+</p>
+</div>
+<hr />
+<div id="correlation-between-temperature-and-pdsi"
+class="section level3">
+<h3>3.2 Correlation Between Temperature and PDSI</h3>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["correlation"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["p_value"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"-0.05392157","2":"0.8388726"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+<div id="what-this-table-means" class="section level3"
+style="background-color:#ffffff; padding:16px 18px; border-radius:4px; margin-top:10px; box-shadow:0 0 0 1px #e5e5e5;">
+<h3>What this table means</h3>
+<ul>
+<li>
+<strong>correlation</strong> – how strongly temperature and PDSI move
+together:
+<ul>
+<li>
+Close to 0: no strong relationship.
+</li>
+<li>
+Negative: warmer years tend to be drier.
+</li>
+<li>
+Positive: warmer years tend to be wetter.
+</li>
+</ul>
+</li>
+<li>
+<strong>p_value</strong> – whether that pattern is likely to be real or
+just random noise.
+</li>
+</ul>
+<p>
+In context, this helps you describe whether warm years and drought years
+tend to line up, which sets the stage for thinking about <strong>climate
+and disease risk together</strong>.
+</p>
+</div>
+</div>
+<hr />
+<div id="climate-vulnerability-by-state-cvi" class="section level2"
+style="background-color:#f3f7ff; padding:20px 24px; border-radius:4px; margin-bottom:25px; box-shadow:0 0 0 1px #dbe4ff;">
+<h2>4. Climate Vulnerability by State (CVI)</h2>
+<p>
+Climate does not affect all places equally.<br />
+The Climate Vulnerability Index (CVI) summarizes how exposed and
+sensitive each U.S. state is to climate-related risks.
+</p>
+<div id="overall-vulnerability-range" class="section level3">
+<h3>4.1 Overall Vulnerability Range</h3>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.3377  0.4552  0.4806  0.4898  0.5363  0.6182</code></pre>
+</div>
+<div id="what-youre-seeing-3" class="section level3"
+style="background-color:#ffffff; padding:16px 18px; border-radius:4px; margin-top:10px; box-shadow:0 0 0 1px #e5e5e5;">
+<h3>What you’re seeing</h3>
+<p>
+This summary shows the <strong>minimum</strong>,
+<strong>maximum</strong>, and <strong>typical (median)</strong> CVI
+scores across states.<br />
+It gives a quick sense of how wide the gap is between the least and most
+vulnerable states.
+</p>
+</div>
+<hr />
+<div id="top-10-most-vulnerable-states" class="section level3">
+<h3>4.2 Top 10 Most Vulnerable States</h3>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["State"],"name":[1],"type":["chr"],"align":["left"]},{"label":["FIPS Code"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Overall CVI Score"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["Baseline: All"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["Baseline: Health"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["Baseline: Social Economic"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["Baseline: Infrastructure"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["Baseline: Environment"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["Climate Change: All"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["Climate Change: Health"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["Climate Change: Social Economic"],"name":[11],"type":["dbl"],"align":["right"]},{"label":["Climate Change: Extreme Events"],"name":[12],"type":["dbl"],"align":["right"]}],"data":[{"1":"MS","2":"28076403831","3":"0.6182169","4":"0.5930639","5":"0.7429060","6":"0.5524340","7":"0.7059352","8":"0.3709802","9":"0.6517542","10":"0.7853279","11":"0.6517016","12":"0.5182331"},{"1":"LA","2":"22060816329","3":"0.6130729","4":"0.6080407","5":"0.7417807","6":"0.5217258","7":"0.6768812","8":"0.4917752","9":"0.6197824","10":"0.7507936","11":"0.6339603","12":"0.4745932"},{"1":"AL","2":"1076152627","3":"0.6109657","4":"0.5708463","5":"0.6836123","6":"0.5100611","7":"0.6631763","8":"0.4265355","9":"0.6644583","10":"0.8416397","11":"0.6196894","12":"0.5320458"},{"1":"TN","2":"47101972553","3":"0.5974748","4":"0.5740287","5":"0.6880251","6":"0.5333977","7":"0.6295876","8":"0.4451046","9":"0.6287362","10":"0.8029359","11":"0.5961918","12":"0.4870810"},{"1":"KY","2":"21110673208","3":"0.5849758","4":"0.5446979","5":"0.6470609","6":"0.5368383","7":"0.5631593","8":"0.4317330","9":"0.6386797","10":"0.7913602","11":"0.6369982","12":"0.4876807"},{"1":"SC","2":"45049074841","3":"0.5719695","4":"0.5448773","5":"0.6513456","6":"0.5274149","7":"0.5998745","8":"0.4008741","9":"0.6080926","10":"0.7548126","11":"0.5763872","12":"0.4930780"},{"1":"AR","2":"5078835064","3":"0.5692290","4":"0.5537964","5":"0.7095879","6":"0.5127551","7":"0.6031508","8":"0.3896919","9":"0.5898058","10":"0.6850926","11":"0.5705069","12":"0.5138179"},{"1":"GA","2":"13132609413","3":"0.5640975","4":"0.5384226","5":"0.5933191","6":"0.5319495","7":"0.5744754","8":"0.4539463","9":"0.5983307","10":"0.8301402","11":"0.5065832","12":"0.4582686"},{"1":"WV","2":"54052718790","3":"0.5543589","4":"0.5088395","5":"0.6254273","6":"0.5092390","7":"0.4870849","8":"0.4136069","9":"0.6150515","10":"0.7198764","11":"0.5731010","12":"0.5521771"},{"1":"NC","2":"37102745056","3":"0.5458086","4":"0.4908593","5":"0.5750872","6":"0.5109950","7":"0.4756152","8":"0.4017397","9":"0.6190744","10":"0.7917356","11":"0.5759508","12":"0.4895370"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+<p><img src="climate-trends_files/figure-html/cvi_plot-1.png" width="672" /></p>
+</div>
+<div id="how-to-read-this-table-and-chart" class="section level3"
+style="background-color:#ffffff; padding:16px 18px; border-radius:4px; margin-top:10px; box-shadow:0 0 0 1px #e5e5e5;">
+<h3>How to read this table and chart</h3>
+<ul>
+<li>
+The table lists the <strong>10 highest</strong> CVI scores.
+</li>
+<li>
+In the bar chart, each bar is a state, and higher bars mean higher
+climate vulnerability.
+</li>
+<li>
+States at the top of the chart are those that may face the
+<strong>greatest climate-related risks</strong>.
+</li>
+</ul>
+<p>
+These are the places where shifts in temperature and drought could have
+especially strong impacts on health, infrastructure, and ecosystems.
+</p>
+</div>
+</div>
+<hr />
+<div id="why-these-climate-trends-matter-for-disease"
+class="section level2"
+style="background-color:#eaf2ff; padding:20px 24px; border-radius:4px; margin-bottom:25px; box-shadow:0 0 0 1px #d3dff5;">
+<h2>5. Why These Climate Trends Matter for Disease</h2>
+<p>
+Across all of these graphs and tables, a few big messages stand out:
+</p>
+<ul>
+<li>
+The U.S. is experiencing a <strong>long-term warming trend</strong>.
+</li>
+<li>
+The climate shows strong <strong>swings between dry and wet
+years</strong>.
+</li>
+<li>
+Some states are much more <strong>climate-vulnerable</strong> than
+others.
+</li>
+</ul>
+<p>
+These patterns matter for vector-borne diseases because:
+</p>
+<ul>
+<li>
+<strong>Warmer conditions</strong> can speed up mosquito and tick life
+cycles and pathogen replication.
+</li>
+<li>
+<strong>Drought and moisture extremes</strong> can reshape breeding
+sites, standing water, and host movement.
+</li>
+<li>
+<strong>Highly vulnerable states</strong> may see greater health impacts
+from the same climate shifts.
+</li>
+</ul>
+<p>
+This page is designed so that, even without a statistics background,
+readers can see the climate story:<br> the U.S. is
+<strong>warming</strong>, conditions are <strong>variable</strong>, and
+some places are <strong>more at risk</strong>.<br />
+That is the foundation for the <strong>Disease Trends</strong>,
+<strong>Climate–Disease Comparison</strong>, and <strong>Utah
+Focus</strong> pages.
+</p>
+</div>
+<p style="font-size:0.9em; color:#555; margin-top:20px;">
+Climate Trends – GEOG 3000, Utah Valley University
+</p>
+
+
+
 
 </div>
 
@@ -505,35 +792,6 @@ $(document).ready(function () {
 
 <!-- code folding -->
 
-<script>
-$(document).ready(function ()  {
-
-    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
-    $('.unlisted.unnumbered').addClass('toc-ignore')
-
-    // move toc-ignore selectors from section div to header
-    $('div.section.toc-ignore')
-        .removeClass('toc-ignore')
-        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
-
-    // establish options
-    var options = {
-      selectors: "h1,h2,h3",
-      theme: "bootstrap3",
-      context: '.toc-content',
-      hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
-      },
-      ignoreSelector: ".toc-ignore",
-      scrollTo: 0
-    };
-    options.showAndHide = true;
-    options.smoothScroll = true;
-
-    // tocify
-    var toc = $("#TOC").tocify(options).data("toc-tocify");
-});
-</script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>
