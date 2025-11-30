@@ -5,25 +5,38 @@ output:
     toc: false
 ---
 
-<div style="background-color:#f5f9ff; border-left:4px solid #2c3e50; padding: 20px 24px; margin-bottom: 30px; border-radius: 4px;">
+<!-- TEXT-ONLY HERO SECTION -->
+<div style="background-color:#ffffff; padding: 28px 32px; margin-bottom: 30px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.08);">
 
-> *“Climate doesn’t just change averages. It shifts the conditions that diseases depend on.”*
+  <p style="font-style: italic; margin-bottom: 14px;">
+    “Climate doesn’t just change averages. It shifts the conditions that diseases depend on.”
+  </p>
 
-<p style="margin-top: 15px;">
-This site is my undergraduate capstone-style project on <strong>climate change and vector-borne disease</strong> in the United States, with a special focus on <strong>West Nile virus</strong> and a <strong>spotlight on Utah</strong>, where I live and study.
-</p>
+  <p style="font-size: 1.07em; line-height: 1.55; max-width: 700px;">
+    This site is my undergraduate capstone-style project on <strong>climate change and vector-borne disease</strong> in the United States,
+    with a special focus on <strong>West Nile virus</strong> and a <strong>spotlight on Utah</strong>, where I live and study.
+  </p>
 
-<p>
-Using real climate and disease datasets, I explore a central guiding question:
-</p>
-
-<blockquote>
-<strong>How is a warming, shifting climate shaping the risk of mosquito-borne disease in the U.S., and what might that mean for places like Utah?</strong>
-</blockquote>
+  <p style="margin-top: 10px; max-width: 720px;">
+    <strong>Guiding question:</strong>
+    How is a warming, shifting climate shaping the risk of mosquito-borne disease in the U.S., and what might that mean for places like Utah?
+  </p>
 
 </div>
 
 ---
+
+<div style="background-color:#f0f5ff; padding: 16px 20px; border-radius: 4px; margin-bottom: 25px; box-shadow: 0 0 0 1px #dde6ff;">
+
+### Only Have 2 Minutes?
+
+If you’re skimming, here’s a simple path through the project:
+
+1. <strong>Climate Trends</strong> – see how U.S. temperature and drought have changed.  
+2. <strong>Disease Trends</strong> – explore patterns in West Nile and other vector-borne diseases.  
+3. <strong>Utah Focus</strong> – connect the big-picture story back to one state.
+
+</div>
 
 <div style="background-color:#fcfcfc; padding: 20px 24px; border-radius: 4px; margin-bottom: 25px; box-shadow: 0 0 0 1px #eeeeee;">
 
@@ -98,8 +111,8 @@ For this assignment, students are asked to:
 In my case:
 
 - The formal <strong>research and analysis paper</strong> is written separately.  
-- This <strong>website</strong> is the applied component that communicates the work to a broader audience.  
-- Additional personal context and reflection appear on the <strong>About This Project</strong> and <strong>Reflection</strong> pages.
+- This <strong>website</strong> communicates the work to a broader audience.  
+- Personal context and reflection appear on the <strong>About This Project</strong> and <strong>Reflection</strong> pages.
 
 When you explore this site, you are seeing the <strong>communication side</strong> of the project—the part designed to make climate–disease connections understandable and visually clear.
 
@@ -111,15 +124,15 @@ When you explore this site, you are seeing the <strong>communication side</stron
 
 ## Project Goals
 
-More specifically, this site aims to:
+This site aims to:
 
-- <strong>Combine</strong> climate and disease datasets into a single analysis workflow in R.  
-- <strong>Visualize</strong> long-term climate trends across the United States and selected regions.  
-- <strong>Examine</strong> patterns in vector-borne disease (especially West Nile virus) over space and time.  
-- <strong>Compare</strong> climate indicators and disease outcomes to see where interesting relationships appear.  
-- <strong>Document</strong> the workflow so that, in principle, someone else could reproduce or extend the analysis.
+- <strong>Combine</strong> climate and disease datasets into a unified, reproducible analysis workflow.  
+- <strong>Visualize</strong> long-term climate trends across the U.S. and selected regions.  
+- <strong>Examine</strong> patterns in vector-borne disease, especially West Nile virus.  
+- <strong>Compare</strong> climate indicators and disease outcomes to find possible connections.  
+- <strong>Document</strong> the workflow so others could reproduce or extend the analysis.
 
-These goals match the course emphasis on <strong>science, society, and communication</strong>—not just running numbers, but making them meaningful.
+These goals align with GEOG 3000’s focus on <strong>science, society, and communication</strong>.
 
 </div>
 
@@ -129,28 +142,23 @@ These goals match the course emphasis on <strong>science, society, and communica
 
 ## Data Overview
 
-This project draws on several cleaned datasets stored as CSV files and read directly into R.
+### Climate Data  
 
-### Climate Data
+Includes annual or seasonal:
 
-Climate-related datasets include:
+- <strong>Temperature</strong>  
+- <strong>Precipitation</strong>  
+- <strong>Drought indicators</strong> (e.g., Palmer Drought Severity Index)  
+- State- and regional-level summaries  
 
-- Annual and/or seasonal <strong>temperature</strong> records  
-- <strong>Precipitation</strong> data  
-- <strong>Drought indicators</strong>, such as the Palmer Drought Severity Index (PDSI)  
-- State-level or regional summaries, depending on availability  
+### Disease Data  
 
-These datasets allow us to see how climate variables have changed over time and how those changes differ across space.
+Includes:
 
-### Disease Data
+- Reported cases of <strong>West Nile virus</strong>  
+- Data aggregated by <strong>state</strong> and <strong>year</strong>  
 
-Disease-related datasets include:
-
-- Reported cases of <strong>West Nile virus</strong> from CDC and related surveillance sources  
-- Data aggregated by <strong>year</strong> and <strong>state</strong>, so we can explore both temporal and spatial patterns  
-
-Together, the climate and disease datasets form the backbone of the visualizations and comparisons on this site.  
-Details on each dataset—including sources, key variables, and cleaning steps—are documented on the <strong>Methods</strong> page and in the code.
+All datasets and cleaning steps are documented on the <strong>Methods</strong> page.
 
 </div>
 
@@ -160,25 +168,27 @@ Details on each dataset—including sources, key variables, and cleaning steps�
 
 ## What You’ll Find on This Site
 
-Use the navigation bar at the top of the page to move through the project:
+Use the navigation bar to explore:
 
-- <strong>Home</strong> – Big-picture overview of the project.  
-- <strong>Climate Trends</strong> – How temperature, precipitation, and drought have changed over time.  
-- <strong>Disease Trends</strong> – Patterns in vector-borne diseases such as West Nile virus.  
-- <strong>Climate–Disease Comparison</strong> – Side-by-side exploration of climate indicators and disease trends.  
-- <strong>Utah Focus</strong> – A closer look at climate and disease patterns in Utah.  
-- <strong>How to Read These Graphs</strong> – A simple guide for understanding the visuals.  
-- <strong>Methods</strong> – Overview of data cleaning and analysis steps in R.  
-- <strong>About This Project</strong> – Background about the assignment and goals.  
-- <strong>Reflection</strong> – What I learned throughout the project.
+- <strong>Home</strong> – Overview  
+- <strong>Climate Trends</strong> – Temperature & drought patterns  
+- <strong>Disease Trends</strong> – Patterns in West Nile virus and others  
+- <strong>Climate–Disease Comparison</strong> – Combined analysis  
+- <strong>Utah Focus</strong> – Zooming in on one state  
+- <strong>How to Read These Graphs</strong> – Guide to visual interpretation  
+- <strong>Methods</strong> – Data cleaning and analysis steps  
+- <strong>About This Project</strong> – Course & purpose  
+- <strong>Reflection</strong> – What I learned
 
-Each page is designed to stand on its own so visitors can drop in anywhere and still understand what they are seeing.
+Each page is designed to stand on its own.
 
 </div>
+
 ---
+
 <footer style="font-size: 0.9em; margin-top: 10px; border-top: 1px solid #ddd; padding-top: 10px; color: #555;">
   <p style="margin: 4px 0;">
-    Created by Garrett Warr | <strong>GEOG 3000 – Climate Change in Science & Society</strong>
+    Created by Garrett Warr | <strong>GEOG 3000 – Climate Change in Science &amp; Society</strong>
   </p>
   <p style="margin: 4px 0;">
     Climate &amp; disease data used for educational purposes only.

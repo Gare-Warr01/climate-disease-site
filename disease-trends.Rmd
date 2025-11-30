@@ -1,5 +1,4 @@
 ---
-title: "Disease Trends"
 output:
   html_document:
     toc: false
@@ -37,16 +36,17 @@ disease_palette <- c(
 
 # Color palette for regions (for Lyme by region)
 region_palette <- c(
-  "Northeast"       = "#1b9e77",
-  "Midwest"         = "#d95f02",
-  "South"           = "#7570b3",
-  "West"            = "#e7298a",
-  "Pacific"         = "#66a61e",
-  "Mountain"        = "#1f78b4",
-  "New England"     = "#a6761d",
-  "Middle Atlantic" = "#6a3d9a",
-  "Other"           = "#e6ab02"
+  "New England"        = "#1b9e77",  # teal
+  "Middle Atlantic"    = "#d95f02",  # orange
+  "East North Central" = "#7570b3",  # purple
+  "West North Central" = "#e7298a",  # magenta
+  "South Atlantic"     = "#66a61e",  # green
+  "East South Central" = "#e6ab02",  # golden
+  "West South Central" = "#a6761d",  # brown-gold
+  "Mountain"           = "#1f78b4",  # blue
+  "Pacific"            = "#999999"   # grey (lower-burden coastal group)
 )
+
 ```
 
 ```{r load-data}
@@ -115,27 +115,27 @@ This table sets the stage: all four diseases involve **vectors** (ticks or mosqu
 plot_all_trends <- master_disease |>
   ggplot(aes(x = year, y = cases, color = disease)) +
   geom_line(linewidth = 1.2, alpha = 0.9) +
-  geom_point(size = 1.8,   alpha = 0.9) +
-  scale_color_manual(values = disease_palette) +
+  geom_point(size = 1.6, alpha = 0.9) +
+  facet_wrap(~ disease, scales = "free_y", ncol = 2) +
+  scale_color_manual(values = disease_palette, guide = "none") +
   scale_y_continuous(labels = comma) +
   labs(
     title    = "Reported Vector-Borne Disease Cases in the U.S. Over Time",
-    subtitle = "Lyme disease shows a steady climb; others appear as lower-level or spiky risks",
+    subtitle = "Four separate panels make it easier to see each disease’s pattern on its own scale",
     x        = "Year",
-    y        = "Reported cases (U.S. total)",
-    color    = "Disease"
+    y        = "Reported cases (U.S. total)"
   ) +
   theme(
-    legend.position = "bottom",
-    legend.title    = element_text(face = "bold")
+    strip.text    = element_text(face = "bold"),
+    panel.spacing = unit(1, "lines")
   )
 
 plot_all_trends
 ```
 
 <p style="margin-top:10px;">
-Each colored line is the <strong>national case count</strong> over time for one disease.
-Think of this as four different “heartbeats” on the same chart.
+Each panel shows the <strong>national case count over time</strong> for one disease, using a consistent color scheme across the website.
+This avoids overlapping lines and makes each “heartbeat” easier to read.
 </p>
 
 Key visual takeaways:
@@ -147,9 +147,6 @@ Key visual takeaways:
 ---
 
 ### Are These Trends Statistically Meaningful?
-
-To put numbers behind what we see, we can fit a simple **straight-line trend** for each disease:  
-“On average, are cases going up, going down, or staying flat over time?”
 
 ```{r trend-stats}
 trend_stats <- master_disease |>
@@ -198,8 +195,6 @@ In this dataset:
 
 ## Extra View: Which Disease Dominates Each Year?
 
-Sometimes it helps to see **relative share**, not just raw counts.
-
 ```{r share-plot}
 share_df <- master_disease |>
   group_by(year) |>
@@ -238,7 +233,10 @@ This area plot shows, year by year, **which disease dominates** the total report
 ```{r lyme-national-plot}
 plot_lyme_national <- lyme_year |>
   ggplot(aes(x = year, y = cases)) +
-  geom_col(fill = "#D55E00", alpha = 0.9) +
+  geom_col(
+    fill  = disease_palette["Lyme"],
+    alpha = 0.9
+  ) +
   geom_smooth(
     method    = "loess",
     se        = FALSE,
@@ -248,9 +246,12 @@ plot_lyme_national <- lyme_year |>
   scale_y_continuous(labels = comma) +
   labs(
     title    = "Lyme Disease Cases in the U.S. Over Time",
-    subtitle = "Bars show yearly totals; the black curve highlights the long-term rise",
+    subtitle = "Orange bars show yearly totals; the black curve highlights the long-term rise",
     x        = "Year",
     y        = "Reported Lyme cases"
+  ) +
+  theme(
+    plot.title = element_text(color = disease_palette["Lyme"], face = "bold")
   )
 
 plot_lyme_national
@@ -267,10 +268,14 @@ What this shows in everyday language:
 ### Lyme by Region: Place Matters
 
 ```{r lyme-region-plot}
+# Make sure factor levels line up with the palette (for consistent legend order)
+lyme_region <- lyme_region |>
+  mutate(region = factor(region, levels = names(region_palette)))
+
 plot_lyme_region <- lyme_region |>
   ggplot(aes(x = year, y = cases, color = region)) +
   geom_line(linewidth = 1.1) +
-  scale_color_manual(values = region_palette) +
+  scale_color_manual(values = region_palette, drop = FALSE) +
   scale_y_continuous(labels = scales::comma) +
   labs(
     title    = "Lyme Disease by U.S. Region",
@@ -281,10 +286,12 @@ plot_lyme_region <- lyme_region |>
   ) +
   theme(
     legend.position = "bottom",
-    legend.title    = element_text(face = "bold")
+    legend.title    = element_text(face = "plain")  # <- removes the bold look
   )
 
 plot_lyme_region
+
+
 ```
 
 How to read this:
@@ -300,7 +307,7 @@ How to read this:
 ```{r west-nile-plot}
 plot_west_nile <- west_nile |>
   ggplot(aes(x = year, y = reported_cases)) +
-  geom_col(fill = "#0072B2", alpha = 0.9) +
+  geom_col(fill = disease_palette["West Nile"], alpha = 0.9) +
   scale_y_continuous(labels = comma) +
   labs(
     title    = "West Nile Virus Cases in the U.S. Over Time",
@@ -328,8 +335,8 @@ malaria_cases <- malaria_long |>
 
 plot_malaria <- malaria_cases |>
   ggplot(aes(x = year, y = value)) +
-  geom_line(linewidth = 1.2, alpha = 0.9, color = "#CC79A7") +
-  geom_point(size = 1.8, alpha = 0.9, color = "#CC79A7") +
+  geom_line(linewidth = 1.2, alpha = 0.9, color = disease_palette["Malaria"]) +
+  geom_point(size = 1.8, alpha = 0.9, color = disease_palette["Malaria"]) +
   scale_y_continuous(labels = comma) +
   labs(
     title    = "Reported Malaria Cases in the U.S.",
@@ -354,7 +361,7 @@ Reading this:
 ```{r dengue-weekly-plot}
 plot_dengue_week <- dengue_week |>
   ggplot(aes(x = week, y = cases)) +
-  geom_line(linewidth = 1.2, alpha = 0.9, color = "#009E73") +
+  geom_line(linewidth = 1.2, alpha = 0.9, color = disease_palette["Dengue"]) +
   geom_point(size = 1.4, alpha = 0.9, color = "#00664D") +
   labs(
     title    = "Dengue Cases by Week of Year (Combined 2010–2024)",

@@ -11,7 +11,7 @@
 
 
 
-<title>Disease Trends</title>
+<title>disease-trends.knit</title>
 
 <script src="site_libs/header-attrs-2.30/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -272,7 +272,6 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Disease Trends</h1>
 
 </div>
 
@@ -355,9 +354,9 @@ class="section level2">
 <h2>Big Picture: Comparing Disease Trends Over Time</h2>
 <p><img src="disease-trends_files/figure-html/all-diseases-plot-1.png" width="672" /></p>
 <p style="margin-top:10px;">
-Each colored line is the <strong>national case count</strong> over time
-for one disease. Think of this as four different “heartbeats” on the
-same chart.
+Each panel shows the <strong>national case count over time</strong> for
+one disease, using a consistent color scheme across the website. This
+avoids overlapping lines and makes each “heartbeat” easier to read.
 </p>
 <p>Key visual takeaways:</p>
 <ul>
@@ -373,10 +372,6 @@ travel and future climate risk.</li>
 <div id="are-these-trends-statistically-meaningful"
 class="section level3">
 <h3>Are These Trends Statistically Meaningful?</h3>
-<p>To put numbers behind what we see, we can fit a simple
-<strong>straight-line trend</strong> for each disease:<br />
-“On average, are cases going up, going down, or staying flat over
-time?”</p>
 <table>
 <caption>Simple straight-line trends in reported cases over time for
 each disease.</caption>
@@ -444,8 +439,6 @@ and <strong>low-level persistence</strong> than a steady climb.</li>
 <div id="extra-view-which-disease-dominates-each-year"
 class="section level2">
 <h2>Extra View: Which Disease Dominates Each Year?</h2>
-<p>Sometimes it helps to see <strong>relative share</strong>, not just
-raw counts.</p>
 <p><img src="disease-trends_files/figure-html/share-plot-1.png" width="672" /></p>
 <p>This area plot shows, year by year, <strong>which disease
 dominates</strong> the total reported vector-borne disease burden in the

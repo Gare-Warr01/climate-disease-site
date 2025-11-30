@@ -11,7 +11,7 @@
 
 
 
-<title>How to Read These Graphs</title>
+<title>how-to-read.knit</title>
 
 <script src="site_libs/header-attrs-2.30/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -376,11 +376,11 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">How to Read These Graphs</h1>
 
 </div>
 
 
+<div class="main-container">
 <div id="how-to-read-the-graphs-on-this-site" class="section level2"
 style="background-color:#f5f9ff; border-left:4px solid #2c3e50; padding:20px 24px; margin-bottom:30px; border-radius:4px;">
 <h2>How to Read the Graphs on This Site</h2>
@@ -405,6 +405,11 @@ recreate them.
 <p>
 If you’re new to R, climate data, or disease surveillance, this page is
 meant to make everything as clear and reproducible as possible.
+</p>
+<p>
+Every figure on the other tabs uses this same visual language, so once
+you recognize the patterns here, you can apply them across the entire
+site.
 </p>
 </div>
 <hr />
@@ -512,6 +517,35 @@ graphs.<br />
 this specific year?” instead of just seeing the pattern.</li>
 </ul>
 </div>
+</div>
+<div id="quick-legend-key-what-the-visual-pieces-mean"
+class="section level3"
+style="background-color:#fefaf5; padding:16px 18px; border-radius:4px; margin-bottom:25px; box-shadow:0 0 0 1px #f0e0c5;">
+<h3>Quick Legend Key (What the Visual Pieces Mean)</h3>
+<ul>
+<li><strong>Dark solid line</strong> = yearly or regional values (the
+raw pattern over time).<br />
+</li>
+<li><strong>Bright smooth curve</strong> = trend line that smooths out
+year-to-year noise.<br />
+</li>
+<li><strong>Shaded band around the trend line</strong> = uncertainty in
+the model or trend.<br />
+</li>
+<li><strong>Dots/points</strong> = individual data points (often one dot
+per year).<br />
+</li>
+<li><strong>Dashed horizontal line at 0</strong> = “reference normal”
+for anomalies or indices.<br />
+</li>
+<li><strong>Separate colors / panels</strong> = different diseases,
+regions, or climate variables.</li>
+</ul>
+<p style="margin-top:6px;">
+You’ll see this same “visual vocabulary” reused across the site, so once
+you recognize these pieces, the rest of the graphs become much easier to
+read.
+</p>
 </div>
 <hr />
 </div>
@@ -1172,7 +1206,60 @@ a scientist — and you’re ready to dig into the rest of the project with
 confidence.
 </p>
 </div>
+<hr />
 </div>
+<div id="common-mistakes-to-watch-for" class="section level2">
+<h2>9. Common Mistakes to Watch For</h2>
+<div
+style="background-color:#fff6f6; padding:18px 22px; border-radius:4px; margin-bottom:25px; box-shadow:0 0 0 1px #f0d0d0;">
+<ul>
+<li>
+<strong>Ignoring the axes.</strong><br />
+Always check what the x- and y-axes actually measure before jumping to
+conclusions.
+</li>
+<li>
+<strong>Forgetting about scale.</strong><br />
+A steep-looking line might still represent a small change if the y-axis
+range is narrow.
+</li>
+<li>
+<strong>Overreacting to one weird year.</strong><br />
+Outliers happen. Look at the overall pattern and the trend line, not
+just a single spike.
+</li>
+<li>
+<strong>Confusing correlation with causation.</strong><br />
+When climate and disease move together, it suggests a relationship, but
+other factors (vector control, reporting, healthcare, travel) still
+matter.
+</li>
+<li>
+<strong>Forgetting data limitations.</strong><br />
+Surveillance data are never perfect. Under-reporting, changes in
+testing, or changes in case definitions can all affect the numbers you
+see.
+</li>
+</ul>
+<p style="margin-top:8px;">
+Keeping these in mind helps you treat every graph as a starting point
+for questions, not the final answer.
+</p>
+</div>
+<p style="margin-top:4px;">
+Once you feel comfortable with this page, you can jump back to the main
+story by visiting the <strong>Climate Trends</strong>, <strong>Disease
+Trends</strong>, or <strong>Climate–Disease Comparison</strong> tabs and
+applying the same reading strategies there.
+</p>
+<hr style="margin-top:24px; margin-bottom:6px;"/>
+<p style="font-size:0.85em; color:#666666; margin-top:0;">
+Created by Garrett Warr | GEOG 3000 – Climate Change in Science &amp;
+Society | Data for educational purposes only.
+</p>
+</div>
+</div>
+<p><!-- end main-container --></p>
 
 
 

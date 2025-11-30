@@ -44,6 +44,108 @@
 
 
 
+<style type="text/css">
+  code {
+    white-space: pre;
+  }
+  .sourceCode {
+    overflow: visible;
+  }
+</style>
+<style type="text/css" data-origin="pandoc">
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  background-color: #f8f8f8; }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #204a87; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #8f5902; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #204a87; font-weight: bold; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #ce5c00; font-weight: bold; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    var j = 0;
+    while (j < rules.length) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") {
+        j++;
+        continue;
+      }
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') {
+        j++;
+        continue;
+      }
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
 
 
 
@@ -276,6 +378,7 @@ $(document).ready(function () {
 </div>
 
 
+<div class="main-container">
 <div id="overview-of-the-methods" class="section level2"
 style="background-color:#f5f9ff; border-left:4px solid #2c3e50; padding:20px 24px; margin-bottom:30px; border-radius:4px;">
 <h2>Overview of the Methods</h2>
@@ -287,6 +390,30 @@ step-by-step workflow in R that someone else could recreate.
 </p>
 </div>
 <hr />
+<div id="workflow-at-a-glance" class="section level2"
+style="background-color:#fefaf5; padding:20px 24px; border-radius:4px; margin-bottom:25px; box-shadow:0 0 0 1px #f0e0c5;">
+<h2>Workflow at a Glance</h2>
+<p style="margin-top:8px; margin-bottom:10px;">
+Most of the analysis on this site follows the same basic pipeline:
+</p>
+<pre style="background-color:#ffffff; padding:12px 14px; border-radius:4px; border:1px solid #e0dfdf; font-size:0.95em;">
+Raw data (NOAA, CDC) 
+    ↓
+Cleaning & standardizing in R (tidyverse)
+    ↓
+Joining climate + disease by year/state
+    ↓
+Summarizing & visualizing (ggplot2, tables)
+    ↓
+Interpreting patterns & limits
+</pre>
+<p style="margin-top:10px;">
+The goal is not to build the most complex model possible, but to use a
+clear, repeatable process that makes the climate–disease story visible
+and honest.
+</p>
+</div>
+<hr />
 <div id="data-sources" class="section level2"
 style="background-color:#fcfcfc; padding:20px 24px; border-radius:4px; margin-bottom:25px; box-shadow:0 0 0 1px #eeeeee;">
 <h2>Data Sources</h2>
@@ -295,7 +422,7 @@ this project draws from two major groups of datasets.</p>
 <div id="climate-data" class="section level3">
 <h3><strong>Climate Data</strong></h3>
 <ul>
-<li>Sourced from NOAA climate summaries.<br />
+<li>Sourced from <strong>NOAA</strong> climate summaries.<br />
 </li>
 <li>Includes <strong>temperature</strong>,
 <strong>precipitation</strong>, and <strong>drought indices</strong>
@@ -308,17 +435,31 @@ national comparison.</li>
 <div id="disease-data" class="section level3">
 <h3><strong>Disease Data</strong></h3>
 <ul>
-<li>Built from human case data for <strong>West Nile virus
-(WNV)</strong> from CDC public health surveillance.<br />
+<li>Built from human case data for vector-borne diseases using
+<strong>CDC</strong> public health surveillance.<br />
 </li>
+<li>Focuses on four main diseases:
+<ul>
+<li><strong>West Nile virus (WNV)</strong><br />
+</li>
+<li><strong>Lyme disease</strong><br />
+</li>
+<li><strong>Dengue</strong><br />
+</li>
+<li><strong>Malaria</strong><br />
+</li>
+</ul></li>
 <li>Includes reported cases per <strong>state</strong> and
 <strong>year</strong>.<br />
 </li>
-<li>Focuses on long-term, national patterns rather than short-term
+<li>Emphasizes long-term, national patterns rather than individual
 outbreaks.</li>
 </ul>
-<p>All datasets were used strictly for <strong>educational
-purposes</strong> in GEOG 3000.</p>
+<p style="margin-top:10px;">
+All datasets were used strictly for <strong>educational
+purposes</strong> in GEOG 3000 – Climate Change in Science &amp;
+Society.
+</p>
 </div>
 </div>
 <hr />
@@ -329,17 +470,24 @@ style="background-color:#f9fbf9; padding:20px 24px; border-radius:4px; margin-bo
 <strong>tidyverse</strong>.</p>
 <p>Key steps included:</p>
 <ul>
-<li>Importing CSVs with <code>readr</code><br />
+<li>
+Importing CSVs with <code>readr::read_csv()</code>
 </li>
-<li>Standardizing column names for readability<br />
+<li>
+Standardizing column names for readability
 </li>
-<li>Filtering to valid states and meaningful years<br />
+<li>
+Filtering to valid states and meaningful years
 </li>
-<li>Checking for missing or inconsistent values<br />
+<li>
+Checking for missing or inconsistent values
 </li>
-<li>Removing invalid observations (e.g., negative case counts)<br />
+<li>
+Removing invalid observations (e.g., negative case counts)
 </li>
-<li>Creating tidy, analysis-ready tables</li>
+<li>
+Creating tidy, analysis-ready tables
+</li>
 </ul>
 <p style="margin-top:10px;">
 One of the biggest lessons here: <strong>real-world data is
@@ -354,24 +502,34 @@ style="background-color:#fcfcff; padding:20px 24px; border-radius:4px; margin-bo
 <p>To make meaningful comparisons, the datasets needed to align.</p>
 <p>This involved:</p>
 <ul>
-<li>Standardizing state abbreviations<br />
+<li>
+Standardizing state names / abbreviations
 </li>
-<li>Ensuring matching year formats<br />
+<li>
+Ensuring matching <strong>year</strong> formats across files
 </li>
-<li>Creating a shared <strong>state–year</strong> joining key<br />
+<li>
+Creating a shared <strong>state–year</strong> joining key
 </li>
-<li>Using <code>dplyr::left_join()</code> to merge climate indicators
-with WNV case counts</li>
+<li>
+Using <code>dplyr::left_join()</code> to merge climate indicators with
+disease case counts
+</li>
 </ul>
 <p>The unified dataset supports the visuals throughout:</p>
 <ul>
-<li><strong>Climate Trends</strong><br />
+<li>
+<strong>Climate Trends</strong>
 </li>
-<li><strong>Disease Trends</strong><br />
+<li>
+<strong>Disease Trends</strong>
 </li>
-<li><strong>Climate–Disease Comparison</strong><br />
+<li>
+<strong>Climate–Disease Comparison</strong>
 </li>
-<li><strong>Utah Focus</strong></li>
+<li>
+<strong>Utah Focus</strong>
+</li>
 </ul>
 <p style="margin-top:10px;">
 The goal was not prediction, but to create a clean structure where
@@ -379,50 +537,116 @@ The goal was not prediction, but to create a clean structure where
 </p>
 </div>
 <hr />
-<div id="visualization-analysis-in-r" class="section level2"
+<div id="one-example-r-workflow" class="section level2"
 style="background-color:#ffffff; padding:20px 24px; border-radius:4px; margin-bottom:25px; box-shadow:0 0 0 1px #eeeeee;">
+<h2>One Example R Workflow</h2>
+<p style="margin-top:6px;">
+This short example shows the kind of R pipeline used across the project:
+load data, clean it, join climate and disease, and calculate simple
+summaries.
+</p>
+<details>
+<summary>
+<strong>Show example R code: load, clean, join, summarize</strong>
+</summary>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="co"># 1. Load yearly climate and disease data</span></span>
+<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a>climate_temp <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">&quot;data/climate_year_temp.csv&quot;</span>) <span class="sc">|&gt;</span></span>
+<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">year =</span> <span class="fu">as.integer</span>(year))</span>
+<span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" tabindex="-1"></a>master_disease <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">&quot;data/master_disease_comparison.csv&quot;</span>) <span class="sc">|&gt;</span></span>
+<span id="cb1-8"><a href="#cb1-8" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb1-9"><a href="#cb1-9" tabindex="-1"></a>    <span class="at">year  =</span> <span class="fu">as.integer</span>(year),</span>
+<span id="cb1-10"><a href="#cb1-10" tabindex="-1"></a>    <span class="at">cases =</span> <span class="fu">as.numeric</span>(cases)</span>
+<span id="cb1-11"><a href="#cb1-11" tabindex="-1"></a>  )</span>
+<span id="cb1-12"><a href="#cb1-12" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" tabindex="-1"></a><span class="co"># 2. Filter to one disease (West Nile) and national totals</span></span>
+<span id="cb1-14"><a href="#cb1-14" tabindex="-1"></a>westnile_us <span class="ot">&lt;-</span> master_disease <span class="sc">|&gt;</span></span>
+<span id="cb1-15"><a href="#cb1-15" tabindex="-1"></a>  <span class="fu">filter</span>(level <span class="sc">==</span> <span class="st">&quot;national&quot;</span>, disease <span class="sc">==</span> <span class="st">&quot;West Nile&quot;</span>) <span class="sc">|&gt;</span></span>
+<span id="cb1-16"><a href="#cb1-16" tabindex="-1"></a>  <span class="fu">select</span>(year, cases)</span>
+<span id="cb1-17"><a href="#cb1-17" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" tabindex="-1"></a><span class="co"># 3. Join climate and disease by year</span></span>
+<span id="cb1-19"><a href="#cb1-19" tabindex="-1"></a>climate_westnile <span class="ot">&lt;-</span> westnile_us <span class="sc">|&gt;</span></span>
+<span id="cb1-20"><a href="#cb1-20" tabindex="-1"></a>  <span class="fu">left_join</span>(climate_temp, <span class="at">by =</span> <span class="st">&quot;year&quot;</span>)</span>
+<span id="cb1-21"><a href="#cb1-21" tabindex="-1"></a></span>
+<span id="cb1-22"><a href="#cb1-22" tabindex="-1"></a><span class="co"># 4. Create a simple summary table</span></span>
+<span id="cb1-23"><a href="#cb1-23" tabindex="-1"></a>climate_westnile <span class="sc">|&gt;</span></span>
+<span id="cb1-24"><a href="#cb1-24" tabindex="-1"></a>  <span class="fu">summarize</span>(</span>
+<span id="cb1-25"><a href="#cb1-25" tabindex="-1"></a>    <span class="at">years_in_study   =</span> <span class="fu">n</span>(),</span>
+<span id="cb1-26"><a href="#cb1-26" tabindex="-1"></a>    <span class="at">mean_temp_anom   =</span> <span class="fu">mean</span>(temp_anomaly, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb1-27"><a href="#cb1-27" tabindex="-1"></a>    <span class="at">mean_wnv_cases   =</span> <span class="fu">mean</span>(cases, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1-28"><a href="#cb1-28" tabindex="-1"></a>  )</span></code></pre></div>
+</details>
+<p style="margin-top:10px;">
+The graphs and models shown on other tabs are built by extending this
+same pattern:<br />
+<strong>read → clean → join → summarize → visualize.</strong>
+</p>
+</div>
+<hr />
+<div id="visualization-analysis-in-r" class="section level2"
+style="background-color:#f8fafc; padding:20px 24px; border-radius:4px; margin-bottom:25px; box-shadow:0 0 0 1px #e5ecf3;">
 <h2>Visualization &amp; Analysis in R</h2>
 <p>All graphs were created using <strong>ggplot2</strong>, chosen for
 its clear, consistent visual style.</p>
 <p>The project uses:</p>
 <ul>
-<li><strong>Line charts</strong> for long-term climate and disease
-trends<br />
+<li>
+<strong>Line charts</strong> for long-term climate and disease trends
 </li>
-<li><strong>Faceted plots</strong> for comparing states<br />
+<li>
+<strong>Faceted plots</strong> for comparing regions, states, or
+diseases
 </li>
-<li><strong>Paired or overlayed visuals</strong> to explore
-climate–disease relationships<br />
+<li>
+<strong>Scatterplots with trend lines</strong> to explore simple
+climate–disease relationships
 </li>
-<li>Clean color palettes for accessibility</li>
+<li>
+Clean, colorblind-friendly palettes for accessibility
+</li>
 </ul>
 <p>This project emphasizes:</p>
 <ul>
-<li>Visual storytelling<br />
+<li>
+Visual storytelling
 </li>
-<li>Exploratory data analysis<br />
+<li>
+Exploratory data analysis
 </li>
-<li>Clear communication</li>
+<li>
+Clear communication
+</li>
 </ul>
-<p>Readers should be able to interpret trends without needing advanced
-statistical training.</p>
+<p style="margin-top:10px;">
+Readers should be able to interpret trends without needing advanced
+statistical training. For extra support, the <strong>How to Read These
+Graphs</strong> page walks through the main plot types step by step.
+</p>
 </div>
 <hr />
 <div id="reproducibility-workflow" class="section level2"
-style="background-color:#f8fafc; padding:20px 24px; border-radius:4px; margin-bottom:25px; box-shadow:0 0 0 1px #e5ecf3;">
+style="background-color:#eef5ff; padding:20px 24px; border-radius:4px; margin-bottom:25px; box-shadow:0 0 0 1px #d3dff5;">
 <h2>Reproducibility &amp; Workflow</h2>
 <p>A major priority was ensuring this project was reproducible.</p>
 <p>This was supported by:</p>
 <ul>
-<li>Building each page in <strong>R Markdown</strong><br />
+<li>
+Building each page in <strong>R Markdown</strong>
 </li>
-<li>Keeping explanations and code together<br />
+<li>
+Keeping explanations and code together in the same document
 </li>
-<li>Using self-updating graphics that knit automatically<br />
+<li>
+Using self-updating graphics that knit directly from the underlying data
 </li>
-<li>Hosting the entire project on <strong>GitHub Pages</strong><br />
+<li>
+Hosting the entire project on <strong>GitHub Pages</strong>
 </li>
-<li>Maintaining a clear and traceable workflow</li>
+<li>
+Maintaining a clear, folder-based file structure for data and code
+</li>
 </ul>
 <p style="margin-top:10px;">
 Reproducibility is not just a coding goal — it’s a commitment to
@@ -431,51 +655,71 @@ scientific clarity and transparency.
 </div>
 <hr />
 <div id="analytical-choices-limitations" class="section level2"
-style="background-color:#eef5ff; padding:20px 24px; border-radius:4px; margin-bottom:25px; box-shadow:0 0 0 1px #d3dff5;">
+style="background-color:#eaf1ff; padding:20px 24px; border-radius:4px; margin-bottom:25px; box-shadow:0 0 0 1px #d3dff5;">
 <h2>Analytical Choices &amp; Limitations</h2>
 <p>This project uses <strong>descriptive and visual analysis</strong>
-rather than predictive modeling.<br />
+rather than complex predictive modeling.<br />
 This choice keeps the results accessible and avoids overstating what the
 datasets can support.</p>
 <p>Limitations include:</p>
 <ul>
-<li>Differences in reporting practices between states<br />
+<li>
+Differences in reporting practices between states
 </li>
-<li>Possible under-reporting of human WNV cases<br />
+<li>
+Possible under-reporting of human vector-borne disease cases
 </li>
-<li>Occasional gaps or inconsistencies in climate data<br />
+<li>
+Occasional gaps or inconsistencies in climate data
 </li>
-<li>State-level aggregation that cannot capture city-level
-variation</li>
+<li>
+State-level aggregation that cannot capture city-level or neighborhood
+variation
+</li>
 </ul>
-<p>These limitations do not prevent meaningful exploration — they simply
-frame how the trends should be interpreted.</p>
+<p style="margin-top:10px;">
+These limitations do not prevent meaningful exploration — they simply
+frame how the trends should be interpreted. Readers should treat the
+results as <strong>patterns to think about</strong>, not as final
+answers.
+</p>
 </div>
 <hr />
 <div id="software-versioning" class="section level2"
-style="background-color:#eaf1ff; padding:20px 24px; border-radius:4px; margin-bottom:30px; box-shadow:0 0 0 1px #d3dff5;">
+style="background-color:#e3edf9; padding:20px 24px; border-radius:4px; margin-bottom:30px; box-shadow:0 0 0 1px #c9d8ee;">
 <h2>Software &amp; Versioning</h2>
 <p>To support reproducibility, all work was completed using:</p>
 <ul>
-<li><strong>R</strong> (version 4.x)<br />
+<li>
+<strong>R</strong> (version 4.x)
 </li>
-<li><strong>RStudio</strong><br />
+<li>
+<strong>RStudio</strong> as the development environment
 </li>
-<li><strong>tidyverse</strong><br />
+<li>
+<strong>tidyverse</strong> for data cleaning and manipulation
 </li>
-<li><strong>ggplot2</strong><br />
+<li>
+<strong>ggplot2</strong> for visualization
 </li>
-<li><strong>knitr</strong> and <strong>rmarkdown</strong> for site
-rendering</li>
+<li>
+<strong>knitr</strong> and <strong>rmarkdown</strong> for rendering the
+website
+</li>
 </ul>
-<p>Using consistent versions ensures that graphs and results remain
-stable over time.</p>
+<p style="margin-top:10px;">
+Using consistent software versions helps ensure that graphs and results
+remain stable over time and can be reproduced by others following the
+same steps.
+</p>
 </div>
-<p style="font-size:0.9em; color:#555; margin-top:20px;">
+<p style="font-size:0.9em; color:#555; margin-top:10px;">
 Methods summary for GEOG 3000 – Climate Change in Science &amp;
 Society<br />
 <br> Utah Valley University
 </p>
+</div>
+<p><!-- end main-container --></p>
 
 
 

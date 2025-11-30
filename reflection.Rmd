@@ -5,6 +5,8 @@ output:
     toc: false
 ---
 
+<div class="main-container">
+
 <div style="background-color:#f5f9ff; border-left:4px solid #2c3e50; padding:20px 24px; margin-bottom:30px; border-radius:4px;">
 
 <p style="margin-top:10px;">
@@ -57,7 +59,7 @@ I strengthened my ability to:
 - Host a public-facing website from scratch  
 - Document each step so everything was reproducible  
 
-I also learned how to balance **accuracy** with **accessibility** — something that matters deeply in public health and climate communication.
+I also learned how to balance <strong>accuracy</strong> with <strong>accessibility</strong> — something that matters deeply in public health and climate communication.
 
 The biggest shift was realizing that data is not the end of the process.  
 It’s the beginning of a conversation.
@@ -95,12 +97,12 @@ Because this site is hosted publicly, it becomes a direct part of my professiona
 
 I can use this project to:
 
-- **Show employers** my ability to work with real, complex datasets  
-- Demonstrate that I can build **reproducible workflows**  
-- Provide a polished example of my **data visualization** skills  
-- Highlight my interest in **climate health, epidemiology, and biotechnology**  
+- <strong>Show employers</strong> my ability to work with real, complex datasets  
+- Demonstrate that I can build <strong>reproducible workflows</strong>  
+- Provide a polished example of my <strong>data visualization</strong> skills  
+- Highlight my interest in <strong>climate health, epidemiology, and biotechnology</strong>  
 - Strengthen interviews by discussing a real-world project with measurable skills  
-- Link directly to it on my **resume**, **LinkedIn**, and **applications**  
+- Link directly to it on my <strong>resume</strong>, <strong>LinkedIn</strong>, and <strong>applications</strong>  
 
 In biotech and research roles, employers want proof that you can take a problem, break it down, analyze it, and communicate it.
 
@@ -165,7 +167,9 @@ someone who values data, clarity, curiosity, and the connection between people a
 </div>
 
 <p style="font-size:0.9em; color:#555; margin-top:20px;">
-Created for GEOG 3000 – Climate Change in Science & Society  
+Created for GEOG 3000 – Climate Change in Science &amp; Society  
 <br>
 Utah Valley University
 </p>
+
+</div> <!-- end main-container -->

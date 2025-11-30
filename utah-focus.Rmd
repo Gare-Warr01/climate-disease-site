@@ -1,5 +1,4 @@
 ---
-title: "Climate Trends"
 output:
   html_document:
     toc: false
@@ -7,7 +6,7 @@ output:
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(
-  echo = FALSE,
+  echo    = FALSE,
   message = FALSE,
   warning = FALSE
 )
@@ -28,14 +27,14 @@ accent_blue     <- "#2c3e50"
 theme_set(
   theme_minimal(base_size = 13) +
     theme(
-      plot.title      = element_text(face = "bold", color = accent_blue),
-      plot.subtitle   = element_text(color = accent_blue),
-      axis.title      = element_text(color = accent_blue),
-      axis.text       = element_text(color = "#34495e"),
+      plot.title        = element_text(face = "bold", color = accent_blue),
+      plot.subtitle     = element_text(color = accent_blue),
+      axis.title        = element_text(color = accent_blue),
+      axis.text         = element_text(color = "#34495e"),
       panel.grid.major.y = element_blank(),
-      panel.grid.minor = element_blank(),
-      panel.background = element_rect(fill = "#fcfcfc", colour = NA),
-      plot.background  = element_rect(fill = "#ffffff", colour = NA)
+      panel.grid.minor  = element_blank(),
+      panel.background   = element_rect(fill = "#fcfcfc", colour = NA),
+      plot.background    = element_rect(fill = "#ffffff", colour = NA)
     )
 )
 ```
@@ -81,11 +80,11 @@ dengue_nat <- readr::read_csv("data/dengue_year_only.csv") |>
     cases = as.numeric(cases)
   )
 
-# Malaria (national)
+# Malaria (national) – kept for consistency with other pages if needed later
 malaria_nat <- readr::read_csv("data/malaria_long_combined.csv") |>
   filter(metric == "cases", disease == "Malaria") |>
   mutate(
-    year = as.integer(year),
+    year  = as.integer(year),
     value = as.numeric(value)
   )
 ```
@@ -163,7 +162,7 @@ cvi_summary <- tibble(
   )
 ) |>
   mutate(
-    Utah = round(Utah, 3),
+    Utah        = round(Utah, 3),
     `U.S. median` = round(`U.S. median`, 3)
   )
 ```
@@ -172,54 +171,59 @@ cvi_summary <- tibble(
 cvi_summary |>
   kable(
     caption = "Utah’s climate vulnerability index values compared with the U.S. median (higher scores = more vulnerable).",
-    align = c("l", "c", "c"),
-    format = "html"
+    align   = c("l", "c", "c"),
+    format  = "html"
   ) |>
   kable_styling(
-    full_width = FALSE,
+    full_width        = FALSE,
     bootstrap_options = c("striped", "hover", "condensed")
   ) |>
-  row_spec(0, bold = TRUE, background = "#f0f4f8") |>
+  row_spec(0, bold = TRUE, color = "white", background = accent_blue) |>
   column_spec(1, bold = TRUE)
 ```
 
-```{r utah-cvi-rank-plot}
-cvi_rank <- cvi_state |>
+```{r utah-cvi-rank-plot, fig.cap="Overall climate vulnerability scores for Utah compared with the most and least vulnerable states, with the U.S. median marked by a dashed line."}
+# Build a simpler comparison: Utah + 5 most vulnerable + 5 least vulnerable
+top_states <- cvi_state |>
+  arrange(desc(`Overall CVI Score`)) |>
+  slice_head(n = 5)
+
+bottom_states <- cvi_state |>
+  arrange(`Overall CVI Score`) |>
+  slice_head(n = 5)
+
+utah_row <- cvi_state |>
+  filter(State == "UT")
+
+simplified_cvi_rank <- bind_rows(
+  top_states,
+  bottom_states,
+  utah_row
+) |>
+  distinct(State, .keep_all = TRUE) |>
   mutate(
     is_utah = if_else(State == "UT", "Utah", "Other states")
   )
 
-# Only label Utah + a few highest + a few lowest states to avoid a crowded axis
-label_states <- c(
-  "UT",
-  cvi_rank |>
-    arrange(desc(`Overall CVI Score`)) |>
-    slice_head(n = 3) |>
-    pull(State),
-  cvi_rank |>
-    arrange(`Overall CVI Score`) |>
-    slice_head(n = 3) |>
-    pull(State)
-) |> unique()
-
-ggplot(cvi_rank, aes(
-  x = reorder(State, `Overall CVI Score`),
-  y = `Overall CVI Score`,
+ggplot(simplified_cvi_rank, aes(
+  x    = reorder(State, `Overall CVI Score`),
+  y    = `Overall CVI Score`,
   fill = is_utah
 )) +
   geom_col(show.legend = FALSE) +
   coord_flip() +
   scale_fill_manual(values = c("Utah" = utah_color, "Other states" = other_state_col)) +
-  scale_x_discrete(breaks = label_states) +
   geom_hline(
     yintercept = median(cvi_state$`Overall CVI Score`, na.rm = TRUE),
-    linetype = "dashed", linewidth = 0.5, colour = "#7f8c8d"
+    linetype   = "dashed",
+    linewidth  = 0.5,
+    colour     = "#7f8c8d"
   ) +
   labs(
-    title = "Where Does Utah Rank on Overall Climate Vulnerability?",
-    subtitle = "Bars show state scores; dashed line marks the U.S. median",
-    x = "State",
-    y = "Overall CVI score"
+    title    = "Utah in Context: Overall Climate Vulnerability",
+    subtitle = "Compared with the most and least vulnerable states; dashed line marks the U.S. median",
+    x        = "Selected states",
+    y        = "Overall CVI score"
   )
 ```
 
@@ -271,7 +275,7 @@ lyme_compare <- bind_rows(
   filter(year %in% common_years)
 ```
 
-```{r lyme-plot}
+```{r lyme-plot, fig.cap="Lyme disease cases over time in Utah, the Mountain region, and the U.S. as a whole."}
 ggplot(lyme_compare, aes(x = year, y = cases, color = source)) +
   geom_line(linewidth = 1.1) +
   geom_point(size = 2) +
@@ -282,11 +286,11 @@ ggplot(lyme_compare, aes(x = year, y = cases, color = source)) +
     "U.S. total"      = national_color
   )) +
   labs(
-    title = "Lyme Disease Cases Over Time",
+    title   = "Lyme Disease Cases Over Time",
     subtitle = "Utah compared with the Mountain region and U.S. totals",
-    x = "Year",
-    y = "Reported Lyme cases",
-    color = "Series"
+    x       = "Year",
+    y       = "Reported Lyme cases",
+    color   = "Series"
   ) +
   theme(
     legend.position = "bottom"
@@ -316,15 +320,18 @@ dengue_utah <- dengue_state |>
   filter(location == "UT") |>
   select(location, travel_status, cases, years_combined)
 
-# Quick context: median state-level dengue burden (2010–2024)
+# Summaries for all states
 dengue_state_summary <- dengue_state |>
   group_by(location) |>
   summarise(total_cases = sum(cases, na.rm = TRUE), .groups = "drop")
 
-dengue_utah_vs <- dengue_state_summary |>
-  mutate(
-    is_utah = if_else(location == "UT", "Utah", "Other states")
-  )
+# Build simplified comparison (Option B)
+top_dengue <- dengue_state_summary |> arrange(desc(total_cases)) |> slice_head(n = 5)
+bottom_dengue <- dengue_state_summary |> arrange(total_cases) |> slice_head(n = 5)
+utah_only <- dengue_state_summary |> filter(location == "UT")
+
+simp_dengue <- bind_rows(top_dengue, bottom_dengue, utah_only) |> distinct() |>
+  mutate(is_utah = if_else(location == "UT", "Utah", "Other states"))
 ```
 
 ```{r dengue-utah-table}
@@ -333,42 +340,32 @@ dengue_utah |>
     cases = scales::comma(cases)
   ) |>
   kable(
-    caption = "Dengue in Utah (2010–2024, all reported cases).",
+    caption   = "Dengue in Utah (2010–2024, all reported cases).",
     col.names = c("Location", "Travel status", "Cases", "Years combined"),
-    format = "html"
+    format    = "html"
   ) |>
   kable_styling(
-    full_width = FALSE,
+    full_width        = FALSE,
     bootstrap_options = c("striped", "hover", "condensed")
   ) |>
-  row_spec(0, bold = TRUE, background = "#f0f4f8")
+  row_spec(0, bold = TRUE, color = "white", background = accent_blue)
 ```
 
-```{r dengue-utah-rank}
-# Only label Utah + a few highest + a few lowest locations
-label_locations <- c(
-  "UT",
-  dengue_utah_vs |>
-    arrange(desc(total_cases)) |>
-    slice_head(n = 3) |>
-    pull(location),
-  dengue_utah_vs |>
-    arrange(total_cases) |>
-    slice_head(n = 3) |>
-    pull(location)
-) |> unique()
-
-ggplot(dengue_utah_vs, aes(x = reorder(location, total_cases), y = total_cases, fill = is_utah)) +
+```{r dengue-simplified-plot, fig.cap="Dengue burden comparison showing Utah, the five highest-burden states, and the five lowest-burden states (2010–2024)."}
+ggplot(simp_dengue, aes(
+  x = reorder(location, total_cases),
+  y = total_cases,
+  fill = is_utah
+)) +
   geom_col(show.legend = FALSE) +
   coord_flip() +
   scale_y_continuous(labels = comma) +
   scale_fill_manual(values = c("Utah" = utah_color, "Other states" = other_state_col)) +
-  scale_x_discrete(breaks = label_locations) +
   labs(
-    title = "Dengue Cases by State (2010–2024)",
-    subtitle = "Utah highlighted among all U.S. states and territories",
+    title = "Dengue Cases (Selected States, 2010–2024)",
+    subtitle = "Highest 5, lowest 5, and Utah highlighted",
     x = "State / territory",
-    y = "Total dengue cases (2010–2024)"
+    y = "Total dengue cases"
   )
 ```
 
@@ -399,29 +396,28 @@ utah_lyme_climate <- lyme_state |>
   filter(state == "Utah") |>
   select(year, cases) |>
   mutate(
-    year = as.integer(year),
+    year  = as.integer(year),
     cases = as.numeric(cases)
   ) |>
   left_join(climate_temp, by = "year") |>
   left_join(climate_pdsi, by = "year") |>
   drop_na(cases, temp_anomaly, pdsi)
-
-utah_lyme_climate
 ```
 
-```{r utah-lyme-climate-plot}
+```{r utah-lyme-climate-plot, fig.cap="Utah Lyme cases plotted alongside rescaled U.S. temperature anomalies over time."}
 ggplot(utah_lyme_climate, aes(x = year)) +
   geom_line(aes(y = cases), color = utah_color, linewidth = 1.1) +
   geom_point(aes(y = cases), color = utah_color, size = 2) +
   geom_line(
     aes(y = scales::rescale(temp_anomaly, to = range(cases))),
-    color = region_color, linewidth = 1
+    color    = region_color,
+    linewidth = 1
   ) +
   labs(
-    title = "Utah Lyme Cases vs U.S. Temperature Anomalies",
+    title    = "Utah Lyme Cases vs U.S. Temperature Anomalies",
     subtitle = "Lyme cases (orange) and rescaled temperature anomaly (blue) over overlapping years",
-    x = "Year",
-    y = "Lyme cases (Utah)"
+    x        = "Year",
+    y        = "Lyme cases (Utah)"
   )
 ```
 
@@ -437,9 +433,8 @@ We test the null hypothesis that there is **no association** between climate var
 mod_temp <- lm(cases ~ temp_anomaly, data = utah_lyme_climate)
 mod_pdsi <- lm(cases ~ pdsi, data = utah_lyme_climate)
 
-tidy_temp <- broom::tidy(mod_temp)
-tidy_pdsi <- broom::tidy(mod_pdsi)
-
+tidy_temp   <- broom::tidy(mod_temp)
+tidy_pdsi   <- broom::tidy(mod_pdsi)
 glance_temp <- broom::glance(mod_temp)
 glance_pdsi <- broom::glance(mod_pdsi)
 
@@ -461,30 +456,28 @@ proof_table <- bind_rows(
   ) |>
   transmute(
     Predictor,
-    Slope       = estimate,
+    Slope        = estimate,
     `Std. error` = std.error,
-    `p-value`   = p.value,
-    `R-squared` = r.squared
+    `p-value`    = p.value,
+    `R-squared`  = r.squared
   ) |>
   mutate(
     across(where(is.numeric), ~ round(., 3))
   )
-
-proof_table
 ```
 
 ```{r utah-proof-table}
 proof_table |>
   kable(
     caption = "Simple linear models testing whether climate variables are associated with Lyme cases in Utah.",
-    format = "html",
-    align = c("l", "c", "c", "c", "c")
+    format  = "html",
+    align   = c("l", "c", "c", "c", "c")
   ) |>
   kable_styling(
-    full_width = FALSE,
+    full_width        = FALSE,
     bootstrap_options = c("striped", "hover", "condensed")
   ) |>
-  row_spec(0, bold = TRUE, background = "#f0f4f8")
+  row_spec(0, bold = TRUE, color = "white", background = accent_blue)
 ```
 
 <div style="background-color:#fcfcfc; padding:20px 24px; border-radius:4px; margin-bottom:25px; box-shadow:0 0 0 1px #eeeeee;">
@@ -548,4 +541,10 @@ That does <em>not</em> mean climate has no effect on disease ecology — it mean
 <p>
 This Utah-focused page shows that climate risk and disease risk don’t move in lockstep.  
 For Utah, the story is more about <strong>monitoring a changing climate now</strong> so that public health can respond quickly if vector-borne diseases begin to expand in the future.
+</p>
+
+<hr/>
+
+<p style="font-size:0.85em; color:#7f8c8d; margin-top:15px;">
+Created by Garrett Warr &middot; GEOG 3000 – Climate Change in Science &amp; Society &middot; Data and analyses for educational purposes only.
 </p>

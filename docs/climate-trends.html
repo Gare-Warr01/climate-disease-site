@@ -11,7 +11,7 @@
 
 
 
-<title>Climate Trends</title>
+<title>climate-trends.knit</title>
 
 <script src="site_libs/header-attrs-2.30/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -32,6 +32,8 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
 <script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -272,13 +274,12 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Climate Trends</h1>
 
 </div>
 
 
-<div id="overview-of-u.s.-climate-trends" class="section level2"
-style="background-color:#f5f9ff; border-left:4px solid #2c3e50; padding:20px 24px; margin-bottom:30px; border-radius:4px;">
+<div id="overview-of-u.s.-climate-trends"
+class="section level2 callout callout-info">
 <h2>Overview of U.S. Climate Trends</h2>
 <p style="margin-top:10px;">
 This page presents the <strong>core climate evidence</strong> behind the
@@ -319,8 +320,8 @@ and a <strong>small summary table</strong> with key numbers.
 </ul>
 </div>
 <hr />
-<div id="data-used-on-this-page" class="section level2"
-style="background-color:#fcfcfc; padding:20px 24px; border-radius:4px; margin-bottom:25px; box-shadow:0 0 0 1px #eeeeee;">
+<div id="data-used-on-this-page"
+class="section level2 callout callout-neutral">
 <h2>Data Used on This Page</h2>
 <p>
 The analyses on this page draw from three cleaned datasets:
@@ -347,16 +348,21 @@ All of the graphs and tables below are built from these datasets.
 </p>
 </div>
 <hr />
-<div id="temperature-trends-over-time" class="section level2"
-style="background-color:#f9fbf9; padding:20px 24px; border-radius:4px; margin-bottom:25px; box-shadow:0 0 0 1px #e9f0e9;">
+<div id="temperature-trends-over-time" class="section level2">
 <h2>1. Temperature Trends Over Time</h2>
 <div id="national-temperature-anomaly-line-chart"
 class="section level3">
 <h3>1.1 National Temperature Anomaly (Line Chart)</h3>
-<p><img src="climate-trends_files/figure-html/temp_plot-1.png" width="672" /></p>
+<div class="figure">
+<img src="climate-trends_files/figure-html/temp_plot-1.png" alt="Figure 1. U.S. annual temperature anomalies over time relative to a baseline. Three of the warmest years are labeled." width="672" />
+<p class="caption">
+Figure 1. U.S. annual temperature anomalies over time relative to a
+baseline. Three of the warmest years are labeled.
+</p>
 </div>
-<div id="what-youre-seeing" class="section level3"
-style="background-color:#ffffff; padding:16px 18px; border-radius:4px; margin-top:10px; box-shadow:0 0 0 1px #e5e5e5;">
+</div>
+<div id="what-youre-seeing"
+class="section level3 callout callout-neutral">
 <h3>What you’re seeing</h3>
 <ul>
 <li>
@@ -378,35 +384,78 @@ baseline:
 The dashed dark line is the <strong>trend line</strong> summarizing the
 overall direction of change.
 </li>
+<li>
+The labeled points highlight some of the <strong>warmest years</strong>
+on record.
+</li>
 </ul>
 <p>
-If this trend line slopes upward, it means that on average, the U.S. is
-getting <strong>warmer over time</strong>.
+If this trend line slopes upward and the warmest years cluster toward
+the end of the record, it means that on average, the U.S. is getting
+<strong>warmer over time</strong>.
 </p>
 </div>
 <hr />
 <div id="key-temperature-numbers" class="section level3">
 <h3>1.2 Key Temperature Numbers</h3>
-<div data-pagedtable="false">
-<script data-pagedtable-source type="application/json">
-{"columns":[{"label":["first_year"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["last_year"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["mean_anomaly"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["min_anomaly"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["max_anomaly"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"1940","2":"2023","3":"-0.3883708","4":"-1.038188","5":"0.764532"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
+<table class="table table-striped table-hover table-condensed" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+Table 1. Summary of U.S. temperature anomalies across the study period.
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;">
+First year
+</th>
+<th style="text-align:center;">
+Last year
+</th>
+<th style="text-align:center;">
+Mean anomaly (°C)
+</th>
+<th style="text-align:center;">
+Coolest anomaly (°C)
+</th>
+<th style="text-align:center;">
+Warmest anomaly (°C)
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+1940
+</td>
+<td style="text-align:center;">
+2023
+</td>
+<td style="text-align:center;">
+-0.388
+</td>
+<td style="text-align:center;">
+-1.038
+</td>
+<td style="text-align:center;">
+0.765
+</td>
+</tr>
+</tbody>
+</table>
 </div>
-</div>
-<div id="how-to-read-this-table" class="section level3"
-style="background-color:#ffffff; padding:16px 18px; border-radius:4px; margin-top:10px; box-shadow:0 0 0 1px #e5e5e5;">
+<div id="how-to-read-this-table"
+class="section level3 callout callout-neutral">
 <h3>How to read this table</h3>
 <ul>
 <li>
-<strong>first_year / last_year</strong> – the time span covered by the
+<strong>First year / Last year</strong> – the time span covered by the
 data.
 </li>
 <li>
-<strong>mean_anomaly</strong> – the average temperature change relative
+<strong>Mean anomaly</strong> – the average temperature change relative
 to the baseline.
 </li>
 <li>
-<strong>min_anomaly / max_anomaly</strong> – the coolest and warmest
+<strong>Coolest / Warmest anomaly</strong> – the coolest and warmest
 years compared to the baseline.
 </li>
 </ul>
@@ -418,14 +467,69 @@ window to see a clear <strong>warming signal</strong>.
 <hr />
 <div id="temperature-trend-per-year" class="section level3">
 <h3>1.3 Temperature Trend per Year</h3>
-<div data-pagedtable="false">
-<script data-pagedtable-source type="application/json">
-{"columns":[{"label":["term"],"name":[1],"type":["chr"],"align":["left"]},{"label":["estimate"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["std.error"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["statistic"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["p.value"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"(Intercept)","2":"-30.67178572","3":"2.439768315","4":"-12.57160","5":"8.057222e-21"},{"1":"year","2":"0.01528308","3":"0.001231181","4":"12.41334","5":"1.598652e-20"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
+<table class="table table-striped table-hover table-condensed" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+Table 2. Linear model estimating change in temperature anomaly per year.
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;">
+Term
+</th>
+<th style="text-align:center;">
+Estimate
+</th>
+<th style="text-align:center;">
+Std. error
+</th>
+<th style="text-align:center;">
+t value
+</th>
+<th style="text-align:center;">
+p value
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+(Intercept)
+</td>
+<td style="text-align:center;">
+-30.6718
+</td>
+<td style="text-align:center;">
+2.4398
+</td>
+<td style="text-align:center;">
+-12.5716
+</td>
+<td style="text-align:center;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+year
+</td>
+<td style="text-align:center;">
+0.0153
+</td>
+<td style="text-align:center;">
+0.0012
+</td>
+<td style="text-align:center;">
+12.4133
+</td>
+<td style="text-align:center;">
+0
+</td>
+</tr>
+</tbody>
+</table>
 </div>
-</div>
-<div id="what-this-model-is-saying" class="section level3"
-style="background-color:#ffffff; padding:16px 18px; border-radius:4px; margin-top:10px; box-shadow:0 0 0 1px #e5e5e5;">
+<div id="what-this-model-is-saying"
+class="section level3 callout callout-neutral">
 <h3>What this model is saying</h3>
 <ul>
 <li>
@@ -433,7 +537,7 @@ This is a simple line that best fits the data: <code>temp_anomaly = a +
 b * year</code>.
 </li>
 <li>
-The <strong>estimate</strong> for <code>year</code> (the slope
+The <strong>Estimate</strong> for <code>year</code> (the slope
 <code>b</code>) tells you how much the anomaly changes per year.
 </li>
 <li>
@@ -450,14 +554,106 @@ trend</strong> across the study period.
 <hr />
 <div id="warmest-years-in-the-record" class="section level3">
 <h3>1.4 Warmest Years in the Record</h3>
-<div data-pagedtable="false">
-<script data-pagedtable-source type="application/json">
-{"columns":[{"label":["year"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["temp_anomaly"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"2016","2":"0.7645320"},{"1":"2023","2":"0.6740460"},{"1":"2020","2":"0.5184530"},{"1":"2017","2":"0.5063890"},{"1":"2015","2":"0.4734951"},{"1":"2012","2":"0.4235712"},{"1":"2021","2":"0.3928058"},{"1":"1998","2":"0.3199275"},{"1":"2006","2":"0.2718885"},{"1":"2005","2":"0.2465940"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
+<table class="table table-striped table-hover table-condensed" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+Table 3. Ten warmest years in the record, relative to the baseline.
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;">
+Year
+</th>
+<th style="text-align:center;">
+Temperature anomaly (°C)
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+2016
+</td>
+<td style="text-align:center;">
+0.765
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+2023
+</td>
+<td style="text-align:center;">
+0.674
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+2020
+</td>
+<td style="text-align:center;">
+0.518
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+2017
+</td>
+<td style="text-align:center;">
+0.506
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+2015
+</td>
+<td style="text-align:center;">
+0.473
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+2012
+</td>
+<td style="text-align:center;">
+0.424
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+2021
+</td>
+<td style="text-align:center;">
+0.393
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+1998
+</td>
+<td style="text-align:center;">
+0.320
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+2006
+</td>
+<td style="text-align:center;">
+0.272
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+2005
+</td>
+<td style="text-align:center;">
+0.247
+</td>
+</tr>
+</tbody>
+</table>
 </div>
-</div>
-<div id="what-youre-seeing-1" class="section level3"
-style="background-color:#ffffff; padding:16px 18px; border-radius:4px; margin-top:10px; box-shadow:0 0 0 1px #e5e5e5;">
+<div id="what-youre-seeing-1"
+class="section level3 callout callout-neutral">
 <h3>What you’re seeing</h3>
 <p>
 This table lists the <strong>10 warmest years</strong> relative to the
@@ -467,10 +663,9 @@ visually reinforces the idea that <strong>recent years are unusually
 warm</strong>.
 </p>
 </div>
-</div>
 <hr />
-<div id="drought-patterns-pdsi" class="section level2"
-style="background-color:#fcfcff; padding:20px 24px; border-radius:4px; margin-bottom:25px; box-shadow:0 0 0 1px #ececff;">
+</div>
+<div id="drought-patterns-pdsi" class="section level2">
 <h2>2. Drought Patterns (PDSI)</h2>
 <p>
 The Palmer Drought Severity Index (PDSI) tracks dryness and wetness:
@@ -485,10 +680,16 @@ The Palmer Drought Severity Index (PDSI) tracks dryness and wetness:
 </ul>
 <div id="drought-over-time" class="section level3">
 <h3>2.1 Drought Over Time</h3>
-<p><img src="climate-trends_files/figure-html/pdsi_plot-1.png" width="672" /></p>
+<div class="figure">
+<img src="climate-trends_files/figure-html/pdsi_plot-1.png" alt="Figure 2. U.S. annual PDSI values, showing swings between dry and wet years." width="672" />
+<p class="caption">
+Figure 2. U.S. annual PDSI values, showing swings between dry and wet
+years.
+</p>
 </div>
-<div id="what-youre-seeing-2" class="section level3"
-style="background-color:#ffffff; padding:16px 18px; border-radius:4px; margin-top:10px; box-shadow:0 0 0 1px #e5e5e5;">
+</div>
+<div id="what-youre-seeing-2"
+class="section level3 callout callout-neutral">
 <h3>What you’re seeing</h3>
 <ul>
 <li>
@@ -512,23 +713,61 @@ wetter conditions</strong>.
 <hr />
 <div id="key-drought-numbers" class="section level3">
 <h3>2.2 Key Drought Numbers</h3>
-<div data-pagedtable="false">
-<script data-pagedtable-source type="application/json">
-{"columns":[{"label":["first_year"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["last_year"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["mean_pdsi"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["min_pdsi"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["max_pdsi"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"2000","2":"2016","3":"0.05636973","4":"-1.633095","5":"1.113495"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
+<table class="table table-striped table-hover table-condensed" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+Table 4. Summary of U.S. PDSI values across the study period.
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;">
+First year
+</th>
+<th style="text-align:center;">
+Last year
+</th>
+<th style="text-align:center;">
+Mean PDSI
+</th>
+<th style="text-align:center;">
+Driest year (min PDSI)
+</th>
+<th style="text-align:center;">
+Wettest year (max PDSI)
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+2000
+</td>
+<td style="text-align:center;">
+2016
+</td>
+<td style="text-align:center;">
+0.056
+</td>
+<td style="text-align:center;">
+-1.633
+</td>
+<td style="text-align:center;">
+1.113
+</td>
+</tr>
+</tbody>
+</table>
 </div>
-</div>
-<div id="how-to-read-this-table-1" class="section level3"
-style="background-color:#ffffff; padding:16px 18px; border-radius:4px; margin-top:10px; box-shadow:0 0 0 1px #e5e5e5;">
+<div id="how-to-read-this-table-1"
+class="section level3 callout callout-neutral">
 <h3>How to read this table</h3>
 <ul>
 <li>
-<strong>mean_pdsi</strong> – the average moisture level across all
+<strong>Mean PDSI</strong> – the average moisture level across all
 years.
 </li>
 <li>
-<strong>min_pdsi / max_pdsi</strong> – the driest and wettest years in
-the record.
+<strong>Driest / Wettest year</strong> – the most extreme dry and wet
+conditions in the record.
 </li>
 </ul>
 <p>
@@ -539,14 +778,69 @@ years) can have major impacts on ecosystems and health.
 <hr />
 <div id="optional-long-term-drought-trend" class="section level3">
 <h3>2.3 Optional: Long-Term Drought Trend</h3>
-<div data-pagedtable="false">
-<script data-pagedtable-source type="application/json">
-{"columns":[{"label":["term"],"name":[1],"type":["chr"],"align":["left"]},{"label":["estimate"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["std.error"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["statistic"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["p.value"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"(Intercept)","2":"-119.16938880","3":"75.92819140","4":"-1.569501","5":"0.1373820"},{"1":"year","2":"0.05937538","3":"0.03781273","4":"1.570248","5":"0.1372084"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
+<table class="table table-striped table-hover table-condensed" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+Table 5. Linear model checking for a long-term trend in PDSI.
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;">
+Term
+</th>
+<th style="text-align:center;">
+Estimate
+</th>
+<th style="text-align:center;">
+Std. error
+</th>
+<th style="text-align:center;">
+t value
+</th>
+<th style="text-align:center;">
+p value
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+(Intercept)
+</td>
+<td style="text-align:center;">
+-119.1694
+</td>
+<td style="text-align:center;">
+75.9282
+</td>
+<td style="text-align:center;">
+-1.5695
+</td>
+<td style="text-align:center;">
+0.1374
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+year
+</td>
+<td style="text-align:center;">
+0.0594
+</td>
+<td style="text-align:center;">
+0.0378
+</td>
+<td style="text-align:center;">
+1.5702
+</td>
+<td style="text-align:center;">
+0.1372
+</td>
+</tr>
+</tbody>
+</table>
 </div>
-</div>
-<div id="what-this-model-is-checking" class="section level3"
-style="background-color:#ffffff; padding:16px 18px; border-radius:4px; margin-top:10px; box-shadow:0 0 0 1px #e5e5e5;">
+<div id="what-this-model-is-checking"
+class="section level3 callout callout-neutral">
 <h3>What this model is checking</h3>
 <p>
 This model asks a simple question:<br />
@@ -558,18 +852,23 @@ The main story, though, is usually not a smooth trend, but the
 <strong>swings and extremes</strong> seen in the plot above.
 </p>
 </div>
-</div>
 <hr />
-<div id="temperature-and-drought-together" class="section level2"
-style="background-color:#ffffff; padding:20px 24px; border-radius:4px; margin-bottom:25px; box-shadow:0 0 0 1px #eeeeee;">
+</div>
+<div id="temperature-and-drought-together" class="section level2">
 <h2>3. Temperature and Drought Together</h2>
 <div id="scatterplot-temperature-anomaly-vs-pdsi"
 class="section level3">
 <h3>3.1 Scatterplot: Temperature Anomaly vs PDSI</h3>
-<p><img src="climate-trends_files/figure-html/temp_pdsi_scatter-1.png" width="672" /></p>
+<div class="figure">
+<img src="climate-trends_files/figure-html/temp_pdsi_scatter-1.png" alt="Figure 3. Relationship between annual temperature anomalies and PDSI values." width="672" />
+<p class="caption">
+Figure 3. Relationship between annual temperature anomalies and PDSI
+values.
+</p>
 </div>
-<div id="how-to-read-this-scatterplot" class="section level3"
-style="background-color:#ffffff; padding:16px 18px; border-radius:4px; margin-top:10px; box-shadow:0 0 0 1px #e5e5e5;">
+</div>
+<div id="how-to-read-this-scatterplot"
+class="section level3 callout callout-neutral">
 <h3>How to read this scatterplot</h3>
 <ul>
 <li>
@@ -612,19 +911,39 @@ also tend to be unusually dry or unusually wet?”</strong>
 <div id="correlation-between-temperature-and-pdsi"
 class="section level3">
 <h3>3.2 Correlation Between Temperature and PDSI</h3>
-<div data-pagedtable="false">
-<script data-pagedtable-source type="application/json">
-{"columns":[{"label":["correlation"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["p_value"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"-0.05392157","2":"0.8388726"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
+<table class="table table-striped table-hover table-condensed" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+Table 6. Spearman correlation between temperature anomalies and PDSI.
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;">
+Spearman correlation
+</th>
+<th style="text-align:center;">
+p value
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+-0.054
+</td>
+<td style="text-align:center;">
+0.839
+</td>
+</tr>
+</tbody>
+</table>
 </div>
-</div>
-<div id="what-this-table-means" class="section level3"
-style="background-color:#ffffff; padding:16px 18px; border-radius:4px; margin-top:10px; box-shadow:0 0 0 1px #e5e5e5;">
+<div id="what-this-table-means"
+class="section level3 callout callout-neutral">
 <h3>What this table means</h3>
 <ul>
 <li>
-<strong>correlation</strong> – how strongly temperature and PDSI move
-together:
+<strong>Spearman correlation</strong> – how strongly temperature and
+PDSI move together:
 <ul>
 <li>
 Close to 0: no strong relationship.
@@ -638,7 +957,7 @@ Positive: warmer years tend to be wetter.
 </ul>
 </li>
 <li>
-<strong>p_value</strong> – whether that pattern is likely to be real or
+<strong>p value</strong> – whether that pattern is likely to be real or
 just random noise.
 </li>
 </ul>
@@ -648,10 +967,9 @@ tend to line up, which sets the stage for thinking about <strong>climate
 and disease risk together</strong>.
 </p>
 </div>
-</div>
 <hr />
-<div id="climate-vulnerability-by-state-cvi" class="section level2"
-style="background-color:#f3f7ff; padding:20px 24px; border-radius:4px; margin-bottom:25px; box-shadow:0 0 0 1px #dbe4ff;">
+</div>
+<div id="climate-vulnerability-by-state-cvi" class="section level2">
 <h2>4. Climate Vulnerability by State (CVI)</h2>
 <p>
 Climate does not affect all places equally.<br />
@@ -660,16 +978,58 @@ sensitive each U.S. state is to climate-related risks.
 </p>
 <div id="overall-vulnerability-range" class="section level3">
 <h3>4.1 Overall Vulnerability Range</h3>
-<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##  0.3377  0.4552  0.4806  0.4898  0.5363  0.6182</code></pre>
+<table class="table table-striped table-hover table-condensed" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+Table 7. Range of overall climate vulnerability scores across U.S.
+states.
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;">
+Min
+</th>
+<th style="text-align:center;">
+25th percentile
+</th>
+<th style="text-align:center;">
+Median
+</th>
+<th style="text-align:center;">
+75th percentile
+</th>
+<th style="text-align:center;">
+Max
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+0.34
+</td>
+<td style="text-align:center;">
+0.46
+</td>
+<td style="text-align:center;">
+0.48
+</td>
+<td style="text-align:center;">
+0.54
+</td>
+<td style="text-align:center;">
+0.62
+</td>
+</tr>
+</tbody>
+</table>
 </div>
-<div id="what-youre-seeing-3" class="section level3"
-style="background-color:#ffffff; padding:16px 18px; border-radius:4px; margin-top:10px; box-shadow:0 0 0 1px #e5e5e5;">
+<div id="what-youre-seeing-3"
+class="section level3 callout callout-neutral">
 <h3>What you’re seeing</h3>
 <p>
 This summary shows the <strong>minimum</strong>,
-<strong>maximum</strong>, and <strong>typical (median)</strong> CVI
-scores across states.<br />
+<strong>maximum</strong>, and typical values (25th percentile, median,
+75th percentile) of CVI scores across states.<br />
 It gives a quick sense of how wide the gap is between the least and most
 vulnerable states.
 </p>
@@ -677,15 +1037,113 @@ vulnerable states.
 <hr />
 <div id="top-10-most-vulnerable-states" class="section level3">
 <h3>4.2 Top 10 Most Vulnerable States</h3>
-<div data-pagedtable="false">
-<script data-pagedtable-source type="application/json">
-{"columns":[{"label":["State"],"name":[1],"type":["chr"],"align":["left"]},{"label":["FIPS Code"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Overall CVI Score"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["Baseline: All"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["Baseline: Health"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["Baseline: Social Economic"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["Baseline: Infrastructure"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["Baseline: Environment"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["Climate Change: All"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["Climate Change: Health"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["Climate Change: Social Economic"],"name":[11],"type":["dbl"],"align":["right"]},{"label":["Climate Change: Extreme Events"],"name":[12],"type":["dbl"],"align":["right"]}],"data":[{"1":"MS","2":"28076403831","3":"0.6182169","4":"0.5930639","5":"0.7429060","6":"0.5524340","7":"0.7059352","8":"0.3709802","9":"0.6517542","10":"0.7853279","11":"0.6517016","12":"0.5182331"},{"1":"LA","2":"22060816329","3":"0.6130729","4":"0.6080407","5":"0.7417807","6":"0.5217258","7":"0.6768812","8":"0.4917752","9":"0.6197824","10":"0.7507936","11":"0.6339603","12":"0.4745932"},{"1":"AL","2":"1076152627","3":"0.6109657","4":"0.5708463","5":"0.6836123","6":"0.5100611","7":"0.6631763","8":"0.4265355","9":"0.6644583","10":"0.8416397","11":"0.6196894","12":"0.5320458"},{"1":"TN","2":"47101972553","3":"0.5974748","4":"0.5740287","5":"0.6880251","6":"0.5333977","7":"0.6295876","8":"0.4451046","9":"0.6287362","10":"0.8029359","11":"0.5961918","12":"0.4870810"},{"1":"KY","2":"21110673208","3":"0.5849758","4":"0.5446979","5":"0.6470609","6":"0.5368383","7":"0.5631593","8":"0.4317330","9":"0.6386797","10":"0.7913602","11":"0.6369982","12":"0.4876807"},{"1":"SC","2":"45049074841","3":"0.5719695","4":"0.5448773","5":"0.6513456","6":"0.5274149","7":"0.5998745","8":"0.4008741","9":"0.6080926","10":"0.7548126","11":"0.5763872","12":"0.4930780"},{"1":"AR","2":"5078835064","3":"0.5692290","4":"0.5537964","5":"0.7095879","6":"0.5127551","7":"0.6031508","8":"0.3896919","9":"0.5898058","10":"0.6850926","11":"0.5705069","12":"0.5138179"},{"1":"GA","2":"13132609413","3":"0.5640975","4":"0.5384226","5":"0.5933191","6":"0.5319495","7":"0.5744754","8":"0.4539463","9":"0.5983307","10":"0.8301402","11":"0.5065832","12":"0.4582686"},{"1":"WV","2":"54052718790","3":"0.5543589","4":"0.5088395","5":"0.6254273","6":"0.5092390","7":"0.4870849","8":"0.4136069","9":"0.6150515","10":"0.7198764","11":"0.5731010","12":"0.5521771"},{"1":"NC","2":"37102745056","3":"0.5458086","4":"0.4908593","5":"0.5750872","6":"0.5109950","7":"0.4756152","8":"0.4017397","9":"0.6190744","10":"0.7917356","11":"0.5759508","12":"0.4895370"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
+<table class="table table-striped table-hover table-condensed" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+Table 8. Ten most climate-vulnerable states by overall CVI score.
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;">
+State
+</th>
+<th style="text-align:center;">
+Overall CVI score
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+MS
+</td>
+<td style="text-align:center;">
+0.62
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+LA
+</td>
+<td style="text-align:center;">
+0.61
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+AL
+</td>
+<td style="text-align:center;">
+0.61
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+TN
+</td>
+<td style="text-align:center;">
+0.60
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+KY
+</td>
+<td style="text-align:center;">
+0.58
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+SC
+</td>
+<td style="text-align:center;">
+0.57
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+AR
+</td>
+<td style="text-align:center;">
+0.57
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+GA
+</td>
+<td style="text-align:center;">
+0.56
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+WV
+</td>
+<td style="text-align:center;">
+0.55
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+NC
+</td>
+<td style="text-align:center;">
+0.55
+</td>
+</tr>
+</tbody>
+</table>
+<div class="figure">
+<img src="climate-trends_files/figure-html/cvi_plot-1.png" alt="Figure 4. Top 10 most climate-vulnerable U.S. states by overall CVI score." width="672" />
+<p class="caption">
+Figure 4. Top 10 most climate-vulnerable U.S. states by overall CVI
+score.
+</p>
 </div>
-<p><img src="climate-trends_files/figure-html/cvi_plot-1.png" width="672" /></p>
 </div>
-<div id="how-to-read-this-table-and-chart" class="section level3"
-style="background-color:#ffffff; padding:16px 18px; border-radius:4px; margin-top:10px; box-shadow:0 0 0 1px #e5e5e5;">
+<div id="how-to-read-this-table-and-chart"
+class="section level3 callout callout-neutral">
 <h3>How to read this table and chart</h3>
 <ul>
 <li>
@@ -705,11 +1163,10 @@ These are the places where shifts in temperature and drought could have
 especially strong impacts on health, infrastructure, and ecosystems.
 </p>
 </div>
-</div>
 <hr />
+</div>
 <div id="why-these-climate-trends-matter-for-disease"
-class="section level2"
-style="background-color:#eaf2ff; padding:20px 24px; border-radius:4px; margin-bottom:25px; box-shadow:0 0 0 1px #d3dff5;">
+class="section level2 callout callout-key">
 <h2>5. Why These Climate Trends Matter for Disease</h2>
 <p>
 Across all of these graphs and tables, a few big messages stand out:
@@ -754,8 +1211,17 @@ That is the foundation for the <strong>Disease Trends</strong>,
 Focus</strong> pages.
 </p>
 </div>
-<p style="font-size:0.9em; color:#555; margin-top:20px;">
-Climate Trends – GEOG 3000, Utah Valley University
+<div class="next-links">
+<p>
+<strong>Next:</strong> <a href="disease-trends.html">Disease Trends</a>
+– see how vector-borne diseases have changed over time alongside these
+climate shifts.
+</p>
+</div>
+<p class="site-footer">
+Climate &amp; Vector-Borne Disease Project – GEOG 3000, Utah Valley
+University<br> Built with R, R Markdown, and open public data for
+educational purposes.
 </p>
 
 

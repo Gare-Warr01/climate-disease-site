@@ -5,12 +5,20 @@ output:
     toc: false
 ---
 
+<div class="main-container">
+
 <div style="background-color:#f5f9ff; border-left:4px solid #2c3e50; padding:20px 24px; margin-bottom:30px; border-radius:4px;">
+
+## What This Project Is
 
 <p style="margin-top:10px;">
 This website is the applied, public-facing portion of my final project for  
-<strong>GEOG 3000: Climate Change in Science & Society</strong> at Utah Valley University.  
+<strong>GEOG 3000: Climate Change in Science &amp; Society</strong> at Utah Valley University.  
 The course examines climate change as both a <strong>physical science</strong> topic and a <strong>human, societal, and public-health issue</strong>.
+</p>
+
+<p style="margin-top:10px;">
+The site is meant to work like a guided story: starting with climate trends, moving into disease patterns, comparing the two, and then zooming in on Utah.
 </p>
 
 </div>
@@ -28,7 +36,9 @@ GEOG 3000 emphasizes:
 - Analyzing real datasets and communicating findings clearly  
 - Connecting climate change to health, society, and everyday life  
 
-This project reflects those goals by taking a complex topic—climate and vector-borne disease—and presenting it in a way that is grounded in data and accessible to non-specialists.
+<p style="margin-top:10px;">
+This project reflects those goals by taking a complex topic—<strong>climate and vector-borne disease</strong>—and presenting it in a way that is grounded in data and accessible to non-specialists.
+</p>
 
 </div>
 
@@ -41,8 +51,10 @@ This project reflects those goals by taking a complex topic—climate and vector
 As a biotechnology student, I’ve always been drawn to topics that sit at the intersection of <strong>science, climate, and public health</strong>.  
 Vector-borne diseases—especially <strong>West Nile virus</strong>—depend heavily on environmental conditions such as temperature and moisture.
 
+<p style="margin-top:10px;">
 Studying how these patterns shift in a warming climate felt both scientifically meaningful and personally relevant.  
 It also offered a chance to practice real-world data analysis that aligns with my long-term career path in science.
+</p>
 
 </div>
 
@@ -60,7 +72,9 @@ Although completed within a single course, this work was designed as a <strong>m
 - Creating visuals that explain complex ideas simply  
 - Designing a public-facing product others can navigate and learn from  
 
+<p style="margin-top:10px;">
 A separate written paper provides the full analysis, while this website focuses on <strong>communication</strong>—the part meant for students, instructors, and community members.
+</p>
 
 </div>
 
@@ -73,8 +87,10 @@ A separate written paper provides the full analysis, while this website focuses 
 Utah is where I live and study, and it has unique climate patterns:  
 long-term drought, sharp temperature swings, changing precipitation, and increasing heat extremes.
 
+<p style="margin-top:10px;">
 These conditions shape mosquito activity and influence West Nile virus risk.  
 Including a Utah-specific section helps connect national trends to a local, familiar landscape.
+</p>
 
 </div>
 
@@ -92,9 +108,19 @@ This project was built using:
 - <strong>ggplot2</strong> for visualizations  
 - <strong>GitHub Pages</strong> for hosting the site  
 - Climate datasets from <strong>NOAA</strong>  
-- Disease datasets from the <strong>CDC</strong> West Nile surveillance system  
+- Disease datasets from the <strong>CDC</strong> and related surveillance systems  
 
-Completing the full workflow—from raw data to polished website—strengthened my data science, communication, and project-building skills.
+<p style="margin-top:10px;">
+Completing the full workflow—from raw data to polished website—strengthened my skills in:
+</p>
+
+<ul>
+  <li>Climate and health data analysis</li>
+  <li>Data cleaning and quality control</li>
+  <li>Building reproducible R workflows</li>
+  <li>Visual communication of scientific results</li>
+  <li>Designing a project that others can explore independently</li>
+</ul>
 
 </div>
 
@@ -102,19 +128,20 @@ Completing the full workflow—from raw data to polished website—strengthened 
 
 <div style="background-color:#f9fbff; padding:20px 24px; border-radius:4px; margin-bottom:25px; box-shadow:0 0 0 1px #e4ecff;">
 
-## How to Navigate This Site
+## Where This Fits in My Path
 
-Each tab walks through part of the project:
+This project sits at the crossroads of my coursework and my longer-term goals in science.
 
-- <strong>Climate Trends</strong> – long-term climate changes  
-- <strong>Disease Trends</strong> – West Nile virus patterns  
-- <strong>Climate–Disease Comparison</strong> – climate and disease side-by-side  
-- <strong>Utah Focus</strong> – state-level climate and disease trends  
-- <strong>How to Read These Graphs</strong> – help interpreting visuals  
-- <strong>Methods</strong> – how the data was cleaned and analyzed  
-- <strong>Reflection</strong> – what I learned along the way  
+<ul>
+  <li><strong>Step 1:</strong> Taking GEOG 3000 and learning how climate science connects to vulnerability and justice.</li>
+  <li><strong>Step 2:</strong> Choosing climate and vector-borne disease as a topic that links climate, health, and biotechnology.</li>
+  <li><strong>Step 3:</strong> Building this site as a <em>portfolio-style project</em> that shows I can go from raw data to a clear, public-facing product.</li>
+  <li><strong>Step 4:</strong> Carrying these skills forward into future work in biotech, research, or public-health-related data analysis.</li>
+</ul>
 
-You can explore the pages in order or jump directly into the sections that interest you.
+<p style="margin-top:8px;">
+In that sense, this website is not just a class assignment—it’s a piece of my broader training as a scientist and communicator.
+</p>
 
 </div>
 
@@ -122,41 +149,72 @@ You can explore the pages in order or jump directly into the sections that inter
 
 <div style="background-color:#ffffff; padding:20px 24px; border-radius:4px; margin-bottom:25px; box-shadow:0 0 0 1px #eeeeee;">
 
-## Project Limitations & Transparency
+## How to Navigate This Site
 
-This work reflects the scope of an <strong>undergraduate exploratory project</strong>.  
-It uses publicly available data, simple methods, and focuses on <strong>patterns</strong> rather than predictions.
+Each tab walks through part of the project:
 
-My goal is <strong>clarity and transparency</strong> rather than forecasting or policy-making.  
-All code and steps are visible throughout the site to support reproducibility.
+- <strong>Climate Trends</strong> – long-term climate changes  
+- <strong>Disease Trends</strong> – patterns across several vector-borne diseases  
+- <strong>Climate–Disease Comparison</strong> – climate and disease side-by-side  
+- <strong>Utah Focus</strong> – state-level climate and disease trends  
+- <strong>How to Read These Graphs</strong> – help interpreting visuals  
+- <strong>Methods</strong> – how the data were cleaned and analyzed  
+- <strong>Reflection</strong> – what I learned along the way  
+
+<p style="margin-top:10px;">
+You can explore the pages in order or jump directly into the sections that interest you.  
+If you ever feel unsure about a figure, the <strong>How to Read These Graphs</strong> tab is there as a guide.
+</p>
 
 </div>
 
 ---
 
-<div style="background-color:#fcfcfc; padding:20px 24px; border-radius:4px; margin-top:30px; margin-bottom:25px; box-shadow:0 0 0 1px #e6e6e6;">
+<div style="background-color:#fcfcfc; padding:20px 24px; border-radius:4px; margin-bottom:25px; box-shadow:0 0 0 1px #e6e6e6;">
+
+## Project Limitations &amp; Transparency
+
+This work reflects the scope of an <strong>undergraduate exploratory project</strong>.  
+It uses publicly available data, simple methods, and focuses on <strong>patterns</strong> rather than predictions.
+
+<p style="margin-top:10px;">
+My goal is <strong>clarity and transparency</strong> rather than forecasting or policy-making.  
+All code and steps are visible throughout the site to support reproducibility and honest interpretation.
+</p>
+
+</div>
+
+---
+
+<div style="background-color:#fdfdfd; padding:20px 24px; border-radius:4px; margin-top:10px; margin-bottom:25px; box-shadow:0 0 0 1px #e6e6e6;">
 
 ## About the Author
 
 My name is <strong>Garrett Warr</strong>, and I’m an undergraduate student at Utah Valley University studying <strong>Biotechnology</strong>.  
 I’m interested in how climate, health, and the environment connect — especially how changing conditions influence diseases, ecosystems, and the communities we live in.
 
+<p style="margin-top:10px;">
 Alongside this project, my studies focus on:
+</p>
 
-- Public health  
-- Microbiology and molecular biology  
-- Data analysis and visualization  
-- Climate science and environmental change  
+<ul>
+  <li>Public health and disease ecology</li>
+  <li>Microbiology and molecular biology</li>
+  <li>Data analysis and visualization</li>
+  <li>Climate science and environmental change</li>
+</ul>
 
+<p style="margin-top:10px;">
 I enjoy building clear, visual, reproducible work using tools like <strong>R</strong>, <strong>ggplot2</strong>, and <strong>GitHub Pages</strong>.  
 This project is part of my broader goal to grow as a scientist who can communicate complex ideas simply and effectively.
+</p>
 
 </div>
 
----
-
-<p style="font-size:0.9em; color:#555; margin-top:20px;">
-Created for GEOG 3000 – Climate Change in Science & Society  
+<p style="font-size:0.9em; color:#555; margin-top:12px;">
+Created for GEOG 3000 – Climate Change in Science &amp; Society  
 <br>
 Utah Valley University
 </p>
+
+</div> <!-- end main-container -->

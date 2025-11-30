@@ -1,10 +1,14 @@
-/* Global page look */
+/* =========================
+   GLOBAL PAGE LOOK
+   ========================= */
+
 body {
   background-color: #f7f9fb;        /* very light gray-blue */
+  line-height: 1.6;
 }
 
-/* Main content card */
-.main-container {
+/* Make the main content sit in a clean "card" on every page */
+.container-fluid {
   max-width: 1100px;
   background: #ffffff;
   padding: 25px 30px;
@@ -14,7 +18,23 @@ body {
   box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
 }
 
-/* Headings */
+/* Keep this in case you wrap things manually in <div class="main-container"> */
+.main-container {
+  max-width: 1100px;
+  background: #ffffff;
+  padding: 25px 30px;
+  margin-top: 25px;
+  margin-bottom: 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* =========================
+   HEADINGS
+   ========================= */
+
 h1, h2, h3 {
   font-family: "Helvetica Neue", Arial, sans-serif;
   font-weight: 600;
@@ -26,7 +46,20 @@ h1 {
   margin-bottom: 20px;
 }
 
-/* Links */
+h2 {
+  margin-top: 32px;
+  margin-bottom: 14px;
+}
+
+h3 {
+  margin-top: 24px;
+  margin-bottom: 10px;
+}
+
+/* =========================
+   LINKS & NAVBAR
+   ========================= */
+
 a {
   text-decoration: none;
 }
@@ -35,7 +68,6 @@ a:hover {
   text-decoration: underline;
 }
 
-/* Navbar tweaks */
 .navbar-default {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
@@ -45,11 +77,75 @@ a:hover {
   font-weight: 500;
 }
 
-/* Tables (for data summaries later) */
+/* =========================
+   CALLOUT / INFO BOXES
+   ========================= */
+
+.callout {
+  padding: 20px 24px;
+  border-radius: 8px;
+  margin: 24px 0;
+  box-shadow: 0 0 0 1px #e5e5e5;
+}
+
+/* Light blue info boxes (intros, explanations) */
+.callout-info {
+  background-color: #f5f9ff;
+  border-left: 4px solid #2c3e50;
+}
+
+/* Neutral gray boxes (methods, definitions) */
+.callout-neutral {
+  background-color: #fcfcfc;
+  border-left: 4px solid #bdc3c7;
+}
+
+/* Emphasis / key takeaways */
+.callout-key {
+  background-color: #eaf2ff;
+  border-left: 4px solid #2980b9;
+}
+
+/* Reflection / personal notes */
+.callout-reflection {
+  background-color: #fffaf2;
+  border-left: 4px solid #e67e22;
+}
+
+/* =========================
+   "NEXT" / CROSS-LINK BOXES
+   ========================= */
+
+.next-links {
+  margin-top: 32px;
+  padding: 16px 20px;
+  border-radius: 6px;
+  background-color: #f8f9fa;
+  border-left: 4px solid #2c3e50;
+  font-size: 0.95em;
+}
+
+/* =========================
+   FOOTER
+   ========================= */
+
+.site-footer {
+  margin-top: 36px;
+  font-size: 0.85em;
+  color: #666;
+  text-align: left;
+}
+
+/* =========================
+   TABLES
+   ========================= */
+
+/* Base table look (works nicely with kableExtra) */
 table.table {
   background: #ffffff;
   border-radius: 8px;
   overflow: hidden;
+  font-size: 0.9em;
 }
 
 table.table > thead > tr > th {
@@ -57,13 +153,34 @@ table.table > thead > tr > th {
   color: #ffffff;
 }
 
-/* Figure captions */
+/* Slightly tighter cell padding */
+.table > thead > tr > th,
+.table > tbody > tr > td {
+  padding: 6px 10px;
+}
+
+/* =========================
+   FIGURES & CAPTIONS
+   ========================= */
+
+.figure {
+  text-align: center;
+}
+
+.figure img {
+  max-width: 100%;
+  height: auto;
+}
+
 .caption {
   font-style: italic;
   color: #555;
 }
 
-/* Make code chunks a bit softer */
+/* =========================
+   CODE CHUNKS
+   ========================= */
+
 pre, code {
   border-radius: 6px;
 }
